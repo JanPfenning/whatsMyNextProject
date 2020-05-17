@@ -1,14 +1,11 @@
+/* Space for Variables */
 :root{
+    /* Color Theme */
     --rgba-primary-0: rgba(254, 87,107,1);
     --rgba-primary-1: rgba(255,243,244,1);
     --rgba-primary-2: rgba(254,154,165,1);
     --rgba-primary-3: rgba(253, 25, 51,1);
     --rgba-primary-4: rgba(253,  0, 30,1);
-}
-
-.projectOverviewPane{
-    margin-left: 12.5%;
-    width: 75%;
 }
 .toolbar{
     height: 20px;

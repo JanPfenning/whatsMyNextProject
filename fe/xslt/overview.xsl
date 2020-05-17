@@ -1,31 +1,6 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:template match="/">
-        <html>
-            <head>
-                <link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />
-                <title>Find your next Project</title>
-            </head>
-            <body>
-                <div class="toolbar">
-                    <a href="https://www.google.de">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/OOjs_UI_icon_add.svg"/>
-                    </a>
-                    <a>Here will be a Toolbar</a>
-                </div>
-                <div class="coordinateSpace">
-                    <xsl:call-template name="generateSVG"/>
-                </div>
-                <div class="projectOverviewPane">
-                    <xsl:for-each select="project_idea/project">
-                        <div>
-                            <a><xsl:value-of select="@id"/></a>
-                        </div>
-                    </xsl:for-each>
-                </div>
-            </body>
-        </html>
-    </xsl:template>
 
+    <!-- Global Variables -->
     <xsl:variable name="svgWidth">500</xsl:variable>
     <xsl:variable name="svgHeight">500</xsl:variable>
     <xsl:variable name="svgCenterPointX"><xsl:value-of select="$svgWidth div 2"/></xsl:variable>
@@ -35,6 +10,29 @@
         <xsl:value-of select="count(project_idea/project)"/>
     </xsl:variable>
 
+    <!-- Landing Template -->
+    <xsl:template match="/">
+        <html>
+            <head>
+                <link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />
+                <title>Find your next Project</title>
+            </head>
+            <body>
+                <!-- example code -->
+                <div class="toolbar">
+                    <a href="https://www.google.de">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/OOjs_UI_icon_add.svg"/>
+                    </a>
+                    <a>Here will be a Toolbar</a>
+                </div>
+                <div class="coordinateSpace">
+                    <xsl:call-template name="generateSVG"/>
+                </div>
+            </body>
+        </html>
+    </xsl:template>
+
+    <!-- Callable Templates -->
     <xsl:template name="generateSVG">
         <xsl:variable name="avgDuration">
             <xsl:call-template name="calcAverageDur"/>
@@ -108,12 +106,10 @@
         </svg>
     </xsl:template>
 
-    <!-- Calculate position for each Projectidea-->
-
+    <!-- Calculate position on X-Axis for the Projectcircle-->
     <xsl:template name="x_val">
         <xsl:param name="duration"/>
         <xsl:param name="avgDur"/>
-        <!-- -->
         <xsl:choose>
             <xsl:when test="number($duration) &gt;= $avgDur">
                 <xsl:value-of select="$svgCenterPointX - 5 + round(($svgCenterPointX div $avgDur)*($duration - $avgDur))"/>
@@ -122,9 +118,9 @@
                 <xsl:value-of select="$svgCenterPointX + 5 - round(($svgCenterPointX div $avgDur)*($avgDur - $duration))"/>
             </xsl:otherwise>
         </xsl:choose>
-        <!-- -->
     </xsl:template>
 
+    <!-- Calculate position on Y-Axis for the Projectcircle-->
     <xsl:template name="y_val">
         <xsl:param name="skill"/>
         <xsl:choose>
@@ -137,6 +133,7 @@
         </xsl:choose>
     </xsl:template>
 
+    <!-- Calculate Size of the Circle-->
     <xsl:template name="getCircleSize">
         <xsl:param name="likes"/>
         <xsl:param name="avgLikes"/>
@@ -150,6 +147,7 @@
         </xsl:choose>
     </xsl:template>
 
+    <!-- Calculate average duration (Helper for X-Axis calculation[x_val])-->
     <xsl:template name="calcAverageDur">
         <xsl:copy>
             <xsl:for-each select="project_idea">
@@ -158,6 +156,7 @@
         </xsl:copy>
     </xsl:template>
 
+    <!-- Calculate average duration (Helper for Calculation of the size of the circle [getCircleSize])-->
     <xsl:template name="calcAverageLikes">
         <xsl:copy>
             <xsl:for-each select="project_idea">
