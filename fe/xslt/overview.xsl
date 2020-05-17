@@ -34,6 +34,7 @@
 
     <!-- Callable Templates -->
     <xsl:template name="generateSVG">
+        <!-- Local variables - must be defined at this point and not globally because it works like this :) -->
         <xsl:variable name="avgDuration">
             <xsl:call-template name="calcAverageDur"/>
         </xsl:variable>
@@ -49,6 +50,7 @@
                 <xsl:attribute name="x2"><xsl:value-of select="$svgCenterPointX"/></xsl:attribute>
                 <xsl:attribute name="y2"><xsl:value-of select="$svgHeight"/></xsl:attribute>
             </line>
+            <!-- Y-Axis text -->
             <text class="svgText">
                 <xsl:attribute name="x"><xsl:value-of select="$svgCenterPointX - 130"/></xsl:attribute>
                 <xsl:attribute name="y"><xsl:value-of select="0 + 25"/></xsl:attribute>
@@ -61,18 +63,20 @@
                 <xsl:attribute name="x2"><xsl:value-of select="$svgWidth"/></xsl:attribute>
                 <xsl:attribute name="y2"><xsl:value-of select="$svgCenterPointY"/></xsl:attribute>
             </line>
+            <!-- X-Axis text -->
             <text class="svgText">
                 <xsl:attribute name="x"><xsl:value-of select="$svgWidth - 30"/></xsl:attribute>
                 <xsl:attribute name="y"><xsl:value-of select="$svgCenterPointY + 15"/></xsl:attribute>
                 Dauer
             </text>
+            <!-- Center Point text (Average duration, Average difficulty) -->
             <text class="svgText">
                 <xsl:attribute name="x"><xsl:value-of select="$svgCenterPointX + 5"/></xsl:attribute>
                 <xsl:attribute name="y"><xsl:value-of select="$svgCenterPointY + 15"/></xsl:attribute>
                 <xsl:value-of select="concat('(',$avgDuration,'h ,',$averageSkill,'&#9733;)')"/>
             </text>
             <xsl:for-each select="project_idea/project">
-
+                <!-- Calculate positoin and size of the circle -->
                 <xsl:variable name="x_val">
                     <xsl:call-template name="x_val">
                         <xsl:with-param name="duration" select="duration"/>
@@ -90,6 +94,7 @@
                         <xsl:with-param name="avgLikes" select="$avgLikes"/>
                     </xsl:call-template>
                 </xsl:variable>
+                <!-- Actual Circle with metadata above -->
                 <circle stroke="rgba(0,128,128, 255)" fill="rgba(0,128,128, 255)">
                     <xsl:attribute name="r">
                         <xsl:value-of select="$likeRadius"/>
