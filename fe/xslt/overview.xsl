@@ -8,7 +8,7 @@
             </head>
             <body>
                 <div class="toolbar">
-
+                    <a>Here will be a Toolbar</a>
                 </div>
                 <div class="coordinateSpace">
                     <xsl:call-template name="generateSVG"/>
