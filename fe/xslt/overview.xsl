@@ -1,5 +1,4 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xslt="http://www.w3.org/1999/XSL/Transform" xmlns:xls="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
         <html>
             <head>
@@ -8,6 +7,9 @@
             </head>
             <body>
                 <div class="toolbar">
+                    <a href="https://www.google.de">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/OOjs_UI_icon_add.svg"/>
+                    </a>
                     <a>Here will be a Toolbar</a>
                 </div>
                 <div class="coordinateSpace">
@@ -134,7 +136,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    
+
     <xsl:template name="getCircleSize">
         <xsl:param name="likes"/>
         <xsl:param name="avgLikes"/>
