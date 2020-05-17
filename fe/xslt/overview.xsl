@@ -1,4 +1,5 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xls="http://www.w3.org/1999/XSL/Transform">
 
     <!-- Global Variables -->
     <xsl:variable name="svgWidth">500</xsl:variable>
@@ -14,13 +15,15 @@
     <xsl:template match="/">
         <html>
             <head>
+                <script lang="javascript" src="../../../fe/js/overview.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />
                 <title>Find your next Project</title>
             </head>
             <body>
                 <!-- example code -->
                 <div class="toolbar">
-                    <a href="https://www.google.de">
+                    <button onclick="toDetail()"/>
+                    <a href="./detail.xml">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/OOjs_UI_icon_add.svg"/>
                     </a>
                     <a>Here will be a Toolbar</a>
@@ -41,7 +44,6 @@
         <xsl:variable name="avgLikes">
             <xsl:call-template name="calcAverageLikes"/>
         </xsl:variable>
-
         <svg class="coordinateSys" xmlns="http://www.w3.org/2000/svg">
             <!--Y-Axis -->
             <line class="axis" fill="none" style="stroke-width:1">
@@ -95,7 +97,16 @@
                     </xsl:call-template>
                 </xsl:variable>
                 <!-- Actual Circle with metadata above -->
-                <circle stroke="rgba(0,128,128, 255)" fill="rgba(0,128,128, 255)">
+                <form method="post" action="./detail.xml">
+                    <xls:attribute name="id">
+                        <xsl:value-of select="concat('toDetailForm',@id)"/>
+                    </xls:attribute>
+                    <input type="hidden" name="id" value="{@id}"/>
+                </form>
+                <circle stroke="rgba(0,128,128, 255)" fill="rgba(0,128,128, 255)" onclick="">
+                    <xsl:attribute name="onclick">
+                        toDetail(<xsl:value-of select="string(@id)"/>);
+                    </xsl:attribute>
                     <xsl:attribute name="r">
                         <xsl:value-of select="$likeRadius"/>
                     </xsl:attribute>
