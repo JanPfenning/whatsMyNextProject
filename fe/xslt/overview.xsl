@@ -43,30 +43,30 @@
 
         <svg class="coordinateSys" xmlns="http://www.w3.org/2000/svg">
             <!--Y-Axis -->
-            <line stroke="rgba(0,128,128, 1)" fill="none" style="stroke-width:1">
+            <line class="axis" fill="none" style="stroke-width:1">
                 <xsl:attribute name="x1"><xsl:value-of select="$svgCenterPointX"/></xsl:attribute>
                 <xsl:attribute name="y1">0</xsl:attribute>
                 <xsl:attribute name="x2"><xsl:value-of select="$svgCenterPointX"/></xsl:attribute>
                 <xsl:attribute name="y2"><xsl:value-of select="$svgHeight"/></xsl:attribute>
             </line>
-            <text>
+            <text class="svgText">
                 <xsl:attribute name="x"><xsl:value-of select="$svgCenterPointX - 130"/></xsl:attribute>
                 <xsl:attribute name="y"><xsl:value-of select="0 + 25"/></xsl:attribute>
                 Skill-Anforderung
             </text>
             <!--X-Axis -->
-            <line stroke="rgba(0,128,128, 1)" fill="none" style="stroke-width:1">
+            <line class="axis" fill="none" style="stroke-width:1">
                 <xsl:attribute name="x1">0</xsl:attribute>
                 <xsl:attribute name="y1"><xsl:value-of select="$svgCenterPointY"/></xsl:attribute>
                 <xsl:attribute name="x2"><xsl:value-of select="$svgWidth"/></xsl:attribute>
                 <xsl:attribute name="y2"><xsl:value-of select="$svgCenterPointY"/></xsl:attribute>
             </line>
-            <text>
+            <text class="svgText">
                 <xsl:attribute name="x"><xsl:value-of select="$svgWidth - 30"/></xsl:attribute>
                 <xsl:attribute name="y"><xsl:value-of select="$svgCenterPointY + 15"/></xsl:attribute>
                 Dauer
             </text>
-            <text>
+            <text class="svgText">
                 <xsl:attribute name="x"><xsl:value-of select="$svgCenterPointX + 5"/></xsl:attribute>
                 <xsl:attribute name="y"><xsl:value-of select="$svgCenterPointY + 15"/></xsl:attribute>
                 <xsl:value-of select="concat('(',$avgDuration,'h ,',$averageSkill,'&#9733;)')"/>
