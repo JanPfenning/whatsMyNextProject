@@ -7,9 +7,9 @@
                 <title>Find your next Project</title>
             </head>
             <body>
-                <div class="toolbar">
+                <!--<div class="toolbar">
 
-                </div>
+                </div>-->
                 <div class="coordinateSpace">
                     <xsl:call-template name="generateSVG"/>
                 </div>
