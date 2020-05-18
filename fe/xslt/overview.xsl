@@ -147,6 +147,9 @@
                         <xsl:attribute name="cy">
                             <xsl:value-of select="$svgCenterPointY"/>
                         </xsl:attribute>
+                        <xsl:attribute name="onclick">
+                            toTopicProjects("<xsl:value-of select="name"/>")
+                        </xsl:attribute>
                     </circle>
                     <text text-anchor="middle" fill="#FFFFFF">
                         <xsl:attribute name="x">
