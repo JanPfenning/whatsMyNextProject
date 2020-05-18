@@ -23,12 +23,12 @@ function toDegree(angle){
 
 function init(){
     var n = 5;
-    baseAlpha = (180/(n+1));
+    baseAlpha = (180/(n));
     baseCircle = document.getElementById("baseCircle");
     baseX = baseCircle.getBoundingClientRect().x;
-    baseY = 6*(baseCircle.getBoundingClientRect().y)/11;
+    baseY = 16*(baseCircle.getBoundingClientRect().y/30);
     radius = 250;
-    angle = baseAlpha;
+    angle = baseAlpha/2;
     for (let i = 1; i <= n; i++) {
         circle = document.getElementById("circle"+i);
         deltaX = getDeltaX(angle,radius);
