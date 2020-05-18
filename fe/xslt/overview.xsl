@@ -22,7 +22,7 @@
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />
                 <title>Find your next Project</title>
             </head>
-            <body>
+            <body onload="init()">
                 <!-- example code -->
                 <div class="toolbar">
                     <button onclick="toDetail()"/>
@@ -37,6 +37,7 @@
                 <div class="testSpace">
                     <xsl:call-template name="topicChoice"/>
                 </div>
+                <script lang="javascript" src="../../../fe/js/onInit.js"/>
             </body>
         </html>
     </xsl:template>
@@ -113,6 +114,9 @@
                     <xsl:attribute name="onclick">
                         toDetail(<xsl:value-of select="string(@id)"/>);
                     </xsl:attribute>
+                    <xsl:attribute name="id">
+                        circle<xsl:value-of select="string(@id)"/>
+                    </xsl:attribute>
                     <xsl:attribute name="r">
                         <xsl:value-of select="$likeRadius"/>
                     </xsl:attribute>
@@ -129,7 +133,7 @@
     </xsl:template>
 
     <xsl:template name="topicChoice">
-        <svg class="topicSpace">
+        <svg class="topicSpace" id="topics">
             <xsl:for-each select="project_idea/topics/topic">
                 <xsl:variable name="alpha">
                     <xsl:call-template name="get_alpha">
@@ -150,6 +154,9 @@
                 </text>
                 <g>
                     <circle stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="concat('circle',@id)"/>
+                        </xsl:attribute>
                         <xsl:attribute name="r">
                             <xsl:value-of select="$r"/>
                         </xsl:attribute>
@@ -175,7 +182,7 @@
                 </g>
             </xsl:for-each>
             <g>
-                <circle r="120" cx="50%" cy="100%" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)"/>
+                <circle id="baseCircle" r="120" cx="50%" cy="100%" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)"/>
                 <text x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">
                     Bereichswahl
                 </text>
