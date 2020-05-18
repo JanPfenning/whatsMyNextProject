@@ -1,17 +1,38 @@
-.projectOverviewPane{
-    margin-left: 12.5%;
-    width: 75%;
+/* Space for Variables */
+:root{
+    /* Color Theme */
+    --rgba-primary-0: rgba(254, 87,107,1);
+    --rgba-primary-1: rgba(255,243,244,1);
+    --rgba-primary-2: rgba(254,154,165,1);
+    --rgba-primary-3: rgba(253, 25, 51,1);
+    --rgba-primary-4: rgba(253,  0, 30,1);
+}
+body{
+    background-image: url("../img/toolsBackground.jpeg");
 }
 .toolbar{
-    height: 10px;
+    height: 20px;
     background-color: red;
 }
+.svgText{
+    fill: Black;
+}
+.axis{
+    stroke: red;
+}
 .coordinateSpace{
+    background-color: rgba(255,255,255,0.4);
     margin-left: 12.5%;
     width: 75%;
     height: 75%;
 }
 .coordinateSys{
+    /*background-color: var(--rgba-primary-0);*/
+    width: 100%;
+    height: 100%;
+}
+.topicSpace{
+    margin-left: 12.5%;
     width: 100%;
     height: 100%;
 }
