@@ -4,14 +4,15 @@
         <id>1</id>
         <bereichid>a</bereichid>
         <gruppe>Einstieg</gruppe>
-        <!-- evtl noch splitterung der gruppen durch '/' (also wie Ordnerstruktur) -->
         <name>Hello World</name>
         <materialien>
             <material>
                 <name>Holzplatte 5mm</name>
+                <anzahl>1</anzahl>
             </material>
             <material>
                 <name>Energiedrink</name>
+                <anzahl>5</anzahl>
             </material>
         </materialien>
         <werkzeuge>
@@ -73,21 +74,45 @@
             <id>b</id>
             <name>Microboards</name>
             <farbe>gelb</farbe>
+            <gruppen>
+                <gruppe>Einstieg</gruppe>
+                <gruppe>Nützlich</gruppe>
+                <gruppe>Spiele</gruppe>
+                <gruppe>Illegal</gruppe>
+            </gruppen>
         </bereich>
         <bereich>
             <id>c</id>
             <name>Schaltungen</name>
             <farbe>rot</farbe>
+            <gruppen>
+                <gruppe>Einstieg</gruppe>
+                <gruppe>Nützlich</gruppe>
+                <gruppe>Spiele</gruppe>
+                <gruppe>Illegal</gruppe>
+            </gruppen>
         </bereich>
         <bereich>
             <id>d</id>
             <name>Audio und Hifi</name>
             <farbe>gruen</farbe>
+            <gruppen>
+                <gruppe>Einstieg</gruppe>
+                <gruppe>Nützlich</gruppe>
+                <gruppe>Spiele</gruppe>
+                <gruppe>Illegal</gruppe>
+            </gruppen>
         </bereich>
         <bereich>
             <id>e</id>
             <name>Holz und Metall</name>
             <farbe>schwarz</farbe>
+            <gruppen>
+                <gruppe>Einstieg</gruppe>
+                <gruppe>Nützlich</gruppe>
+                <gruppe>Spiele</gruppe>
+                <gruppe>Illegal</gruppe>
+            </gruppen>
         </bereich>
     </bereiche>
 </projektuebersicht>
