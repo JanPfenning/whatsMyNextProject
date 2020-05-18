@@ -49,4 +49,21 @@
         <duration>60</duration>
         <likes>150</likes>
     </project>
+    <topics>
+        <topic id="1">
+            <name>Audio</name>
+        </topic>
+        <topic id="2">
+            <name>Holz/Metall</name>
+        </topic>
+        <topic id="3">
+            <name>Schlatungen</name>
+        </topic>
+        <topic id="4">
+            <name>Microcontroller</name>
+        </topic>
+        <topic id="5">
+            <name>Programmieren</name>
+        </topic>
+    </topics>
 </project_idea>

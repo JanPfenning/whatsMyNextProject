@@ -10,6 +10,9 @@
     <xsl:variable name="projectCount">
         <xsl:value-of select="count(project_idea/project)"/>
     </xsl:variable>
+    <xsl:variable name="topicCount">
+        <xsl:value-of select="count(project_idea/topics/topic)"/>
+    </xsl:variable>
 
     <!-- Landing Template -->
     <xsl:template match="/">
@@ -30,6 +33,9 @@
                 </div>
                 <div class="coordinateSpace">
                     <xsl:call-template name="generateSVG"/>
+                </div>
+                <div class="testSpace">
+                    <xsl:call-template name="topicChoice"/>
                 </div>
             </body>
         </html>
@@ -121,6 +127,40 @@
             </xsl:for-each>
         </svg>
     </xsl:template>
+    
+    <xsl:template name="topicChoice">
+        <svg class="topicSpace">
+            <xsl:for-each select="project_idea/topics/topic">
+                <xsl:variable name="alpha">
+                    <xsl:call-template name="get_alpha">
+                        <xsl:with-param name="position" select="@id"/>
+                    </xsl:call-template>
+                </xsl:variable>
+                <xsl:variable name="x">
+                    <xsl:value-of select="175*@id"/>
+                </xsl:variable>
+                <g>
+                    <circle r="60" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)">
+                        <xsl:attribute name="cx">
+                            <xsl:value-of select="$x"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="cy">
+                            <xsl:value-of select="$svgCenterPointY"/>
+                        </xsl:attribute>
+                    </circle>
+                    <text text-anchor="middle" fill="#FFFFFF">
+                        <xsl:attribute name="x">
+                            <xsl:value-of select="$x"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="y">
+                            <xsl:value-of select="$svgCenterPointY"/>
+                        </xsl:attribute>
+                        <xsl:value-of select="name"/>
+                    </text>
+                </g>
+            </xsl:for-each>
+        </svg>
+    </xsl:template>
 
     <!-- Calculate position on X-Axis for the Projectcircle-->
     <xsl:template name="x_val">
@@ -179,6 +219,12 @@
                 <xsl:value-of select="(sum(project/likes) div $projectCount)"/>
             </xsl:for-each>
         </xsl:copy>
+    </xsl:template>
+
+    <!-- Calculate the angle for each topic at the topic Page-->
+    <xsl:template name="get_alpha">
+        <xsl:param name="position"/>
+        <xsl:value-of select="180 + $position*(180 div $projectCount)"/>
     </xsl:template>
 
 </xsl:stylesheet>
