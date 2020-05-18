@@ -109,7 +109,7 @@
                     </xls:attribute>
                     <input type="hidden" name="id" value="{@id}"/>
                 </form>
-                <circle stroke="rgba(0,128,128, 255)" fill="rgba(0,128,128, 255)" onclick="">
+                <circle stroke="rgba(0,128,128, 255)" fill="rgba(0,128,128, 255)">
                     <xsl:attribute name="onclick">
                         toDetail(<xsl:value-of select="string(@id)"/>);
                     </xsl:attribute>
@@ -127,7 +127,7 @@
             </xsl:for-each>
         </svg>
     </xsl:template>
-    
+
     <xsl:template name="topicChoice">
         <svg class="topicSpace">
             <xsl:for-each select="project_idea/topics/topic">
@@ -174,6 +174,12 @@
                     </text>
                 </g>
             </xsl:for-each>
+            <g>
+                <circle r="120" cx="50%" cy="100%" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)"/>
+                <text x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">
+                    Bereichswahl
+                </text>
+            </g>
         </svg>
     </xsl:template>
 
