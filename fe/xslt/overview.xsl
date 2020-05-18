@@ -1,5 +1,5 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:xls="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xls="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="http://www.w3.org/1999/xhtml">
 
     <!-- Global Variables -->
     <xsl:variable name="svgWidth">500</xsl:variable>
@@ -139,8 +139,20 @@
                 <xsl:variable name="x">
                     <xsl:value-of select="175*@id"/>
                 </xsl:variable>
+                <xsl:variable name="r">
+                    <xsl:value-of select="60"/>
+                </xsl:variable>
+                <text>
+                    <xsl:call-template name="get_y">
+                        <xsl:with-param name="alpha" select="$alpha"/>
+                        <xsl:with-param name="rad" select="$r"/>
+                    </xsl:call-template>
+                </text>
                 <g>
-                    <circle r="60" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)">
+                    <circle stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)">
+                        <xsl:attribute name="r">
+                            <xsl:value-of select="$r"/>
+                        </xsl:attribute>
                         <xsl:attribute name="cx">
                             <xsl:value-of select="$x"/>
                         </xsl:attribute>
@@ -227,7 +239,25 @@
     <!-- Calculate the angle for each topic at the topic Page-->
     <xsl:template name="get_alpha">
         <xsl:param name="position"/>
-        <xsl:value-of select="180 + $position*(180 div $projectCount)"/>
+        <xsl:value-of select="180 - $position*(180 div $projectCount)"/>
+    </xsl:template>
+
+    <!-- TODO calculate sin(alpha)*c to get X -->
+    <xsl:template name="get_x">
+        <xsl:param name="alpha"/>
+        <!--<script type="text/javascript">
+            var a = "<xsl:value-of select='$alpha'/>";
+            getX(a);
+        </script>-->
+    </xsl:template>
+
+    <!-- TODO calculate cos(alpha)*c to get X -->
+    <xsl:template name="get_y">
+        <xsl:param name="alpha"/>
+        <xsl:param name="rad"/>
+        <msxsl:script language="javaScript">
+            return(sin(<xsl:value-of select="$alpha"/>) * <xsl:value-of select="$rad"/>);
+        </msxsl:script>
     </xsl:template>
 
 </xsl:stylesheet>
