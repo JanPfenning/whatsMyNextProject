@@ -31,9 +31,6 @@
                     </a>
                     <a>Here will be a Toolbar</a>
                 </div>
-                <div class="coordinateSpace">
-                    <xsl:call-template name="generateSVG"/>
-                </div>
                 <div class="testSpace">
                     <xsl:call-template name="topicChoice"/>
                 </div>
@@ -41,118 +38,18 @@
         </html>
     </xsl:template>
 
-    <!-- Callable Templates -->
-    <xsl:template name="generateSVG">
-        <!-- Local variables - must be defined at this point and not globally because it works like this :) -->
-        <xsl:variable name="avgDuration">
-            <xsl:call-template name="calcAverageDur"/>
-        </xsl:variable>
-        <xsl:variable name="avgLikes">
-            <xsl:call-template name="calcAverageLikes"/>
-        </xsl:variable>
-        <svg class="coordinateSys" xmlns="http://www.w3.org/2000/svg">
-            <!--Y-Axis -->
-            <line class="axis" fill="none" style="stroke-width:1">
-                <xsl:attribute name="x1"><xsl:value-of select="$svgCenterPointX"/></xsl:attribute>
-                <xsl:attribute name="y1">0</xsl:attribute>
-                <xsl:attribute name="x2"><xsl:value-of select="$svgCenterPointX"/></xsl:attribute>
-                <xsl:attribute name="y2"><xsl:value-of select="$svgHeight"/></xsl:attribute>
-            </line>
-            <!-- Y-Axis text -->
-            <text class="svgText">
-                <xsl:attribute name="x"><xsl:value-of select="$svgCenterPointX - 130"/></xsl:attribute>
-                <xsl:attribute name="y"><xsl:value-of select="0 + 25"/></xsl:attribute>
-                Skill-Anforderung
-            </text>
-            <!--X-Axis -->
-            <line class="axis" fill="none" style="stroke-width:1">
-                <xsl:attribute name="x1">0</xsl:attribute>
-                <xsl:attribute name="y1"><xsl:value-of select="$svgCenterPointY"/></xsl:attribute>
-                <xsl:attribute name="x2"><xsl:value-of select="$svgWidth"/></xsl:attribute>
-                <xsl:attribute name="y2"><xsl:value-of select="$svgCenterPointY"/></xsl:attribute>
-            </line>
-            <!-- X-Axis text -->
-            <text class="svgText">
-                <xsl:attribute name="x"><xsl:value-of select="$svgWidth - 30"/></xsl:attribute>
-                <xsl:attribute name="y"><xsl:value-of select="$svgCenterPointY + 15"/></xsl:attribute>
-                Dauer
-            </text>
-            <!-- Center Point text (Average duration, Average difficulty) -->
-            <text class="svgText">
-                <xsl:attribute name="x"><xsl:value-of select="$svgCenterPointX + 5"/></xsl:attribute>
-                <xsl:attribute name="y"><xsl:value-of select="$svgCenterPointY + 15"/></xsl:attribute>
-                <xsl:value-of select="concat('(',$avgDuration,'h ,',$averageSkill,'&#9733;)')"/>
-            </text>
-            <xsl:for-each select="project_idea/project">
-                <!-- Calculate positoin and size of the circle -->
-                <xsl:variable name="x_val">
-                    <xsl:call-template name="x_val">
-                        <xsl:with-param name="duration" select="duration"/>
-                        <xsl:with-param name="avgDur" select="number($avgDuration)"/>
-                    </xsl:call-template>
-                </xsl:variable>
-                <xsl:variable name="y_val">
-                    <xsl:call-template name="y_val">
-                        <xsl:with-param name="skill" select="skill"/>
-                    </xsl:call-template>
-                </xsl:variable>
-                <xsl:variable name="likeRadius">
-                    <xsl:call-template name="getCircleSize">
-                        <xsl:with-param name="likes" select="likes"/>
-                        <xsl:with-param name="avgLikes" select="$avgLikes"/>
-                    </xsl:call-template>
-                </xsl:variable>
-                <!-- Actual Circle with metadata above -->
-                <form method="post" action="./detail.xml">
-                    <xls:attribute name="id">
-                        <xsl:value-of select="concat('toDetailForm',@id)"/>
-                    </xls:attribute>
-                    <input type="hidden" name="id" value="{@id}"/>
-                </form>
-                <circle stroke="rgba(0,128,128, 255)" fill="rgba(0,128,128, 255)">
-                    <xsl:attribute name="onclick">
-                        toDetail(<xsl:value-of select="string(@id)"/>);
-                    </xsl:attribute>
-                    <xsl:attribute name="id">
-                        circle<xsl:value-of select="string(@id)"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="r">
-                        <xsl:value-of select="$likeRadius"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="cx">
-                        <xsl:value-of select="$x_val"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="cy">
-                        <xsl:value-of select="$y_val"/>
-                    </xsl:attribute>
-                    <xsl:value-of select="@id"/>
-                </circle>
-            </xsl:for-each>
-        </svg>
-    </xsl:template>
-
     <xsl:template name="topicChoice">
         <svg class="topicSpace" id="topics">
             <xsl:for-each select="project_idea/topics/topic">
-                <xsl:variable name="alpha">
-                    <xsl:call-template name="get_alpha">
-                        <xsl:with-param name="position" select="@id"/>
-                    </xsl:call-template>
-                </xsl:variable>
                 <xsl:variable name="x">
                     <xsl:value-of select="175*@id"/>
                 </xsl:variable>
+                <!--TODO Make r Dependent on projectcount-->
                 <xsl:variable name="r">
-                    <xsl:value-of select="60"/>
+                    <xsl:value-of select="105"/>
                 </xsl:variable>
-                <text>
-                    <xsl:call-template name="get_y">
-                        <xsl:with-param name="alpha" select="$alpha"/>
-                        <xsl:with-param name="rad" select="$r"/>
-                    </xsl:call-template>
-                </text>
                 <g>
-                    <circle class="topicCircles" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)">
+                    <circle class="topicCircles" fill="rgba(0,128,128, 1)">
                         <xsl:attribute name="id">
                             <xsl:value-of select="concat('circle',@id)"/>
                         </xsl:attribute>
@@ -169,7 +66,8 @@
                             toTopicProjects("<xsl:value-of select="name"/>")
                         </xsl:attribute>
                     </circle>
-                    <text class="topicTexts" text-anchor="middle" fill="#FFFFFF">
+                    <!--TODO Make fontsoze Dependent on R and textlength-->
+                    <text class="topicTexts" font-family="Arial, Helvetica, sans-serif" font-size="30" text-anchor="middle" fill="#FFFFFF">
                         <xsl:attribute name="id">
                             <xsl:value-of select="concat('text',@id)"/>
                         </xsl:attribute>
@@ -184,8 +82,9 @@
                 </g>
             </xsl:for-each>
             <g>
-                <circle id="baseCircle" r="120" cx="50%" cy="100%" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)"/>
-                <text id="baseText" x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">
+                <!--TODO Maker and fontsize dependent-->
+                <circle id="baseCircle" r="200" cx="50%" cy="100%" fill="rgba(254, 87,107,1)"/>
+                <text id="baseText" font-family="Arial, Helvetica, sans-serif" x="50%" y="95%" font-size="40" text-anchor="middle" fill="#FFFFFF">
                     Bereichswahl
                 </text>
             </g>
@@ -249,30 +148,6 @@
                 <xsl:value-of select="(sum(project/likes) div $projectCount)"/>
             </xsl:for-each>
         </xsl:copy>
-    </xsl:template>
-
-    <!-- Calculate the angle for each topic at the topic Page-->
-    <xsl:template name="get_alpha">
-        <xsl:param name="position"/>
-        <xsl:value-of select="180 - $position*(180 div $projectCount)"/>
-    </xsl:template>
-
-    <!-- TODO calculate sin(alpha)*c to get X -->
-    <xsl:template name="get_x">
-        <xsl:param name="alpha"/>
-        <!--<script type="text/javascript">
-            var a = "<xsl:value-of select='$alpha'/>";
-            getX(a);
-        </script>-->
-    </xsl:template>
-
-    <!-- TODO calculate cos(alpha)*c to get X -->
-    <xsl:template name="get_y">
-        <xsl:param name="alpha"/>
-        <xsl:param name="rad"/>
-        <msxsl:script language="javaScript">
-            return(sin(<xsl:value-of select="$alpha"/>) * <xsl:value-of select="$rad"/>);
-        </msxsl:script>
     </xsl:template>
 
 </xsl:stylesheet>

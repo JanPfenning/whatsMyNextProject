@@ -65,5 +65,8 @@
         <topic id="5">
             <name>Programmieren</name>
         </topic>
+        <topic id="6">
+            <name>Handwerk</name>
+        </topic>
     </topics>
 </project_idea>

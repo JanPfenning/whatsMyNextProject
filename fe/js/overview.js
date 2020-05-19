@@ -22,20 +22,22 @@ function toDegree(angle){
 }
 
 function init(){
-    //TODO make this 5 dynamic to the topic count
+    //TODO Make radius dependent
     let circles = document.getElementsByClassName("topicCircles");
     let texts = document.getElementsByClassName("topicTexts");
     let n = circles.length;
     let baseAlpha = (180/(n));
     let baseCircle = document.getElementById("baseCircle");
-    let baseX = baseCircle.getBoundingClientRect().x;
-    let baseY = 16*(baseCircle.getBoundingClientRect().y/36);
+    let baseCircleBounding = baseCircle.getBoundingClientRect();
+    let baseX = baseCircleBounding.width/2 + baseCircleBounding.x;
+    let baseY = baseCircleBounding.height + baseCircleBounding.y/2 + 50;
+    console.log(baseCircle.getBoundingClientRect());
     baseCircle.setAttribute("cx", baseX);
     baseCircle.setAttribute("cy",baseY);
     let baseText = document.getElementById("baseText");
     baseText.setAttribute("x", baseX);
     baseText.setAttribute("y",baseY-(baseCircle.getAttribute("r")/3));
-    let radius = 250;
+    let radius = 450;
     let angle = baseAlpha/2;
     for (let i = 0; i < n; i++) {
         let circle = circles[i];
