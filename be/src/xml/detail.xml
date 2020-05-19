@@ -10,6 +10,15 @@
         <skill>5</skill>
         <duration>20</duration>
         <likes>100</likes>
+        <werte>
+            <!-- 1 bis 10 oder 100 -->
+            <unterhaltsam>1</unterhaltsam>
+            <wissenschaftlich>1</wissenschaftlich>
+            <kosten>0</kosten>
+            <komplexitaet>2</komplexitaet>
+            <voraussetzungen>4</voraussetzungen>
+            <einstiegshuerde>8</einstiegshuerde>
+        </werte>
     </project>
     <project id="p2">
         <name>Schraubern</name>
@@ -20,6 +29,15 @@
         <skill>1</skill>
         <duration>1</duration>
         <likes>100</likes>
+        <werte>
+            <!-- 1 bis 10 oder 100 -->
+            <unterhaltsam>1</unterhaltsam>
+            <wissenschaftlich>1</wissenschaftlich>
+            <kosten>0</kosten>
+            <komplexitaet>1</komplexitaet>
+            <voraussetzungen>1</voraussetzungen>
+            <einstiegshuerde>2</einstiegshuerde>
+        </werte>
     </project>
     <project id="p3">
         <name>Löten</name>
@@ -30,6 +48,15 @@
         <skill>4</skill>
         <duration>50</duration>
         <likes>30</likes>
+        <werte>
+            <!-- 1 bis 10 oder 100 -->
+            <unterhaltsam>1</unterhaltsam>
+            <wissenschaftlich>1</wissenschaftlich>
+            <kosten>0</kosten>
+            <komplexitaet>1</komplexitaet>
+            <voraussetzungen>1</voraussetzungen>
+            <einstiegshuerde>2</einstiegshuerde>
+        </werte>
     </project>
     <project id="p4">
         <name>Kochen</name>
@@ -39,6 +66,15 @@
         <skill>0.5</skill>
         <duration>40</duration>
         <likes>500</likes>
+        <werte>
+            <!-- 1 bis 10 oder 100 -->
+            <unterhaltsam>1</unterhaltsam>
+            <wissenschaftlich>1</wissenschaftlich>
+            <kosten>0</kosten>
+            <komplexitaet>1</komplexitaet>
+            <voraussetzungen>1</voraussetzungen>
+            <einstiegshuerde>2</einstiegshuerde>
+        </werte>
     </project>
     <project id="p5">
         <name>Chillen</name>
@@ -48,5 +84,14 @@
         <skill>0</skill>
         <duration>60</duration>
         <likes>150</likes>
+        <werte>
+            <!-- 1 bis 10 oder 100 -->
+            <unterhaltsam>1</unterhaltsam>
+            <wissenschaftlich>1</wissenschaftlich>
+            <kosten>0</kosten>
+            <komplexitaet>1</komplexitaet>
+            <voraussetzungen>1</voraussetzungen>
+            <einstiegshuerde>2</einstiegshuerde>
+        </werte>
     </project>
 </project_idea>
