@@ -11,8 +11,9 @@ body{
     background-image: url("../img/toolsBackground.jpeg");
 }
 .toolbar{
-    height: 20px;
-    background-color: red;
+    height: 30px;
+    background-color: dimgrey;
+    opacity: 80%;
 }
 .svgText{
     fill: Black;
