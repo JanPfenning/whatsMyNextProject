@@ -37,7 +37,6 @@
                 <div class="testSpace">
                     <xsl:call-template name="topicChoice"/>
                 </div>
-                <script lang="javascript" src="../../../fe/js/onInit.js"/>
             </body>
         </html>
     </xsl:template>
@@ -171,6 +170,9 @@
                         </xsl:attribute>
                     </circle>
                     <text text-anchor="middle" fill="#FFFFFF">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="concat('text',@id)"/>
+                        </xsl:attribute>
                         <xsl:attribute name="x">
                             <xsl:value-of select="$x"/>
                         </xsl:attribute>
@@ -183,7 +185,7 @@
             </xsl:for-each>
             <g>
                 <circle id="baseCircle" r="120" cx="50%" cy="100%" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)"/>
-                <text x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">
+                <text id="baseText" x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">
                     Bereichswahl
                 </text>
             </g>

@@ -22,9 +22,7 @@ body{
 }
 .coordinateSpace{
     background-color: rgba(255,255,255,0.4);
-    margin-left: 12.5%;
-    width: 75%;
-    height: 75%;
+    align-content: center;
 }
 .coordinateSys{
     /*background-color: var(--rgba-primary-0);*/

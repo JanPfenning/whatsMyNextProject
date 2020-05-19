@@ -22,23 +22,30 @@ function toDegree(angle){
 }
 
 function init(){
+    //TODO make this 5 dynamic to the topic count
     var n = 5;
     baseAlpha = (180/(n));
     baseCircle = document.getElementById("baseCircle");
     baseX = baseCircle.getBoundingClientRect().x;
-    baseY = 16*(baseCircle.getBoundingClientRect().y/30);
+    baseY = 16*(baseCircle.getBoundingClientRect().y/36);
+    baseCircle.setAttribute("cx", baseX);
+    baseCircle.setAttribute("cy",baseY);
+    baseText = document.getElementById("baseText");
+    baseText.setAttribute("x", baseX);
+    baseText.setAttribute("y",baseY-(baseCircle.getAttribute("r")/3));
     radius = 250;
     angle = baseAlpha/2;
     for (let i = 1; i <= n; i++) {
         circle = document.getElementById("circle"+i);
+        text = document.getElementById("text"+i);
         deltaX = getDeltaX(angle,radius);
-        console.log(deltaX);
         xcood = baseX+deltaX;
         deltaY = getDeltaY(angle,radius);
         ycood = baseY-deltaY;
         circle.setAttribute("cx", xcood);
         circle.setAttribute("cy", ycood);
-        console.log(angle);
+        text.setAttribute("x", xcood);
+        text.setAttribute("y", ycood);
         angle+=baseAlpha;
     }
 }
