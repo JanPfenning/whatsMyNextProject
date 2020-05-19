@@ -152,7 +152,7 @@
                     </xsl:call-template>
                 </text>
                 <g>
-                    <circle stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)">
+                    <circle class="topicCircles" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)">
                         <xsl:attribute name="id">
                             <xsl:value-of select="concat('circle',@id)"/>
                         </xsl:attribute>
@@ -169,7 +169,7 @@
                             toTopicProjects("<xsl:value-of select="name"/>")
                         </xsl:attribute>
                     </circle>
-                    <text text-anchor="middle" fill="#FFFFFF">
+                    <text class="topicTexts" text-anchor="middle" fill="#FFFFFF">
                         <xsl:attribute name="id">
                             <xsl:value-of select="concat('text',@id)"/>
                         </xsl:attribute>
