@@ -31,7 +31,6 @@ function init(){
     let baseCircleBounding = baseCircle.getBoundingClientRect();
     let baseX = baseCircleBounding.width/2 + baseCircleBounding.x;
     let baseY = baseCircleBounding.height + baseCircleBounding.y/2 + 50;
-    console.log(baseCircle.getBoundingClientRect());
     baseCircle.setAttribute("cx", baseX);
     baseCircle.setAttribute("cy",baseY);
     let baseText = document.getElementById("baseText");
