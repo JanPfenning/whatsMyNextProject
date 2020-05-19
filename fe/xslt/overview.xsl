@@ -22,7 +22,9 @@
                 <xsl:for-each select="project_idea/topics/topic">
                     <g>
                         <!--TODO Make r dependent on topiccount-->
-                        <circle r="100" class="topicCircles" fill="rgba(0,128,128, 1)"/>
+                        <circle r="100" class="topicCircles">
+                            <xsl:attribute name="onclick">xslOnClick(<xsl:value-of select="@id"/>)</xsl:attribute>
+                        </circle>
                         <!--TODO Make fontsize Dependent on R and textlength -->
                         <!--TODO outsource fontfamily to css -->
                         <text class="topicTexts" font-family="Arial, Helvetica, sans-serif" font-size="30" text-anchor="middle" fill="#FFFFFF">

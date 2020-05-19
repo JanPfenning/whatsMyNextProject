@@ -1,10 +1,7 @@
-function toDetail(e){
-    window.open("./detail.xml?");
+function xslOnClick(e){
     console.log(e);
 }
-function toTopicProjects(e){
-    console.log(e)
-}
+
 function getDeltaY(alpha, c){
     if(alpha===90){
         return c;
@@ -12,17 +9,18 @@ function getDeltaY(alpha, c){
         return (Math.sin(toDegree(alpha)))*c;
     }
 }
+
 function getDeltaX(alpha, c){
     if(alpha !== 90){
         return (Math.cos(toDegree(alpha)))*c;
     }else return 0;
 }
+
 function toDegree(angle){
     return angle * (Math.PI / 180);
 }
 
-function init(){
-    //TODO Make radius dependent
+function placeCircles(){
     let circles = document.getElementsByClassName("topicCircles");
     let texts = document.getElementsByClassName("topicTexts");
     let n = circles.length;
@@ -38,6 +36,8 @@ function init(){
     baseText.setAttribute("y",baseY-(baseCircle.getAttribute("r")/3));
     let radius = 450;
     let angle = baseAlpha/2;
+    let circleSize = calcCircleSize(getDeltaX(angle+baseAlpha,radius), getDeltaX(angle+2*baseAlpha,radius),
+                    getDeltaY(angle+baseAlpha,radius),getDeltaY(angle+2*baseAlpha,radius));
     for (let i = 0; i < n; i++) {
         let circle = circles[i];
         let text = texts[i];
@@ -45,10 +45,24 @@ function init(){
         let xcood = baseX+deltaX;
         let deltaY = getDeltaY(angle,radius);
         let ycood = baseY-deltaY;
+        circle.setAttribute("r", circleSize);
         circle.setAttribute("cx", xcood);
         circle.setAttribute("cy", ycood);
         text.setAttribute("x", xcood);
         text.setAttribute("y", ycood);
         angle+=baseAlpha;
     }
+}
+
+function calcCircleSize(x1,x2,y1,y2){
+    let deltaX = Math.abs(x1-x2);
+    let deltaY = Math.abs(y1-y2);
+    let puffer = 10;
+    let dist = ((Math.sqrt(Math.pow(deltaX,2)+Math.pow(deltaY,2)))-puffer)/2;
+    return (dist<180 ? dist : 180);
+}
+
+function init(){
+    placeCircles();
+    calcCircleSize();
 }

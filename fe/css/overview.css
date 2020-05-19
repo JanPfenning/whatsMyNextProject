@@ -35,4 +35,5 @@ body{
 }
 .topicCircles{
     opacity: 80%;
+    fill: var(--rgba-primary-2);
 }
