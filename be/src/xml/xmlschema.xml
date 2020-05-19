@@ -6,7 +6,7 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element type="xs:short" name="id"/>
-                            <xs:element type="xs:string" name="bereichid"/>
+                            <xs:element type="xs:short" name="bereichid"/>
                             <xs:element type="xs:string" name="gruppe"/>
                             <xs:element type="xs:string" name="name"/>
                             <xs:element name="materialien">
@@ -96,7 +96,7 @@
                             <xs:element name="bereich" maxOccurs="unbounded" minOccurs="1">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element type="xs:string" name="id"/>
+                                        <xs:element type="xs:short" name="id"/>
                                         <xs:element type="xs:string" name="name"/>
                                         <xs:element type="xs:string" name="farbe"/>
                                         <xs:element name="gruppen">

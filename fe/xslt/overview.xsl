@@ -22,7 +22,7 @@
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />
                 <title>Find your next Project</title>
             </head>
-            <body>
+            <body onload="init()">
                 <!-- example code -->
                 <div class="toolbar">
                     <button onclick="toDetail()"/>
@@ -109,9 +109,12 @@
                     </xls:attribute>
                     <input type="hidden" name="id" value="{@id}"/>
                 </form>
-                <circle stroke="rgba(0,128,128, 255)" fill="rgba(0,128,128, 255)" onclick="">
+                <circle stroke="rgba(0,128,128, 255)" fill="rgba(0,128,128, 255)">
                     <xsl:attribute name="onclick">
                         toDetail(<xsl:value-of select="string(@id)"/>);
+                    </xsl:attribute>
+                    <xsl:attribute name="id">
+                        circle<xsl:value-of select="string(@id)"/>
                     </xsl:attribute>
                     <xsl:attribute name="r">
                         <xsl:value-of select="$likeRadius"/>
@@ -127,9 +130,9 @@
             </xsl:for-each>
         </svg>
     </xsl:template>
-    
+
     <xsl:template name="topicChoice">
-        <svg class="topicSpace">
+        <svg class="topicSpace" id="topics">
             <xsl:for-each select="project_idea/topics/topic">
                 <xsl:variable name="alpha">
                     <xsl:call-template name="get_alpha">
@@ -149,7 +152,10 @@
                     </xsl:call-template>
                 </text>
                 <g>
-                    <circle stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)">
+                    <circle class="topicCircles" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="concat('circle',@id)"/>
+                        </xsl:attribute>
                         <xsl:attribute name="r">
                             <xsl:value-of select="$r"/>
                         </xsl:attribute>
@@ -163,7 +169,10 @@
                             toTopicProjects("<xsl:value-of select="name"/>")
                         </xsl:attribute>
                     </circle>
-                    <text text-anchor="middle" fill="#FFFFFF">
+                    <text class="topicTexts" text-anchor="middle" fill="#FFFFFF">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="concat('text',@id)"/>
+                        </xsl:attribute>
                         <xsl:attribute name="x">
                             <xsl:value-of select="$x"/>
                         </xsl:attribute>
@@ -174,6 +183,12 @@
                     </text>
                 </g>
             </xsl:for-each>
+            <g>
+                <circle id="baseCircle" r="120" cx="50%" cy="100%" stroke="rgba(0,128,128, 1)" fill="rgba(0,128,128, 1)"/>
+                <text id="baseText" x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">
+                    Bereichswahl
+                </text>
+            </g>
         </svg>
     </xsl:template>
 
