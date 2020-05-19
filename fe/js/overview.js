@@ -49,7 +49,8 @@ function placeCircles(){
         circle.setAttribute("cx", xcood);
         circle.setAttribute("cy", ycood);
         text.setAttribute("x", xcood);
-        text.setAttribute("y", ycood);
+        text.setAttribute("y", ycood+7);
+        text.setAttribute("font-size", circleSize/4);
         angle+=baseAlpha;
     }
 }

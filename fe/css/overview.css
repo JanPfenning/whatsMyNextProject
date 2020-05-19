@@ -37,3 +37,12 @@ body{
     opacity: 80%;
     fill: var(--rgba-primary-2);
 }
+.text{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#baseCircle{
+    fill: var(--rgba-primary-3);
+}
+#baseText{
+    font-size: 40px;
+}

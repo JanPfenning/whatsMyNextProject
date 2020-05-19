@@ -21,22 +21,19 @@
                 <!-- One Circle for each Topic -->
                 <xsl:for-each select="project_idea/topics/topic">
                     <g>
-                        <!--TODO Make r dependent on topiccount-->
                         <circle r="100" class="topicCircles">
                             <xsl:attribute name="onclick">xslOnClick(<xsl:value-of select="@id"/>)</xsl:attribute>
                         </circle>
-                        <!--TODO Make fontsize Dependent on R and textlength -->
                         <!--TODO outsource fontfamily to css -->
-                        <text class="topicTexts" font-family="Arial, Helvetica, sans-serif" font-size="30" text-anchor="middle" fill="#FFFFFF">
+                        <text class="text topicTexts"  text-anchor="middle" fill="#FFFFFF">
                             <xsl:value-of select="name"/>
                         </text>
                     </g>
                 </xsl:for-each>
                 <!-- Base circle -->
                 <g>
-                    <!--TODO Maker and fontsize dependent-->
-                    <circle id="baseCircle" r="200" cx="50%" cy="100%" fill="rgba(254, 87,107,1)"/>
-                    <text id="baseText" font-family="Arial, Helvetica, sans-serif" x="50%" y="95%" font-size="40" text-anchor="middle" fill="#FFFFFF">
+                    <circle id="baseCircle" r="200" cx="50%" cy="100%"/>
+                    <text class="text" id="baseText" x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">
                         Bereichswahl
                     </text>
                 </g>
