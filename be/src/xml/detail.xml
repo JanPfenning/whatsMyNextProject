@@ -19,6 +19,7 @@
             <voraussetzungen>4</voraussetzungen>
             <einstiegshuerde>8</einstiegshuerde>
         </werte>
+        <bild>../../../fe/img/p1.jpeg</bild>
     </project>
     <project id="p2">
         <name>Schraubern</name>
