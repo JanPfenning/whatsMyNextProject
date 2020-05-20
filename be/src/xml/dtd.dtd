@@ -1,48 +1,48 @@
-<!DOCTYPE projektuebersicht [
-        <!ELEMENT projektuebersicht (projekte,bereiche)>
-        <!ELEMENT projekte (projekt)*>
-        <!ELEMENT projekt (bereichid,gruppenid,name,materialien,werkzeuge,beschreibung,werte,bild,rueckmeldungen)>
-        <!ATTLIST projekt
+<!DOCTYPE dataset [
+        <!ELEMENT dataset (projects,topics)>
+        <!ELEMENT projects (project)*>
+        <!ELEMENT project (topicID,groupID,name,materials,tools,description,values,image,feedback)>
+        <!ATTLIST project
                 id CDATA #REQUIRED>
-        <!ELEMENT bereichid (#PCDATA)>
-        <!ELEMENT gruppenid (#PCDATA)>
-        <!ATTLIST gruppe
+        <!ELEMENT topicID (#PCDATA)>
+        <!ELEMENT groupID (#PCDATA)>
+        <!ATTLIST group
                 id CDATA #IMPLIED>
         <!ELEMENT name (#PCDATA)>
-        <!ELEMENT materialien (material)*>
-        <!ELEMENT material (name,anzahl)>
-        <!ELEMENT anzahl (#PCDATA)>
-        <!ELEMENT werkzeuge (werkzeug)*>
-        <!ELEMENT werkzeug (name)>
-        <!ELEMENT beschreibung (#PCDATA)>
-        <!ELEMENT werte (unterhaltsam,wissenschaftlich,kosten,komplexitaet,voraussetzungen,einstiegshuerde)>
-        <!ELEMENT unterhaltsam (#PCDATA)>
-        <!ELEMENT wissenschaftlich (#PCDATA)>
-        <!ELEMENT kosten (#PCDATA)>
-        <!ELEMENT komplexitaet (#PCDATA)>
-        <!ELEMENT voraussetzungen (#PCDATA)>
-        <!ELEMENT einstiegshuerde (#PCDATA)>
-        <!ELEMENT bild (#PCDATA)>
-        <!ELEMENT rueckmeldungen (bewertungen,kommentare)>
-        <!ELEMENT bewertungen (stern1,stern2,stern3,stern4,stern5)>
-        <!ELEMENT stern1 (#PCDATA)>
-        <!ELEMENT stern2 (#PCDATA)>
-        <!ELEMENT stern3 (#PCDATA)>
-        <!ELEMENT stern4 (#PCDATA)>
-        <!ELEMENT stern5 (#PCDATA)>
-        <!ELEMENT kommentare (kommentar)+>
-        <!ELEMENT kommentar (id,benutzername,text,bewertung)>
+        <!ELEMENT materials (material)*>
+        <!ELEMENT material (name,amount)>
+        <!ELEMENT amount (#PCDATA)>
+        <!ELEMENT tools (tool)*>
+        <!ELEMENT tool (name)>
+        <!ELEMENT description (#PCDATA)>
+        <!ELEMENT values (fun,scientific,costs,complexity,requirements,accessibility)>
+        <!ELEMENT fun (#PCDATA)>
+        <!ELEMENT scientific (#PCDATA)>
+        <!ELEMENT costs (#PCDATA)>
+        <!ELEMENT complexity (#PCDATA)>
+        <!ELEMENT requirements (#PCDATA)>
+        <!ELEMENT accessibility (#PCDATA)>
+        <!ELEMENT image (#PCDATA)>
+        <!ELEMENT feedback (rating,comments)>
+        <!ELEMENT rating (star1,star2,star3,star4,star5)>
+        <!ELEMENT star1 (#PCDATA)>
+        <!ELEMENT star2 (#PCDATA)>
+        <!ELEMENT star3 (#PCDATA)>
+        <!ELEMENT star4 (#PCDATA)>
+        <!ELEMENT star5 (#PCDATA)>
+        <!ELEMENT comments (comment)+>
+        <!ELEMENT comment (id,username,text,rating)>
         <!ELEMENT id (#PCDATA)>
-        <!ELEMENT benutzername (#PCDATA)>
+        <!ELEMENT username (#PCDATA)>
         <!ELEMENT text (#PCDATA)>
-        <!ELEMENT bewertung (#PCDATA)>
-        <!ELEMENT bereiche (bereich)+>
-        <!ELEMENT bereich (name,farbe,gruppen)>
-        <!ELEMENT gruppen (gruppe)+>
-        <!ATTLIST bereich
+        <!ELEMENT rating (#PCDATA)>
+        <!ELEMENT topics (topic)+>
+        <!ELEMENT topic (name,color,groups)>
+        <!ELEMENT groups (group)+>
+        <!ATTLIST topic
                 id CDATA #REQUIRED>
-        <!ELEMENT farbe (#PCDATA)>
-        <!ELEMENT gruppe (name)+>
-        <!ATTLIST gruppe
+        <!ELEMENT color (#PCDATA)>
+        <!ELEMENT group (name)+>
+        <!ATTLIST group
                 id CDATA #REQUIRED>
         ]>

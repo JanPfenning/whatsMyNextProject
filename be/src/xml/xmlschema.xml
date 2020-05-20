@@ -1,34 +1,34 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="projektuebersicht">
+    <xs:element name="dataset">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="projekte">
+                <xs:element name="projects">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="projekt">
+                            <xs:element name="project">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element type="xs:short" name="bereichid"/>
-                                        <xs:element type="xs:short" name="gruppenid"/>
+                                        <xs:element type="xs:short" name="topicID"/>
+                                        <xs:element type="xs:short" name="groupID"/>
                                         <xs:element type="xs:string" name="name"/>
-                                        <xs:element name="materialien">
+                                        <xs:element name="materials">
                                             <xs:complexType>
                                                 <xs:sequence>
                                                     <xs:element name="material" maxOccurs="unbounded" minOccurs="0">
                                                         <xs:complexType>
                                                             <xs:sequence>
                                                                 <xs:element type="xs:string" name="name"/>
-                                                                <xs:element type="xs:short" name="anzahl"/>
+                                                                <xs:element type="xs:short" name="amount"/>
                                                             </xs:sequence>
                                                         </xs:complexType>
                                                     </xs:element>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
-                                        <xs:element name="werkzeuge">
+                                        <xs:element name="tools">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="werkzeug" maxOccurs="unbounded" minOccurs="0">
+                                                    <xs:element name="tool" maxOccurs="unbounded" minOccurs="0">
                                                         <xs:complexType>
                                                             <xs:sequence>
                                                                 <xs:element type="xs:string" name="name"/>
@@ -38,44 +38,44 @@
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
-                                        <xs:element type="xs:string" name="beschreibung"/>
-                                        <xs:element name="werte">
+                                        <xs:element type="xs:string" name="description"/>
+                                        <xs:element name="values">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element type="xs:byte" name="unterhaltsam"/>
-                                                    <xs:element type="xs:byte" name="wissenschaftlich"/>
-                                                    <xs:element type="xs:byte" name="kosten"/>
-                                                    <xs:element type="xs:byte" name="komplexitaet"/>
-                                                    <xs:element type="xs:byte" name="voraussetzungen"/>
-                                                    <xs:element type="xs:byte" name="einstiegshuerde"/>
+                                                    <xs:element type="xs:byte" name="fun"/>
+                                                    <xs:element type="xs:byte" name="scientific"/>
+                                                    <xs:element type="xs:byte" name="costs"/>
+                                                    <xs:element type="xs:byte" name="complexity"/>
+                                                    <xs:element type="xs:byte" name="requirements"/>
+                                                    <xs:element type="xs:byte" name="accessibility"/>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
-                                        <xs:element type="xs:string" name="bild"/>
-                                        <xs:element name="rueckmeldungen">
+                                        <xs:element type="xs:string" name="picture"/>
+                                        <xs:element name="feedback">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="bewertungen">
+                                                    <xs:element name="rating">
                                                         <xs:complexType>
                                                             <xs:sequence>
-                                                                <xs:element type="xs:short" name="stern1"/>
-                                                                <xs:element type="xs:short" name="stern2"/>
-                                                                <xs:element type="xs:short" name="stern3"/>
-                                                                <xs:element type="xs:short" name="stern4"/>
-                                                                <xs:element type="xs:short" name="stern5"/>
+                                                                <xs:element type="xs:short" name="star1"/>
+                                                                <xs:element type="xs:short" name="star2"/>
+                                                                <xs:element type="xs:short" name="star3"/>
+                                                                <xs:element type="xs:short" name="star4"/>
+                                                                <xs:element type="xs:short" name="star5"/>
                                                             </xs:sequence>
                                                         </xs:complexType>
                                                     </xs:element>
-                                                    <xs:element name="kommentare">
+                                                    <xs:element name="comments">
                                                         <xs:complexType>
                                                             <xs:sequence>
-                                                                <xs:element name="kommentar" maxOccurs="unbounded" minOccurs="0">
+                                                                <xs:element name="comment" maxOccurs="unbounded" minOccurs="0">
                                                                     <xs:complexType>
                                                                         <xs:sequence>
                                                                             <xs:element type="xs:short" name="id"/>
-                                                                            <xs:element type="xs:string" name="benutzername"/>
+                                                                            <xs:element type="xs:string" name="username"/>
                                                                             <xs:element type="xs:string" name="text"/>
-                                                                            <xs:element type="xs:short" name="bewertung"/>
+                                                                            <xs:element type="xs:short" name="rating"/>
                                                                         </xs:sequence>
                                                                     </xs:complexType>
                                                                 </xs:element>
@@ -92,18 +92,18 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="bereiche">
+                <xs:element name="topics">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="bereich" maxOccurs="unbounded" minOccurs="1">
+                            <xs:element name="topic" maxOccurs="unbounded" minOccurs="1">
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element type="xs:string" name="name"/>
-                                        <xs:element type="xs:string" name="farbe"/>
-                                        <xs:element name="gruppen">
+                                        <xs:element type="xs:string" name="color"/>
+                                        <xs:element name="groups">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="gruppe" maxOccurs="unbounded" minOccurs="1">
+                                                    <xs:element name="group" maxOccurs="unbounded" minOccurs="1">
                                                         <xs:complexType>
                                                             <xs:sequence>
                                                                 <xs:element type="xs:string" name="name"/>
