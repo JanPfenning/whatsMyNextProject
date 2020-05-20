@@ -1,62 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projektuebersicht>
-    <projekt id="1">
-        <bereichid>1</bereichid>
-        <gruppe>Einstieg</gruppe>
-        <name>Hello World</name>
-        <materialien>
-            <material>
-                <name>Holzplatte 5mm</name>
-                <anzahl>1</anzahl>
-            </material>
-            <material>
-                <name>Energiedrink</name>
-                <anzahl>5</anzahl>
-            </material>
-        </materialien>
-        <werkzeuge>
-            <werkzeug>
-                <name>Lötkolben</name>
-            </werkzeug>
-            <werkzeug>
-                <name>IDE</name>
-            </werkzeug>
-        </werkzeuge>
-        <beschreibung>Das ist ein einfaches Projekt folge diesenm Link: abc.xy</beschreibung>
-        <werte> 
-        <!-- 1 bis 10 oder 100 -->
-            <unterhaltsam>1</unterhaltsam>
-            <wissenschaftlich>1</wissenschaftlich>
-            <kosten>0</kosten>
-            <komplexitaet>1</komplexitaet>
-            <voraussetzungen>1</voraussetzungen>
-            <einstiegshuerde>2</einstiegshuerde>
-        </werte>
-        <bild>../../../fe/img/hello_world.jpg</bild>
-        <rueckmeldungen>
-            <bewertungen>
-                <stern1>5</stern1>
-                <stern2>10</stern2>
-                <stern3>15</stern3>
-                <stern4>911</stern4>
-                <stern5>4711</stern5>
-            </bewertungen>
-            <kommentare>
-                <kommentar>
-                    <id>1</id>
-                    <benutzername>Kartoffelheld5</benutzername>
-                    <text>So good rate 5/7 top score.</text>
-                    <bewertung>5</bewertung>
-                </kommentar>
-                <kommentar>
-                    <id>2</id>
-                    <benutzername>9/11wasaninsidejob</benutzername>
-                    <text>would rate 9/11. Worked good for me.</text>
-                    <bewertung>4</bewertung>
-                </kommentar>
-            </kommentare>
-        </rueckmeldungen>
-    </projekt>
+    <projekte>
+        <projekt id="1">
+            <bereichid>1</bereichid>
+            <gruppenid>1</gruppenid>
+            <name>Hello World</name>
+            <materialien>
+                <material>
+                    <name>Holzplatte 5mm</name>
+                    <anzahl>1</anzahl>
+                </material>
+                <material>
+                    <name>Energiedrink</name>
+                    <anzahl>5</anzahl>
+                </material>
+            </materialien>
+            <werkzeuge>
+                <werkzeug>
+                    <name>Lötkolben</name>
+                </werkzeug>
+                <werkzeug>
+                    <name>IDE</name>
+                </werkzeug>
+            </werkzeuge>
+            <beschreibung>Das ist ein einfaches Projekt folge diesenm Link: abc.xy</beschreibung>
+            <werte>
+                <!-- 1 bis 10 oder 100 -->
+                <unterhaltsam>1</unterhaltsam>
+                <wissenschaftlich>1</wissenschaftlich>
+                <kosten>0</kosten>
+                <komplexitaet>1</komplexitaet>
+                <voraussetzungen>1</voraussetzungen>
+                <einstiegshuerde>2</einstiegshuerde>
+            </werte>
+            <bild>../../../fe/img/hello_world.jpg</bild>
+            <rueckmeldungen>
+                <bewertungen>
+                    <stern1>5</stern1>
+                    <stern2>10</stern2>
+                    <stern3>15</stern3>
+                    <stern4>911</stern4>
+                    <stern5>4711</stern5>
+                </bewertungen>
+                <kommentare>
+                    <kommentar>
+                        <id>1</id>
+                        <benutzername>Kartoffelheld5</benutzername>
+                        <text>So good rate 5/7 top score.</text>
+                        <bewertung>5</bewertung>
+                    </kommentar>
+                    <kommentar>
+                        <id>2</id>
+                        <benutzername>9/11wasaninsidejob</benutzername>
+                        <text>would rate 9/11. Worked good for me.</text>
+                        <bewertung>4</bewertung>
+                    </kommentar>
+                </kommentare>
+            </rueckmeldungen>
+        </projekt>
+    </projekte>
     <bereiche>
         <bereich id="1">
             <name>Programmieren</name>

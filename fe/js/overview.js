@@ -2,24 +2,6 @@ function xslOnClick(e){
     console.log(e);
 }
 
-function getDeltaY(alpha, c){
-    if(alpha===90){
-        return c;
-    }else{
-        return (Math.sin(toDegree(alpha)))*c;
-    }
-}
-
-function getDeltaX(alpha, c){
-    if(alpha !== 90){
-        return (Math.cos(toDegree(alpha)))*c;
-    }else return 0;
-}
-
-function toDegree(angle){
-    return angle * (Math.PI / 180);
-}
-
 function placeCircles(){
     let circles = document.getElementsByClassName("topicCircles");
     let texts = document.getElementsByClassName("topicTexts");
@@ -66,5 +48,4 @@ function calcCircleSize(x1,x2,y1,y2){
 function init(){
     placeCircles();
     calcCircleSize();
-    radarChart();
 }
