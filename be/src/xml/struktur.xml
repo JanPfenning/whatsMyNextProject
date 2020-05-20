@@ -62,45 +62,75 @@
             <name>Programmieren</name>
             <farbe>blau</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
         <bereich id="2">
             <name>Microboards</name>
             <farbe>gelb</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
         <bereich id="3">
             <name>Schaltungen</name>
             <farbe>rot</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
         <bereich id="4">
             <name>Audio und Hifi</name>
             <farbe>gruen</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
-        <bereich  id="5">
+        <bereich id="5">
             <name>Holz und Metall</name>
             <farbe>schwarz</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
     </bereiche>
