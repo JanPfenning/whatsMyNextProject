@@ -16,18 +16,18 @@
             <body onLoad="onInit()">
 
                 <xsl:variable name="projectID">
-                    <xsl:value-of select="'p1'"/>
+                    <xsl:value-of select="'1'"/>
                 </xsl:variable>
 
                 <div id="titleArea">
                     <a id="title">
-                        <xsl:value-of select="project_idea/project[@id=$projectID]/name"/>
+                        <xsl:value-of select="dataset/projects/project[@id=$projectID]/name"/>
                     </a>
                 </div>
                 <div id="pictureArea">
                     <img id="projectImage" style="border-radius: 8px;">
                         <xsl:attribute name="src">
-                            <xsl:value-of select="project_idea/project[@id=$projectID]/bild"/>
+                            <xsl:value-of select="dataset/projects/project[@id=$projectID]/picture"/>
                         </xsl:attribute>
                         <xsl:attribute name="alt">
                             <xsl:value-of select="concat('picture of project: ',project_idea/project[@id=$projectID]/name)"/>
@@ -36,26 +36,26 @@
                 </div>
                 <div id="radarChartArea">
                     <canvas id="radarChart"/>
-                    <xsl:for-each select="project_idea/project[@id=$projectID]">
+                    <xsl:for-each select="dataset/projects/project[@id=$projectID]">
                         <!-- Contains info about the radarchart values for the taken project -->
                         <div id="projectMatrix" style="display:none;">
                             <div id="unterhaltsam">
-                                <xsl:value-of select="werte/unterhaltsam"/>
+                                <xsl:value-of select="values/fun"/>
                             </div>
                             <div id="wissenschaftlich">
-                                <xsl:value-of select="werte/wissenschaftlich"/>
+                                <xsl:value-of select="values/scientific"/>
                             </div>
                             <div id="kosten">
-                                <xsl:value-of select="werte/kosten"/>
+                                <xsl:value-of select="values/costs"/>
                             </div>
                             <div id="komplexitaet">
-                                <xsl:value-of select="werte/komplexitaet"/>
+                                <xsl:value-of select="values/complexity"/>
                             </div>
                             <div id="voraussetzungen">
-                                <xsl:value-of select="werte/voraussetzungen"/>
+                                <xsl:value-of select="values/requirements"/>
                             </div>
                             <div id="einstiegshuerde">
-                                <xsl:value-of select="werte/einstiegshuerde"/>
+                                <xsl:value-of select="values/accessibility"/>
                             </div>
                         </div>
                     </xsl:for-each>
@@ -78,7 +78,7 @@
                 <div id="toolArea">
                     <a id="toolHeader">Tools</a>
                     <div id="toolList">
-                        <xsl:for-each select="project_idea/project[@id=$projectID]/werkzeuge/werkzeug">
+                        <xsl:for-each select="dataset/projects/project[@id=$projectID]/tools/tool">
                                 <div>
                                     <xsl:attribute name="id">
                                         <xsl:value-of select="concat('tool_',name)"/>
@@ -91,12 +91,12 @@
                 <div id="descriptionArea">
                     <a id="descriptionHeader">Beschreibung</a>
                     <div id="description">
-                        <xsl:value-of select="project_idea/project[@id=$projectID]/beschreibung"/>
+                        <xsl:value-of select="dataset/projects/project[@id=$projectID]/beschreibung"/>
                     </div>
                 </div>
                 <div id="commentArea">
                     <a id="commentHeader">Comments</a>
-                    <xsl:for-each select="project_idea/project[@id=$projectID]/rueckmeldungen/kommentare/kommentar">
+                    <xsl:for-each select="dataset/projects/project[@id=$projectID]/feedback/comments/comment">
                         <div>
                             <xsl:attribute name="id">
                                 <xsl:value-of select="concat('comment_',id)"/>
@@ -106,7 +106,7 @@
                                     <xsl:value-of select="concat('comment_',id,'_author')"/>
                                 </xsl:attribute>
                                 <a>
-                                    <xsl:value-of select="benutzername"/>
+                                    <xsl:value-of select="username"/>
                                 </a>
                             </div>
                             <div>
@@ -122,7 +122,7 @@
                                     <xsl:value-of select="concat('comment_',id,'_likes')"/>
                                 </xsl:attribute>
                                 <a>
-                                    <xsl:value-of select="bewertung"/>
+                                    <xsl:value-of select="rating"/>
                                 </a>
                             </div>
                         </div>
@@ -131,19 +131,19 @@
                 <div id="likeArea">
                     <a id="likeHeader"> Likes </a>
                     <div id="star1">
-                        <xsl:value-of select="concat('1-Star: ',project_idea/project[@id=$projectID]/rueckmeldungen/bewertungen/stern1)"/>
+                        <xsl:value-of select="concat('1-Star: ',dataset/projects/project[@id=$projectID]/feedback/rating/star1)"/>
                     </div>
                     <div id="star2">
-                        <xsl:value-of select="concat('2-Star: ',project_idea/project[@id=$projectID]/rueckmeldungen/bewertungen/stern2)"/>
+                        <xsl:value-of select="concat('2-Star: ',dataset/projects/project[@id=$projectID]/feedback/rating/star2)"/>
                     </div>
                     <div id="star3">
-                        <xsl:value-of select="concat('3-Star: ',project_idea/project[@id=$projectID]/rueckmeldungen/bewertungen/stern3)"/>
+                        <xsl:value-of select="concat('3-Star: ',dataset/projects/project[@id=$projectID]/feedback/rating/star3)"/>
                     </div>
                     <div id="star4">
-                        <xsl:value-of select="concat('4-Star: ',project_idea/project[@id=$projectID]/rueckmeldungen/bewertungen/stern4)"/>
+                        <xsl:value-of select="concat('4-Star: ',dataset/projects/project[@id=$projectID]/feedback/rating/star4)"/>
                     </div>
                     <div id="star5">
-                        <xsl:value-of select="concat('5-Star: ',project_idea/project[@id=$projectID]/rueckmeldungen/bewertungen/stern5)"/>
+                        <xsl:value-of select="concat('5-Star: ',dataset/projects/project[@id=$projectID]/feedback/rating/star5)"/>
                     </div>
                 </div>
             </body>
