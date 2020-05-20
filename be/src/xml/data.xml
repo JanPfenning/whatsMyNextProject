@@ -1,73 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../../fe/xslt/overview.xsl"?>
-<!-- TODO make DTD conform -->
-<project_idea>
-    <project id="p1">
-        <name>Nageln</name>
-        <items>
-            <item>Hammer</item>
-            <item>Nagel</item>
-        </items>
-        <skill>5</skill>
-        <duration>20</duration>
-        <likes>100</likes>
-    </project>
-    <project id="p2">
-        <name>Schraubern</name>
-        <items>
-            <item>Schrauber</item>
-            <item>Schraube</item>
-        </items>
-        <skill>1</skill>
-        <duration>1</duration>
-        <likes>100</likes>
-    </project>
-    <project id="p3">
-        <name>Löten</name>
-        <items>
-            <item>Lötstift</item>
-            <item>zu Lötendes</item>
-        </items>
-        <skill>4</skill>
-        <duration>50</duration>
-        <likes>30</likes>
-    </project>
-    <project id="p4">
-        <name>Kochen</name>
-        <items>
-            <item>Essen</item>
-        </items>
-        <skill>0.5</skill>
-        <duration>40</duration>
-        <likes>500</likes>
-    </project>
-    <project id="p5">
-        <name>Chillen</name>
-        <items>
-            <item>Bett</item>
-        </items>
-        <skill>0</skill>
-        <duration>60</duration>
-        <likes>150</likes>
-    </project>
+<dataset>
+    <projects>
+        <project id="1">
+            <topicID>1</topicID>
+            <groupID>1</groupID>
+            <name>Nageln</name>
+            <materials>
+                <material>
+                    <name>Nudeln 500g</name>
+                    <amount>1</amount>
+                </material>
+                <material>
+                    <name>Wasser 1L</name>
+                    <amount>1</amount>
+                </material>
+            </materials>
+            <tools>
+                <tool>
+                    <name>Kochlöffel</name>
+                </tool>
+                <tool>
+                    <name>Topf</name>
+                </tool>
+                <tool>
+                    <name>Herd</name>
+                </tool>
+            </tools>
+            <description>Nudeln kochen ist einfach, sei kein idiot</description>
+            <values>
+                <fun>0</fun>
+                <scientific>5</scientific>
+                <costs>0</costs>
+                <complexity>1</complexity>
+                <requirements>2</requirements>
+                <accessibility>10</accessibility>
+            </values>
+            <picture>../../../fe/img/p1.jpeg</picture>
+            <feedback>
+                <rating>
+                    <star1>4</star1>
+                    <star2>12</star2>
+                    <star3>12</star3>
+                    <star4>65</star4>
+                    <star5>190</star5>
+                </rating>
+                <comments>
+                    <comment>
+                        <id>1</id>
+                        <username>ThomasKing11</username>
+                        <text>Ich schaffe es nicht</text>
+                        <rating>1000</rating>
+                    </comment>
+                </comments>
+            </feedback>
+        </project>
+    </projects>
     <topics>
         <topic id="1">
-            <name>Audio</name>
+            <name>Audio und Hifi</name>
+            <color>red</color>
+            <groups>
+                <group id="1">
+                    <name>Einstieg</name>
+                </group>
+                <group id="2">
+                    <name>Nutzvoll</name>
+                </group>
+                <group id="3">
+                    <name>Spielerisch</name>
+                </group>
+            </groups>
         </topic>
         <topic id="2">
-            <name>Holz/Metall</name>
+            <name>Microcontroller</name>
+            <color>blue</color>
+            <groups>
+                <group id="1">
+                    <name>Einstieg</name>
+                </group>
+                <group id="2">
+                    <name>Nutzvoll</name>
+                </group>
+                <group id="3">
+                    <name>Spielerisch</name>
+                </group>
+            </groups>
         </topic>
         <topic id="3">
             <name>Schaltungen</name>
+            <color>yellow</color>
+            <groups>
+                <group id="1">
+                    <name>Einstieg</name>
+                </group>
+                <group id="2">
+                    <name>Nutzvoll</name>
+                </group>
+                <group id="3">
+                    <name>Spielerisch</name>
+                </group>
+            </groups>
         </topic>
         <topic id="4">
-            <name>Microcontroller</name>
+            <name>Holzarbeiten</name>
+            <color>green</color>
+            <groups>
+                <group id="1">
+                    <name>Einstieg</name>
+                </group>
+                <group id="2">
+                    <name>Nutzvoll</name>
+                </group>
+                <group id="3">
+                    <name>Spielerisch</name>
+                </group>
+            </groups>
         </topic>
         <topic id="5">
-            <name>Programmieren</name>
-        </topic>
-        <topic id="6">
-            <name>Handwerk</name>
+            <name>Metallarbeiten</name>
+            <color>grey</color>
+            <groups>
+                <group id="1">
+                    <name>Einstieg</name>
+                </group>
+                <group id="2">
+                    <name>Nutzvoll</name>
+                </group>
+                <group id="3">
+                    <name>Spielerisch</name>
+                </group>
+            </groups>
         </topic>
     </topics>
-</project_idea>
+</dataset>
