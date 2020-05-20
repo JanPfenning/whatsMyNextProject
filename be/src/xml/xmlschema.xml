@@ -101,9 +101,15 @@
                                         <xs:element name="gruppen">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element type="xs:string" name="gruppe" maxOccurs="unbounded" minOccurs="1"/>
+                                                    <xs:element name="gruppe" maxOccurs="unbounded" minOccurs="1">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" name="name"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute type="xs:short" name="id" use="required"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
                                                 </xs:sequence>
-                                                <xs:attribute type="xs:short" name="id" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>

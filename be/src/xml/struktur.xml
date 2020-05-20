@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projektuebersicht>
-    <projekt>
-        <id>1</id>
-        <bereichid>a</bereichid>
+    <projekt id="1">
+        <bereichid>1</bereichid>
         <gruppe>Einstieg</gruppe>
         <name>Hello World</name>
         <materialien>
@@ -33,7 +32,7 @@
             <voraussetzungen>1</voraussetzungen>
             <einstiegshuerde>2</einstiegshuerde>
         </werte>
-        <bild>./.../hello_world.jpg</bild>
+        <bild>../../../fe/img/hello_world.jpg</bild>
         <rueckmeldungen>
             <bewertungen>
                 <stern1>5</stern1>
@@ -59,59 +58,49 @@
         </rueckmeldungen>
     </projekt>
     <bereiche>
-        <bereich>
-            <id>a</id>
+        <bereich id="1">
             <name>Programmieren</name>
             <farbe>blau</farbe>
             <gruppen>
                 <gruppe>Einstieg</gruppe>
                 <gruppe>Nützlich</gruppe>
                 <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
             </gruppen>
         </bereich>
-        <bereich>
-            <id>b</id>
+        <bereich id="2">
             <name>Microboards</name>
             <farbe>gelb</farbe>
             <gruppen>
                 <gruppe>Einstieg</gruppe>
                 <gruppe>Nützlich</gruppe>
                 <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
             </gruppen>
         </bereich>
-        <bereich>
-            <id>c</id>
+        <bereich id="3">
             <name>Schaltungen</name>
             <farbe>rot</farbe>
             <gruppen>
                 <gruppe>Einstieg</gruppe>
                 <gruppe>Nützlich</gruppe>
                 <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
             </gruppen>
         </bereich>
-        <bereich>
-            <id>d</id>
+        <bereich id="4">
             <name>Audio und Hifi</name>
             <farbe>gruen</farbe>
             <gruppen>
                 <gruppe>Einstieg</gruppe>
                 <gruppe>Nützlich</gruppe>
                 <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
             </gruppen>
         </bereich>
-        <bereich>
-            <id>e</id>
+        <bereich  id="5">
             <name>Holz und Metall</name>
             <farbe>schwarz</farbe>
             <gruppen>
                 <gruppe>Einstieg</gruppe>
                 <gruppe>Nützlich</gruppe>
                 <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
             </gruppen>
         </bereich>
     </bereiche>
