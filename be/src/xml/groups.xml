@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/detailview.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/groupview.xsl"?>
 <project_idea>
     <project id="p1">
         <name>Nageln</name>
@@ -138,59 +138,79 @@
         </werte>
     </project>
     <bereiche>
-        <bereich>
-            <id>a</id>
+        <bereich id="1">
             <name>Programmieren</name>
             <farbe>blau</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
-        <bereich>
-            <id>b</id>
+        <bereich id="2">
             <name>Microboards</name>
             <farbe>gelb</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
-        <bereich>
-            <id>c</id>
+        <bereich id="3">
             <name>Schaltungen</name>
             <farbe>rot</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
-        <bereich>
-            <id>d</id>
+        <bereich id="4">
             <name>Audio und Hifi</name>
             <farbe>gruen</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
-        <bereich>
-            <id>e</id>
+        <bereich id="5">
             <name>Holz und Metall</name>
             <farbe>schwarz</farbe>
             <gruppen>
-                <gruppe>Einstieg</gruppe>
-                <gruppe>Nützlich</gruppe>
-                <gruppe>Spiele</gruppe>
-                <gruppe>Illegal</gruppe>
+                <gruppe id="1">
+                    <name>Einstieg</name>
+                </gruppe>
+                <gruppe id="2">
+                    <name>Nützlich</name>
+                </gruppe>
+                <gruppe id="3">
+                    <name>Spiel</name>
+                </gruppe>
             </gruppen>
         </bereich>
     </bereiche>
