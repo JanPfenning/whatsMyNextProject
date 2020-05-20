@@ -1,5 +1,10 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
+    <xsl:output
+            method="html"
+            doctype-system="./dtd.dtd"
+            omit-xml-declaration="yes"
+            encoding="UTF-8"
+            indent="yes" />
     <xsl:template match="/">
         <html>
             <head>
@@ -83,7 +88,7 @@
                     </div>
                 </div>
                 <div id="descriptionArea">
-                    <a id="descriptionArea">Beschreibung</a>
+                    <a id="descriptionHeader">Beschreibung</a>
                     <div id="description">
                         <xsl:value-of select="project_idea/project[@id=$projectID]/beschreibung"/>
                     </div>
