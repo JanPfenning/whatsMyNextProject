@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../../fe/xslt/overview.xsl"?>
+<!-- TODO make DTD conform -->
 <project_idea>
     <project id="p1">
         <name>Nageln</name>

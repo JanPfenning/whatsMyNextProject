@@ -1,10 +1,11 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
-    <xsl:output
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <!--xmlns:n="./dtd.dtd" xmlns="http://www.w3.org/1999/xhtml"-->
+    <!--<xsl:output
             method="html"
             doctype-system="./dtd.dtd"
             omit-xml-declaration="yes"
             encoding="UTF-8"
-            indent="yes" />
+            indent="yes" />-->
     <xsl:template match="/">
         <html>
             <head>
