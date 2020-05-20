@@ -4,3 +4,16 @@
     padding: 5px;
     width: 250px;
 }
+.hexPoly{
+    fill-opacity: 0%;
+    stroke: aqua;
+}
+#polygonValues{
+    fill-opacity: 30%;
+    fill: indianred;
+    stroke: red;
+}
+.valuePoint{
+    fill: black;
+    opacity: 100%;
+}

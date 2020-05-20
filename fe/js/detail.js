@@ -1,73 +1,5 @@
 function onInit(){
-    list = readProperties();
-    radarChart(list);
-}
-
-function radarChart(values){
-    let nodes = document.getElementById("projectMatrix").childNodes;
-    let labelList = [];
-    for (let i = 1; i < nodes.length; i+=2){
-        let label = nodes.item(i).getAttribute("id");
-        label = label.charAt(0).toUpperCase()+label.substr(1,label.length);
-        labelList.push(label);
-    }
-    let radarData = {
-        labels: labelList,
-        datasets: [
-            {
-                label: false,
-                data: values,
-                backgroundColor: "rgba(220,0,0,0.6)",
-                borderColor: "#FF0000",
-                pointLabelFontSize: 20,
-                borderWidth: .01
-            }
-        ]
-    };
-    console.log(radarData);
-
-    let radarOptions = {
-        elements: {
-            point:{
-                radius: 0
-            }
-        },
-        responsive: false,
-        maintainAspectRatio: false,
-        scale: {
-            pointLabels: {
-                fontSize: 13,
-                color: "rgba(0,0,255,1)"
-            },
-            angleLines: {
-                display: false,
-                color: "#FFAAFF"
-            },
-            gridLines: {
-                color: "#00FFFF",
-                tickMarkLength: 20
-            },
-            ticks: {
-                label: false,
-                min: 0,
-                max: 10,
-                fixedStepSize: 1,
-                showLabelBackdrop: false,
-                fontSize: 0,
-                color: "#FF0000"
-            }
-        },
-        title: {
-            display: false
-        },
-        legend: {
-            display: false,
-        }
-    };
-
-    let ctx5 = document.getElementById("radarChart").getContext("2d");
-
-    new Chart(ctx5, { type: 'radar', data: radarData, options: radarOptions });
+    drawRadar();
 }
 
 function readProperties(){
@@ -83,4 +15,60 @@ function readProperties(){
         parseInt(komplexitaet),
         parseInt(voraussetzungen),
         parseInt(einstiegshuerde)];
+}
+
+function getDeltaY(alpha, c){
+    if(alpha===90){
+        return c;
+    }else{
+        return (Math.sin(toDegree(alpha)))*c;
+    }
+}
+
+function getDeltaX(alpha, c){
+    if(alpha !== 90){
+        return (Math.cos(toDegree(alpha)))*c;
+    }else return 0;
+}
+
+function toDegree(angle){
+    return angle * (Math.PI / 180);
+}
+
+function drawRadar(){
+    baseX = 150;
+    baseY = 150;
+    for (let i = 1; i <= 10; i++) {
+        svg = document.getElementById("polygon"+i);
+        points = "";
+        for (let j = 0; j < 6; j++) {
+            x = baseX+Math.round(getDeltaX(30+j*60,i*10));
+            y = baseY+Math.round(getDeltaY(30+j*60,i*10));
+            points+=(' '+x+','+y);
+        }
+        points = points.substr(1,points.length);
+        svg.setAttribute("points",points)
+    }
+    values = readProperties();
+    poly = document.getElementById("polygonValues");
+    valuePoints = "";
+    for (let i = 0; i < 6; i++) {
+        x = baseX+Math.round(getDeltaX(30+i*60,values[i]*10));
+        y = baseY+Math.round(getDeltaY(30+i*60,values[i]*10));
+        valuePoints+=(' '+x+','+y);
+        xText = baseX-30+Math.round(getDeltaX(30+i*60,14*10));
+        yText = baseY+5+Math.round(getDeltaY(30+i*60,11*10));
+        textElement = document.getElementById("text"+(i+1));
+        console.log(textElement)
+        textElement.setAttribute('x', xText);
+        textElement.setAttribute('y', yText);
+        let circle = document.createElementNS("http://www.w3.org/2000/svg",'circle');
+        circle.setAttribute("class", 'valuePoint');
+        circle.setAttribute("r", "2");
+        circle.setAttribute('cx',x);
+        circle.setAttribute('cy',y);
+        document.getElementById("radarChartSVG").appendChild(circle);
+    }
+    valuePoints = valuePoints.substr(1,valuePoints.length);
+    poly.setAttribute("points",valuePoints)
 }

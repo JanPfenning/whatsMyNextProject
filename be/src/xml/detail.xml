@@ -29,9 +29,9 @@
             </tools>
             <description>Nudeln kochen ist einfach, sei kein idiot</description>
             <values>
-                <fun>0</fun>
+                <fun>2</fun>
                 <scientific>5</scientific>
-                <costs>0</costs>
+                <costs>8</costs>
                 <complexity>1</complexity>
                 <requirements>2</requirements>
                 <accessibility>10</accessibility>

@@ -9,7 +9,6 @@
     <xsl:template match="/">
         <html>
             <head>
-                <script lang="javascript" src="../../../fe/js/Chart.js"/>
                 <script lang="javascript" src="../../../fe/js/detail.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/detail.css" />
             </head>
@@ -34,8 +33,7 @@
                         </xsl:attribute>
                     </img>
                 </div>
-                <div id="radarChartArea">
-                    <canvas id="radarChart"/>
+                <div id="testRadatChart">
                     <xsl:for-each select="dataset/projects/project[@id=$projectID]">
                         <!-- Contains info about the radarchart values for the taken project -->
                         <div id="projectMatrix" style="display:none;">
@@ -59,6 +57,25 @@
                             </div>
                         </div>
                     </xsl:for-each>
+                    <svg id="radarChartSVG" width="100%" height="300">
+                        <polygon class="hexPoly" id="polygon1"/>
+                        <polygon class="hexPoly" id="polygon2"/>
+                        <polygon class="hexPoly" id="polygon3"/>
+                        <polygon class="hexPoly" id="polygon4"/>
+                        <polygon class="hexPoly" id="polygon5"/>
+                        <polygon class="hexPoly" id="polygon6"/>
+                        <polygon class="hexPoly" id="polygon7"/>
+                        <polygon class="hexPoly" id="polygon8"/>
+                        <polygon class="hexPoly" id="polygon9"/>
+                        <polygon class="hexPoly" id="polygon10"/>
+                        <polygon class="heyPolyValues" id="polygonValues"/>
+                        <text id="text1" x="" y="">Fun</text>
+                        <text id="text2">Scientific</text>
+                        <text id="text3">Costs</text>
+                        <text id="text4">Complexity</text>
+                        <text id="text5">Requirements</text>
+                        <text id="text6">Accessibility</text>
+                    </svg>
                 </div>
                 <div id="materialArea">
                     <a id="materialHeader">Matierialien</a>
