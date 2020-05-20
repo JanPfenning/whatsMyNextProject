@@ -5,7 +5,6 @@
                 <xs:element name="projekt">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element type="xs:short" name="id"/>
                             <xs:element type="xs:short" name="bereichid"/>
                             <xs:element type="xs:string" name="gruppe"/>
                             <xs:element type="xs:string" name="name"/>
@@ -88,6 +87,7 @@
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
+                        <xs:attribute type="xs:short" name="id" use="required"/>
                     </xs:complexType>
                 </xs:element>
                 <xs:element name="bereiche">
@@ -96,17 +96,24 @@
                             <xs:element name="bereich" maxOccurs="unbounded" minOccurs="1">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element type="xs:short" name="id"/>
                                         <xs:element type="xs:string" name="name"/>
                                         <xs:element type="xs:string" name="farbe"/>
                                         <xs:element name="gruppen">
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element type="xs:string" name="gruppe" maxOccurs="unbounded" minOccurs="1"/>
+                                                    <xs:element name="gruppe" maxOccurs="unbounded" minOccurs="1">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element type="xs:string" name="name"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute type="xs:short" name="id" use="required"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
+                                    <xs:attribute type="xs:short" name="id" use="required"/>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
