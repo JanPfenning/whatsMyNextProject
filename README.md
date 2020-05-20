@@ -7,3 +7,5 @@ whatsMyNextProject\be\src\xml\data.xml - The xsl document attached to it will st
 Helpfull links:
 xslt XPath functions:
 https://wiki.selfhtml.org/wiki/XML/XSL/XPath/Funktionen#concat.28.29_.28Zeichenketten_zu_einer_zusammenfassen.29
+check xml against xmlschema:
+https://www.freeformatter.com/xml-validator-xsd.html
