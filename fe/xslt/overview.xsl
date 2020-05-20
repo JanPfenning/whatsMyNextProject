@@ -12,6 +12,7 @@
         <html>
             <head>
                 <script lang="javascript" src="../../../fe/js/overview.js"/>
+                <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />
                 <title>Find your next Project</title>
             </head>
