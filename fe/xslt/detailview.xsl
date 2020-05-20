@@ -35,29 +35,27 @@
                     </img>
                 </div>
                 <div id="testRadatChart">
-                    <xsl:for-each select="dataset/projects/project[@id=$projectID]">
-                        <!-- Contains info about the radarchart values for the taken project -->
-                        <div id="projectMatrix" style="display:none;">
-                            <div id="unterhaltsam">
-                                <xsl:value-of select="values/fun"/>
-                            </div>
-                            <div id="wissenschaftlich">
-                                <xsl:value-of select="values/scientific"/>
-                            </div>
-                            <div id="kosten">
-                                <xsl:value-of select="values/costs"/>
-                            </div>
-                            <div id="komplexitaet">
-                                <xsl:value-of select="values/complexity"/>
-                            </div>
-                            <div id="voraussetzungen">
-                                <xsl:value-of select="values/requirements"/>
-                            </div>
-                            <div id="einstiegshuerde">
-                                <xsl:value-of select="values/accessibility"/>
-                            </div>
+                    <!-- Contains info about the radarchart values for the taken project -->
+                    <div id="projectMatrix" style="display:none;">
+                        <div id="unterhaltsam">
+                            <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/fun"/>
                         </div>
-                    </xsl:for-each>
+                        <div id="wissenschaftlich">
+                            <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/scientific"/>
+                        </div>
+                        <div id="kosten">
+                            <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/costs"/>
+                        </div>
+                        <div id="komplexitaet">
+                            <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/complexity"/>
+                        </div>
+                        <div id="voraussetzungen">
+                            <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/requirements"/>
+                        </div>
+                        <div id="einstiegshuerde">
+                            <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/accessibility"/>
+                        </div>
+                    </div>
                     <svg id="radarChartSVG" width="100%" height="300">
                         <polygon class="hexPoly" id="polygon1"/>
                         <polygon class="hexPoly" id="polygon2"/>
@@ -70,7 +68,7 @@
                         <polygon class="hexPoly" id="polygon9"/>
                         <polygon class="hexPoly" id="polygon10"/>
                         <polygon class="heyPolyValues" id="polygonValues"/>
-                        <text id="text1" x="" y="">Fun</text>
+                        <text id="text1">Fun</text>
                         <text id="text2">Scientific</text>
                         <text id="text3">Costs</text>
                         <text id="text4">Complexity</text>
