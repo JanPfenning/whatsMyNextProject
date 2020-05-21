@@ -1,7 +1,7 @@
 <!DOCTYPE dataset [
         <!ELEMENT dataset (projects,topics)>
         <!ELEMENT projects (project)*>
-        <!ELEMENT project (topicID,groupID,name,materials,tools,description,values,image,feedback)>
+        <!ELEMENT project (topicID,groupID,name,materials,tools,description,values,picture,feedback)>
         <!ATTLIST project
                 id CDATA #REQUIRED>
         <!ELEMENT topicID (#PCDATA)>
@@ -22,7 +22,7 @@
         <!ELEMENT complexity (#PCDATA)>
         <!ELEMENT requirements (#PCDATA)>
         <!ELEMENT accessibility (#PCDATA)>
-        <!ELEMENT image (#PCDATA)>
+        <!ELEMENT picture (#PCDATA)>
         <!ELEMENT feedback (rating,comments)>
         <!ELEMENT rating (star1,star2,star3,star4,star5)>
         <!ELEMENT star1 (#PCDATA)>
@@ -31,11 +31,11 @@
         <!ELEMENT star4 (#PCDATA)>
         <!ELEMENT star5 (#PCDATA)>
         <!ELEMENT comments (comment)+>
-        <!ELEMENT comment (id,username,text,rating)>
+        <!ELEMENT comment (id,username,text,likes)>
         <!ELEMENT id (#PCDATA)>
         <!ELEMENT username (#PCDATA)>
         <!ELEMENT text (#PCDATA)>
-        <!ELEMENT rating (#PCDATA)>
+        <!ELEMENT likes (#PCDATA)>
         <!ELEMENT topics (topic)+>
         <!ELEMENT topic (name,color,groups)>
         <!ELEMENT groups (group)+>
