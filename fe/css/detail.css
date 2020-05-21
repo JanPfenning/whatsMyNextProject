@@ -1,22 +1,3 @@
-#projectImage{
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    width: 250px;
-}
-.hexPoly{
-    fill-opacity: 0%;
-    stroke: aqua;
-}
-#polygonValues{
-    fill-opacity: 30%;
-    fill: indianred;
-    stroke: red;
-}
-.valuePoint{
-    fill: red;
-    opacity: 100%;
-}
 body{
     background: radial-gradient(circle, #24246e, #FFFFFF);
 }
@@ -43,9 +24,33 @@ body{
     grid-column: 1 / 2;
     grid-row: 2;
 }
+#projectImage{
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    width: 500px;
+}
 #radarChartArea{
     grid-column: 1 / 2;
     grid-row: 3;
+}
+#radarChartSVG{
+    align-content: center;
+    width: 65%;
+    margin-left: 20%;
+}
+.hexPoly{
+    fill-opacity: 0%;
+    stroke: aqua;
+}
+#polygonValues{
+    fill-opacity: 30%;
+    fill: indianred;
+    stroke: red;
+}
+.valuePoint{
+    fill: red;
+    opacity: 100%;
 }
 #materialArea{
     grid-column: 2;
@@ -56,12 +61,12 @@ body{
     grid-row: 3;
 }
 #descriptionArea{
-    grid-column: 2;
-    grid-row: 4;
-}
-#commentArea{
     grid-column: 1/3;
     grid-row: 5;
+}
+#commentArea{
+    grid-column: 2;
+    grid-row: 4;
 }
 #likeArea{
     grid-column: 1;

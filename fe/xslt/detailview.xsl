@@ -57,7 +57,7 @@
                                     <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/accessibility"/>
                                 </div>
                             </div>
-                            <svg id="radarChartSVG" width="100%" height="300">
+                            <svg id="radarChartSVG" height="300">
                                 <polygon class="hexPoly" id="polygon1"/>
                                 <polygon class="hexPoly" id="polygon2"/>
                                 <polygon class="hexPoly" id="polygon3"/>
