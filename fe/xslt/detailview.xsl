@@ -80,35 +80,39 @@
                         <div id="materialArea">
                             <a id="materialHeader">Matierialien</a>
                             <div id="materials">
-                                <xsl:for-each select="dataset/projects/project[@id=$projectID]/materials/material">
-                                    <div>
-                                        <xsl:attribute name="id">
-                                            <xsl:value-of select="concat('material_',name)"/>
-                                        </xsl:attribute>
-                                        <a>
-                                            <span><xsl:value-of select="amount"/></span>x <xsl:value-of select="name"/>
-                                        </a>
-                                    </div>
-                                </xsl:for-each>
+                                <ul>
+                                    <xsl:for-each select="dataset/projects/project[@id=$projectID]/materials/material">
+                                        <li>
+                                            <xsl:attribute name="id">
+                                                <xsl:value-of select="concat('material_',name)"/>
+                                            </xsl:attribute>
+                                            <a>
+                                                <span><xsl:value-of select="amount"/></span>x <xsl:value-of select="name"/>
+                                            </a>
+                                        </li>
+                                    </xsl:for-each>
+                                </ul>
                             </div>
                         </div>
                         <div id="toolArea">
                             <a id="toolHeader">Tools</a>
                             <div id="toolList">
-                                <xsl:for-each select="dataset/projects/project[@id=$projectID]/tools/tool">
-                                    <div>
-                                        <xsl:attribute name="id">
-                                            <xsl:value-of select="concat('tool_',name)"/>
-                                        </xsl:attribute>
-                                        <a><xsl:value-of select="name"/></a>
-                                    </div>
-                                </xsl:for-each>
+                                <ul>
+                                    <xsl:for-each select="dataset/projects/project[@id=$projectID]/tools/tool">
+                                        <li>
+                                            <xsl:attribute name="id">
+                                                <xsl:value-of select="concat('tool_',name)"/>
+                                            </xsl:attribute>
+                                            <a><xsl:value-of select="name"/></a>
+                                        </li>
+                                    </xsl:for-each>
+                                </ul>
                             </div>
                         </div>
                         <div id="descriptionArea">
                             <a id="descriptionHeader">Beschreibung</a>
                             <div id="description">
-                                <xsl:value-of select="dataset/projects/project[@id=$projectID]/beschreibung"/>
+                                <xsl:value-of select="dataset/projects/project[@id=$projectID]/description"/>
                             </div>
                         </div>
                         <div id="commentArea">
@@ -139,7 +143,7 @@
                                             <xsl:value-of select="concat('comment_',id,'_likes')"/>
                                         </xsl:attribute>
                                         <a>
-                                            <xsl:value-of select="rating"/>
+                                            -Gefällt <xsl:value-of select="likes"/> Personen
                                         </a>
                                     </div>
                                 </div>
