@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/detailview.xsl"?>
+<?xml-stylesheet type="text/xml" href="../../../fe/xslt/detailview.xsl"?>
 <dataset>
     <projects>
         <project id="1">
@@ -29,9 +29,9 @@
             </tools>
             <description>Nudeln kochen ist einfach, sei kein idiot</description>
             <values>
-                <fun>0</fun>
+                <fun>1</fun>
                 <scientific>5</scientific>
-                <costs>0</costs>
+                <costs>1</costs>
                 <complexity>1</complexity>
                 <requirements>2</requirements>
                 <accessibility>10</accessibility>

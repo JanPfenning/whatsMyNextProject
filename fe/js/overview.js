@@ -1,5 +1,6 @@
 function xslOnClick(e){
     console.log(e);
+    document.location.replace('./groups.xml?id='+e)
 }
 
 function placeCircles(){
