@@ -56,25 +56,7 @@
                                     <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/knowledge"/>
                                 </div>
                             </div>
-                            <svg id="radarChartSVG" height="300">
-                                <polygon class="hexPoly" id="polygon1"/>
-                                <polygon class="hexPoly" id="polygon2"/>
-                                <polygon class="hexPoly" id="polygon3"/>
-                                <polygon class="hexPoly" id="polygon4"/>
-                                <polygon class="hexPoly" id="polygon5"/>
-                                <polygon class="hexPoly" id="polygon6"/>
-                                <polygon class="hexPoly" id="polygon7"/>
-                                <polygon class="hexPoly" id="polygon8"/>
-                                <polygon class="hexPoly" id="polygon9"/>
-                                <polygon class="hexPoly" id="polygon10"/>
-                                <polygon class="heyPolyValues" id="polygonValues"/>
-                                <text id="text1"/>
-                                <text id="text2"/>
-                                <text id="text3"/>
-                                <text id="text4"/>
-                                <text id="text5"/>
-                                <text id="text6"/>
-                            </svg>
+                            <svg id="radarChartSVG" height="300"/>
                         </div>
                         <div id="materialArea">
                             <a id="materialHeader">Matierialien</a>
