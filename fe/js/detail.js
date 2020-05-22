@@ -59,8 +59,8 @@ function drawPolygon(baseX,baseY,root){
         let y = baseY+Math.round(getDeltaY(30+i*60,values[i].value*10));
         polygonPoints+=(' '+x+','+y);
         /*Generate Name of Axis*/
-        let xText = baseX-34+Math.round(getDeltaX(30+i*60,14*10));
-        let yText = baseY+5+Math.round(getDeltaY(30+i*60,11*10));
+        let xText = baseX+Math.round(getDeltaX(30+i*60,11*10));
+        let yText = baseY+Math.round(getDeltaY(30+i*60,11*10));
         let axisName = document.createElementNS("http://www.w3.org/2000/svg","text");
         axisName.setAttribute("id","axis"+i);
         axisName.setAttribute('x', xText);
@@ -70,6 +70,14 @@ function drawPolygon(baseX,baseY,root){
         /*Mark the value of this Axis with a Dot*/
         markDot(x,y,root);
     }
+    document.getElementById("axis1").setAttribute("text-anchor","middle");
+    document.getElementById("axis2").setAttribute("text-anchor","end");
+    document.getElementById("axis3").setAttribute("text-anchor","end");
+    document.getElementById("axis4").setAttribute("text-anchor","middle");
+    document.getElementById("axis5").setAttribute("text-anchor","start");
+    document.getElementById("axis0").setAttribute("text-anchor","start");
+
+
     polygonPoints = polygonPoints.substr(1,polygonPoints.length);
     valuePolygon.setAttribute("points",polygonPoints);
     root.appendChild(valuePolygon);

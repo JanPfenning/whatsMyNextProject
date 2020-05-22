@@ -33,14 +33,16 @@ body{
 #radarChartArea{
     grid-column: 1 / 2;^
     grid-row: 3;
+    text-align: center;
 }
 #radarChartSVG{
-    align-content: center;
-    width: 80%;
-    padding-left: 17%;
+margin-left: 40px;
 }
 #ring5{
     stroke: yellow;
+}
+.axis2{
+    alignment-baseline: after-edge;
 }
 .radarRing{
     fill-opacity: 0%;
