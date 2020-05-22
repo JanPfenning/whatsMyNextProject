@@ -1,11 +1,14 @@
-<!--https://www.w3schools.com/xml/xsl_server.asp-->
-<?php
 
+<?php
+//https://www.w3schools.com/xml/xsl_server.asp
+//https://www.php.net/manual/de/xsl.installation.php
 if(isset($_REQUEST['id'])){
     $id = $_REQUEST['id'];
     $id = 1;
     $xslt = new xsltProcessor;
-    $xslt->importStylesheet(DOMDocument::load("../../../fe/xslt/detailview.xsl"));
+    $dom = new DOMDocument();
+    $dom->load("../../../fe/xslt/detailview.xsl");
+    $xslt->importStylesheet($dom);
     $xmlData =
         '<?xml version="1.0" encoding="UTF-8"?>
         <dataset>
@@ -142,14 +145,14 @@ if(isset($_REQUEST['id'])){
                 </topic>
             </topics>
         </dataset>';
-    print $xslt->transformToXml(DOMDocument::loadXML($xmlData));
+    $dom->loadXML($xmlData);
+    print $xslt->transformToXml($dom);
     //echo "clicked on project with id: ".$id;
     /*$queryStr = "select * from project as p
             inner join material as m
             on p.id = m.project_id
             where p.id = $id";
     */
-
 }
 
 ?>
