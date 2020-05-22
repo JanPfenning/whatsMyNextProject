@@ -47,7 +47,7 @@
                                                     <xs:element type="xs:byte" name="costs"/>
                                                     <xs:element type="xs:byte" name="complexity"/>
                                                     <xs:element type="xs:byte" name="requirements"/>
-                                                    <xs:element type="xs:byte" name="accessibility"/>
+                                                    <xs:element type="xs:byte" name="knowledge"/>
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>

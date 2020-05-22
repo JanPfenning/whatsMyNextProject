@@ -15,13 +15,13 @@
         <!ELEMENT tools (tool)*>
         <!ELEMENT tool (name)>
         <!ELEMENT description (#PCDATA)>
-        <!ELEMENT values (fun,scientific,costs,complexity,requirements,accessibility)>
+        <!ELEMENT values (fun,scientific,costs,complexity,requirements,knowledge)>
         <!ELEMENT fun (#PCDATA)>
         <!ELEMENT scientific (#PCDATA)>
         <!ELEMENT costs (#PCDATA)>
         <!ELEMENT complexity (#PCDATA)>
         <!ELEMENT requirements (#PCDATA)>
-        <!ELEMENT accessibility (#PCDATA)>
+        <!ELEMENT knowledge (#PCDATA)>
         <!ELEMENT picture (#PCDATA)>
         <!ELEMENT feedback (rating,comments)>
         <!ELEMENT rating (star1,star2,star3,star4,star5)>

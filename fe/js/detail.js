@@ -15,15 +15,13 @@ function readProperties(){
         parseInt(komplexitaet),
         parseInt(voraussetzungen),
         parseInt(einstiegshuerde)];*/
-    /*  this order has to match the order of the radarChartArea/svg/text elements*/
-    return [
-        parseInt(unterhaltsam),
-        parseInt(wissenschaftlich),
-        parseInt(kosten),
-        parseInt(einstiegshuerde),
-        parseInt(komplexitaet),
-        parseInt(voraussetzungen)
-        ];
+    return JSON.parse('[{"value": '+parseInt(unterhaltsam)+',"title": "Unterhaltsam"},'
+        +'{"value":'+parseInt(wissenschaftlich)+', "title": "Wissenschaftlich"},'
+        +'{"value":'+parseInt(kosten)+',"title": "Kosten"},'
+        +'{"value":'+parseInt(einstiegshuerde)+',"title": "Vorwissen"},'
+        +'{"value":'+parseInt(komplexitaet)+',"title": "Komplexität"},'
+        +'{"value":'+ parseInt(voraussetzungen)+',"title": "Werkzeug"}'
+        +']');
 
 }
 
@@ -45,14 +43,15 @@ function drawRadar(){
     poly = document.getElementById("polygonValues");
     valuePoints = "";
     for (let i = 0; i < 6; i++) {
-        x = baseX+Math.round(getDeltaX(30+i*60,values[i]*10));
-        y = baseY+Math.round(getDeltaY(30+i*60,values[i]*10));
+        x = baseX+Math.round(getDeltaX(30+i*60,values[i].value*10));
+        y = baseY+Math.round(getDeltaY(30+i*60,values[i].value*10));
         valuePoints+=(' '+x+','+y);
         xText = baseX-34+Math.round(getDeltaX(30+i*60,14*10));
         yText = baseY+5+Math.round(getDeltaY(30+i*60,11*10));
         textElement = document.getElementById("text"+(i+1));
         textElement.setAttribute('x', xText);
         textElement.setAttribute('y', yText);
+        textElement.textContent=values[i].title;
         let circle = document.createElementNS("http://www.w3.org/2000/svg",'circle');
         circle.setAttribute("class", 'valuePoint');
         circle.setAttribute("r", "2");

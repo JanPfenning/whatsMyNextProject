@@ -45,7 +45,7 @@ if(isset($_REQUEST['id'])){
                         <costs>1</costs>
                         <complexity>1</complexity>
                         <requirements>2</requirements>
-                        <accessibility>10</accessibility>
+                        <knowledge>10</knowledge>
                     </values>
                     <picture>../../../fe/img/p1.jpeg</picture>
                     <feedback>

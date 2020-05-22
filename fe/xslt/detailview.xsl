@@ -53,7 +53,7 @@
                                     <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/requirements"/>
                                 </div>
                                 <div id="einstiegshuerde">
-                                    <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/accessibility"/>
+                                    <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/knowledge"/>
                                 </div>
                             </div>
                             <svg id="radarChartSVG" height="300">
@@ -68,12 +68,12 @@
                                 <polygon class="hexPoly" id="polygon9"/>
                                 <polygon class="hexPoly" id="polygon10"/>
                                 <polygon class="heyPolyValues" id="polygonValues"/>
-                                <text id="text1">Spaß</text>
-                                <text id="text2">Wissenschaftlich</text>
-                                <text id="text3">Kosten</text>
-                                <text id="text4">Vorwissen</text>
-                                <text id="text5">Komplexität</text>
-                                <text id="text6">Werkzeug</text>
+                                <text id="text1"/>
+                                <text id="text2"/>
+                                <text id="text3"/>
+                                <text id="text4"/>
+                                <text id="text5"/>
+                                <text id="text6"/>
                             </svg>
                         </div>
                         <div id="materialArea">
