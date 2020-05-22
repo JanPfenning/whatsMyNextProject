@@ -75,7 +75,7 @@
                                                                             <xs:element type="xs:short" name="id"/>
                                                                             <xs:element type="xs:string" name="username"/>
                                                                             <xs:element type="xs:string" name="text"/>
-                                                                            <xs:element type="xs:short" name="rating"/>
+                                                                            <xs:element type="xs:short" name="likes"/>
                                                                         </xs:sequence>
                                                                     </xs:complexType>
                                                                 </xs:element>

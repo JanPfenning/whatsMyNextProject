@@ -9,21 +9,23 @@
     <xsl:template match="/">
         <html>
             <head>
-                <!--<script lang="javascript" src="../../../fe/js/groupview.js"/>-->
+                <script lang="javascript" src="../../../fe/js/groups.js"/>
+                <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
                 <!--<link rel="stylesheet" type="text/css" href="../../../fe/css/groupview.css" />-->
                 <title>Find your next Project</title>
             </head>
             <body>
-                <xsl:call-template name="groupChoice"/>
+                <!-- TODO this "1" has to be the id of the clicked topic before redirecting-->
+                <xsl:for-each select="dataset/topics/topic[@id=1]/groups/group">
+                    <a><xsl:value-of select="name"/></a>
+                </xsl:for-each>
             </body>
         </html>
     </xsl:template>
 
     <xsl:template name="groupChoice">
         <div class="groupChoiceContainer">
-            <xsl:for-each select="project_idea/bereiche/bereich[@id=1]/gruppen/gruppe">
-                <a><xsl:value-of select="name"/></a>
-            </xsl:for-each>
+
         </div>
     </xsl:template>
 

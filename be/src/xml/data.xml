@@ -50,7 +50,7 @@
                         <id>1</id>
                         <username>ThomasKing11</username>
                         <text>Ich schaffe es nicht</text>
-                        <rating>1000</rating>
+                        <likes>1000</likes>
                     </comment>
                 </comments>
             </feedback>

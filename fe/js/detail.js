@@ -41,7 +41,6 @@ function drawRadar(){
         xText = baseX-30+Math.round(getDeltaX(30+i*60,14*10));
         yText = baseY+5+Math.round(getDeltaY(30+i*60,11*10));
         textElement = document.getElementById("text"+(i+1));
-        console.log(textElement)
         textElement.setAttribute('x', xText);
         textElement.setAttribute('y', yText);
         let circle = document.createElementNS("http://www.w3.org/2000/svg",'circle');
