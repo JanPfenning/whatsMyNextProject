@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/missing.xsl"?>
+<dataset>
+    <project id="5">
+        <topicID>1</topicID>
+        <groupID>1</groupID>
+        <name>Chillen</name>
+        <materials>
+            <material>
+                <name>Chips 500g</name>
+                <amount>1</amount>
+            </material>
+        </materials>
+        <tools>
+            <tool>
+                <name>Bett</name>
+            </tool>
+        </tools>
+        <description>Nichts tun</description>
+        <values>
+            <fun>10</fun>
+            <scientific>10</scientific>
+            <costs>1</costs>
+            <complexity>1</complexity>
+            <requirements>1</requirements>
+            <accessibility>10</accessibility>
+        </values>
+        <picture>../../../fe/img/p3.jpeg</picture>
+        <feedback>
+            <rating>
+                <star1>4</star1>
+                <star2>12</star2>
+                <star3>12</star3>
+                <star4>65</star4>
+                <star5>190</star5>
+            </rating>
+            <comments>
+                <comment>
+                    <id>1</id>
+                    <username>ThomasKing11</username>
+                    <text>Ich schaffe es nicht</text>
+                    <likes>1000</likes>
+                </comment>
+            </comments>
+        </feedback>
+    </project>
+</dataset>
