@@ -19,14 +19,6 @@
                         <xsl:variable name="projectID">
                             <xsl:value-of select="'1'"/>
                         </xsl:variable>
-                        <form action="../php/details.php" method="POST">
-                            <input type="hidden" name="id">
-                                <xsl:attribute name="value">
-                                    <xsl:value-of select="$projectID"/>
-                                </xsl:attribute>
-                            </input>
-                            <input type="submit" value="Submit"/>
-                        </form>
                         <div id="titleArea">
                             <a id="title">
                                 <xsl:value-of select="dataset/projects/project[@id=$projectID]/name"/>
