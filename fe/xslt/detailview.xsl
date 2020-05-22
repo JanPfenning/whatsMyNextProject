@@ -71,9 +71,9 @@
                                 <text id="text1">Spaß</text>
                                 <text id="text2">Wissenschaftlich</text>
                                 <text id="text3">Kosten</text>
-                                <text id="text4">Komplexität</text>
-                                <text id="text5">Werkzeug</text>
-                                <text id="text6">Vorwissen</text>
+                                <text id="text4">Vorwissen</text>
+                                <text id="text5">Komplexität</text>
+                                <text id="text6">Werkzeug</text>
                             </svg>
                         </div>
                         <div id="materialArea">

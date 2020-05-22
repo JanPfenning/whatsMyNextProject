@@ -9,16 +9,26 @@ function readProperties(){
     let komplexitaet = document.getElementById("komplexitaet").textContent;
     let voraussetzungen = document.getElementById("voraussetzungen").textContent;
     let einstiegshuerde = document.getElementById("einstiegshuerde").textContent;
-    return [parseInt(unterhaltsam),
+    /*return [parseInt(unterhaltsam),
         parseInt(wissenschaftlich),
         parseInt(kosten),
         parseInt(komplexitaet),
         parseInt(voraussetzungen),
-        parseInt(einstiegshuerde)];
+        parseInt(einstiegshuerde)];*/
+    /*  this order has to match the order of the radarChartArea/svg/text elements*/
+    return [
+        parseInt(unterhaltsam),
+        parseInt(wissenschaftlich),
+        parseInt(kosten),
+        parseInt(einstiegshuerde),
+        parseInt(komplexitaet),
+        parseInt(voraussetzungen)
+        ];
+
 }
 
 function drawRadar(){
-    baseX = 150;
+    baseX = 160;
     baseY = 150;
     for (let i = 1; i <= 10; i++) {
         svg = document.getElementById("polygon"+i);
@@ -38,7 +48,7 @@ function drawRadar(){
         x = baseX+Math.round(getDeltaX(30+i*60,values[i]*10));
         y = baseY+Math.round(getDeltaY(30+i*60,values[i]*10));
         valuePoints+=(' '+x+','+y);
-        xText = baseX-30+Math.round(getDeltaX(30+i*60,14*10));
+        xText = baseX-34+Math.round(getDeltaX(30+i*60,14*10));
         yText = baseY+5+Math.round(getDeltaY(30+i*60,11*10));
         textElement = document.getElementById("text"+(i+1));
         textElement.setAttribute('x', xText);
