@@ -76,12 +76,12 @@
                                 <polygon class="hexPoly" id="polygon9"/>
                                 <polygon class="hexPoly" id="polygon10"/>
                                 <polygon class="heyPolyValues" id="polygonValues"/>
-                                <text id="text1">Fun</text>
-                                <text id="text2">Scientific</text>
-                                <text id="text3">Costs</text>
-                                <text id="text4">Complexity</text>
-                                <text id="text5">Requirements</text>
-                                <text id="text6">Accessibility</text>
+                                <text id="text1">Spaß</text>
+                                <text id="text2">Wissenschaftlich</text>
+                                <text id="text3">Kosten</text>
+                                <text id="text4">Komplexität</text>
+                                <text id="text5">Werkzeug</text>
+                                <text id="text6">Vorwissen</text>
                             </svg>
                         </div>
                         <div id="materialArea">

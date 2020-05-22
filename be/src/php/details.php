@@ -3,7 +3,7 @@
 
 if(isset($_REQUEST['id'])){
     $id = $_REQUEST['id'];
-    $queryStr = "select * from porject as p 
+    $queryStr = "select * from project as p 
             inner join material as m
             on p.id = m.project_id
             where p.id = $id";
