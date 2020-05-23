@@ -56,7 +56,7 @@
                                     <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/knowledge"/>
                                 </div>
                             </div>
-                            <svg id="radarChartSVG" width="340" height="300"/>
+                            <svg id="radarChartSVG" width="400" height="300"/>
                         </div>
                         <div id="materialArea">
                             <a id="materialHeader">Matierialien</a>

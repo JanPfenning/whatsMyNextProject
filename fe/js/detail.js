@@ -60,9 +60,10 @@ function drawPolygon(baseX,baseY,root){
         polygonPoints+=(' '+x+','+y);
         /*Generate Name of Axis*/
         let xText = baseX+Math.round(getDeltaX(30+i*60,11*10));
-        let yText = baseY+Math.round(getDeltaY(30+i*60,11*10));
+        let yText = baseY+Math.round(getDeltaY(30+i*60,11.5*10));
         let axisName = document.createElementNS("http://www.w3.org/2000/svg","text");
         axisName.setAttribute("id","axis"+i);
+        axisName.setAttribute("class","text");
         axisName.setAttribute('x', xText);
         axisName.setAttribute('y', yText);
         axisName.textContent=values[i].title;
@@ -84,7 +85,7 @@ function drawPolygon(baseX,baseY,root){
 }
 
 function drawRadar(){
-    baseX = 160;
+    baseX = 200;
     baseY = 150;
     radarChartSVG = document.getElementById("radarChartSVG");
     drawRadarBase(10,baseX,baseY,radarChartSVG);
