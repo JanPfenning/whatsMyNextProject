@@ -11,9 +11,9 @@
     <xsl:template match="/">
         <html>
             <head>
-                <script lang="javascript" src="../../../fe/js/overview.js"/>
+                <script lang="javascript" src="../../../fe/js/topics.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
-                <link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />
+                <link rel="stylesheet" type="text/css" href="../../../fe/css/topics.css" />
                 <title>Find your next Project</title>
             </head>
             <body onload="init()">
@@ -29,9 +29,8 @@
                 <xsl:for-each select="dataset/topics/topic">
                     <g>
                         <circle r="100" class="topicCircles">
-                            <xsl:attribute name="onclick">xslOnClick(<xsl:value-of select="@id"/>)</xsl:attribute>
+                            <!--<xsl:attribute name="onclick">xslOnClick(<xsl:value-of select="@id"/>)</xsl:attribute>-->
                         </circle>
-                        <!--TODO outsource fontfamily to css -->
                         <text class="text topicTexts"  text-anchor="middle" fill="#FFFFFF">
                             <xsl:value-of select="name"/>
                         </text>
