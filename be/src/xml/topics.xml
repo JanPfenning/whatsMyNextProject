@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/overview.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/topicview.xsl"?>
 <dataset>
     <projects>
         <project id="1">
@@ -34,7 +34,7 @@
                 <costs>0</costs>
                 <complexity>1</complexity>
                 <requirements>2</requirements>
-                <accessibility>10</accessibility>
+                <knowledge>10</knowledge>
             </values>
             <picture>../../../fe/img/p1.jpeg</picture>
             <feedback>

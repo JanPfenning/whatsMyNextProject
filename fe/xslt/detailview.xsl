@@ -19,14 +19,6 @@
                         <xsl:variable name="projectID">
                             <xsl:value-of select="'1'"/>
                         </xsl:variable>
-                        <form action="../php/details.php" method="POST">
-                            <input type="hidden" name="id">
-                                <xsl:attribute name="value">
-                                    <xsl:value-of select="$projectID"/>
-                                </xsl:attribute>
-                            </input>
-                            <input type="submit" value="Submit"/>
-                        </form>
                         <div id="titleArea">
                             <a id="title">
                                 <xsl:value-of select="dataset/projects/project[@id=$projectID]/name"/>
@@ -61,28 +53,10 @@
                                     <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/requirements"/>
                                 </div>
                                 <div id="einstiegshuerde">
-                                    <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/accessibility"/>
+                                    <xsl:value-of select="dataset/projects/project[@id=$projectID]/values/knowledge"/>
                                 </div>
                             </div>
-                            <svg id="radarChartSVG" height="300">
-                                <polygon class="hexPoly" id="polygon1"/>
-                                <polygon class="hexPoly" id="polygon2"/>
-                                <polygon class="hexPoly" id="polygon3"/>
-                                <polygon class="hexPoly" id="polygon4"/>
-                                <polygon class="hexPoly" id="polygon5"/>
-                                <polygon class="hexPoly" id="polygon6"/>
-                                <polygon class="hexPoly" id="polygon7"/>
-                                <polygon class="hexPoly" id="polygon8"/>
-                                <polygon class="hexPoly" id="polygon9"/>
-                                <polygon class="hexPoly" id="polygon10"/>
-                                <polygon class="heyPolyValues" id="polygonValues"/>
-                                <text id="text1">Spaß</text>
-                                <text id="text2">Wissenschaftlich</text>
-                                <text id="text3">Kosten</text>
-                                <text id="text4">Komplexität</text>
-                                <text id="text5">Werkzeug</text>
-                                <text id="text6">Vorwissen</text>
-                            </svg>
+                            <svg id="radarChartSVG" width="400" height="300"/>
                         </div>
                         <div id="materialArea">
                             <a id="materialHeader">Matierialien</a>

@@ -13,7 +13,7 @@
                 <costs>0</costs>
                 <complexity>1</complexity>
                 <requirements>2</requirements>
-                <accessibility>10</accessibility>
+                <knowledge>10</knowledge>
             </values>
         </project>
         <project id="2">
@@ -27,7 +27,7 @@
                 <costs>3</costs>
                 <complexity>1</complexity>
                 <requirements>10</requirements>
-                <accessibility>10</accessibility>
+                <knowledge>10</knowledge>
             </values>
         </project>
         <project id="5">
@@ -41,7 +41,7 @@
                 <costs>1</costs>
                 <complexity>1</complexity>
                 <requirements>1</requirements>
-                <accessibility>10</accessibility>
+                <knowledge>10</knowledge>
             </values>
         </project>
     </projects>

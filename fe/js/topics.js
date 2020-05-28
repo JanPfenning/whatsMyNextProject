@@ -1,8 +1,3 @@
-function xslOnClick(e){
-    console.log(e);
-    document.location.replace('./groups.xml?id='+e)
-}
-
 function placeCircles(){
     let circles = document.getElementsByClassName("topicCircles");
     let texts = document.getElementsByClassName("topicTexts");

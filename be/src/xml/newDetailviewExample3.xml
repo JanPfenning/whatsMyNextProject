@@ -23,7 +23,7 @@
             <costs>1</costs>
             <complexity>1</complexity>
             <requirements>1</requirements>
-            <accessibility>10</accessibility>
+            <knowledge>10</knowledge>
         </values>
         <picture>../../../fe/img/p3.jpeg</picture>
         <feedback>
