@@ -1,8 +1,8 @@
 <?php
     function resolveLink($columnName, $columnValue, $conn){
-        $table = str_replace("ID","",$columnName);
-        /*TODO ordanary Query*/
-        $queryString = "SELECT * FROM $table WHERE $columnName = $columnValue";
+        $table = str_replace("LINK","",$columnName);
+        $linkPartner = str_replace("LINK", 'ID',$columnName);
+        $queryString = "SELECT * FROM $table WHERE $linkPartner = $columnValue";
         $result = mysqli_query($conn, $queryString);
         if(mysqli_num_rows($result)>0){
             printData($table,$result,$conn);
@@ -16,14 +16,14 @@
             /*Für jede Spalte Tags mit Daten anlegen*/
             foreach($keys as $key){
                 if(!is_numeric($key)){
-                    $idPos = strpos($key, "ID");
+                    $link = strpos($key, "Link");
                     //if needle doesnt exisit in substr comp with ==0 -> true -> no recursion
-                    if($idPos == 0 || $key == $parentTag."ID"){
+                    if($link == 0 || $key == $parentTag."ID"){
                         print("<".$key.">");
                         print($row[$key]);
                         print("</".$key.">");
+                    //if needle Exists and is not at index 0 -> rekursion
                     }else{
-                        //if needle Exists and is not at index 0 -> rekursion
                         if($key != $parentTag."ID"){
                             resolveLink($key, $row[$key], $conn);
                         }
