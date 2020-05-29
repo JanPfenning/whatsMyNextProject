@@ -1,0 +1,35 @@
+body{
+    background-image: url("../img/errorpage.png");
+    background-size: cover;
+    text-align: center;
+}
+#toMainMenu{
+    width: 30%;
+}
+#quit{
+    margin-top: 5px;
+    width: 30%;
+}
+#buttons{
+    margin-top: 25%;
+}
+.button {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #999999;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 3px #303030;
+}
+.button:hover{
+    background-color: #ADD8E6;
+}
+.button:active {
+    background-color: #ADD8FF;
+    box-shadow: 0 3px #303030;
+    transform: translateY(3px);
+}
