@@ -1,15 +1,16 @@
 <?php
-    function resolveLink($columnName, $columnValue, $conn){
+    function resolveLink($columnName,$rootTable, $conn ){
         $table = str_replace("LINK","",$columnName);
         $linkPartner = str_replace("LINK", 'ID',$columnName);
-        $queryString = "SELECT * FROM $table WHERE $linkPartner = $columnValue";
+        $linkValue = $rootTable.'ID';
+        $queryString = "SELECT * FROM $table as t inner join $rootTable as r on r.$linkValue=t.$linkPartner";
         $result = mysqli_query($conn, $queryString);
         if(mysqli_num_rows($result)>0){
-            printData($table,$result,$conn);
+            printData($table,$result,$conn,$rootTable);
         }
     }
 
-    function printData($parentTag, $data, $conn){
+    function printData($parentTag, $data, $conn, $rootTable){
         while($row = mysqli_fetch_array($data)){
             $keys = array_keys($row);
             print("<".$parentTag.">");
@@ -25,7 +26,7 @@
                     //if needle Exists and is not at index 0 -> rekursion
                     }else{
                         if($key != $parentTag."ID"){
-                            resolveLink($key, $row[$key], $conn);
+                            resolveLink($key, $rootTable, $conn);
                         }
                     }
                 }
