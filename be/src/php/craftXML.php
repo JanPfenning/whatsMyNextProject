@@ -1,15 +1,15 @@
 <?php
-    function resolveLink($columnName, $columnValue, $conn){
+    function resolveLink($columnName, $columnValue, $conn,$rootTable){
         $table = str_replace("LINK","",$columnName);
         $linkPartner = str_replace("LINK", 'ID',$columnName);
         $queryString = "SELECT * FROM $table WHERE $linkPartner = $columnValue";
         $result = mysqli_query($conn, $queryString);
         if(mysqli_num_rows($result)>0){
-            printData($table,$result,$conn);
+            printData($table,$result,$conn,$rootTable);
         }
     }
 
-    function printData($parentTag, $data, $conn){
+    function printData($parentTag, $data, $conn, $rootTable){
         while($row = mysqli_fetch_array($data)){
             $keys = array_keys($row);
             print("<".$parentTag.">");
