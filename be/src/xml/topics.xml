@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xml" href="../../../fe/xslt/detailview.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/topicview.xsl"?>
 <dataset>
     <projects>
         <project id="1">
             <topicID>1</topicID>
             <groupID>1</groupID>
-            <name>Nudeln kochen</name>
+            <name>Nageln</name>
             <materials>
                 <material>
                     <name>Nudeln 500g</name>
@@ -29,9 +29,9 @@
             </tools>
             <description>Nudeln kochen ist einfach, sei kein idiot</description>
             <values>
-                <fun>1</fun>
+                <fun>0</fun>
                 <scientific>5</scientific>
-                <costs>1</costs>
+                <costs>0</costs>
                 <complexity>1</complexity>
                 <requirements>2</requirements>
                 <knowledge>10</knowledge>

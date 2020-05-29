@@ -1,0 +1,48 @@
+<!DOCTYPE dataset [
+        <!ELEMENT dataset (projects,topics)>
+        <!ELEMENT projects (project)*>
+        <!ELEMENT project (topicID,groupID,name,materials,tools,description,values,picture,feedback)>
+        <!ATTLIST project
+                id CDATA #REQUIRED>
+        <!ELEMENT topicID (#PCDATA)>
+        <!ELEMENT groupID (#PCDATA)>
+        <!ATTLIST group
+                id CDATA #IMPLIED>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT materials (material)*>
+        <!ELEMENT material (name,amount)>
+        <!ELEMENT amount (#PCDATA)>
+        <!ELEMENT tools (tool)*>
+        <!ELEMENT tool (name)>
+        <!ELEMENT description (#PCDATA)>
+        <!ELEMENT values (fun,scientific,costs,complexity,requirements,knowledge)>
+        <!ELEMENT fun (#PCDATA)>
+        <!ELEMENT scientific (#PCDATA)>
+        <!ELEMENT costs (#PCDATA)>
+        <!ELEMENT complexity (#PCDATA)>
+        <!ELEMENT requirements (#PCDATA)>
+        <!ELEMENT knowledge (#PCDATA)>
+        <!ELEMENT picture (#PCDATA)>
+        <!ELEMENT feedback (rating,comments)>
+        <!ELEMENT rating (star1,star2,star3,star4,star5)>
+        <!ELEMENT star1 (#PCDATA)>
+        <!ELEMENT star2 (#PCDATA)>
+        <!ELEMENT star3 (#PCDATA)>
+        <!ELEMENT star4 (#PCDATA)>
+        <!ELEMENT star5 (#PCDATA)>
+        <!ELEMENT comments (comment)+>
+        <!ELEMENT comment (id,username,text,likes)>
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT username (#PCDATA)>
+        <!ELEMENT text (#PCDATA)>
+        <!ELEMENT likes (#PCDATA)>
+        <!ELEMENT topics (topic)+>
+        <!ELEMENT topic (name,color,groups)>
+        <!ELEMENT groups (group)+>
+        <!ATTLIST topic
+                id CDATA #REQUIRED>
+        <!ELEMENT color (#PCDATA)>
+        <!ELEMENT group (name)+>
+        <!ATTLIST group
+                id CDATA #REQUIRED>
+        ]>
