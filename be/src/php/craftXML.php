@@ -1,9 +1,12 @@
 <?php
-    function followID($id, $idValue, $conn){
-        $table = str_replace("id","",$id);
+    function resolveLink($columnName, $columnValue, $conn){
+        $table = str_replace("ID","",$columnName);
         /*TODO ordanary Query*/
-        $queryString = "SELECT * FROM Projekt where PrID = 1".$table;
+        $queryString = "SELECT * FROM $table WHERE $columnName = $columnValue";
         $result = mysqli_query($conn, $queryString);
+        if(mysqli_num_rows($result)>0){
+            printData($table,$result,$conn);
+        }
     }
 
     function printData($parentTag, $data, $conn){
@@ -13,14 +16,16 @@
             /*Für jede Spalte Tags mit Daten anlegen*/
             foreach($keys as $key){
                 if(!is_numeric($key)){
-                    $idPos = strpos($key, "id");
-                    if($idPos == 0 || $key == $parentTag."id"){
+                    $idPos = strpos($key, "ID");
+                    //if needle doesnt exisit in substr comp with ==0 -> true -> no recursion
+                    if($idPos == 0 || $key == $parentTag."ID"){
                         print("<".$key.">");
                         print($row[$key]);
                         print("</".$key.">");
                     }else{
-                        if($key != $parentTag."id"){
-                            followId($key, $row[$key], $conn);
+                        //if needle Exists and is not at index 0 -> rekursion
+                        if($key != $parentTag."ID"){
+                            resolveLink($key, $row[$key], $conn);
                         }
                     }
                 }
@@ -34,15 +39,7 @@
         print('<?xml version="1.0" encoding="UTF-8"?>');
         /*TODO link correct xsl sheet*/
         /*print('<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/topicview.xsl"?>');*/
-        //xslt preparation
- /*       $xslt = new xsltProcessor;
-        $dom = new DOMDocument();
-        $dom->load("../../../fe/xslt/detailview.xsl");
-        $xslt->importStylesheet($dom);
-        $xmlData="";
-        $dom->loadXML($xmlData);
-        print $xslt->transformToXml($dom);
-*/      print("<dataset>");
+        print("<dataset>");
         printData($parentTag, $data, $conn);
         print("</dataset>");
     }
