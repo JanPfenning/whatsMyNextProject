@@ -13,6 +13,7 @@ CREATE TABLE `Projekt` (
 `ProjektID` int PRIMARY KEY AUTO_INCREMENT,
 `GruppeID` int,
 `NutzerID` int,
+`Name` VARCHAR(64),
 `WerkzeuglisteLINK` varchar(1) default '',
 `MateriallisteLINK` varchar(1) default '',
 `WertlisteLINK` varchar(1) default '',
@@ -97,20 +98,20 @@ ALTER TABLE Projekt ADD FOREIGN KEY (NutzerID) REFERENCES Nutzer (NutzerID);
 
 ALTER TABLE Kommentar ADD FOREIGN KEY (NutzerID) REFERENCES Nutzer (NutzerID);
 
-ALTER TABLE Werkzeugliste ADD FOREIGN KEY (WerkzeuglisteID) REFERENCES Projekt (WerkzeuglisteLINK);
+ALTER TABLE Werkzeugliste ADD FOREIGN KEY (WerkzeuglisteID) REFERENCES Projekt (ProjektID);
 
 ALTER TABLE Werkzeugliste ADD FOREIGN KEY (WerkzeugLINK) REFERENCES Werkzeug (WerkzeugID);
 
-ALTER TABLE Materialliste ADD FOREIGN KEY (MateriallisteID) REFERENCES Projekt (MateriallisteLINK);
+ALTER TABLE Materialliste ADD FOREIGN KEY (MateriallisteID) REFERENCES Projekt (ProjektID);
 
 ALTER TABLE Materialliste ADD FOREIGN KEY (MaterialLINK) REFERENCES Material (MaterialID);
 
-ALTER TABLE Tagliste ADD FOREIGN KEY (TaglisteID) REFERENCES Projekt (TaglisteLINK);
+ALTER TABLE Tagliste ADD FOREIGN KEY (TaglisteID) REFERENCES Projekt (ProjektID);
 
 ALTER TABLE Tagliste ADD FOREIGN KEY (TagLINK) REFERENCES Tag (TagID);
 
-ALTER TABLE Kommentarliste ADD FOREIGN KEY (KommentarlisteID) REFERENCES Projekt (KommentarlisteLINK);
+ALTER TABLE Kommentarliste ADD FOREIGN KEY (KommentarlisteID) REFERENCES Projekt (ProjektID);
 
 ALTER TABLE Kommentarliste ADD FOREIGN KEY (KommentarLINK) REFERENCES Kommentar (KommentarID);
 
-ALTER TABLE Wertliste ADD FOREIGN KEY (WertlisteID) REFERENCES Projekt (WertlisteLINK);
+ALTER TABLE Wertliste ADD FOREIGN KEY (WertlisteID) REFERENCES Projekt (ProjektID);
