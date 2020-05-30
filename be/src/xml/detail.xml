@@ -1,136 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xml" href="../../../fe/xslt/detailview.xsl"?>
 <dataset>
-    <projects>
-        <project id="1">
-            <topicID>1</topicID>
-            <groupID>1</groupID>
-            <name>Nudeln kochen</name>
-            <materials>
-                <material>
-                    <name>Nudeln 500g</name>
-                    <amount>1</amount>
-                </material>
-                <material>
-                    <name>Wasser 1L</name>
-                    <amount>1</amount>
-                </material>
-            </materials>
-            <tools>
-                <tool>
-                    <name>Kochlöffel</name>
-                </tool>
-                <tool>
-                    <name>Topf</name>
-                </tool>
-                <tool>
-                    <name>Herd</name>
-                </tool>
-            </tools>
-            <description>Nudeln kochen ist einfach, sei kein idiot</description>
-            <values>
-                <fun>1</fun>
-                <scientific>5</scientific>
-                <costs>1</costs>
-                <complexity>1</complexity>
-                <requirements>2</requirements>
-                <knowledge>10</knowledge>
-            </values>
-            <picture>../../../fe/img/p1.jpeg</picture>
-            <feedback>
-                <rating>
-                    <star1>4</star1>
-                    <star2>12</star2>
-                    <star3>12</star3>
-                    <star4>65</star4>
-                    <star5>190</star5>
-                </rating>
-                <comments>
-                    <comment>
-                        <id>1</id>
-                        <username>ThomasKing11</username>
-                        <text>Ich schaffe es nicht</text>
-                        <likes>1000</likes>
-                    </comment>
-                </comments>
-            </feedback>
-        </project>
-    </projects>
-    <topics>
-        <topic id="1">
-            <name>Audio und Hifi</name>
-            <color>red</color>
-            <groups>
-                <group id="1">
-                    <name>Einstieg</name>
-                </group>
-                <group id="2">
-                    <name>Nutzvoll</name>
-                </group>
-                <group id="3">
-                    <name>Spielerisch</name>
-                </group>
-            </groups>
-        </topic>
-        <topic id="2">
-            <name>Microcontroller</name>
-            <color>blue</color>
-            <groups>
-                <group id="1">
-                    <name>Einstieg</name>
-                </group>
-                <group id="2">
-                    <name>Nutzvoll</name>
-                </group>
-                <group id="3">
-                    <name>Spielerisch</name>
-                </group>
-            </groups>
-        </topic>
-        <topic id="3">
-            <name>Schaltungen</name>
-            <color>yellow</color>
-            <groups>
-                <group id="1">
-                    <name>Einstieg</name>
-                </group>
-                <group id="2">
-                    <name>Nutzvoll</name>
-                </group>
-                <group id="3">
-                    <name>Spielerisch</name>
-                </group>
-            </groups>
-        </topic>
-        <topic id="4">
-            <name>Holzarbeiten</name>
-            <color>green</color>
-            <groups>
-                <group id="1">
-                    <name>Einstieg</name>
-                </group>
-                <group id="2">
-                    <name>Nutzvoll</name>
-                </group>
-                <group id="3">
-                    <name>Spielerisch</name>
-                </group>
-            </groups>
-        </topic>
-        <topic id="5">
-            <name>Metallarbeiten</name>
-            <color>grey</color>
-            <groups>
-                <group id="1">
-                    <name>Einstieg</name>
-                </group>
-                <group id="2">
-                    <name>Nutzvoll</name>
-                </group>
-                <group id="3">
-                    <name>Spielerisch</name>
-                </group>
-            </groups>
-        </topic>
-    </topics>
+    <Projekt>
+        <ProjektID>1</ProjektID>
+        <GruppeID>1</GruppeID>
+        <NutzerID>1</NutzerID>
+        <Werkzeugliste>
+            <WerkzeuglisteID>1</WerkzeuglisteID>
+            <Werkzeug>
+                <WerkzeugID>1</WerkzeugID>
+                <Name>Topf</Name>
+                <Beschreibung>Rundes Metall Ding mit nem Loch oben</Beschreibung>
+            </Werkzeug>
+            <WerkzeuglisteID>1</WerkzeuglisteID>
+            <Werkzeug>
+                <WerkzeugID>2</WerkzeugID>
+                <Name>Löffel</Name>
+                <Beschreibung>Metallstab mit runder Schale am Ende</Beschreibung>
+            </Werkzeug>
+        </Werkzeugliste>
+        <Materialliste>
+            <MateriallisteID>1</MateriallisteID>
+            <Material>
+                <MaterialID>1</MaterialID>
+                <Name>Nudeln</Name>
+                <Beschreibung>Hartweizen in lustiger Form</Beschreibung>
+                <Menge>200</Menge>
+                <Einheit>Gramm</Einheit>
+            </Material>
+        </Materialliste>
+        <Wertliste>
+            <WertlisteID>1</WertlisteID>
+            <Wert1>2</Wert1>
+            <Wert2>3</Wert2>
+            <Wert3>4</Wert3>
+            <Wert4>5</Wert4>
+            <Wert5>6</Wert5>
+            <Wert6>7</Wert6>
+        </Wertliste>
+        <Tagliste>
+            <TaglisteID>1</TaglisteID>
+            <Tag>
+                <TagID>1</TagID>
+                <TagName>Kochen</TagName>
+            </Tag>
+            <TaglisteID>1</TaglisteID>
+            <Tag>
+                <TagID>2</TagID>
+                <TagName>Essen</TagName>
+            </Tag>
+            <TaglisteID>1</TaglisteID>
+            <Tag>
+                <TagID>3</TagID>
+                <TagName>Nudeln</TagName>
+            </Tag>
+        </Tagliste>
+        <Kommentarliste>
+            <KommentarlisteID>1</KommentarlisteID>
+            <Kommentar>
+                <KommentarID>1</KommentarID>
+                <NutzerID>2</NutzerID>
+                <Inhalt>
+                    Damgeschön für diezes tollen Projekt. Meinen Kindern sehr freuen haben das eszen.
+                </Inhalt>
+                <DatumErstellt>2020-05-29</DatumErstellt>
+            </Kommentar>
+        </Kommentarliste>
+        <Kurzbeschreibung>man kocht nudeln</Kurzbeschreibung>
+        <Beschreibung>sei kein idiot und koch die nudeln</Beschreibung>
+        <DatumErstellt>2020-05-29</DatumErstellt>
+        <DatumErneuert>2020-05-29</DatumErneuert>
+        <Name>Nudeln kochen</Name>
+        <BildURL/>
+        <Bewertungliste>
+            <BewertunglisteID>1</BewertunglisteID>
+            <Stern1>4</Stern1>
+            <Stern2>8</Stern2>
+            <Stern3>15</Stern3>
+            <Stern4>16</Stern4>
+            <Stern5>23</Stern5>
+        </Bewertungliste>
+    </Projekt>
 </dataset>
