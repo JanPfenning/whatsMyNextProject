@@ -16,8 +16,8 @@
             </head>
             <body>
                 <!-- TODO this "1" has to be the id of the clicked topic before redirecting-->
-                <xsl:for-each select="dataset/topics/topic[@id=1]/groups/group">
-                    <a><xsl:value-of select="name"/></a>
+                <xsl:for-each select="dataset/Gruppen/Gruppe">
+                    <a><xsl:value-of select="GruppeName"/></a>
                 </xsl:for-each>
             </body>
         </html>

@@ -15,24 +15,23 @@
                 <title>Find your next Project</title>
             </head>
             <body>
-                <!-- TODO this "1" has to be the id of the clicked group before redirecting-->
-                <xsl:for-each select="dataset/projects/project[groupID=1]">
-
+                <xsl:for-each select="dataset/Projekte/ProjektView">
+                    <!-- TODO correct path in backend architecture-->
                     <form action="../php/details.php"
                           method="POST">
                         <xsl:attribute name="name">
-                            <xsl:value-of select="concat('toDetailPage',@id)"/>
+                            <xsl:value-of select="concat('toDetailPage',ProjektID)"/>
                         </xsl:attribute>
                         <input type="hidden" name="id">
                             <xsl:attribute name="value">
-                                <xsl:value-of select="@id"/>
+                                <xsl:value-of select="ProjektID"/>
                             </xsl:attribute>
                         </input>
                         <div>
                             <xsl:attribute name="onclick">
-                                document.forms['toDetailPage<xsl:value-of select="@id"/>'].submit();
+                                document.forms['toDetailPage<xsl:value-of select="ProjektID"/>'].submit();
                             </xsl:attribute>
-                            <p><xsl:value-of select="name"/></p>
+                            <p><xsl:value-of select="ProjektName"/></p>
                         </div>
                     </form>
                 </xsl:for-each>

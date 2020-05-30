@@ -26,13 +26,13 @@
         <div class="topicChoiceContainer">
             <svg class="topicSpace" id="topics">
                 <!-- One Circle for each Topic -->
-                <xsl:for-each select="dataset/topics/topic">
+                <xsl:for-each select="dataset/Bereiche/Bereich">
                     <g>
                         <circle r="100" class="topicCircles">
                             <!--<xsl:attribute name="onclick">xslOnClick(<xsl:value-of select="@id"/>)</xsl:attribute>-->
                         </circle>
                         <text class="text topicTexts"  text-anchor="middle" fill="#FFFFFF">
-                            <xsl:value-of select="name"/>
+                            <xsl:value-of select="BereichName"/>
                         </text>
                     </g>
                 </xsl:for-each>
