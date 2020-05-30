@@ -45,3 +45,7 @@ function init(){
     placeCircles();
     calcCircleSize();
 }
+
+function xslOnClick(id){
+    document.getElementById('form_'+id).submit();
+}
