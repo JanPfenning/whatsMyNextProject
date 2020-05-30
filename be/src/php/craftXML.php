@@ -23,8 +23,9 @@
             foreach($keys as $key){
                 if(!is_numeric($key)){
                     $link = strpos($key, "LINK");
+                    $id = strpos($key, "ID");
                     //if needle doesnt exisit in substr comp with ==0 -> true -> no recursion
-                    if($link == 0){
+                    if($link == 0 && ($key == "GruppeID" || $key == "BereichID" || $key == "ProjektID" || $id == 0)){
 			            print("<".$key.">");
                         print($row[$key]);
                         print("</".$key.">");

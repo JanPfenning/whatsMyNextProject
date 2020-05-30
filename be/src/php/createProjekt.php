@@ -34,4 +34,14 @@
         echo 'Failed for reasons';
     }
 
+    /*TODO check new input with select against xsd*/
+
+    $validator = new DomValidator;
+    $validated = $validator->validateFeeds('sample.xml');
+    if ($validated) {
+        echo "Feed successfully validated";
+    } else {
+        print_r($validator->displayErrors());
+    }
+
     ?>

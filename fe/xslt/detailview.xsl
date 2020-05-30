@@ -89,22 +89,22 @@
                         </div>
                         <div id="commentArea">
                             <a id="commentHeader">Kommentare</a>
-                            <xsl:for-each select="dataset/Projekt/KommentarView/Kommentar">
+                            <xsl:for-each select="dataset/Projekt/Kommentarliste/KommentarView">
                                 <div>
                                     <xsl:attribute name="id">
-                                        <xsl:value-of select="concat('comment_',KommentarID)"/>
+                                        <xsl:value-of select="concat('comment_',KommentarViewID)"/>
                                     </xsl:attribute>
                                     <div>
                                         <xsl:attribute name="id">
-                                            <xsl:value-of select="concat('comment_',KommentarID,'_author')"/>
+                                            <xsl:value-of select="concat('comment_',KommentarViewID,'_author')"/>
                                         </xsl:attribute>
                                         <a>
-                                            <xsl:value-of select="NutzerID"/>
+                                            <xsl:value-of select="Nick"/>
                                         </a>
                                     </div>
                                     <div>
                                         <xsl:attribute name="id">
-                                            <xsl:value-of select="concat('comment_',KommentarID,'_text')"/>
+                                            <xsl:value-of select="concat('comment_',KommentarViewID,'_text')"/>
                                         </xsl:attribute>
                                         <a>
                                             <xsl:value-of select="Inhalt"/>
