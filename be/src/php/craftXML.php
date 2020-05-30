@@ -6,7 +6,7 @@
     echo $queryString;
 	$result = mysqli_query($conn, $queryString);
 	if(mysqli_num_rows($result)>0){
-	printData($table,$result,$conn,$rootTable);
+	printData($table,$result,$conn,$IDvalue);
 	}
 }
 
@@ -18,9 +18,10 @@
             foreach($keys as $key){
                 if(!is_numeric($key)){
                     $link = strpos($key, "LINK");
+                    $id = strpos($key, "ID");
                     //if needle doesnt exisit in substr comp with ==0 -> true -> no recursion
-                    if($link == 0){
-			print("<".$key.">");
+                    if($link == 0 && ($key == "GruppeID" || $key == "BereichID" || $key == "ProjektID" || $id == 0)){
+			            print("<".$key.">");
                         print($row[$key]);
                         print("</".$key.">");
                     //if needle Exists and is not at index 0 -> rekursion
