@@ -12,16 +12,16 @@
                     <div id="content">
                         <div id="titleArea">
                             <a id="title">
-                                <xsl:value-of select="dataset/Projekt/Name"/>
+                                <xsl:value-of select="dataset/Projekt/ProjektName"/>
                             </a>
                         </div>
                         <div id="pictureArea">
                             <img id="projectImage" style="border-radius: 8px;">
                                 <xsl:attribute name="src">
-                                    <xsl:value-of select="dataset/Projekt/Bild"/>
+                                    <xsl:value-of select="dataset/Projekt/BildURL"/>
                                 </xsl:attribute>
                                 <xsl:attribute name="alt">
-                                    <xsl:value-of select="concat('picture of project: ',dataset/Projekt/Name)"/>
+                                    <xsl:value-of select="concat('picture of project: ',dataset/Projekt/ProjektName)"/>
                                 </xsl:attribute>
                             </img>
                         </div>

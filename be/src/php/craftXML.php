@@ -40,11 +40,11 @@
         print("</".$parentTag.">");
     }
     /*base strucutre of the needed XML document*/
-    function printXML($parentTag, $data, $conn, $IDvalue){
+    function printXML($parentTag, $data, $conn, $IDvalue, $linkToXSLT){
         header("Content-Type: text/xml");
         print('<?xml version="1.0" encoding="UTF-8"?>');
         /*TODO link correct xsl sheet*/
-        /*print('<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/topicview.xsl"?>');*/
+        print('<?xml-stylesheet type="text/xml" href="'.$linkToXSLT.'"?>');
         print("<dataset>");
         printData($parentTag, $data, $conn, $IDvalue);
         print("</dataset>");
