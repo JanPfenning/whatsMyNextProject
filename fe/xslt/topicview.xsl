@@ -24,15 +24,29 @@
 
     <xsl:template name="topicChoice">
         <div class="topicChoiceContainer">
+            <xsl:for-each select="dataset/Bereiche/Bereich">
+                <form action="../php/groups.php" method="GET">
+                    <xsl:attribute name="id">
+                        <xsl:value-of select="concat('form_',BereichID)"/>
+                    </xsl:attribute>
+                    <input type="hidden">
+                        <xsl:attribute name="value">
+                            <xsl:value-of select="BereichID"/>
+                        </xsl:attribute>
+                    </input>
+                </form>
+            </xsl:for-each>
             <svg class="topicSpace" id="topics">
                 <!-- One Circle for each Topic -->
-                <xsl:for-each select="dataset/topics/topic">
+                <xsl:for-each select="dataset/Bereiche/Bereich">
                     <g>
                         <circle r="100" class="topicCircles">
-                            <!--<xsl:attribute name="onclick">xslOnClick(<xsl:value-of select="@id"/>)</xsl:attribute>-->
+                            <xsl:attribute name="onclick">
+                                <xsl:value-of select="concat('xslOnClick(',BereichID,')')"/>
+                            </xsl:attribute>
                         </circle>
                         <text class="text topicTexts"  text-anchor="middle" fill="#FFFFFF">
-                            <xsl:value-of select="name"/>
+                            <xsl:value-of select="BereichName"/>
                         </text>
                     </g>
                 </xsl:for-each>
