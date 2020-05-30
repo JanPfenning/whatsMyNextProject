@@ -76,8 +76,8 @@ CREATE TABLE Tagliste (
 
 CREATE TABLE Kommentarliste (
   KommentarlisteID int,
-  KommentarLINK int,
-  PRIMARY KEY (KommentarlisteID, KommentarLINK)
+  KommentarViewLINK int,
+  PRIMARY KEY (KommentarlisteID, KommentarViewLINK)
 );
 
 CREATE TABLE Wertliste (
