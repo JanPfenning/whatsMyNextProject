@@ -5,6 +5,7 @@
         <ProjektID>1</ProjektID>
         <GruppeID>1</GruppeID>
         <NutzerID>1</NutzerID>
+        <Name>Nudeln kochen</Name>
         <Werkzeugliste>
             <WerkzeuglisteID>1</WerkzeuglisteID>
             <Werkzeug>
@@ -57,21 +58,24 @@
         </Tagliste>
         <Kommentarliste>
             <KommentarlisteID>1</KommentarlisteID>
-            <Kommentar>
-                <KommentarID>1</KommentarID>
-                <NutzerID>2</NutzerID>
+            <KommentarView>
+                <KommentarViewID>1</KommentarViewID>
                 <Inhalt>
                     Damgeschön für diezes tollen Projekt. Meinen Kindern sehr freuen haben das eszen.
                 </Inhalt>
                 <DatumErstellt>2020-05-29</DatumErstellt>
-            </Kommentar>
+                <Nick>xXxPuzzySlayerxXx</Nick>
+            </KommentarView>
+            <KommentarlisteID>1</KommentarlisteID>
+            <KommentarView>
+                <KommentarViewID>3</KommentarViewID>
+                <Inhalt>
+                    Nachträgliche Rezension: Nachdem ich diese vorzügliche Gericht verzehrt habe, habe ich plötzlich die Fähigkeit erlangt mich angemessen zu artikulieren. Vielen Dank!
+                </Inhalt>
+                <DatumErstellt>2020-05-30</DatumErstellt>
+                <Nick>xXxPuzzySlayerxXx</Nick>
+            </KommentarView>
         </Kommentarliste>
-        <Kurzbeschreibung>man kocht nudeln</Kurzbeschreibung>
-        <Beschreibung>sei kein idiot und koch die nudeln</Beschreibung>
-        <DatumErstellt>2020-05-29</DatumErstellt>
-        <DatumErneuert>2020-05-29</DatumErneuert>
-        <Name>Nudeln kochen</Name>
-        <BildURL/>
         <Bewertungliste>
             <BewertunglisteID>1</BewertunglisteID>
             <Stern1>4</Stern1>
@@ -80,5 +84,14 @@
             <Stern4>16</Stern4>
             <Stern5>23</Stern5>
         </Bewertungliste>
+        <Nutzer>
+            <NutzerID>1</NutzerID>
+            <Nick>Admin</Nick>
+        </Nutzer>
+        <Kurzbeschreibung>man kocht nudeln</Kurzbeschreibung>
+        <Beschreibung>sei kein idiot und koch die nudeln</Beschreibung>
+        <DatumErstellt>2020-05-29</DatumErstellt>
+        <DatumErneuert>2020-05-29</DatumErneuert>
+        <BildURL/>
     </Projekt>
 </dataset>
