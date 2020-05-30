@@ -29,7 +29,7 @@
                     <xsl:attribute name="id">
                         <xsl:value-of select="concat('form_',BereichID)"/>
                     </xsl:attribute>
-                    <input type="hidden">
+                    <input type="hidden" name="BereichID">
                         <xsl:attribute name="value">
                             <xsl:value-of select="BereichID"/>
                         </xsl:attribute>

@@ -20,7 +20,7 @@
                         <xsl:attribute name="id">
                             <xsl:value-of select="concat('form_',GruppeID)"/>
                         </xsl:attribute>
-                        <input type="hidden">
+                        <input type="hidden" name="GruppeID">
                             <xsl:attribute name="value">
                                 <xsl:value-of select="GruppeID"/>
                             </xsl:attribute>
