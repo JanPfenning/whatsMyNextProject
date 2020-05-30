@@ -4,26 +4,19 @@
     <Projekt>
         <ProjektID>1</ProjektID>
         <GruppeID>1</GruppeID>
-        <NutzerID>1</NutzerID>
         <Name>Nudeln kochen</Name>
         <Werkzeugliste>
-            <WerkzeuglisteID>1</WerkzeuglisteID>
             <Werkzeug>
-                <WerkzeugID>1</WerkzeugID>
                 <Name>Topf</Name>
                 <Beschreibung>Rundes Metall Ding mit nem Loch oben</Beschreibung>
             </Werkzeug>
-            <WerkzeuglisteID>1</WerkzeuglisteID>
             <Werkzeug>
-                <WerkzeugID>2</WerkzeugID>
                 <Name>Löffel</Name>
                 <Beschreibung>Metallstab mit runder Schale am Ende</Beschreibung>
             </Werkzeug>
         </Werkzeugliste>
         <Materialliste>
-            <MateriallisteID>1</MateriallisteID>
             <Material>
-                <MaterialID>1</MaterialID>
                 <Name>Nudeln</Name>
                 <Beschreibung>Hartweizen in lustiger Form</Beschreibung>
                 <Menge>200</Menge>
@@ -31,7 +24,6 @@
             </Material>
         </Materialliste>
         <Wertliste>
-            <WertlisteID>1</WertlisteID>
             <Wert1>2</Wert1>
             <Wert2>3</Wert2>
             <Wert3>4</Wert3>
@@ -40,35 +32,25 @@
             <Wert6>7</Wert6>
         </Wertliste>
         <Tagliste>
-            <TaglisteID>1</TaglisteID>
             <Tag>
-                <TagID>1</TagID>
                 <TagName>Kochen</TagName>
             </Tag>
-            <TaglisteID>1</TaglisteID>
             <Tag>
-                <TagID>2</TagID>
                 <TagName>Essen</TagName>
             </Tag>
-            <TaglisteID>1</TaglisteID>
             <Tag>
-                <TagID>3</TagID>
                 <TagName>Nudeln</TagName>
             </Tag>
         </Tagliste>
         <Kommentarliste>
-            <KommentarlisteID>1</KommentarlisteID>
             <KommentarView>
-                <KommentarViewID>1</KommentarViewID>
                 <Inhalt>
                     Damgeschön für diezes tollen Projekt. Meinen Kindern sehr freuen haben das eszen.
                 </Inhalt>
                 <DatumErstellt>2020-05-29</DatumErstellt>
                 <Nick>xXxPuzzySlayerxXx</Nick>
             </KommentarView>
-            <KommentarlisteID>1</KommentarlisteID>
             <KommentarView>
-                <KommentarViewID>3</KommentarViewID>
                 <Inhalt>
                     Nachträgliche Rezension: Nachdem ich diese vorzügliche Gericht verzehrt habe, habe ich plötzlich die Fähigkeit erlangt mich angemessen zu artikulieren. Vielen Dank!
                 </Inhalt>
@@ -77,7 +59,6 @@
             </KommentarView>
         </Kommentarliste>
         <Bewertungliste>
-            <BewertunglisteID>1</BewertunglisteID>
             <Stern1>4</Stern1>
             <Stern2>8</Stern2>
             <Stern3>15</Stern3>
@@ -85,7 +66,6 @@
             <Stern5>23</Stern5>
         </Bewertungliste>
         <Nutzer>
-            <NutzerID>1</NutzerID>
             <Nick>Admin</Nick>
         </Nutzer>
         <Kurzbeschreibung>man kocht nudeln</Kurzbeschreibung>
