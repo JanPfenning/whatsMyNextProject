@@ -13,20 +13,22 @@ body{
     width: fit-content;
     border-radius: 2px;
     padding: 3px;
-    margin: 0px 3px;
+    margin: 0 3px;
     background-color: var(--rgba-primary-3);
 }
 .projekt{
-    margin: 10px 0px;
+    margin: 10px 0;
+    width: fit-content;
+
 }
-.projekt .projektKurzbeschreibung{
-    display: inline-block;
+.projektKurzbeschreibung{
+    display: none;
     margin-left: 10px;
     padding: 1px 3px;
     border-radius: 3px;
     background-color: var(--rgba-primary-2);
-    opacity: 0;
-    transition: 0.2s opacity;
+    /*transition: 10s opacity;
+    opacity: 0;*/
 }
 .projekt .projektKurzbeschreibung:before{
     content: '';
@@ -37,6 +39,7 @@ body{
     z-index: -1;
     transform: translate(-60%, 40%) rotate(45deg);
 }
-.projekt:hover > .projektKurzbeschreibung{
-    opacity: 1;
+.title:hover + .projektKurzbeschreibung{
+    display: inline-block;
+    /*opacity: 1;*/
 }
