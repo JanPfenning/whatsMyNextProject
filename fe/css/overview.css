@@ -10,14 +10,18 @@ body{
     color: white;
 }
 .title{
+    font-size: 1rem;
+    white-space: nowrap;
+    height: fit-content;
     width: fit-content;
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 3px;
     margin: 0 3px;
     background-color: var(--rgba-primary-3);
 }
 .projekt{
     margin: 10px 0;
+    white-space: nowrap;
     width: fit-content;
 
 }
