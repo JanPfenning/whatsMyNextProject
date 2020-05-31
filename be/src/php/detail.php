@@ -4,6 +4,7 @@
     require_once $path.'/../../../vault/dbConnection.php';
 
     include $path.'/craftXML.php';
+    include $path.'/linkErrorpage.php';
     /*Simulated Request*/
     $IDvalue = 1;
     // $result = mysqli_query($conn, "select * from Projekt where ProjektID = $IDvalue");
@@ -16,12 +17,11 @@
             $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
             printXML("Projekt", $result, $conn, $IDvalue, "/../../../fe/xslt/detailview.xsl", $BackgroundURLtext["BackgroundURL"]);
         }else{
-            echo 'No ID given for which Details where requested';
-            /*TODO Link errorpage*/
+            error('No ID given for which Details where requested');
         }
     }
     else{
-        /*TODO Link errorpage*/
+        error('only GET allowed');
     }
 
 
