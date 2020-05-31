@@ -17,6 +17,9 @@
                 <title>Find your next Project</title>
             </head>
             <body onload="init()">
+                <xsl:attribute name="style">
+                    <xsl:value-of select="concat('background-image: url(',dataset/BackgroundURL,')')"/>
+                </xsl:attribute>
                 <xsl:call-template name="topicChoice"/>
             </body>
         </html>

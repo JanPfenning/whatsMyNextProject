@@ -13,7 +13,9 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
     if(isset($_GET["GruppeID"])){
         $IDvalue = $_GET["GruppeID"];
         $result = mysqli_query($conn, "select ProjektViewLINK from ProjektlistView where GruppeID = $IDvalue");
-        printXML("Projekte", $result, $conn, $IDvalue, "/../../../fe/xslt/overview.xsl");
+        $BackgroundURL = mysqli_query($conn, "select BackgroundURL from Bereich as b join Gruppe as g on b.BereichID = g.BereichID where g.GruppeID = $IDvalue"); 
+        $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
+        printXML("Projekte", $result, $conn, $IDvalue, "/../../../fe/xslt/overview.xsl", $BackgroundURLtext["BackgroundURL"]);
     }else{
         echo 'No ID given for which Projects where requested';
         /*TODO Link errorpage*/

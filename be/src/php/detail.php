@@ -12,7 +12,9 @@
         if(isset($_GET["ProjektID"])){
             $IDvalue = $_GET["ProjektID"];
             $result = mysqli_query($conn, "select * from Projekt where ProjektID = $IDvalue");
-            printXML("Projekt", $result, $conn, $IDvalue, "/../../../fe/xslt/detailview.xsl");
+            $BackgroundURL = mysqli_query($conn, "select BackgroundURL from Bereich as b join Gruppe as g on b.BereichID = g.BereichID join Projekt as p on p.GruppeID = g.GruppeID where p.ProjektID = $IDvalue"); 
+            $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
+            printXML("Projekt", $result, $conn, $IDvalue, "/../../../fe/xslt/detailview.xsl", $BackgroundURLtext["BackgroundURL"]);
         }else{
             echo 'No ID given for which Details where requested';
             /*TODO Link errorpage*/

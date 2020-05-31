@@ -7,7 +7,7 @@
     --rgba-primary-4: rgba(53,0,23,1);
 }
 body{
-    background: radial-gradient(circle, #24246e, #FFFFFF);
+    /* background: radial-gradient(circle, #24246e, #FFFFFF); */
     font-family: Arial, Helvetica, sans-serif;
 }
 
