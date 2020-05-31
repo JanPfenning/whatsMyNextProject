@@ -4,7 +4,7 @@
     require_once $path.'/../../../vault/dbConnection.php';
 
     include $path.'/craftXML.php';
-    include $path.'linkErrorpage.php';
+    include $path.'/linkErrorpage.php';
     /*Simulated Request*/
     $IDvalue = 1;
     // $result = mysqli_query($conn, "select * from Projekt where ProjektID = $IDvalue");

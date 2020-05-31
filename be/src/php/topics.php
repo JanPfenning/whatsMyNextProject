@@ -4,7 +4,7 @@ $path = getcwd();
 require_once $path.'/../../../vault/dbConnection.php';
 
 include $path.'/craftXML.php';
-include $path.'linkErrorpage.php';
+include $path.'/linkErrorpage.php';
 
 
 /*if no 'action' default is get*/
