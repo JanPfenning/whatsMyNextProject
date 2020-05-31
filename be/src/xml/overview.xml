@@ -9,6 +9,24 @@
             <Kurzbeschreibung>man kocht nudeln</Kurzbeschreibung>
         </ProjektView>
         <ProjektView>
+            <ProjektID>2</ProjektID>
+            <GruppeID>1</GruppeID>
+            <ProjektName>Projektmanagement</ProjektName>
+            <Kurzbeschreibung>Managen von Projekten</Kurzbeschreibung>
+        </ProjektView>
+        <ProjektView>
+            <ProjektID>4</ProjektID>
+            <GruppeID>1</GruppeID>
+            <ProjektName>Schlafen</ProjektName>
+            <Kurzbeschreibung>selbsterklärend</Kurzbeschreibung>
+        </ProjektView>
+        <ProjektView>
+            <ProjektID>5</ProjektID>
+            <GruppeID>1</GruppeID>
+            <ProjektName>Nudeln kochen 2</ProjektName>
+            <Kurzbeschreibung>man kocht nudeln</Kurzbeschreibung>
+        </ProjektView>
+        <ProjektView>
             <ProjektID>3</ProjektID>
             <GruppeID>1</GruppeID>
             <ProjektName>Hello World</ProjektName>
