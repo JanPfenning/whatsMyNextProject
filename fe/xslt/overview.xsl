@@ -28,16 +28,18 @@
                     </form>
                 </xsl:for-each>
                 <xsl:for-each select="dataset/Projekte/ProjektView">
-                    <div class="projekt">
-                        <xsl:attribute name="onclick">
-                            <xsl:value-of select="concat('xslOnClick(',ProjektID,')')"/>
-                        </xsl:attribute>
-                        <p><xsl:value-of select="ProjektName"/></p>
-                    </div>
-                    <div class="projektKurzbeschreibung">
-                        <p>
-                            <xsl:value-of select="Kurzbeschreibung"/>
-                        </p>
+                    <div>
+                        <div class="projekt">
+                            <xsl:attribute name="onclick">
+                                <xsl:value-of select="concat('xslOnClick(',ProjektID,')')"/>
+                            </xsl:attribute>
+                            <span class="title">
+                                <xsl:value-of select="ProjektName"/>
+                            </span>
+                            <span class="projektKurzbeschreibung">
+                                <xsl:value-of select="Kurzbeschreibung"/>
+                            </span>
+                        </div>
                     </div>
                 </xsl:for-each>
             </body>

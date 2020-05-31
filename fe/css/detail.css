@@ -1,3 +1,11 @@
+:root{
+    /* Color Theme */
+    --rgba-primary-0: rgba(199,1,88,1);
+    --rgba-primary-1: rgba(157,10,74,1);
+    --rgba-primary-2: rgba(128,7,60,1);
+    --rgba-primary-3: rgba(89,0,39,1);
+    --rgba-primary-4: rgba(53,0,23,1);
+}
 body{
     background: radial-gradient(circle, #24246e, #FFFFFF);
 }
