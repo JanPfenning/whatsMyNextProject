@@ -77,11 +77,12 @@
                                 <div id="toolList">
                                     <ul>
                                         <xsl:for-each select="dataset/Projekt/Werkzeugliste/Werkzeug">
-                                            <li>
+                                            <li class="tool">
                                                 <xsl:attribute name="id">
                                                     <xsl:value-of select="concat('tool_',Name)"/>
                                                 </xsl:attribute>
-                                                <a><xsl:value-of select="Name"/></a>
+                                                <span class="a"><xsl:value-of select="Name"/></span>
+                                                <span class="toolDetail"><xsl:value-of select="Beschreibung"/></span>
                                             </li>
                                         </xsl:for-each>
                                     </ul>

@@ -114,18 +114,45 @@ li:last-child {
     margin-left: 10px;
     padding: 1px 3px;
     border-radius: 3px;
-    background-color: var(--rgba-primary-2);
+    background-color: var(--rgba-primary-0);
 }
 .material .materialDetail:before{
     content: '';
     width: 10px;
     height: 10px;
     position: absolute;
-    background-color: var(--rgba-primary-2);
+    background-color: var(--rgba-primary-0);
     z-index: -1;
-    transform: translate(-60%, 40%) rotate(45deg);
+    transform: translate(-60%, 100%) rotate(45deg);
 }
 .a:hover + .materialDetail{
+    /*background: var(--rgba-primary-3);*/
+    position: absolute;
+    display: inline-block;
+}
+
+.tool {
+    margin: 10px 0;
+    width: fit-content;
+    white-space: nowrap;
+}
+.toolDetail{
+    display:none;
+    margin-left: 10px;
+    padding: 1px 3px;
+    border-radius: 3px;
+    background-color: var(--rgba-primary-0);
+}
+.tool .toolDetail:before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: var(--rgba-primary-0);
+    z-index: -1;
+    transform: translate(-60%, 100%) rotate(45deg);
+}
+.a:hover + .toolDetail{
     /*background: var(--rgba-primary-3);*/
     position: absolute;
     display: inline-block;
