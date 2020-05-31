@@ -4,7 +4,7 @@
     <Projekt>
         <ProjektID>1</ProjektID>
         <GruppeID>1</GruppeID>
-        <Name>Nudeln kochen</Name>
+        <ProjektName>Nudeln kochen</ProjektName>
         <Werkzeugliste>
             <Werkzeug>
                 <Name>Topf</Name>

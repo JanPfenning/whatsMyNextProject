@@ -17,5 +17,50 @@
             <BereichID>1</BereichID>
             <GruppeName>Fortgeschritten</GruppeName>
         </Gruppe>
+        <Gruppe>
+            <GruppeID>4</GruppeID>
+            <BereichID>1</BereichID>
+            <GruppeName>Noob</GruppeName>
+        </Gruppe>
+        <Gruppe>
+            <GruppeID>5</GruppeID>
+            <BereichID>1</BereichID>
+            <GruppeName>Informativ</GruppeName>
+        </Gruppe>
+        <Gruppe>
+            <GruppeID>6</GruppeID>
+            <BereichID>1</BereichID>
+            <GruppeName>Günstig</GruppeName>
+        </Gruppe>
+        <Gruppe>
+            <GruppeID>6</GruppeID>
+            <BereichID>1</BereichID>
+            <GruppeName>Günstig</GruppeName>
+        </Gruppe>
+        <Gruppe>
+            <GruppeID>6</GruppeID>
+            <BereichID>1</BereichID>
+            <GruppeName>Günstig</GruppeName>
+        </Gruppe>
+        <Gruppe>
+            <GruppeID>6</GruppeID>
+            <BereichID>1</BereichID>
+            <GruppeName>Günstig</GruppeName>
+        </Gruppe>
+        <Gruppe>
+            <GruppeID>6</GruppeID>
+            <BereichID>1</BereichID>
+            <GruppeName>Günstig</GruppeName>
+        </Gruppe>
+        <Gruppe>
+            <GruppeID>6</GruppeID>
+            <BereichID>1</BereichID>
+            <GruppeName>Günstig</GruppeName>
+        </Gruppe>
+        <Gruppe>
+            <GruppeID>6</GruppeID>
+            <BereichID>1</BereichID>
+            <GruppeName>Günstig</GruppeName>
+        </Gruppe>
     </Gruppen>
 </dataset>
