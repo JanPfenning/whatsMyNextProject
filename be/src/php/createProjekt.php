@@ -17,31 +17,43 @@
             $Kurzbeschreibung = $_GET["Kurzbeschreibung"];
             $Beschreibung = $_GET["Beschreibung"];
             $sqliCreate = "INSERT INTO Projekt ('GruppeID','NutzerID','Name','Kurzbeschreibung','Beschreibung')"
-                            ."VALUES ($Gruppe,$NutzerID,$ProjektName,$Kurzbeschreibung,$Beschreibung)";
+                            ."VALUES ($Gruppe,$NutzerID,$ProjektName,$Kurzbeschreibung,$Beschreibung)"
+                            ."OUTPUT inserted.* SELECT 1;";
+            if ($conn->query($sqliCreate) === TRUE) {
+                //echo "New record created successfully";
+                $last_insert_id = $conn->insert_id;
+                /*TODO Bilder beim erstellen einfügen
+                if(isset($_GET["ImageURL"])){
+                    $BildURL = $_GET["ImageURL"];
+                    $sqliUpdate = "UPDATE Projekt SET 'BildURL'=$BildURL";
+                }
+                */
+
+                /*At the end*/
+                $result = mysqli_query($conn, "select * from Projekt where ProjektID = $last_insert_id");
+                printXML("Projekt", $result, $conn, $IDvalue);
+
+                $validator = new DomValidator;
+                $validated = $validator->validateFeeds('sample.xml');
+                if ($validated) {
+                    echo "Feed successfully validated";
+                } else {
+                    print_r($validator->displayErrors());
+                }
+            } else {
+                //echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+
+            $newID = "SELECT IDENT_CURRENT('Projekt').ProjektID";
         }else{
             /*TODO to Errorpage*/
             echo 'Some Values are Missing';
             die();
         }
-        /*TODO Bilder beim erstellen einfügen
-        if(isset($_GET["ImageURL"])){
-            $BildURL = $_GET["ImageURL"];
-            $sqliUpdate = "UPDATE Projekt SET 'BildURL'=$BildURL";
-        }
-        */
-        $sqliCreateMaterialliste = "INSERT INTO Materialliste('MateriallisteID','MaterialID') VALUES(IDENT_CURRENT('Projekt').ProjektID, ID)";
     }else{
         echo 'Failed for reasons';
     }
 
     /*TODO check new input with select against xsd*/
-
-    $validator = new DomValidator;
-    $validated = $validator->validateFeeds('sample.xml');
-    if ($validated) {
-        echo "Feed successfully validated";
-    } else {
-        print_r($validator->displayErrors());
-    }
 
     ?>

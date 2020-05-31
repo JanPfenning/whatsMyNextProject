@@ -11,7 +11,7 @@
             <head>
                 <script lang="javascript" src="../../../fe/js/overview.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
-                <!--<link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />-->
+                <link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />
                 <title>Find your next Project</title>
             </head>
             <body>
@@ -28,11 +28,16 @@
                     </form>
                 </xsl:for-each>
                 <xsl:for-each select="dataset/Projekte/ProjektView">
-                    <div>
+                    <div class="projekt">
                         <xsl:attribute name="onclick">
                             <xsl:value-of select="concat('xslOnClick(',ProjektID,')')"/>
                         </xsl:attribute>
                         <p><xsl:value-of select="ProjektName"/></p>
+                    </div>
+                    <div class="projektKurzbeschreibung">
+                        <p>
+                            <xsl:value-of select="Kurzbeschreibung"/>
+                        </p>
                     </div>
                 </xsl:for-each>
             </body>
