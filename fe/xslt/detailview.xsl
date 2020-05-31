@@ -8,6 +8,9 @@
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/detail.css" />
             </head>
             <body onLoad="onInit()">
+                <xsl:attribute name="style">
+                    <xsl:value-of select="concat('background-image: url(',dataset/BackgroundURL,')')"/>
+                </xsl:attribute>
                 <div id="area">
                     <div id="content">
                         <div id="titleArea">
@@ -53,7 +56,7 @@
                         </div>
                         <div id="right">
                             <div id="materialArea" class="contentArea">
-                                <h2 id="materialHeader">Matierialien</h2>
+                                <h2 id="materialHeader">Materialien</h2>
                                 <div id="materials">
                                     <ul>
                                         <xsl:for-each select="dataset/Projekt/Materialliste/Material">

@@ -15,6 +15,9 @@
                 <title>Find your next Project</title>
             </head>
             <body>
+                <xsl:attribute name="style">
+                    <xsl:value-of select="concat('background-image: url(',dataset/BackgroundURL,')')"/>
+                </xsl:attribute>
                 <xsl:for-each select="dataset/Projekte/ProjektView">
                     <form action="../php/detail.php" method="GET">
                         <xsl:attribute name="id">
