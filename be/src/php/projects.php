@@ -4,6 +4,8 @@ $path = getcwd();
 require_once $path.'/../../../vault/dbConnection.php';
 
 include $path.'/craftXML.php';
+include $path.'linkErrorpage.php';
+
 /*Simulated Request*/
 $IDvalue = 1;
 // $result = mysqli_query($conn, "select ProjektViewLINK from ProjektlistView where GruppeID = $IDvalue");
@@ -17,12 +19,11 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
         printXML("Projekte", $result, $conn, $IDvalue, "/../../../fe/xslt/overview.xsl", $BackgroundURLtext["BackgroundURL"]);
     }else{
-        echo 'No ID given for which Projects where requested';
-        /*TODO Link errorpage*/
+        error('No ID given for which Projects where requested');
     }
 }
 else{
-    /*TODO Link errorpage*/
+    error('only GET allowed');
 }
 
 
