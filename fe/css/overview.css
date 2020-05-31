@@ -1,0 +1,49 @@
+:root{
+    /* Color Theme */
+    --rgba-primary-0: rgba(199,1,88,1);
+    --rgba-primary-1: rgba(157,10,74,1);
+    --rgba-primary-2: rgba(128,7,60,1);
+    --rgba-primary-3: rgba(89,0,39,1);
+    --rgba-primary-4: rgba(53,0,23,1);
+}
+body{
+    color: white;
+}
+.title{
+    font-size: 1rem;
+    white-space: nowrap;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 4px;
+    padding: 3px;
+    margin: 0 3px;
+    background-color: var(--rgba-primary-3);
+}
+.projekt{
+    margin: 10px 0;
+    white-space: nowrap;
+    width: fit-content;
+
+}
+.projektKurzbeschreibung{
+    display: none;
+    margin-left: 10px;
+    padding: 1px 3px;
+    border-radius: 3px;
+    background-color: var(--rgba-primary-2);
+    /*transition: 10s opacity;
+    opacity: 0;*/
+}
+.projekt .projektKurzbeschreibung:before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color: var(--rgba-primary-2);
+    z-index: -1;
+    transform: translate(-60%, 40%) rotate(45deg);
+}
+.title:hover + .projektKurzbeschreibung{
+    display: inline-block;
+    /*opacity: 1;*/
+}

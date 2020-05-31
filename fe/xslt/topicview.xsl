@@ -39,12 +39,11 @@
             <svg class="topicSpace" id="topics">
                 <!-- One Circle for each Topic -->
                 <xsl:for-each select="dataset/Bereiche/Bereich">
-                    <g>
-                        <circle r="100" class="topicCircles">
-                            <xsl:attribute name="onclick">
-                                <xsl:value-of select="concat('xslOnClick(',BereichID,')')"/>
-                            </xsl:attribute>
-                        </circle>
+                    <g class="topicG">
+                        <xsl:attribute name="onclick">
+                            <xsl:value-of select="concat('xslOnClick(',BereichID,')')"/>
+                        </xsl:attribute>
+                        <circle r="100" class="topicCircles"/>
                         <text class="text topicTexts"  text-anchor="middle" fill="#FFFFFF">
                             <xsl:value-of select="BereichName"/>
                         </text>

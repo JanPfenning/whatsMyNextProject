@@ -11,10 +11,10 @@
             <head>
                 <script lang="javascript" src="../../../fe/js/groups.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
-                <!--<link rel="stylesheet" type="text/css" href="../../../fe/css/groupview.css" />-->
+                <link rel="stylesheet" type="text/css" href="../../../fe/css/groups.css" />
                 <title>Find your next Project</title>
             </head>
-            <body>
+            <body onload="init()">
                 <xsl:for-each select="dataset/Gruppen/Gruppe">
                     <form action="../php/projects.php" method="GET">
                         <xsl:attribute name="id">
@@ -27,14 +27,24 @@
                         </input>
                     </form>
                 </xsl:for-each>
-                <xsl:for-each select="dataset/Gruppen/Gruppe">
-                    <div>
-                        <xsl:attribute name="onclick">
-                            <xsl:value-of select="concat('xslOnClick(',GruppeID,')')"/>
-                        </xsl:attribute>
-                        <p><xsl:value-of select="GruppeName"/></p>
-                    </div>
-                </xsl:for-each>
+                <svg class="groupSpace" id="groups">
+                    <xsl:for-each select="dataset/Gruppen/Gruppe">
+                        <g class="groupG">
+                            <xsl:attribute name="onclick">
+                                <xsl:value-of select="concat('xslOnClick(',GruppeID,')')"/>
+                            </xsl:attribute>
+                            <circle r="100" class="groupCircles"/>
+                            <text class="text groupTexts"  text-anchor="middle" fill="#FFFFFF">
+                                <xsl:value-of select="GruppeName"/>
+                            </text>
+                        </g>
+                    </xsl:for-each>
+                    <!-- Base circle -->
+                    <g>
+                        <circle id="baseCircle" r="200" cx="50%" cy="100%"/>
+                        <text class="text" id="baseText" x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">Gruppenwahl</text>
+                    </g>
+                </svg>
             </body>
         </html>
     </xsl:template>

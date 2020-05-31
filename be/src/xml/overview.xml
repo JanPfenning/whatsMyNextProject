@@ -3,11 +3,13 @@
 <dataset>
     <Projekte>
         <ProjektView>
+            <ProjektID>1</ProjektID>
             <GruppeID>1</GruppeID>
             <ProjektName>Nudeln kochen</ProjektName>
             <Kurzbeschreibung>man kocht nudeln</Kurzbeschreibung>
         </ProjektView>
         <ProjektView>
+            <ProjektID>3</ProjektID>
             <GruppeID>1</GruppeID>
             <ProjektName>Hello World</ProjektName>
             <Kurzbeschreibung>
