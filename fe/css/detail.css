@@ -20,7 +20,8 @@ body{
 #content{
     border-radius: 75px;
     background-color: hsla(0,100%,100%,0.6);
-    max-width: 70%;
+    max-width: 90%;
+    min-width: 50%;
     margin: 0 auto;
 }
 #title{
@@ -73,7 +74,7 @@ margin-left: 40px;
     grid-row: 3;
 }
 .contentArea{
-    padding: 10% 5%;
+    padding: 2% 5%;
 }
 
 h2 {
