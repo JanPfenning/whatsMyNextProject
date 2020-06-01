@@ -1,0 +1,55 @@
+body {
+    background-image: url(../img/createBackground.jpg);
+    background-color: #000000 ;
+}
+
+input[type=text], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: border-box;
+    resize: vertical;
+}
+
+label {
+    color: #fff;
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.container {
+    border-radius: 5px;
+    background: rgb(0, 0, 0, 0.5);
+    padding: 20px;
+    margin: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+
+.col-75 {
+    float: left;
+    width: 73%;
+    margin-top: 6px;
+  }
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+input[type=button] {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 15px 32px;
+    margin-top: 6px;
+    margin-right: 10px;
+    text-align: center;
+    float: right;
+}
