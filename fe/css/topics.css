@@ -12,12 +12,16 @@ body{
     background-size: cover;
 }
 .topicChoiceContainer{
-    position: relative;
+    text-align: center;
     width:100%;
     height:100%;
 }
+.scalingSvgContainer{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
 .topicSpace{
-    position: absolute;
     bottom: 0;
     height: 100%;
     width: 100%;
