@@ -140,8 +140,8 @@ function onResize(){
     info = document.querySelector('#information');
     style = getComputedStyle(info);
     availW = window.screen.availWidth;
-    console.log('available: '+availW);
-    console.log('used: '+style.width);
+    //console.log('available: '+availW);
+    //console.log('used: '+style.width);
     if(availW>700){
         info.style.width = availW/2;
     }else{

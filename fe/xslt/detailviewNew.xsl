@@ -1,15 +1,26 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:n="http://localhost:63342/whatsMyNextProject/be/src/xml/dtdDetailNew.dtd"
+                ><!--xmlns:svg="http://www.w3.org/2000/svg"-->
 
+    <xsl:output
+            method="html"
+            doctype-public="-//W3C//DTD XHTML 1.1//EN"
+            doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
+            omit-xml-declaration="yes"
+            encoding="UTF-8"
+            indent="yes"/>
     <xsl:template match="/">
         <html>
             <head>
                 <script lang="javascript" src="../../../fe/js/detailNew.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
-                <link rel="stylesheet" type="text/css" href="../../../fe/css/detailNew.css" />
+                <link rel="stylesheet" type="text/css" href="../../../fe/css/detailNew.css"/>
             </head>
-            <body onLoad="onInit()" onresize="onResize()">
+            <body onload="onInit()">
+                <!-- onresize="onResize()"-->
                 <xsl:attribute name="style">
-                    <xsl:value-of select="concat('background-image: url(',dataset/BackgroundURL,')')"/>
+                    <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
                 </xsl:attribute>
                 <div id="backgroundOverlay">
                     <div id="toolbar">
@@ -25,37 +36,39 @@
                         <span class="barE" id="current">
                             Details
                         </span>
-                        <span id="forms">
-                            <form action="topics.php" id="toTopics"/>
+                        <div id="forms">
+                            <form action="topics.php" id="toTopics">
+                            </form>
                             <form action="groups.php" id="toGroups">
                                 <input type="hidden" name="ProjektID">
                                     <xsl:attribute name="value">
-                                        <xsl:value-of select="dataset/Projekt/ProjektID"/>
+                                        <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
                                     </xsl:attribute>
                                 </input>
                             </form>
                             <form action="projects.php" id="toProjects">
                                 <input type="hidden" name="GruppeID">
                                     <xsl:attribute name="value">
-                                        <xsl:value-of select="dataset/Projekt/GruppeID"/>
+                                        <xsl:value-of select="n:dataset/n:Projekt/n:GruppeID"/>
                                     </xsl:attribute>
                                 </input>
                             </form>
-                        </span>
+                        </div>
                     </div>
                     <div id="projectInformation" class="grid">
                         <div id="title">
                             <h1>
-                                <xsl:value-of select="dataset/Projekt/ProjektName"/>
+                                <xsl:value-of select="n:dataset/n:Projekt/n:ProjektName"/>
                             </h1>
                         </div>
                         <div id="picture">
                             <img id="projectImage">
                                 <xsl:attribute name="src">
-                                    <xsl:value-of select="concat('url(',dataset/Projekt/BildURL)"/>
+                                    <xsl:value-of select="concat('url(',n:dataset/n:Projekt/n:BildURL)"/>
                                 </xsl:attribute>
                                 <xsl:attribute name="alt">
-                                    <xsl:value-of select="concat('picture of project: ',dataset/Projekt/ProjektName)"/>
+                                    <xsl:value-of
+                                            select="concat('picture of project: ',n:dataset/n:Projekt/n:ProjektName)"/>
                                 </xsl:attribute>
                             </img>
                         </div>
@@ -63,18 +76,18 @@
                             <div id="information">
                                 <div id="description" class="tabcontent">
                                     <span>
-                                        <xsl:value-of select="dataset/Projekt/Beschreibung"/>
+                                        <xsl:value-of select="n:dataset/n:Projekt/n:Beschreibung"/>
                                     </span>
                                 </div>
                                 <div id="tools" class="tabcontent">
                                     <ul>
-                                        <xsl:for-each select="dataset/Projekt/Werkzeugliste/Werkzeug">
+                                        <xsl:for-each select="n:dataset/n:Projekt/n:Werkzeugliste/n:Werkzeug">
                                             <li>
                                                 <span class="identifier">
-                                                    <xsl:value-of select="Name"/>
+                                                    <xsl:value-of select="n:Name"/>
                                                 </span>
                                                 <span class="detail">
-                                                    <xsl:value-of select="Beschreibung"/>
+                                                    <xsl:value-of select="n:Beschreibung"/>
                                                 </span>
                                             </li>
                                         </xsl:for-each>
@@ -82,19 +95,21 @@
                                 </div>
                                 <div id="materials" class="tabcontent">
                                     <ul>
-                                        <xsl:for-each select="dataset/Projekt/Materialliste/Material">
+                                        <xsl:for-each select="n:dataset/n:Projekt/n:Materialliste/n:Material">
                                             <li>
                                                 <span class="identifier">
-                                                    <xsl:value-of select="concat(Menge,' ',Einheit,' ',Name)"/>
+                                                    <xsl:value-of select="concat(n:Menge,' ',n:Einheit,' ',n:Name)"/>
                                                 </span>
                                                 <span class="detail">
-                                                    <xsl:value-of select="Beschreibung"/>
+                                                    <xsl:value-of select="n:Beschreibung"/>
                                                 </span>
                                             </li>
                                         </xsl:for-each>
                                     </ul>
                                 </div>
-                                <button class="tablink" onclick="openInfo('description', this)" id="defaultOpen">Beschreibung</button>
+                                <button class="tablink" onclick="openInfo('description', this)" id="defaultOpen">
+                                    Beschreibung
+                                </button>
                                 <button class="tablink" onclick="openInfo('tools', this)">Werkzeug</button>
                                 <button class="tablink" onclick="openInfo('materials', this)">Material</button>
                             </div>
@@ -106,34 +121,34 @@
                         <div id="radarChartArea" class="contentArea">
                             <div id="projectMatrix" style="display:none;">
                                 <div id="unterhaltsam">
-                                    <xsl:value-of select="dataset/Projekt/Wertliste/Wert1"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Wertliste/n:Wert1"/>
                                 </div>
                                 <div id="wissenschaftlich">
-                                    <xsl:value-of select="dataset/Projekt/Wertliste/Wert2"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Wertliste/n:Wert2"/>
                                 </div>
                                 <div id="kosten">
-                                    <xsl:value-of select="dataset/Projekt/Wertliste/Wert3"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Wertliste/n:Wert3"/>
                                 </div>
                                 <div id="komplexitaet">
-                                    <xsl:value-of select="dataset/Projekt/Wertliste/Wert4"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Wertliste/n:Wert4"/>
                                 </div>
                                 <div id="voraussetzungen">
-                                    <xsl:value-of select="dataset/Projekt/Wertliste/Wert5"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Wertliste/n:Wert5"/>
                                 </div>
                                 <div id="einstiegshuerde">
-                                    <xsl:value-of select="dataset/Projekt/Wertliste/Wert6"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Wertliste/n:Wert6"/>
                                 </div>
                             </div>
                             <svg id="radarChartSVG" height="300" width="400"/>
                         </div>
                         <div id="comments">
-                            <xsl:for-each select="dataset/Projekt/Kommentarliste/KommentarView">
+                            <xsl:for-each select="n:dataset/n:Projekt/n:Kommentarliste/n:KommentarView">
                                 <div>
                                     <span class="Nick">
-                                        <xsl:value-of select="Nick"/>
+                                        <xsl:value-of select="n:Nick"/>
                                     </span>
                                     <span class="Message">
-                                        <xsl:value-of select="Inhalt"/>
+                                        <xsl:value-of select="n:Inhalt"/>
                                     </span>
                                 </div>
                             </xsl:for-each>
@@ -142,31 +157,31 @@
                             <div id="star1">
                                 <span class="Bewertungseinheit">1-Stern:&#160;&#160;&#160;</span>
                                 <span>
-                                    <xsl:value-of select="dataset/Projekt/Bewertungliste/Stern1"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Bewertungliste/n:Stern1"/>
                                 </span>
                             </div>
                             <div id="star2">
-                                <span class="Bewertungseinheit">2-Sterne: </span>
+                                <span class="Bewertungseinheit">2-Sterne:</span>
                                 <span>
-                                    <xsl:value-of select="dataset/Projekt/Bewertungliste/Stern2"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Bewertungliste/n:Stern2"/>
                                 </span>
                             </div>
                             <div id="star3">
-                                <span class="Bewertungseinheit">3-Sterne: </span>
+                                <span class="Bewertungseinheit">3-Sterne:</span>
                                 <span>
-                                    <xsl:value-of select="dataset/Projekt/Bewertungliste/Stern3"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Bewertungliste/n:Stern3"/>
                                 </span>
                             </div>
                             <div id="star4">
-                                <span class="Bewertungseinheit">4-Sterne: </span>
+                                <span class="Bewertungseinheit">4-Sterne:</span>
                                 <span>
-                                    <xsl:value-of select="dataset/Projekt/Bewertungliste/Stern4"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Bewertungliste/n:Stern4"/>
                                 </span>
                             </div>
                             <div id="star5">
-                                <span class="Bewertungseinheit">5-Sterne: </span>
+                                <span class="Bewertungseinheit">5-Sterne:</span>
                                 <span>
-                                    <xsl:value-of select="dataset/Projekt/Bewertungliste/Stern5"/>
+                                    <xsl:value-of select="n:dataset/n:Projekt/n:Bewertungliste/n:Stern5"/>
                                 </span>
                             </div>
                         </div>
