@@ -39,25 +39,27 @@
                     </input>
                 </form>
             </xsl:for-each>
-            <svg class="topicSpace" id="topics">
-                <!-- One Circle for each Topic -->
-                <xsl:for-each select="dataset/Bereiche/Bereich">
-                    <g class="topicG">
-                        <xsl:attribute name="onclick">
-                            <xsl:value-of select="concat('xslOnClick(',BereichID,')')"/>
-                        </xsl:attribute>
-                        <circle r="100" class="topicCircles"/>
-                        <text class="text topicTexts"  text-anchor="middle" fill="#FFFFFF">
-                            <xsl:value-of select="BereichName"/>
-                        </text>
+            <div class="scalingSvgContainter">
+                <svg class="topicSpace" id="topics" viewbox="0 0 1500 700">
+                    <!-- One Circle for each Topic -->
+                    <xsl:for-each select="dataset/Bereiche/Bereich">
+                        <g class="topicG">
+                            <xsl:attribute name="onclick">
+                                <xsl:value-of select="concat('xslOnClick(',BereichID,')')"/>
+                            </xsl:attribute>
+                            <circle r="100" class="topicCircles"/>
+                            <text class="text topicTexts"  text-anchor="middle" fill="#FFFFFF">
+                                <xsl:value-of select="BereichName"/>
+                            </text>
+                        </g>
+                    </xsl:for-each>
+                    <!-- Base circle -->
+                    <g>
+                        <circle id="baseCircle" r="200" cx="50%" cy="100%"/>
+                        <text class="text" id="baseText" x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">Bereichswahl</text>
                     </g>
-                </xsl:for-each>
-                <!-- Base circle -->
-                <g>
-                    <circle id="baseCircle" r="200" cx="50%" cy="100%"/>
-                    <text class="text" id="baseText" x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">Bereichswahl</text>
-                </g>
-            </svg>
+                </svg>
+            </div>
         </div>
     </xsl:template>
 

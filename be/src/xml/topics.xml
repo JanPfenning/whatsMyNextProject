@@ -11,4 +11,7 @@
             <BereichName>Handwerk</BereichName>
         </Bereich>
     </Bereiche>
+    <BackgroundURL>
+        ../../../fe/img/toolsBackground.jpeg
+    </BackgroundURL>
 </dataset>
