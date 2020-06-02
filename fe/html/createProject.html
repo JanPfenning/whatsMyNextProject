@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Create Project</title>
     <link rel="stylesheet" type="text/css" href="../css/create.css" />
+    <script language="javascript" src="../js/createProject.js"></script>
 </head>
 <body>
     <div class="container">
-        <form id="createProject" method="get">
+        <form id="createProject" action="../../be/src/php/createProjekt.php" method="get">
             <div class="row"> <!-- Projektname -->
                 <div class="col-25">
                     <label for="pname">Projektname</label>
@@ -45,7 +46,17 @@
                     <label for="materials">Materialien</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="materials" placeholder="Materialien..">
+                    <span>
+                        <div class="col-50">
+                            <input type="text" id="materials" onchange="changeMat(this)" name="materials[]" placeholder="Material...">
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="amount" name="amount[]" placeholder="Menge...">
+                        </div>
+                        <div class="col-25">
+                            <input type="text" id="unit" name="unit[]" placeholder="Einheit...">
+                        </div>
+                    </span>
                 </div>
             </div>
             <div class="row">
@@ -53,7 +64,7 @@
                     <label for="tools">Werkzeuge</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="tools" placeholder="Werkzeuge..">
+                    <input type="text" id="tools" onchange="changeList(this)" name="tools[]" placeholder="Werkzeuge..">
                 </div>
             </div>
             <div class="row">
