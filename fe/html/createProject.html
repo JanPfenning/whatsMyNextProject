@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <title>Create Project</title>
     <link rel="stylesheet" type="text/css" href="../css/create.css" />
-    <script language="javascript" src="../js/createProject.js"></script>
+    <script src="../js/createProject.js"></script>
 </head>
 <body>
     <div class="container">
-        <form id="createProject" action="../../be/src/php/createProjekt.php" method="get">
+        <form id="createProject" action="../../be/src/php/createProjektLocal.php" method="get">
             <div class="row"> <!-- Projektname -->
                 <div class="col-25">
                     <label for="pname">Projektname</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="pname" name="projectname" placeholder="Projektname..">
+                    <input type="text" id="pname" name="ProjektName" placeholder="Projektname.." required>
                 </div>
             </div>
             <div class="row"> <!-- Dein Name-->
@@ -22,7 +22,7 @@
                     <label for="nname">Dein Name</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="nname" name="yourname" placeholder="Dein Name..">
+                    <input type="text" id="nname" name="UserName" placeholder="Dein Name.." required>
                 </div>
             </div>
             <div class="row">
@@ -30,7 +30,7 @@
                     <label for="sdescription">Kurzbeschreibung</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="sdescription" name="shortdescription" placeholder="Kurze Beschreibung..">
+                    <input type="text" id="sdescription" name="Kurzbeschreibung" placeholder="Kurze Beschreibung.." required>
                 </div>
             </div>
             <div class="row">
@@ -38,7 +38,29 @@
                     <label for="ldescription">Beschreibung</label>
                 </div>
                 <div class="col-75">
-                    <textarea id="ldescription" name="longdescription" placeholder="Projektbeschreibung.." style="height: 200px;"></textarea>
+                    <textarea id="ldescription" name="Beschreibung" placeholder="Projektbeschreibung.." style="height: 200px;" required></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="picture">Bild</label>
+                </div>
+                <div class="col-75">
+                    <input type="file" id="picture" name="Bild">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Values">Values</label>
+                </div>
+                <div class="col-75" id="Values">
+                    <input type="range" min="1" max="100" value="50" id="M1" name="Matrix[]">
+                    <input type="range" min="1" max="100" value="50" id="M2" name="Matrix[]">
+                    <input type="range" min="1" max="100" value="50" id="M3" name="Matrix[]">
+                    <input type="range" min="1" max="100" value="50" id="M4" name="Matrix[]">
+                    <input type="range" min="1" max="100" value="50" id="M5" name="Matrix[]">
+                    <input type="range" min="1" max="100" value="50" id="M6" name="Matrix[]">
+
                 </div>
             </div>
             <div class="row">
@@ -70,7 +92,15 @@
                 </div>
             </div>
             <div class="row">
-                <input type="button" value="Erstelle dein Projekt">
+                <div class="col-25">
+                    <label for="taglist">Tags</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="taglist" name="Taglist" placeholder="Holz, Heimwerken, Zuhause, ..."></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Erstelle dein Projekt">
             </div>
         </form>
     </div>

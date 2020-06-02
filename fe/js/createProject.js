@@ -6,7 +6,9 @@ function changeList(inputElement,type){
     }
     container = row.parentNode;
     if(value==="") {
-        container.removeChild(row);
+        if(row.nextElementSibling!==null){
+            container.removeChild(row);
+        }
     }
     else{
         if(row.nextElementSibling === null){
