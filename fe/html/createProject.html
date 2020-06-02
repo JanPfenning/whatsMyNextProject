@@ -48,7 +48,7 @@
                 <div class="col-75">
                     <span>
                         <span class="col-50">
-                            <input type="text" id="materials" onchange="changeMat(this)" name="materials[]" placeholder="Material...">
+                            <input type="text" id="materials" onchange="changeList(this,'mat')" name="materials[]" placeholder="Material...">
                         </span>
                         <span class="col-25">
                             <input type="text" id="amount" name="amount[]" placeholder="Menge...">
@@ -64,7 +64,9 @@
                     <label for="tools">Werkzeuge</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="tools" onchange="changeTool(this)" name="tools[]" placeholder="Werkzeuge..">
+                    <span>
+                        <input type="text" id="tools" onchange="changeList(this,'tool')" name="tools[]" placeholder="Werkzeuge..">
+                    </span>
                 </div>
             </div>
             <div class="row">

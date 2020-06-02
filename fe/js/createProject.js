@@ -1,40 +1,33 @@
-function changeTool(inputElement){
+function changeList(inputElement,type){
     value = inputElement.value;
-    /*wenn das element leer ist lösch es*/
-    if(value==="") {
-        /*wenn ein weiteres element existiert und dieses nicht leer ist (das letzte ist)
-        *  lade dessen daten in das aktuelle element und wiederhole für das nächste element*/
-        currentElement = inputElement;
-        while(currentElement.nextElementSibling.value!==""){
-            currentElement.value = currentElement.nextElementSibling.value;
-            currentElement = currentElement.nextElementSibling;
-        }
-        currentElement.parentNode.removeChild(currentElement);
+    row = inputElement.parentNode;
+    if(type==="mat"){
+        row = inputElement.parentNode.parentNode;
     }
-    /*If the next element is not null it was only a change and no new entry*/
+    container = row.parentNode;
+    if(value==="") {
+        container.removeChild(row);
+    }
     else{
-        /*If it is null we need to add new row*/
-        if(inputElement.nextElementSibling  === null){
-            newInput = document.createElement("INPUT");
-            newInput.setAttribute("type",inputElement.getAttribute("type"));
-            newInput.setAttribute("onchange",inputElement.getAttribute("onchange"));
-            newInput.setAttribute("name",inputElement.getAttribute("name"));
-            newInput.setAttribute("placeholder",inputElement.getAttribute("placeholder"));
-            //newInput.setAttribute("id",parseInt(inputElement.getAttribute("id"))+1);
-            //newInput.setAttribute("class",inputElement.getAttribute("class").replace("noRemove",""));
-            inputElement.parentNode.appendChild(newInput)
+        if(row.nextElementSibling === null){
+            newRow = row.cloneNode(true);
+            if(type === "mat"){
+                newRow.childNodes.forEach(getRow);
+            }else{
+                newRow.childNodes.forEach(emptyValues);
+            }
+            container.appendChild(newRow);
         }
     }
 }
-function changeMat(inputElement){
-    row = inputElement.parentNode.parentNode;
-    container = row.parentNode;
-    value = inputElement.value;
-    if(value==="") {
-        /*TODO Ersetzen der ganzen Zeile mit der folgezeile (Für jede zeile außer Letzte)*/
-        /*TODO Löschen der letzten Zeile*/
+
+function getRow(value){
+    if(value.tagName === "SPAN"){
+        value.childNodes.forEach(emptyValues)
     }
-    else{
-        /*TODO erweiterung um eine ganze Zeile wenn die nächste Zeile null ist*/
+}
+function emptyValues(value){
+    if(value.tagName==="INPUT"){
+        value.value = "";
     }
 }
