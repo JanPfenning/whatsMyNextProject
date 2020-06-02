@@ -1,5 +1,4 @@
 function onInit(){
-    first = true;
     document.getElementById("defaultOpen").click();
     drawRadar();
 }
