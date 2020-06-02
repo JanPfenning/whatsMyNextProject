@@ -3,34 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Project</title>
+    <link rel="stylesheet" type="text/css" href="../css/create.css" />
 </head>
 <body>
-    <form id="createProject" method="get">
-        <label>Projektname</label>
-        <input type="text"/>
-
-        <label>Dein Name</label>
-        <input type="text"/>
-
-        <label>Kurzbeschreibung</label>
-        <input type="text"/>
-
-        <label>Beschreibung</label>
-        <input type="text"/>
-
-        <button type="submit">Erstelle dein Projekt</button>
-
-        <div id="Materialien">
-
-        </div>
-
-        <div id="Werkzeuge">
-
-        </div>
-
-        <div id="Werte">
-
-        </div>
-    </form>
+    <div class="container">
+        <form id="createProject" method="get">
+            <div class="row"> <!-- Projektname -->
+                <div class="col-25">
+                    <label for="pname">Projektname</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="pname" name="projectname" placeholder="Projektname..">
+                </div>
+            </div>
+            <div class="row"> <!-- Dein Name-->
+                <div class="col-25">
+                    <label for="nname">Dein Name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="nname" name="yourname" placeholder="Dein Name..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="sdescription">Kurzbeschreibung</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="sdescription" name="shortdescription" placeholder="Kurze Beschreibung..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="ldescription">Beschreibung</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="ldescription" name="longdescription" placeholder="Projektbeschreibung.." style="height: 200px;"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="materials">Materialien</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="materials" placeholder="Materialien..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="tools">Werkzeuge</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="tools" placeholder="Werkzeuge..">
+                </div>
+            </div>
+            <div class="row">
+                <input type="button" value="Erstelle dein Projekt">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
