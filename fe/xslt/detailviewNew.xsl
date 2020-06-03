@@ -17,8 +17,8 @@
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/detailNew.css"/>
             </head>
-            <body onload="onInit()">
-                <!-- onresize="onResize()"-->
+            <body onload="onInit()" onresize="onResize()">
+                <!-- -->
                 <xsl:attribute name="style">
                     <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
                 </xsl:attribute>

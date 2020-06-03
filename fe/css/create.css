@@ -3,14 +3,17 @@ body {
     background-color: #000000 ;
 }
 
-input[type=text], textarea {
+input[type=text], textarea{
     width: 100%;
     padding: 12px;
     border: 1px solid #cccccc;
-    border-radius: border-box;
     resize: vertical;
 }
-
+button{
+    padding: 12px;
+    border: 1px solid #cccccc;
+    resize: vertical;
+}
 label {
     color: #fff;
     padding: 12px 12px 12px 0;
@@ -19,30 +22,64 @@ label {
 
 .container {
     border-radius: 5px;
-    background: rgb(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     padding: 20px;
     margin: 20px;
 }
-
+.col-10 {
+    float: left;
+    width: 10%;
+    margin-top: 6px;
+}
+.col-20 {
+    float: left;
+    width: 20%;
+    margin-top: 6px;
+}
 .col-25 {
     float: left;
     width: 25%;
     margin-top: 6px;
   }
-
+.col-33 {
+    float: left;
+    width: 33%;
+    margin-top: 6px;
+}
+.col-50 {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+}
 .col-75 {
     float: left;
     width: 73%;
     margin-top: 6px;
   }
+.col-90 {
+    float: left;
+    width: 90%;
+    margin-top: 6px;
+}
 
 .row:after {
     content: "";
     display: table;
     clear: both;
   }
-
-input[type=button] {
+#pictureUpload{
+    background-color: white;
+    border-radius: 5px;
+}
+input[type="file"]::-webkit-file-upload-button{
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 5px 15px;
+    margin-right: 10px;
+}
+input[type=submit] {
     background-color: #4CAF50;
     border: none;
     border-radius: 4px;
@@ -52,4 +89,41 @@ input[type=button] {
     margin-right: 10px;
     text-align: center;
     float: right;
+}
+.values{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+input[type=range]{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+input[type=range]:hover{
+    opacity: 1;
+}
+
+input[type=range]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    background: url('../img/mcBlock.svg');
+    #background: #4CAF50;
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb{
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
 }
