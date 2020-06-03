@@ -1,8 +1,8 @@
 # whatsMyNextProject
-DHBW (University) exercise using XSLT and XML for building a Website. Trying to avoid JS because its the exercise.
+DHBW (University) exercise using XSLT and XML for building a Website.
 
-Currently to see any relevant status you will need to open the Data-XML file by hand.
-whatsMyNextProject\be\src\xml\data.xml - The xsl document attached to it will style it and the result will be shown in the browser of your choice.
+Currently to see any relevant status you will either need to open the Data-XML file by hand (hatsMyNextProject\be\src\xml\...xml) or you go to expensive.click which is our server instance.
+The XSL document attached to the XML file will style the data and the result will be shown in the browser of your choice.
 
 Helpfull links:
 xslt XPath functions:
