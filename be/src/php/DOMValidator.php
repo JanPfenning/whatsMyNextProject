@@ -1,12 +1,13 @@
 <?php
 class DOMValidator
 {
-    protected $feedSchema = __DIR__  .  '/sample.xsd';
+    protected $feedSchema;
     public $feedErrors = 0;
     public $errorDetails;
 
-    public function __construct()
+    public function __construct($schemaPath)
     {
+        $this->feedSchema = $schemaPath;
         $this->handler = new \DOMDocument('1.0', 'utf-8');
     }
 
