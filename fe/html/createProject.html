@@ -70,17 +70,20 @@
                     <label for="materials">Materialien</label>
                 </div>
                 <div class="col-75">
-                    <span>
+                    <div>
                         <span class="col-50">
-                            <input type="text" id="materials" onchange="changeList(this,'mat')" name="materials[]" placeholder="Material...">
+                            <input type="text" id="materials" onchange="changeList(this,2)" name="materials[]" placeholder="Material...">
                         </span>
-                        <span class="col-25">
+                        <span class="col-20">
                             <input type="text" id="amount" name="amount[]" placeholder="Menge...">
                         </span>
-                        <span class="col-25">
+                        <span class="col-20">
                             <input type="text" id="unit" name="unit[]" placeholder="Einheit...">
                         </span>
-                    </span>
+                        <span class="col-10">
+                            <button onclick="removeLine(this,3)">-</button>
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -88,9 +91,14 @@
                     <label for="tools">Werkzeuge</label>
                 </div>
                 <div class="col-75">
-                    <span>
-                        <input type="text" id="tools" onchange="changeList(this,'tool')" name="tools[]" placeholder="Werkzeuge..">
-                    </span>
+                    <div>
+                        <span class="col-90">
+                            <input type="text" id="tools" onchange="changeList(this,2)" name="tools[]" placeholder="Werkzeuge..">
+                        </span>
+                        <span class="col-10">
+                            <button onclick="removeLine(this,1)">-</button>
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="row">
