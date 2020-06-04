@@ -12,7 +12,7 @@
             ||$attributes["ProjektName"]!=''
             ||$attributes["Kurzbeschreibung"]!=''
             ||$attributes["Beschreibung"]!=''
-            ||$attributes["GruppeID"]!=0
+            ||$attributes["GruppeID"]!=0&&$attributes["GruppeID"]!=""
         )
         {
             $GruppeID = $attributes["GruppeID"];
@@ -20,12 +20,6 @@
             $ProjektName = $attributes["ProjektName"];
             $Kurzbeschreibung = $attributes["Kurzbeschreibung"];
             $Beschreibung = $attributes["Beschreibung"];
-            // $GruppeID = 1;
-            // $Nickname = 'XizTenS';
-            // $ProjektName = 'JS lernen';
-            // $Kurzbeschreibung = 'man lernt JS';
-            // $Beschreibung = 'man lernt js aber mit mehr worten';
-            echo implode(",", $attributes["materials"]);
 
             /*Get User if existing, else create user*/
             $NutzerID = getUserID($Nickname, $conn);
@@ -40,8 +34,11 @@
                 $projektID = $conn->insert_id;
                 if($projektID == 0){
                     echo("something went wrong while creating the project");
+                    cleanUp($conn,$projektID);
                     die();
                 }
+
+                /*TODO how does uploading pictures work?*/
                 $picture = $attributes["Bild"];
                 if($picture!=''){
                     addPicture($picture,$GruppeID,$projektID, $conn);
@@ -49,22 +46,26 @@
                 
                 $materials = $attributes['materials'];
                 if(implode(',',$materials)!=''){
-                    /*TODO create materiallink entry*/
                     foreach ($materials as $matKey){
                         $matID = getMat($matKey, $conn);
                         $query = "INSERT INTO Materialliste (MateriallisteID,MaterialLINK) values($projektID,$matID);";
-                        $conn->query($query);
+                        $created = $conn->query($query);
+                        if(!$created){
+                            cleanUp($conn,$projektID);
+                        }
                     }
                 }
-                //*TODO* Add Beschreibung Amount und Einheit
+                //*TODO* Add Beschreibung, Amount und Einheit
                 
                 $tools = $attributes['tools'];
                 if(implode(',',$tools)!=''){
-                    /*TODO create toollink entry*/
-                    foreach ($tools as $toolKey){ 
+                    foreach ($tools as $toolKey){
                         $toolID = getTool($toolKey, $conn);
                         $query = "INSERT INTO Werkzeugliste (WerkzeuglisteID,WerkzeugLINK) values($projektID,$toolID);";
-                        $conn->query($query);
+                        $created = $conn->query($query);
+                        if(!$created){
+                            cleanUp($conn,$projektID);
+                        }
                     }
                 }
                 //*TODO* Add Beschreibung
@@ -74,19 +75,29 @@
                     foreach ($tagArray as $tagKey){
                         $tagID = getTag($tagKey, $conn);
                         $query = "INSERT INTO Tagliste (TaglisteID,TagLINK) values($projektID,$tagID);";
-                        $conn->query($query);
+                        $created = $conn->query($query);
+                        if(!$created){
+                            cleanUp($conn,$projektID);
+                        }
                     }
                 }
 
                 $matrix = $attributes['Matrix'];
-                $conn->query("INSERT INTO Wertliste (WertlisteID,Wert1,Wert2,Wert3,Wert4,Wert5,Wert6) 
+                $created = $conn->query("INSERT INTO Wertliste (WertlisteID,Wert1,Wert2,Wert3,Wert4,Wert5,Wert6) 
                             values($projektID,$matrix[0],$matrix[1],$matrix[2],$matrix[3],$matrix[4],$matrix[5]);");
+                if(!$created){
+                    cleanUp($conn,$projektID);
+                }
 
-                $conn->query("INSERT INTO Bewertungliste(BewertunglisteID,Stern1,Stern2,Stern3,Stern4,Stern5)
+                $created = $conn->query("INSERT INTO Bewertungliste(BewertunglisteID,Stern1,Stern2,Stern3,Stern4,Stern5)
                             values($projektID,0,0,0,0,0);");
+                if(!$created){
+                    cleanUp($conn,$projektID);
+                }
 
                 /*TODO Kommentarbereich anlegen (muss vlt gar nicht beim erstellen passieren)*/
                 //$commentArea = mysqli_query($conn, "INSERT INTO Kommentarliste (KommenntarlisteID) values ($projektID)");
+
                 /*TODO Validate generated resource*/
                 $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projektID");
                 $schemaPath = "../xml/xmlschemaDetail.xml";
@@ -96,55 +107,34 @@
                 } catch (DOMException $e) {
                     /*TODO to Errorpage*/
                     echo "failed to validate resource";
-                    /*TODO delete data*/
+                    cleanUp($conn,$projektID);
                     die();
                 } catch (Exception $e) {
                     /*TODO to Errorpage*/
                     echo "failed to validate resource for custom reasons";
-                    /*TODO delete data*/
-                    die();
+                    cleanUp($conn,$projektID);
                 }
 
-                if ($validated) {
-                    //echo "Feed successfully validated";
-                } else {
+                if (!$validated) {
                     print_r($validator->displayErrors());
-                    /*TODO delete row*/
-
-                    $conn->query("DELETE FROM Materialliste WHERE MateriallisteID = $projektID;");
-                    $conn->query("DELETE FROM Werkzeugliste WHERE WerkzeuglisteID = $projektID;");
-                    $conn->query("DELETE FROM Tagliste WHERE TaglisteID = $projektID;");
-                    $conn->query("DELETE FROM Wertliste WHERE WertlisteID = $projektID;");
-                    $conn->query("DELETE FROM Bewertungliste WHERE BewertunglisteID = $projektID;");
-                    $conn->query("DELETE FROM Projekt WHERE ProjektID = $projektID;");
-
                     echo "Created resource is not valid against the xsd";
-                    die();
+                    cleanUp($conn,$projektID);
                 }
             } else {
                 /*TODO to Errorpage*/
                 echo "Error: " . $sqliCreate . "</br>" . $conn->error;
-                // echo "Failed to create Project ".$conn->error;
-                // die();
+                //no cleanup because no project has been created yet
+                die();
             }
         }else{
             /*TODO to Errorpage*/
-            echo 'Some Obligatory Values are Missing:\n';
-            if($GruppeID==""){
-                echo '-Group\n';
-            }if($Nickname==""){
-                echo '-Nick\n';
-            }if($ProjektName==""){
-                echo '-ProName\n';
-            }if($Kurzbeschreibung==""){
-                echo '-Kurz\n';
-            }if($Beschreibung==""){
-                echo '-Besch\n';
-            }
+            echo 'Some Obligatory Values are Missing:';
+            //no cleanup because no project has been created yet
             die();
         }
     }else{
         echo 'Failed for reasons';
+        //no cleanup because no project has been created yet
         die();
     }
 
@@ -157,7 +147,7 @@
             $newUser = $conn->query("INSERT INTO Nutzer (Nick) VALUES ('$Nickname');");
             if(!$newUser){
                 echo "Error: " . $conn->error;
-                echo "Can not create new user";
+                echo "Can not create new User, Contact your administrator";
                 die();
             }else{
                 return($conn->insert_id);
@@ -177,7 +167,7 @@
             $newTag = $conn->query("INSERT INTO Tag (TagName) VALUES ('$tag');");
             if(!$newTag){
                 echo "Error: " . $conn->error;
-                echo "cannot create new Tag";
+                echo "cannot create new Tag, contact your administrator";
                 die();
             }else{
                 return($conn->insert_id);
@@ -237,15 +227,23 @@
                 $name = $Files["pictures"]["titlePicture"][$key];
                 move_uploaded_file($tmp_name, "$uploads_dir/$name");
                 $sqliUpdate = $conn->query("UPDATE Projekt SET BildURL ='$uploads_dir/$name' where ProjektID = $projektID;");
-                if($sqliUpdate){
-                    //Picture uploaded
-                }else{
+                if(!$sqliUpdate){
                     echo "Error: " . $conn->error;
                     echo "failed to insert picture";
                     die();
                 }
             }
         }
+    }
+
+    function cleanUp($conn,$projektID){
+        $conn->query("DELETE FROM Materialliste WHERE MateriallisteID = $projektID;");
+        $conn->query("DELETE FROM Werkzeugliste WHERE WerkzeuglisteID = $projektID;");
+        $conn->query("DELETE FROM Tagliste WHERE TaglisteID = $projektID;");
+        $conn->query("DELETE FROM Wertliste WHERE WertlisteID = $projektID;");
+        $conn->query("DELETE FROM Bewertungliste WHERE BewertunglisteID = $projektID;");
+        $conn->query("DELETE FROM Projekt WHERE ProjektID = $projektID;");
+        die();
     }
 
     ?>
