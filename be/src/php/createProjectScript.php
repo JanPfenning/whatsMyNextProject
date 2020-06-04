@@ -35,7 +35,6 @@
                 if($projektID == 0){
                     echo("something went wrong while creating the project");
                     cleanUp($conn,$projektID);
-                    die();
                 }
 
                 /*TODO how does uploading pictures work?*/

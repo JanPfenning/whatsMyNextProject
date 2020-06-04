@@ -10,7 +10,7 @@ $htmlContent= '
 <body>
 <div class="container">
     <form id="createProject" action="createProjectScript.php" method="get">
-        <input type="hidden" id="group" autocomplete="off" name="GruppeID" value="' .$_GET["GruppeID"].'" required>
+        <input type="hidden" id="group" autocomplete="off" name="GruppeID" value="'.$_GET["GruppeID"].'" required>
         <div class="row"> <!-- Projektname -->
             <div class="col-25">
                 <label for="pname">Projektname</label>
