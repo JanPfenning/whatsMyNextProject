@@ -49,7 +49,7 @@
         /*TODO link correct xsl sheet*/
         $ret.('<?xml-stylesheet type="text/xml" href="'.$linkToXSLT.'"?>');
         $ret.("<dataset>");
-        ret.printData($parentTag, $data, $conn, $IDvalue);
+        $ret.printData($parentTag, $data, $conn, $IDvalue);
         $ret.('<BackgroundURL>');
         $ret.($BackgroundURL);
         $ret.('</BackgroundURL>');
