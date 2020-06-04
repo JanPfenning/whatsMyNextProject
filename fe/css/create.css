@@ -116,7 +116,9 @@ input[type=range]::-webkit-slider-thumb{
     border-radius: 100%;
     width: 25px;
     height: 25px;
-    background: url('../img/mcBlock.svg');
+    background: url('../img/mcBlock2.png');
+    background-size: contain;
+    background-position: center;
     #background: #4CAF50;
     cursor: pointer;
 }
