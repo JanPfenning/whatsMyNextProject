@@ -1,25 +1,27 @@
 <?php
     /*Basic requirements*/
     $path = getcwd();
-    require_once $path.'/vault/dbConnection.php';
+    require_once $path.'/../../../vault/dbConnection.php';
     include "./toString.php";
+    include "./DOMValidator.php";
     if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         /*Neccesary data for adding a Project*/
         $attributes = $_GET;
+        echo implode(",",$attributes);
         if($attributes["UserName"]!=""
-            &&$attributes["ProjektName"]!=''
-            &&$attributes["Kurzbeschreibung"]!=''
-            &&$attributes["Beschreibung"]!=''
-            &&$attributes["GruppeID"]!=0
+            ||$attributes["ProjektName"]!=''
+            ||$attributes["Kurzbeschreibung"]!=''
+            ||$attributes["Beschreibung"]!=''
+            ||$attributes["GruppeID"]!=0
         )
         {
-            $Gruppe = $attributes["GruppeID"];
-            $Nickname = $attributes["UserName"];
+            // $Gruppe = $attributes["GruppeID"];
+            // $Nickname = $attributes["UserName"];
             $ProjektName = $attributes["ProjektName"];
             $Kurzbeschreibung = $attributes["Kurzbeschreibung"];
             $Beschreibung = $attributes["Beschreibung"];
-            // $Gruppe = 1;
-            // $Nickname = 'XizTenS';
+            $Gruppe = 1;
+            $Nickname = 'XizTenS';
             // $ProjektName = 'JS lernen';
             // $Kurzbeschreibung = 'man lernt JS';
             // $Beschreibung = 'man lernt js aber mit mehr worten';
@@ -28,67 +30,74 @@
             $NutzerID = getUserID($Nickname, $conn);
 
             /*Create project with basic information*/
-            $sqliCreate = "INSERT INTO Projekt ('GruppeID','NutzerID','Name','Kurzbeschreibung','Beschreibung')"
+            // $sqliCreate 
+            echo "INSERT INTO Projekt ('GruppeID','NutzerID','Name','Kurzbeschreibung','Beschreibung')"
                             ."VALUES ($Gruppe,$NutzerID,$ProjektName,$Kurzbeschreibung,$Beschreibung);";
+            
+            $sqliCreate = true;
 
-            if ($conn->query($sqliCreate) === TRUE) {
+            if ( true ){ //$conn->query($sqliCreate) === TRUE) {
                 /*Insert additional data into the created resource*/
                 $projektID = $conn->insert_id;
-
+                if($projektID == 0){
+                    echo("something went wrong while creating the project");
+                }
                 $picture = $attributes["Bild"];
                 if($picture!=''){
                     addPicture($picture,$Gruppe,$projektID);
                 }
-
+                
                 $materials = $attributes['materials'];
                 if(implode(',',$materials)!=''){
                     /*TODO create materiallink entry*/
                     foreach ($materials as $matKey){
                         $mat = $materials[$matKey];
                         $matID = getMat($mat, $conn);
-                        $query = "INSERT INTO Materialliste (MateriallisteID,MaterialID) values($projektID,$matID)";
+                        echo "INSERT INTO Materialliste (MateriallisteID,MaterialID) values($projektID,$matID)";
                     }
                 }
-
+                
                 $tools = $attributes['tools'];
                 if(implode(',',$tools)!=''){
                     /*TODO create toollink entry*/
                     foreach ($tools as $toolKey){
                         $tool = $tools[$toolKey];
                         $toolID = getTool($tool, $conn);
-                        $query = "INSERT INTO Werkzeugliste (WerkzeuglisteID,WerkzeugID) values($projektID,$toolID)";
+                        echo "INSERT INTO Werkzeugliste (WerkzeuglisteID,WerkzeugID) values($projektID,$toolID)";
                     }
                 }
-
+                
                 $tagArray = explode(',',$attributes['Taglist']);
                 foreach ($tagArray as $tagKey){
                     $tag = $tagArray[$tagKey];
                     $tagID = getTag($tag, $conn);
-                    $query = "INSERT INTO Tagliste (TaglisteID,TagID) values($projektID,$tagID)";
+                    echo "INSERT INTO Tagliste (TaglisteID,TagID) values($projektID,$tagID)";
                 }
 
-                $matrix = $attributes['values'];
-                $query = "INSERT INTO Wertliste (WertlisteID,Wert1,Wert2,Wert3,Wert4,Wert5,Wert6) 
+                $matrix = $attributes['Matrix'];
+                echo "INSERT INTO Wertliste (WertlisteID,Wert1,Wert2,Wert3,Wert4,Wert5,Wert6) 
                             values($projektID,$matrix[0],$matrix[1],$matrix[2],$matrix[3],$matrix[4],$matrix[5])";
 
-                $query = "INSERT INTO Bwertungliste(BewertunglisteID,Stern1,Stern2,Stern3,Stern4,Stern5)
+                echo "INSERT INTO Bewertungliste(BewertunglisteID,Stern1,Stern2,Stern3,Stern4,Stern5)
                             values($projektID,0,0,0,0,0)";
 
                 /*TODO Kommentarbereich anlegen (muss vlt gar nicht beim erstellen passieren)*/
                 //$commentArea = mysqli_query($conn, "INSERT INTO Kommentarliste (KommenntarlisteID) values ($projektID)");
-
+                die();
                 /*TODO Validate generated resource*/
                 $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projektID");
-                $checkFile = tmpfile();
-                /*TODO make this work*/
-                file_put_contents($checkFile, strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
                 $schemaPath = "../xml/xmlschemaDetail.xml";
                 $validator = new DomValidator($schemaPath);
                 try {
-                    $validated = $validator->validateFeeds(file_get_contents($checkFile));
+                    $validated = $validator->validateFeeds(strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
                 } catch (DOMException $e) {
                     /*TODO to Errorpage*/
                     echo "failed to validate resource";
+                    /*TODO delete data*/
+                    die();
+                } catch (Exception $e) {
+                    /*TODO to Errorpage*/
+                    echo "failed to validate resource for custom reasons";
                     /*TODO delete data*/
                     die();
                 }
@@ -98,17 +107,35 @@
                 } else {
                     print_r($validator->displayErrors());
                     /*TODO delete row*/
+                    $delete = "DELETE FROM Projekt WHERE ProjektID = $projektID";
+                    $delete = "DELETE FROM Materialliste WHERE MateriallisteID = $projektID";
+                    $delete = "DELETE FROM Werkzeugliste WHERE WerkzeuglisteID = $projektID";
+                    $delete = "DELETE FROM Tagliste WHERE TaglisteID = $projektID";
+                    $delete = "DELETE FROM Wertliste WHERE WertlisteID = $projektID";
+                    $delete = "DELETE FROM Bewertungliste WHERE BewertunglisteID = $projektID";
+
                     echo "Created resource is not valid against the xsd";
                     die();
                 }
             } else {
                 /*TODO to Errorpage*/
-                echo "Failed to create Project ".$conn->error;
-                die();
+                // echo "Failed to create Project ".$conn->error;
+                // die();
             }
         }else{
             /*TODO to Errorpage*/
-            echo 'Some Obligatory Values are Missing';
+            echo 'Some Obligatory Values are Missing:\n';
+            if($Gruppe==""){
+                echo '-Group\n';
+            }if($Nickname==""){
+                echo '-Nick\n';
+            }if($ProjektName==""){
+                echo '-ProName\n';
+            }if($Kurzbeschreibung==""){
+                echo '-Kurz\n';
+            }if($Beschreibung==""){
+                echo '-Besch\n';
+            }
             die();
         }
     }else{
@@ -122,10 +149,11 @@
             $row = mysqli_fetch_array($sqliGetNutzer);
             return($row["NutzerID"]);
         }else if(mysqli_num_rows($sqliGetNutzer)==0){
-            $newUser = $conn->query("INSERT INTO Nutzer (Nick) VALUES($Nickname);");
+            $newUser = false;
+            echo("INSERT INTO Nutzer (Nick) VALUES($Nickname);");
             if(!$newUser){
                 echo "Can not create new user";
-                die();
+                // die();
             }else{
                 return($conn->insert_id);
             }
@@ -141,10 +169,11 @@
             $row = mysqli_fetch_array($sqliGetTag);
             return($row["TagID"]);
         }else if(mysqli_num_rows($sqliGetTag)==0){
-            $newTag = $conn->query("INSERT INTO Tag (TagName) VALUES($tag);");
+            $newTag = false;
+            echo("INSERT INTO Tag (TagName) VALUES($tag);");
             if(!$newTag){
                 echo "cannot create new Tag";
-                die();
+                // die();
             }else{
                 return($conn->insert_id);
             }
@@ -160,10 +189,11 @@
             $row = mysqli_fetch_array($sqliGetMat);
             return($row["MaterialID"]);
         }else if(mysqli_num_rows($sqliGetMat)==0){
-            $newMat = $conn->query("INSERT INTO Mat (MatName) VALUES($mat);");
+            $newMat = false;
+            echo("INSERT INTO Material (MatName) VALUES($mat);");
             if(!$newMat){
                 echo "cannot create new Mat";
-                die();
+                //die();
             }else{
                 return($conn->insert_id);
             }
@@ -179,10 +209,11 @@
             $row = mysqli_fetch_array($sqliGetTool);
             return($row["WerkzeugID"]);
         }else if(mysqli_num_rows($sqliGetTool)==0){
-            $newTool = $conn->query("INSERT INTO Werkzeug (WerkzeugName) VALUES($tool);");
+            $newTool = false;
+            echo("INSERT INTO Werkzeug (WerkzeugName) VALUES($tool);");
             if(!$newTool){
                 echo "cannot create new Tool";
-                die();
+                // die();
             }else{
                 return($conn->insert_id);
             }
@@ -200,12 +231,13 @@
                 $tmp_name = $Files["pictures"]["tmp_name"][$key];
                 $name = $Files["pictures"]["titlePicture"][$key];
                 move_uploaded_file($tmp_name, "$uploads_dir/$name");
-                $sqliUpdate = "UPDATE Projekt SET 'BildURL'=$uploads_dir/$name where ProjektID = $projektID";
+                $sqliUpdate = false;
+                echo "UPDATE Projekt SET 'BildURL'=$uploads_dir/$name where ProjektID = $projektID";
                 if($sqliUpdate){
                     //Picture uploaded
                 }else{
                     echo "failed to insert picture";
-                    die();
+                    // die();
                 }
             }
         }
