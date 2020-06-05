@@ -37,10 +37,10 @@ function emptyValues(value){
 }
 /*TODO make those static parent references by a for loop*/
 function removeLine(element,type){
-    if(type===3){
-        e = element.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild;
-    }else if(type===1){
-        e = element.parentNode.previousElementSibling.firstElementChild;
+    if(type===4){
+        e = element.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild;
+    }else if(type===2){
+        e = element.parentNode.previousElementSibling.previousElementSibling.firstElementChild;
     }else{
         console.error("We dont know how to handle parameter: "+type)
     }

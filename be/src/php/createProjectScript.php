@@ -62,7 +62,9 @@
                     }
                 }
                 //*TODO* Add Beschreibung, Amount und Einheit
-                
+                //*TODO* make Amound and Einheit required if a name is given
+                //*TODO* DB default beschreibung: Keine detaillierte beschreibung vorhanden
+
                 $tools = $attributes['tools'];
                 if(implode(',',$tools)!=''){
                     foreach ($tools as $toolKey){
@@ -75,6 +77,7 @@
                     }
                 }
                 //*TODO* Add Beschreibung
+                //*TODO* DB default beschreibung: Keine detaillierte beschreibung vorhanden
 
                 if($attributes["Taglist"]!=''){
                     $tagArray = explode(',',$attributes['Taglist']);
@@ -111,12 +114,9 @@
                 try {
                     $validated = $validator->validateFeeds(strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
                 } catch (DOMException $e) {
-                    /*TODO to Errorpage*/
                     toErrorPage("failed to validate resource");
                     cleanUp($conn,$projektID);
-                    die();
                 } catch (Exception $e) {
-                    /*TODO to Errorpage*/
                     toErrorPage("failed to validate resource for custom reasons");
                     cleanUp($conn,$projektID);
                 }
@@ -127,13 +127,11 @@
                     cleanUp($conn,$projektID);
                 }
             } else {
-                /*TODO to Errorpage*/
                 toErrorPage("Error: " . $sqliCreate . "</br>" . $conn->error);
                 //no cleanup because no project has been created yet
                 die();
             }
         }else{
-            /*TODO to Errorpage*/
             toErrorPage('Some Obligatory Values are Missing:');
             //no cleanup because no project has been created yet
             die();

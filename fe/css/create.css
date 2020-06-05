@@ -41,9 +41,19 @@ label {
     width: 25%;
     margin-top: 6px;
   }
+.col-30 {
+    float: left;
+    width: 30%;
+    margin-top: 6px;
+}
 .col-33 {
     float: left;
     width: 33%;
+    margin-top: 6px;
+}
+.col-40 {
+    float: left;
+    width: 40%;
     margin-top: 6px;
 }
 .col-50 {
