@@ -90,18 +90,21 @@ $htmlContent= '
             </div>
             <div class="col-75">
                 <div>
-                        <span class="col-50">
-                            <input type="text" id="materials" autocomplete="off" onchange="changeList(this,2)" name="materials[]" placeholder="Material...">
-                        </span>
+                    <span class="col-30">
+                        <input type="text" id="materials" autocomplete="off" onchange="changeList(this,2)" name="materials[]" placeholder="Material...">
+                    </span>
                     <span class="col-20">
-                            <input type="text" id="amount" autocomplete="off" name="amount[]" placeholder="Menge...">
-                        </span>
+                        <input type="text" id="matDesc" autocomplete="off" name="matDesc[]" placeholder="Kurzbeschreibung...">
+                    </span>
                     <span class="col-20">
-                            <input type="text" id="unit" autocomplete="off" name="unit[]" placeholder="Einheit...">
-                        </span>
+                        <input type="text" id="amount" autocomplete="off" name="amount[]" placeholder="Menge...">
+                    </span>
+                    <span class="col-20">
+                        <input type="text" id="unit" autocomplete="off" name="unit[]" placeholder="Einheit...">
+                    </span>
                     <span class="col-10">
-                            <button onclick="removeLine(this,3)">-</button>
-                        </span>
+                        <button onclick="removeLine(this,4)">-</button>
+                    </span>
                 </div>
             </div>
         </div>
@@ -111,12 +114,15 @@ $htmlContent= '
             </div>
             <div class="col-75">
                 <div>
-                        <span class="col-90">
-                            <input type="text" id="tools" autocomplete="off" onchange="changeList(this,2)" name="tools[]" placeholder="Werkzeug...">
-                        </span>
+                    <span class="col-40">
+                        <input type="text" id="tools" autocomplete="off" onchange="changeList(this,2)" name="tools[]" placeholder="Werkzeug...">
+                    </span>
+                    <span class="col-50">
+                        <input type="text" id="tools" autocomplete="off" name="toolDesc[]" placeholder="Kurzbeschreibung...">
+                    </span>
                     <span class="col-10">
-                            <button onclick="removeLine(this,1)">-</button>
-                        </span>
+                        <button onclick="removeLine(this,2)">-</button>
+                    </span>
                 </div>
             </div>
         </div>

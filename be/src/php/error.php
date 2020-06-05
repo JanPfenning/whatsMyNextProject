@@ -1,14 +1,16 @@
-<!DOCTYPE>
+<?php
+$htmlContent= '
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
-        <script lang="javascript" src="../js/error.js"></script>
-        <link rel="stylesheet" type="text/css" href="../css/error.css" />
+        <script lang="javascript" src="../../../fe/js/error.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../../fe/css/error.css" />
     </head>
     <body>
         <div id="buttons">
-            <form method="POST" name="toMainMenu" id="toMainMenuForm" action="topic.php">
+            <div id="errorText">'.$err.'</div>
+            <form method="POST" name="toMainMenu" id="toMainMenuForm" action="./topics.php">
                 <button class="button" type="submit" id="toMainMenu">Zum Hauptmenu</button>
             </form>
             <form method="POST" name="quitTab">
@@ -17,3 +19,6 @@
         </div>
     </body>
 </html>
+';
+print($htmlContent);
+?>

@@ -1,10 +1,17 @@
 <?php
 
     $path = getcwd();
-    require_once $path.'/../../../vault/dbConnection.php';
 
-    include $path.'/craftXML.php';
     include $path.'/linkErrorpage.php';
+    $connfile = $path.'/../../../vault/dbConnection.php';
+    if(file_exists($connfile)&&is_readable($connfile)){
+        require_once $path . '/../../../vault/dbConnection.php';
+    }else{
+        toErrorPage("Failed to load requiered File");
+        die();
+    }
+    include $path.'/craftXML.php';
+
     /*Simulated Request*/
     $IDvalue = 1;
     // $result = mysqli_query($conn, "select * from Projekt where ProjektID = $IDvalue");
@@ -17,11 +24,11 @@
             $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
             printXML("Projekt", $result, $conn, $IDvalue, "/../../../fe/xslt/detailview.xsl", $BackgroundURLtext["BackgroundURL"]);
         }else{
-            error('No ID given for which Details where requested');
+            toErrorPage('No ID given for which Details where requested');
         }
     }
     else{
-        error('only GET allowed');
+        toErrorPage('only GET allowed');
     }
 
 
