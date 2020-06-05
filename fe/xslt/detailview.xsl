@@ -8,9 +8,9 @@
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/detail.css" />
             </head>
             <body onLoad="onInit()">
-                <!--<xsl:attribute name="style">
+                <xsl:attribute name="style">
                     <xsl:value-of select="concat('background-image: url(',dataset/BackgroundURL,')')"/>
-                </xsl:attribute>-->
+                </xsl:attribute>
                 <div id="content">
                         <div id="titleArea">
                             <a id="title">
