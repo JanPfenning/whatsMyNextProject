@@ -1,9 +1,16 @@
 <?php
     /*Basic requirements*/
     $path = getcwd();
-    require_once $path.'/../../../vault/dbConnection.php';
     include "./toString.php";
     include "./DOMValidator.php";
+    include "./linkErrorpage.php";
+    $connfile = $path . '/../../../vault/dbConnection.php';
+    if(file_exists($connfile)&&is_readable($connfile)){
+        require_once $path . '/../../../vault/dbConnection.php';
+    }else{
+        toErrorPage("Failed to load requiered File");
+        die();
+    }
     if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         /*Neccesary data for adding a Project*/
         $attributes = $_GET;
@@ -33,7 +40,7 @@
                 /*Insert additional data into the created resource*/
                 $projektID = $conn->insert_id;
                 if($projektID == 0){
-                    echo("something went wrong while creating the project");
+                    toErrorPage("something went wrong while creating the project");
                     cleanUp($conn,$projektID);
                 }
 
@@ -105,34 +112,34 @@
                     $validated = $validator->validateFeeds(strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
                 } catch (DOMException $e) {
                     /*TODO to Errorpage*/
-                    echo "failed to validate resource";
+                    toErrorPage("failed to validate resource");
                     cleanUp($conn,$projektID);
                     die();
                 } catch (Exception $e) {
                     /*TODO to Errorpage*/
-                    echo "failed to validate resource for custom reasons";
+                    toErrorPage("failed to validate resource for custom reasons");
                     cleanUp($conn,$projektID);
                 }
 
                 if (!$validated) {
                     print_r($validator->displayErrors());
-                    echo "Created resource is not valid against the xsd";
+                    toErrorPage("Created resource is not valid against the xsd");
                     cleanUp($conn,$projektID);
                 }
             } else {
                 /*TODO to Errorpage*/
-                echo "Error: " . $sqliCreate . "</br>" . $conn->error;
+                toErrorPage("Error: " . $sqliCreate . "</br>" . $conn->error);
                 //no cleanup because no project has been created yet
                 die();
             }
         }else{
             /*TODO to Errorpage*/
-            echo 'Some Obligatory Values are Missing:';
+            toErrorPage('Some Obligatory Values are Missing:');
             //no cleanup because no project has been created yet
             die();
         }
     }else{
-        echo 'Failed for reasons';
+        toErrorPage('Failed for reasons');
         //no cleanup because no project has been created yet
         die();
     }
@@ -145,14 +152,13 @@
         }else if(mysqli_num_rows($sqliGetNutzer)==0){
             $newUser = $conn->query("INSERT INTO Nutzer (Nick) VALUES ('$Nickname');");
             if(!$newUser){
-                echo "Error: " . $conn->error;
-                echo "Can not create new User, Contact your administrator";
+                toErrorPage("Error: " . $conn->error."</br> Can not create new User, Contact your administrator");
                 die();
             }else{
                 return($conn->insert_id);
             }
         }else{
-            echo "There are two people with the same nickname, contact the administrator";
+            toErrorPage("There are two people with the same nickname, contact the administrator");
             die();
         }
     }
@@ -165,14 +171,13 @@
         }else if(mysqli_num_rows($sqliGetTag)==0){
             $newTag = $conn->query("INSERT INTO Tag (TagName) VALUES ('$tag');");
             if(!$newTag){
-                echo "Error: " . $conn->error;
-                echo "cannot create new Tag, contact your administrator";
+                toErrorPage("Error: " . $conn->error."</br> cannot create new Tag, contact your administrator");
                 die();
             }else{
                 return($conn->insert_id);
             }
         }else{
-            echo "there are different Tags with the same Title, contact your administrator";
+            toErrorPage("there are different Tags with the same Title, contact your administrator");
             die();
         }
     }
@@ -185,14 +190,13 @@
         }else if(mysqli_num_rows($sqliGetMat)==0){
             $newMat = $conn->query("INSERT INTO Material (Name) VALUES ('$mat');");
             if(!$newMat){
-                echo "Error: " . $conn->error;
-                echo "cannot create new Mat";
+                toErrorPage("Error: " . $conn->error."</br> cannot create new Mat");
                 die();
             }else{
                 return($conn->insert_id);
             }
         }else{
-            echo "there are different Mats with the same Title, contact your administrator";
+            toErrorPage("there are different Mats with the same Title, contact your administrator");
             die();
         }
     }
@@ -205,14 +209,13 @@
         }else if(mysqli_num_rows($sqliGetTool)==0){
             $newTool = $conn->query("INSERT INTO Werkzeug (Name) VALUES ('$tool');");
             if(!$newTool){
-                echo "Error: " . $conn->error;
-                echo "cannot create new Tool";
+                toErrorPage("Error: " . $conn->error."</br> cannot create new Tool");
                 die();
             }else{
                 return($conn->insert_id);
             }
         }else{
-            echo "there are different Tools with the same Title, contact your administrator";
+            toErrorPage("there are different Tools with the same Title, contact your administrator");
             die();
         }
     }
@@ -227,8 +230,7 @@
                 move_uploaded_file($tmp_name, "$uploads_dir/$name");
                 $sqliUpdate = $conn->query("UPDATE Projekt SET BildURL ='$uploads_dir/$name' where ProjektID = $projektID;");
                 if(!$sqliUpdate){
-                    echo "Error: " . $conn->error;
-                    echo "failed to insert picture";
+                    toErrorPage("Error: " . $conn->error."</br> failed to insert picture");
                     die();
                 }
             }

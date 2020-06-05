@@ -1,5 +1,5 @@
 <?php
-    function error($err){
-        readfile("./../../../fe/html/error.html");
+    function toErrorPage($err){
+        include("./error.php");
     }
 ?>
