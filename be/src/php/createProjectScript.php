@@ -33,7 +33,7 @@
             /*Create project with basic information*/
             $sqliCreate = "INSERT INTO Projekt (GruppeID,NutzerID,ProjektName,Kurzbeschreibung,Beschreibung) VALUES ($GruppeID,$NutzerID,'$ProjektName','$Kurzbeschreibung','$Beschreibung');";
             $created = $conn->query($sqliCreate);
-
+            
             if ($created === true){
                 $projektID = $conn->insert_id;
                 if($projektID == 0){
@@ -52,7 +52,7 @@
                     $index = 0;
                     foreach ($materials as $matKey){
                         if ($matKey != ""){
-                            $matID = getMat($matKey,$matDescs[$index],$amounts[$index],$units[$index], $conn, $projectID);
+                            $matID = getMat($matKey, $matDescs[$index], $amounts[$index], $units[$index], $conn, $projektID);
                             $query = "INSERT INTO Materialliste (MateriallisteID,MaterialLINK) values($projektID,$matID);";
                             $created = $conn->query($query);
                             if(!$created){
@@ -71,7 +71,7 @@
                     $index = 0;
                     foreach ($tools as $toolKey){
                         if ($toolKey != "") {
-                            $toolID = getTool($toolKey,$toolDescs[$index], $conn,$projektID);
+                            $toolID = getTool($toolKey, $toolDescs[$index], $conn, $projektID);
                             $query = "INSERT INTO Werkzeugliste (WerkzeuglisteID,WerkzeugLINK) values($projektID,$toolID);";
                             $created = $conn->query($query);
                             if(!$created){
@@ -87,7 +87,7 @@
                     $tagArray = explode(',',$attributes['Taglist']);
                     foreach ($tagArray as $tagKey){
                         $tag = str_replace(" ", "", $tagKey);
-                        $tagID = getTag($tag, $conn,$projektID);
+                        $tagID = getTag($tag, $conn, $projektID);
                         $query = "INSERT INTO Tagliste (TaglisteID,TagLINK) values($projektID,$tagID);";
                         $created = $conn->query($query);
                         if(!$created){
@@ -105,7 +105,7 @@
                 }
 
                 $query="INSERT INTO Bewertungliste(BewertunglisteID,Stern1,Stern2,Stern3,Stern4,Stern5) ".
-                        "values($projektID,0,0,0,0,0);".
+                        "values($projektID,0,0,0,0,0);";
                 $created = $conn->query($query);
                 if(!$created){
                     cleanUp($conn,$projektID,"Error at initializing Bewertungliste");
@@ -127,7 +127,7 @@
                 //     cleanUp($conn,$projektID,"Created resource is not valid against the xsd");
                 // }
 
-                include("../../../fe/html/index.html");
+                // include("../../../fe/html/index.html");
 
             } else {
                 toErrorPage("Error: " . $sqliCreate . "</br>" . $conn->error);
@@ -258,7 +258,7 @@
         }else{
             //upload file
             if (move_uploaded_file($_FILES[$inputName]["tmp_name"], $target_file)) {
-                $query = "UPDATE Projekt SET BildURL ='$target_file' where ProjektID = $projectID;";
+                $query = "UPDATE Projekt SET BildURL = '$target_file' where ProjektID = $projectID;";
                 $sqliUpdate = $conn->query($query);
                 if(!$sqliUpdate){
                     cleanUp($conn,$projectID,"Error: " . $conn->error."</br> failed to insert picture");
