@@ -8,15 +8,12 @@
     if(file_exists($connfile)&&is_readable($connfile)){
         require_once $path . '/../../../vault/dbConnection.php';
     }else{
-        //echo(implode(",",$_GET["materials"])."</br>");
-        //echo(implode(",",$_GET["amount"]));
-        toErrorPage("Failed to load required File");
+        toErrorPage("required File doesnt exist or is not accessible");
         die();
     }
-    if(!isset($_POST["action"]) || $_POST["action"] == "get"){
-        /*Neccesary data for adding a Project*/
+    if(!isset($_POST["action"]) || $_POST["action"] == "post"){
         $attributes = $_POST;
-        echo implode(",",$attributes);
+        //echo implode(",",$attributes);
         if($attributes["UserName"]!=""
             ||$attributes["ProjektName"]!=''
             ||$attributes["Kurzbeschreibung"]!=''
@@ -37,18 +34,13 @@
             $sqliCreate = "INSERT INTO Projekt (GruppeID,NutzerID,ProjektName,Kurzbeschreibung,Beschreibung) VALUES ($GruppeID,$NutzerID,'$ProjektName','$Kurzbeschreibung','$Beschreibung');";
             $created = $conn->query($sqliCreate);
 
-            //if ($conn->query($sqliCreate) === TRUE) {
             if ($created === true){
-                /*Insert additional data into the created resource*/
                 $projektID = $conn->insert_id;
                 if($projektID == 0){
-                    toErrorPage("something went wrong while creating the project");
-                    cleanUp($conn,$projektID);
+                    cleanUp($conn,$projektID,"something went wrong while creating the project");
                 }
 
-                /*TODO how does uploading pictures work?*/
-                
-                if($attributes["Bild"]!=''){
+                if($attributes["picture"]!=''){
                     addPicture($GruppeID, $projektID, $conn);
                 }
                 
@@ -64,13 +56,12 @@
                             $query = "INSERT INTO Materialliste (MateriallisteID,MaterialLINK) values($projektID,$matID);";
                             $created = $conn->query($query);
                             if(!$created){
-                                cleanUp($conn,$projektID);
+                                cleanUp($conn,$projektID,"Error at linking Material to Project");
                             }
                         } 
                         $index = $index+1;
                     }
                 }
-                //*TODO* Check whether Beschreibung, Amount and Einheit are correct
                 //*TODO* make Amound and Einheit required if a name is given
                 //*TODO* DB default beschreibung: Keine detaillierte beschreibung vorhanden
 
@@ -84,13 +75,12 @@
                             $query = "INSERT INTO Werkzeugliste (WerkzeuglisteID,WerkzeugLINK) values($projektID,$toolID);";
                             $created = $conn->query($query);
                             if(!$created){
-                                cleanUp($conn,$projektID);
+                                cleanUp($conn,$projektID,"Error at linking Tools to project");
                             }
                         }
                         $index = $index+1;
                     }
                 }
-                //*TODO* Check whether Beschreibung is correct in db
                 //*TODO* DB default beschreibung: Keine detaillierte beschreibung vorhanden
 
                 if($attributes["Taglist"]!=''){
@@ -101,28 +91,25 @@
                         $query = "INSERT INTO Tagliste (TaglisteID,TagLINK) values($projektID,$tagID);";
                         $created = $conn->query($query);
                         if(!$created){
-                            cleanUp($conn,$projektID);
+                            cleanUp($conn,$projektID,"Error at linktin Tags to Project");
                         }
                     }
                 }
 
                 $matrix = $attributes['Matrix'];
-                $created = $conn->query("INSERT INTO Wertliste (WertlisteID,Wert1,Wert2,Wert3,Wert4,Wert5,Wert6) 
-                            values($projektID,$matrix[0],$matrix[1],$matrix[2],$matrix[3],$matrix[4],$matrix[5]);");
+                $query="INSERT INTO Wertliste (WertlisteID,Wert1,Wert2,Wert3,Wert4,Wert5,Wert6) ".
+                        "values($projektID,$matrix[0],$matrix[1],$matrix[2],$matrix[3],$matrix[4],$matrix[5]);";
+                $created = $conn->query($query);
                 if(!$created){
-                    cleanUp($conn,$projektID);
+                    cleanUp($conn,$projektID, "Error at initializing Wertliste");
                 }
 
-                $created = $conn->query("INSERT INTO Bewertungliste(BewertunglisteID,Stern1,Stern2,Stern3,Stern4,Stern5)
-                            values($projektID,0,0,0,0,0);");
+                $query="INSERT INTO Bewertungliste(BewertunglisteID,Stern1,Stern2,Stern3,Stern4,Stern5) ".
+                        "values($projektID,0,0,0,0,0);".
+                $created = $conn->query($query);
                 if(!$created){
-                    cleanUp($conn,$projektID);
+                    cleanUp($conn,$projektID,"Error at initializing Bewertungliste");
                 }
-
-                /*TODO Kommentarbereich anlegen (muss vlt gar nicht beim erstellen passieren)*/
-                //$commentArea = mysqli_query($conn, "INSERT INTO Kommentarliste (KommenntarlisteID) values ($projektID)");
-                
-                echo("successfully created source. To be validated");
 
                 /*TODO Validate generated resource*/
                 // $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projektID");
@@ -131,25 +118,36 @@
                 // try {
                 //     $validated = $validator->validateFeeds(strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
                 // } catch (DOMException $e) {
-                //     toErrorPage("failed to validate resource");
-                //     cleanUp($conn,$projektID);
+                //     cleanUp($conn,$projektID,"failed to validate resource");
                 // } catch (Exception $e) {
-                //     toErrorPage("failed to validate resource for custom reasons");
-                //     cleanUp($conn,$projektID);
+                //     cleanUp($conn,$projektID,"failed to validate resource for custom reasons");
                 // }
-
                 // if (!$validated) {
                 //     print_r($validator->displayErrors());
-                //     toErrorPage("Created resource is not valid against the xsd");
-                //     cleanUp($conn,$projektID);
+                //     cleanUp($conn,$projektID,"Created resource is not valid against the xsd");
                 // }
+
+                include("../../../fe/html/index.html");
+
             } else {
                 toErrorPage("Error: " . $sqliCreate . "</br>" . $conn->error);
                 //no cleanup because no project has been created yet
                 die();
             }
         }else{
-            toErrorPage('Some Obligatory Values are Missing:');
+            $errString ="Some Obligatory Values are Missing:";
+            if($attributes["UserName"]!=""){
+                $errString=$errString.("</br> Username");
+            }if($attributes["ProjektName"]!=''){
+                $errString=$errString.("</br> Projektname");
+            }if($attributes["Kurzbeschreibung"]!=''){
+                $errString=$errString.("</br> Kurzbeschreibung");
+            }if($attributes["Beschreibung"]!=''){
+                $errString=$errString.("</br> Beschreibung");
+            }if($attributes["GruppeID"]!=0&&$attributes["GruppeID"]!=""){
+                $errString=$errString.("</br> GruppeID");
+            }
+            toErrorPage($errString);
             //no cleanup because no project has been created yet
             die();
         }
@@ -160,12 +158,14 @@
     }
 
     function getUserID($Nickname, $conn){
-        $sqliGetNutzer = $conn->query("Select NutzerID From Nutzer where Nick = '$Nickname'");
+        $query = "Select NutzerID From Nutzer where Nick = '$Nickname';";
+        $sqliGetNutzer = $conn->query($query);
         if(mysqli_num_rows($sqliGetNutzer)==1){
             $row = mysqli_fetch_array($sqliGetNutzer);
             return($row["NutzerID"]);
         }else if(mysqli_num_rows($sqliGetNutzer)==0){
-            $newUser = $conn->query("INSERT INTO Nutzer (Nick) VALUES ('$Nickname');");
+            $query="INSERT INTO Nutzer (Nick) VALUES ('$Nickname');";
+            $newUser = $conn->query($query);
             if(!$newUser){
                 toErrorPage("Error: " . $conn->error."</br> Can not create new User, Contact your administrator");
                 die();
@@ -179,26 +179,27 @@
     }
 
     function getTag($tag, $conn, $projectID){
-        $sqliGetTag = $conn->query("Select TagName From Tag where TagName = '$tag';");
+        $query="Select TagName From Tag where TagName = '$tag';";
+        $sqliGetTag = $conn->query($query);
         if(mysqli_num_rows($sqliGetTag)==1){
             $row = mysqli_fetch_array($sqliGetTag);
             return($row["TagID"]);
         }else if(mysqli_num_rows($sqliGetTag)==0){
-            $newTag = $conn->query("INSERT INTO Tag (TagName) VALUES ('$tag');");
+            $query="INSERT INTO Tag (TagName) VALUES ('$tag');";
+            $newTag = $conn->query($query);
             if(!$newTag){
-                toErrorPage("Error: " . $conn->error."</br> cannot create new Tag, contact your administrator");
-                cleanUp($conn,$projectID);
+                cleanUp($conn,$projectID,"Error: " . $conn->error."</br> cannot create new Tag, contact your administrator");
             }else{
                 return($conn->insert_id);
             }
         }else{
-            toErrorPage("there are different Tags with the same Title, contact your administrator");
-            cleanUp($conn,$projectID);
+            cleanUp($conn,$projectID,"there are different Tags with the same Title, contact your administrator");
         }
     }
 
     function getMat($mat,$desc,$amount,$unit, $conn,$projectID){
-        $sqliGetMat = $conn->query("Select Name,Menge,Einheit From Material where Name = '$mat';");
+        $query="Select Name,Menge,Einheit From Material where Name = '$mat';";
+        $sqliGetMat = $conn->query($query);
         if(mysqli_num_rows($sqliGetMat)==1){
             $row = mysqli_fetch_array($sqliGetMat);
             return($row["MaterialID"]);
@@ -206,96 +207,69 @@
             $query="INSERT INTO Material (Name,Beschreibung,Menge,Einheit) VALUES ('$mat','$desc','$amount','$unit');";
             $newMat = $conn->query($query);
             if(!$newMat){
-                toErrorPage("Error: " .$query."</br> -> ". $conn->error."</br> cannot create new Mat");
-                cleanUp($conn,$projectID);
+                cleanUp($conn,$projectID,"Error: " .$query."</br> -> ". $conn->error."</br> cannot create new Mat");
             }else{
                 return($conn->insert_id);
             }
         }else{
-            toErrorPage("there are different Mats with the same Title, Amount and Unit, contact your administrator");
-            cleanUp($conn,$projectID);
+            cleanUp($conn,$projectID,"there are different Mats with the same Title, Amount and Unit, contact your administrator");
         }
     }
 
     function getTool($tool, $desc,$conn,$projectID){
-        $sqliGetTool = $conn->query("Select Name From Werkzeug where Name = '$tool';");
+        $query="Select Name From Werkzeug where Name = '$tool';";
+        $sqliGetTool = $conn->query($query);
         if(mysqli_num_rows($sqliGetTool)==1){
             $row = mysqli_fetch_array($sqliGetTool);
             return($row["WerkzeugID"]);
         }else if(mysqli_num_rows($sqliGetTool)==0){
-            $newTool = $conn->query("INSERT INTO Werkzeug (Name,Beschreibung) VALUES ('$tool','$desc');");
+            $query="INSERT INTO Werkzeug (Name,Beschreibung) VALUES ('$tool','$desc');";
+            $newTool = $conn->query($query);
             if(!$newTool){
-                toErrorPage("Error: " . $conn->error."</br> cannot create new Tool");
-                cleanUp($conn,$projectID);
+                cleanUp($conn,$projectID,"Error: " . $conn->error."</br> cannot create new Tool");
             }else{
                 return($conn->insert_id);
             }
         }else{
-            toErrorPage("there are different Tools with the same Title, contact your administrator");
-            cleanUp($conn,$projectID);
+            cleanUp($conn,$projectID,"there are different Tools with the same Title, contact your administrator");
         }
     }
 
     function addPicture($GruppeID, $projectID, $conn){
-        $row = mysqli_fetch_array($conn->query("Select BereichID from Gruppe where GruppeID = $GruppeID;"));
+        $query="Select BereichID from Gruppe where GruppeID = $GruppeID;";
+        $row = mysqli_fetch_array($conn->query($query));
         $BereichID = $row["BereichID"];
         $target_dir = "../../../fe/img/$BereichID/$GruppeID/";
-        $inputName = "Bild";
+        $inputName = "picture";
         $target_file = $target_dir . basename($_FILES[$inputName]["name"]);
         echo $target_file;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        $uploadOk = 1;
 
         // Check if image file is a actual image or fake image
         $check = getimagesize($_FILES[$inputName]["tmp_name"]);
-        echo $check;
-        if($check !== false) {
-            //echo "File is an image - " . $check["mime"] . ".";
-            $uploadOk = 1;
-        } else {
-            toErrorPage("File is not an image.");
-            cleanUp($conn,$projectID);
-            $uploadOk = 0;
-        }
-
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            toErrorPage("Sorry, file already exists.");
-            cleanUp($conn,$projectID);
-            $uploadOk = 0;
-        }
-
-        // Check file size
-        if ($_FILES[$inputName]["size"] > 500000) {
-            toErrorPage("Sorry, your file is too large.");
-            cleanUp($conn,$projectID);
-            $uploadOk = 0;
-        }
-
-        // Allow certain file formats
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-            toErrorPage("Sorry, only JPG, JPEG and PNG files are allowed.");
-            cleanUp($conn,$projectID);
-            $uploadOk = 0;
-        }
-
-        if ($uploadOk == 1) {
+        if($check === false){
+            cleanUp($conn,$projectID,"File is not an image.");
+        }else if(file_exists($target_file)) {
+            cleanUp($conn,$projectID,"Sorry, file already exists.");
+        }else if ($_FILES[$inputName]["size"] > 500000) {
+            cleanUp($conn,$projectID,"Sorry, your file is too large.");
+        }else if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+            cleanUp($conn,$projectID,"Sorry, only JPG, JPEG and PNG files are allowed.");
+        }else{
+            //upload file
             if (move_uploaded_file($_FILES[$inputName]["tmp_name"], $target_file)) {
-                $name = basename($_FILES[$inputName]["name"]);
                 $query = "UPDATE Projekt SET BildURL ='$target_file' where ProjektID = $projectID;";
                 $sqliUpdate = $conn->query($query);
                 if(!$sqliUpdate){
-                    toErrorPage("Error: " . $conn->error."</br> failed to insert picture");
-                    cleanUp($conn,$projectID);
+                    cleanUp($conn,$projectID,"Error: " . $conn->error."</br> failed to insert picture");
                 }
             } else {
-                toErrorPage("Error uploading File");
-                cleanUp($conn,$projectID);
+                cleanUp($conn,$projectID,"Error uploading File");
             }
         }
     }
 
-    function cleanUp($conn,$projectID){
+    function cleanUp($conn,$projectID,$msg){
         $conn->query("DELETE FROM Materialliste WHERE MateriallisteID = $projectID;");
         $conn->query("DELETE FROM Werkzeugliste WHERE WerkzeuglisteID = $projectID;");
         $conn->query("DELETE FROM Tagliste WHERE TaglisteID = $projectID;");
@@ -303,6 +277,7 @@
         $conn->query("DELETE FROM Bewertungliste WHERE BewertunglisteID = $projectID;");
         $conn->query("DELETE FROM Projekt WHERE ProjektID = $projectID;");
         $conn->query("ALTER TABLE Projekt AUTO_INCREMENT = $projectID;");
+        toErrorPage($msg);
         die();
     }
 
