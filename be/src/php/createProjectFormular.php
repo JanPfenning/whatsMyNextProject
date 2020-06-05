@@ -1,5 +1,5 @@
 <?php
-$htmlContent='
+$htmlContent= '
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@ $htmlContent='
 </head>
 <body>
 <div class="container">
-    <form id="createProject" action="../../../be/src/php/createProjektActive.php" method="get">
+    <form id="createProject" action="createProjectScript.php" method="get">
         <input type="hidden" id="group" autocomplete="off" name="GruppeID" value="'.$_GET["GruppeID"].'" required>
         <div class="row"> <!-- Projektname -->
             <div class="col-25">
