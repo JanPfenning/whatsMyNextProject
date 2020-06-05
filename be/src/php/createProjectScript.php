@@ -13,9 +13,9 @@
         toErrorPage("Failed to load required File");
         die();
     }
-    if(!isset($_GET["action"]) || $_GET["action"] == "get"){
+    if(!isset($_POST["action"]) || $_POST["action"] == "get"){
         /*Neccesary data for adding a Project*/
-        $attributes = $_GET;
+        $attributes = $_POST;
         echo implode(",",$attributes);
         if($attributes["UserName"]!=""
             ||$attributes["ProjektName"]!=''
@@ -47,10 +47,10 @@
                 }
 
                 /*TODO how does uploading pictures work?*/
-                // $picture = $attributes["Bild"];
-                // if($picture!=''){
-                //     addPicture($picture,$GruppeID,$projektID, $conn);
-                // }
+                
+                if($attributes["Bild"]!=''){
+                    addPicture($GruppeID, $projektID, $conn);
+                }
                 
                 $materials = $attributes['materials'];
                 $matDescs = $attributes["matDesc"];
@@ -60,7 +60,7 @@
                     $index = 0;
                     foreach ($materials as $matKey){
                         if ($matKey != ""){
-                            $matID = getMat($matKey,$matDescs[$index],$amounts[$index],$units[$index], $conn);
+                            $matID = getMat($matKey,$matDescs[$index],$amounts[$index],$units[$index], $conn, $projectID);
                             $query = "INSERT INTO Materialliste (MateriallisteID,MaterialLINK) values($projektID,$matID);";
                             $created = $conn->query($query);
                             if(!$created){
@@ -125,24 +125,24 @@
                 echo("successfully created source. To be validated");
 
                 /*TODO Validate generated resource*/
-                $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projektID");
-                $schemaPath = "../xml/xmlschemaDetail.xml";
-                $validator = new DOMValidator($schemaPath);
-                try {
-                    $validated = $validator->validateFeeds(strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
-                } catch (DOMException $e) {
-                    toErrorPage("failed to validate resource");
-                    cleanUp($conn,$projektID);
-                } catch (Exception $e) {
-                    toErrorPage("failed to validate resource for custom reasons");
-                    cleanUp($conn,$projektID);
-                }
+                // $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projektID");
+                // $schemaPath = "../xml/xmlschemaDetail.xml";
+                // $validator = new DOMValidator($schemaPath);
+                // try {
+                //     $validated = $validator->validateFeeds(strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
+                // } catch (DOMException $e) {
+                //     toErrorPage("failed to validate resource");
+                //     cleanUp($conn,$projektID);
+                // } catch (Exception $e) {
+                //     toErrorPage("failed to validate resource for custom reasons");
+                //     cleanUp($conn,$projektID);
+                // }
 
-                if (!$validated) {
-                    print_r($validator->displayErrors());
-                    toErrorPage("Created resource is not valid against the xsd");
-                    cleanUp($conn,$projektID);
-                }
+                // if (!$validated) {
+                //     print_r($validator->displayErrors());
+                //     toErrorPage("Created resource is not valid against the xsd");
+                //     cleanUp($conn,$projektID);
+                // }
             } else {
                 toErrorPage("Error: " . $sqliCreate . "</br>" . $conn->error);
                 //no cleanup because no project has been created yet
@@ -236,19 +236,61 @@
         }
     }
 
-    function addPicture($Files,$GruppeID,$projectID, $conn){
-        /*TODO correct path*/
-        $uploads_dir = "../../../fe/img/$GruppeID/$projectID/";
-        foreach ($Files["pictures"]["error"] as $key => $error) {
-            if ($error == UPLOAD_ERR_OK) {
-                $tmp_name = $Files["pictures"]["tmp_name"][$key];
-                $name = $Files["pictures"]["titlePicture"][$key];
-                move_uploaded_file($tmp_name, "$uploads_dir/$name");
-                $sqliUpdate = $conn->query("UPDATE Projekt SET BildURL ='$uploads_dir/$name' where ProjektID = $projectID;");
+    function addPicture($GruppeID, $projectID, $conn){
+        $row = mysqli_fetch_array($conn->query("Select BereichID from Gruppe where GruppeID = $GruppeID;"));
+        $BereichID = $row["BereichID"];
+        $target_dir = "../../../fe/img/$BereichID/$GruppeID/";
+        $inputName = "Bild";
+        $target_file = $target_dir . basename($_FILES[$inputName]["name"]);
+        echo $target_file;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $uploadOk = 1;
+
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES[$inputName]["tmp_name"]);
+        echo $check;
+        if($check !== false) {
+            //echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            toErrorPage("File is not an image.");
+            cleanUp($conn,$projectID);
+            $uploadOk = 0;
+        }
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            toErrorPage("Sorry, file already exists.");
+            cleanUp($conn,$projectID);
+            $uploadOk = 0;
+        }
+
+        // Check file size
+        if ($_FILES[$inputName]["size"] > 500000) {
+            toErrorPage("Sorry, your file is too large.");
+            cleanUp($conn,$projectID);
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+            toErrorPage("Sorry, only JPG, JPEG and PNG files are allowed.");
+            cleanUp($conn,$projectID);
+            $uploadOk = 0;
+        }
+
+        if ($uploadOk == 1) {
+            if (move_uploaded_file($_FILES[$inputName]["tmp_name"], $target_file)) {
+                $name = basename($_FILES[$inputName]["name"]);
+                $query = "UPDATE Projekt SET BildURL ='$target_file' where ProjektID = $projectID;";
+                $sqliUpdate = $conn->query($query);
                 if(!$sqliUpdate){
                     toErrorPage("Error: " . $conn->error."</br> failed to insert picture");
                     cleanUp($conn,$projectID);
                 }
+            } else {
+                toErrorPage("Error uploading File");
+                cleanUp($conn,$projectID);
             }
         }
     }
@@ -260,6 +302,7 @@
         $conn->query("DELETE FROM Wertliste WHERE WertlisteID = $projectID;");
         $conn->query("DELETE FROM Bewertungliste WHERE BewertunglisteID = $projectID;");
         $conn->query("DELETE FROM Projekt WHERE ProjektID = $projectID;");
+        $conn->query("ALTER TABLE Projekt AUTO_INCREMENT = $projectID;");
         die();
     }
 
