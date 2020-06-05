@@ -8,8 +8,8 @@ $htmlContent= '
         <link rel="stylesheet" type="text/css" href="../../../fe/css/error.css" />
     </head>
     <body>
-        <div id="errorText">'.$err.'</div>
         <div id="buttons">
+            <div id="errorText">'.$err.'</div>
             <form method="POST" name="toMainMenu" id="toMainMenuForm" action="./topics.php">
                 <button class="button" type="submit" id="toMainMenu">Zum Hauptmenu</button>
             </form>
