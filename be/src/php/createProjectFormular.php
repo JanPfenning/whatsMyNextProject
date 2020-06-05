@@ -9,7 +9,8 @@ $htmlContent= '
 </head>
 <body>
 <div class="container">
-    <form id="createProject" action="createProjectScript.php" method="post" enctype="multipart/form-data">
+    <!--<form id="createProject" action="createProjectScript.php" method="post" enctype="multipart/form-data">-->
+    <form id="createProject" action="createProjectNoWriteJustEcho.php" method="post" enctype="multipart/form-data">
         <input type="hidden" id="group" autocomplete="off" name="GruppeID" value="'.$_GET["GruppeID"].'" required>
         <div class="row"> <!-- Projektname -->
             <div class="col-25">
@@ -49,7 +50,7 @@ $htmlContent= '
             </div>
             <div class="col-75">
                     <span class="col-50" id="pictureUpload">
-                        <input type="file" id="pictureButton" name="Bild">
+                        <input type="file" id="pictureButton" name="picture">
                     </span>
             </div>
         </div>
