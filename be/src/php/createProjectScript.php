@@ -23,7 +23,7 @@
         {
             $GruppeID = $attributes["GruppeID"];
             $Nickname = $attributes["UserName"];
-            $ProjektName = $attributes["ProjektName"];
+            $projectName = $attributes["ProjektName"];
             $Kurzbeschreibung = $attributes["Kurzbeschreibung"];
             $Beschreibung = $attributes["Beschreibung"];
 
@@ -31,17 +31,17 @@
             $NutzerID = getUserID($Nickname, $conn);
 
             /*Create project with basic information*/
-            $sqliCreate = "INSERT INTO Projekt (GruppeID,NutzerID,ProjektName,Kurzbeschreibung,Beschreibung) VALUES ($GruppeID,$NutzerID,'$ProjektName','$Kurzbeschreibung','$Beschreibung');";
+            $sqliCreate = "INSERT INTO Projekt (GruppeID,NutzerID,ProjektName,Kurzbeschreibung,Beschreibung) VALUES ($GruppeID,$NutzerID,'$projectName','$Kurzbeschreibung','$Beschreibung');";
             $created = $conn->query($sqliCreate);
             
             if ($created === true){
-                $projektID = $conn->insert_id;
-                if($projektID == 0){
-                    cleanUp($conn,$projektID,"something went wrong while creating the project");
+                $projectID = $conn->insert_id;
+                if($projectID == 0){
+                    cleanUp($conn,$projectID,"something went wrong while creating the project");
                 }
 
-                if($attributes["picture"]!=''){
-                    addPicture($GruppeID, $projektID, $conn);
+                if(isset($_FILES['picture'])){
+                    addPicture($GruppeID, $projectID, $conn);
                 }
                 
                 $materials = $attributes['materials'];
@@ -52,11 +52,11 @@
                     $index = 0;
                     foreach ($materials as $matKey){
                         if ($matKey != ""){
-                            $matID = getMat($matKey, $matDescs[$index], $amounts[$index], $units[$index], $conn, $projektID);
-                            $query = "INSERT INTO Materialliste (MateriallisteID,MaterialLINK) values($projektID,$matID);";
+                            $matID = getMat($matKey, $matDescs[$index], $amounts[$index], $units[$index], $conn, $projectID);
+                            $query = "INSERT INTO Materialliste (MateriallisteID,MaterialLINK) values($projectID,$matID);";
                             $created = $conn->query($query);
                             if(!$created){
-                                cleanUp($conn,$projektID,"Error at linking Material to Project");
+                                cleanUp($conn,$projectID,"Error at linking Material to Project");
                             }
                         } 
                         $index = $index+1;
@@ -71,11 +71,11 @@
                     $index = 0;
                     foreach ($tools as $toolKey){
                         if ($toolKey != "") {
-                            $toolID = getTool($toolKey, $toolDescs[$index], $conn, $projektID);
-                            $query = "INSERT INTO Werkzeugliste (WerkzeuglisteID,WerkzeugLINK) values($projektID,$toolID);";
+                            $toolID = getTool($toolKey, $toolDescs[$index], $conn, $projectID);
+                            $query = "INSERT INTO Werkzeugliste (WerkzeuglisteID,WerkzeugLINK) values($projectID,$toolID);";
                             $created = $conn->query($query);
                             if(!$created){
-                                cleanUp($conn,$projektID,"Error at linking Tools to project");
+                                cleanUp($conn,$projectID,"Error at linking Tools to project");
                             }
                         }
                         $index = $index+1;
@@ -87,44 +87,44 @@
                     $tagArray = explode(',',$attributes['Taglist']);
                     foreach ($tagArray as $tagKey){
                         $tag = str_replace(" ", "", $tagKey);
-                        $tagID = getTag($tag, $conn, $projektID);
-                        $query = "INSERT INTO Tagliste (TaglisteID,TagLINK) values($projektID,$tagID);";
+                        $tagID = getTag($tag, $conn, $projectID);
+                        $query = "INSERT INTO Tagliste (TaglisteID,TagLINK) values($projectID,$tagID);";
                         $created = $conn->query($query);
                         if(!$created){
-                            cleanUp($conn,$projektID,"Error at linktin Tags to Project");
+                            cleanUp($conn,$projectID,"Error at linktin Tags to Project");
                         }
                     }
                 }
 
                 $matrix = $attributes['Matrix'];
                 $query="INSERT INTO Wertliste (WertlisteID,Wert1,Wert2,Wert3,Wert4,Wert5,Wert6) ".
-                        "values($projektID,$matrix[0],$matrix[1],$matrix[2],$matrix[3],$matrix[4],$matrix[5]);";
+                        "values($projectID,$matrix[0],$matrix[1],$matrix[2],$matrix[3],$matrix[4],$matrix[5]);";
                 $created = $conn->query($query);
                 if(!$created){
-                    cleanUp($conn,$projektID, "Error at initializing Wertliste");
+                    cleanUp($conn,$projectID, "Error at initializing Wertliste");
                 }
 
                 $query="INSERT INTO Bewertungliste(BewertunglisteID,Stern1,Stern2,Stern3,Stern4,Stern5) ".
-                        "values($projektID,0,0,0,0,0);";
+                        "values($projectID,0,0,0,0,0);";
                 $created = $conn->query($query);
                 if(!$created){
-                    cleanUp($conn,$projektID,"Error at initializing Bewertungliste");
+                    cleanUp($conn,$projectID,"Error at initializing Bewertungliste");
                 }
 
                 /*TODO Validate generated resource*/
-                // $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projektID");
+                // $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projectID");
                 // $schemaPath = "../xml/xmlschemaDetail.xml";
                 // $validator = new DOMValidator($schemaPath);
                 // try {
                 //     $validated = $validator->validateFeeds(strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
                 // } catch (DOMException $e) {
-                //     cleanUp($conn,$projektID,"failed to validate resource");
+                //     cleanUp($conn,$projectID,"failed to validate resource");
                 // } catch (Exception $e) {
-                //     cleanUp($conn,$projektID,"failed to validate resource for custom reasons");
+                //     cleanUp($conn,$projectID,"failed to validate resource for custom reasons");
                 // }
                 // if (!$validated) {
                 //     print_r($validator->displayErrors());
-                //     cleanUp($conn,$projektID,"Created resource is not valid against the xsd");
+                //     cleanUp($conn,$projectID,"Created resource is not valid against the xsd");
                 // }
 
                 // include("../../../fe/html/index.html");

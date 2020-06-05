@@ -44,7 +44,7 @@ if(!isset($_POST["action"]) || $_POST["action"] == "post"){
                 cleanUp($conn,$projektID,"something went wrong while creating the project");
             }
 
-            if(count($_FILES)>0){
+            if(isset($_FILES['picture'])){
                 addPicture($GruppeID, $projektID, $conn);
             }
 
