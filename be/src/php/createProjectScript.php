@@ -10,7 +10,7 @@
     }else{
         //echo(implode(",",$_GET["materials"])."</br>");
         //echo(implode(",",$_GET["amount"]));
-        toErrorPage("Failed to load requiered File");
+        toErrorPage("Failed to load required File");
         die();
     }
     if(!isset($_GET["action"]) || $_GET["action"] == "get"){
@@ -47,10 +47,10 @@
                 }
 
                 /*TODO how does uploading pictures work?*/
-                $picture = $attributes["Bild"];
-                if($picture!=''){
-                    addPicture($picture,$GruppeID,$projektID, $conn);
-                }
+                // $picture = $attributes["Bild"];
+                // if($picture!=''){
+                //     addPicture($picture,$GruppeID,$projektID, $conn);
+                // }
                 
                 $materials = $attributes['materials'];
                 $matDescs = $attributes["matDesc"];
@@ -59,13 +59,14 @@
                 if(implode(',',$materials)!=''){
                     $index = 0;
                     foreach ($materials as $matKey){
-                        //if $matKey != ""{} index+=1
-                        $matID = getMat($matKey,$matDescs[$index],$amounts[$index],$units[$index], $conn);
-                        $query = "INSERT INTO Materialliste (MateriallisteID,MaterialLINK) values($projektID,$matID);";
-                        $created = $conn->query($query);
-                        if(!$created){
-                            cleanUp($conn,$projektID);
-                        }
+                        if ($matKey != ""){
+                            $matID = getMat($matKey,$matDescs[$index],$amounts[$index],$units[$index], $conn);
+                            $query = "INSERT INTO Materialliste (MateriallisteID,MaterialLINK) values($projektID,$matID);";
+                            $created = $conn->query($query);
+                            if(!$created){
+                                cleanUp($conn,$projektID);
+                            }
+                        } 
                         $index = $index+1;
                     }
                 }
@@ -78,12 +79,13 @@
                 if(implode(',',$tools)!=''){
                     $index = 0;
                     foreach ($tools as $toolKey){
-                        //if $toolKey != ""{} index+=1
-                        $toolID = getTool($toolKey,$toolDescs[$index], $conn,$projektID);
-                        $query = "INSERT INTO Werkzeugliste (WerkzeuglisteID,WerkzeugLINK) values($projektID,$toolID);";
-                        $created = $conn->query($query);
-                        if(!$created){
-                            cleanUp($conn,$projektID);
+                        if ($toolKey != "") {
+                            $toolID = getTool($toolKey,$toolDescs[$index], $conn,$projektID);
+                            $query = "INSERT INTO Werkzeugliste (WerkzeuglisteID,WerkzeugLINK) values($projektID,$toolID);";
+                            $created = $conn->query($query);
+                            if(!$created){
+                                cleanUp($conn,$projektID);
+                            }
                         }
                         $index = $index+1;
                     }
@@ -94,7 +96,8 @@
                 if($attributes["Taglist"]!=''){
                     $tagArray = explode(',',$attributes['Taglist']);
                     foreach ($tagArray as $tagKey){
-                        $tagID = getTag($tagKey, $conn,$projektID);
+                        $tag = str_replace(" ", "", $tagKey);
+                        $tagID = getTag($tag, $conn,$projektID);
                         $query = "INSERT INTO Tagliste (TaglisteID,TagLINK) values($projektID,$tagID);";
                         $created = $conn->query($query);
                         if(!$created){
@@ -118,6 +121,8 @@
 
                 /*TODO Kommentarbereich anlegen (muss vlt gar nicht beim erstellen passieren)*/
                 //$commentArea = mysqli_query($conn, "INSERT INTO Kommentarliste (KommenntarlisteID) values ($projektID)");
+                
+                echo("successfully created source. To be validated");
 
                 /*TODO Validate generated resource*/
                 $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projektID");
