@@ -1,3 +1,6 @@
+function init(){
+
+}
 /*TODO make all those static parent references by a for loop*/
 function changeList(inputElement,type){
     value = inputElement.value;
@@ -50,4 +53,28 @@ function removeLine(element,type){
 function getValue(div){
     div.childNodes.forEach(child.forEach(getValue));
     return value;
+}
+function changePic(slider) {
+    var x = slider.value;
+    if (x === '1') {
+        slider.className = "gravel";
+    } else if (x === '2') {
+        slider.className = 'sand';
+    } else if (x === '3') {
+        slider.className = 'dirt';
+    } else if (x === '4') {
+        slider.className = 'wood';
+    } else if (x === '5') {
+        slider.className = 'cobblestone';
+    } else if (x === '6') {
+        slider.className = 'coal';
+    } else if (x === '7') {
+        slider.className = 'redstone';
+    } else if (x === '8') {
+        slider.className = 'lapis';
+    } else if (x === '9') {
+        slider.className = 'emerald';
+    } else if (x === '10') {
+        slider.className = 'diamond';
+    }
 }

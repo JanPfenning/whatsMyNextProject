@@ -126,10 +126,9 @@ input[type=range]::-webkit-slider-thumb{
     border-radius: 100%;
     width: 25px;
     height: 25px;
-    background: url('../img/mcBlock2.png');
+    background: url('../img/slider/dirtBlock.png');
     background-size: contain;
-    background-position: center;
-    #background: #4CAF50;
+    /*background: #4CAF50;*/
     cursor: pointer;
 }
 
@@ -138,4 +137,49 @@ input[type=range]::-moz-range-thumb{
     height: 25px;
     background: #4CAF50;
     cursor: pointer;
+}
+/*doesnt work for reasons*/
+#en{
+    background-image: url("../img/enFlagCircle.png");
+    background-size: contain;
+}
+#de{
+     background-image: url("../img/deFlag.png");
+    background-size: cover;
+}
+input[type="range"].coal::-webkit-slider-thumb {
+    background-image: url('../img/slider/coalBlock.png');
+}
+input[type="range"].dirt::-webkit-slider-thumb {
+    background-image: url('../img/slider/dirtBlock.png');
+}
+input[type="range"].cobblestone::-webkit-slider-thumb {
+    background-image: url('../img/slider/cobblestoneBlock.png');
+}
+input[type="range"].sand::-webkit-slider-thumb {
+    background-image: url('../img/slider/sandBlock.png');
+}
+input[type="range"].gravel::-webkit-slider-thumb {
+    background-image: url('../img/slider/gravelBlock.png');
+}
+input[type="range"].wood::-webkit-slider-thumb {
+    background-image: url('../img/slider/woodBlock.png');
+}
+input[type="range"].redstone::-webkit-slider-thumb {
+    background-image: url('../img/slider/redstoneBlock.png');
+}
+input[type="range"].lapis::-webkit-slider-thumb {
+    background-image: url('../img/slider/lapislazuliBlock.png');
+}
+input[type="range"].emerald::-webkit-slider-thumb {
+    background-image: url('../img/slider/emeraldBlock.png');
+}
+input[type="range"].diamond::-webkit-slider-thumb {
+    background-image: url('../img/slider/diamondBlock.png');
+}
+footer{
+    color: white;
+}
+a[href^="https://"],a[href^="http://"]{
+    color: red;
 }
