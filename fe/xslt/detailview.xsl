@@ -110,6 +110,12 @@
                             </div>
                             <div id="commentArea" class="contentArea">
                                 <h2 id="commentHeader">Kommentare</h2>
+                                <form action="../../../be/src/php/commentProject.php">
+                                    <label for="nick">Anzeigename</label>
+                                    <input type="text" id="nick" name="nick"/>
+                                    <!--<label for="comment">Kommentar</label>-->
+                                    <div><textarea type="textbox" id="comment" name="comment"/></div>
+                                </form>
                                 <xsl:for-each select="dataset/Projekt/Kommentarliste/KommentarView">
                                     <div>
                                         <xsl:attribute name="id">

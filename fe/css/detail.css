@@ -158,3 +158,8 @@ li:last-child {
     position: absolute;
     display: inline-block;
 }
+#comment{
+    margin-top: 1%;
+    width: 100%;
+    height: 10%;
+}
