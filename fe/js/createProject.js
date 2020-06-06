@@ -7,30 +7,38 @@ function init(){
     });
 }
 /*TODO make all those static parent references by a for loop*/
-function changeList(inputElement,type){
+function remove(inputElement,type){
     value = inputElement.value;
     row = inputElement.parentNode;
     if(type===2){
         row = inputElement.parentNode.parentNode;
     }
     container = row.parentNode;
+
     if(value==="") {
         if(row.nextElementSibling!==null){
             container.removeChild(row);
         }
     }
-    else{
-        if(row.nextElementSibling === null){
-            newRow = row.cloneNode(true);
-            if(type === 2){
-                newRow.childNodes.forEach(getRow);
-            }else if(type===1){
-                newRow.childNodes.forEach(emptyValues);
-            }else{
-                console.error("We dont know how to handle parameter: "+type)
-            }
-            container.appendChild(newRow);
+}
+function changeList(inputElement,type){
+    value = inputElement.value;
+    row = inputElement.parentNode;
+    row = inputElement.parentNode;
+    if(type===2){
+        row = inputElement.parentNode.parentNode;
+    }
+    container = row.parentNode;
+    if(row.nextElementSibling === null){
+        newRow = row.cloneNode(true);
+        if(type === 2){
+            newRow.childNodes.forEach(getRow);
+        }else if(type===1){
+            newRow.childNodes.forEach(emptyValues);
+        }else{
+            console.error("We dont know how to handle parameter: "+type)
         }
+        container.appendChild(newRow);
     }
 }
 function getRow(value){
@@ -53,7 +61,7 @@ function removeLine(element,type){
         console.error("We dont know how to handle parameter: "+type)
     }
     e.value = '';
-    e.onchange()
+    e.onchange();
 }
 function getValue(div){
     div.childNodes.forEach(child.forEach(getValue));

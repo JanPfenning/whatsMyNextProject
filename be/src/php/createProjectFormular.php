@@ -100,7 +100,7 @@ $htmlContent= '
             <div class="col-75">
                 <div>
                     <span class="col-30">
-                        <input type="text" id="materials" autocomplete="off" onchange="changeList(this,2)" name="materials[]" placeholder="Material...">
+                        <input type="text" id="materials" autocomplete="off" oninput="changeList(this,2)" onchange="remove(this,2)" name="materials[]" placeholder="Material...">
                     </span>
                     <span class="col-20">
                         <input type="text" id="matDesc" autocomplete="off" name="matDesc[]" placeholder="Kurzbeschreibung...">
@@ -124,7 +124,7 @@ $htmlContent= '
             <div class="col-75">
                 <div>
                     <span class="col-40">
-                        <input type="text" id="tools" autocomplete="off" onchange="changeList(this,2)" name="tools[]" placeholder="Werkzeug...">
+                        <input type="text" id="tools" autocomplete="off" oninput="changeList(this,2)" onchange="remove(this,2)" name="tools[]" placeholder="Werkzeug...">
                     </span>
                     <span class="col-50">
                         <input type="text" id="tools" autocomplete="off" name="toolDesc[]" placeholder="Kurzbeschreibung...">
