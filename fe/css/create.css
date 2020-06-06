@@ -126,7 +126,7 @@ input[type=range]::-webkit-slider-thumb{
     border-radius: 100%;
     width: 25px;
     height: 25px;
-    background: url('../img/slider/dirtBlock.png');
+    /*background: url('../img/slider/dirtBlock.png');*/
     background-size: contain;
     /*background: #4CAF50;*/
     cursor: pointer;

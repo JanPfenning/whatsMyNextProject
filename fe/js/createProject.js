@@ -1,5 +1,10 @@
 function init(){
-
+    const inputs = Array.from(document.getElementsByTagName("INPUT"));
+    inputs.forEach(function(item){
+        if(item.getAttribute("type")==="range"){
+            item.oninput(item);
+        }
+    });
 }
 /*TODO make all those static parent references by a for loop*/
 function changeList(inputElement,type){
