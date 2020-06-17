@@ -4,7 +4,7 @@
                 ><!--xmlns:svg="http://www.w3.org/2000/svg"-->
 
     <xsl:output
-            method="html"
+            method="xml"
             doctype-public="-//W3C//DTD XHTML 1.1//EN"
             doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"
             omit-xml-declaration="yes"
