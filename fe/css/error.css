@@ -11,7 +11,7 @@ body{
     width: 30%;
 }
 #buttons{
-    margin-top: 25%;
+    margin-top: 20%;
 }
 .button {
     padding: 15px 25px;
@@ -32,4 +32,15 @@ body{
     background-color: #ADD8FF;
     box-shadow: 0 3px #303030;
     transform: translateY(3px);
+}
+#errorText{
+    margin: 5% auto;
+    height: fit-content;
+    text-align: center;
+    width: fit-content;
+    border-style: solid;
+    border-radius: 1px;
+    background-color: rgba(55,55,55,0.5);
+    color: red;
+    font-weight: bold;
 }

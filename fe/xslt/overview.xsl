@@ -9,32 +9,41 @@
     <xsl:template match="/">
         <html>
             <head>
-                <script lang="javascript" src="../../../fe/js/groups.js"/>
+                <script lang="javascript" src="../../../fe/js/overview.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
-                <!--<link rel="stylesheet" type="text/css" href="../../../fe/css/groupview.css" />-->
+                <link rel="stylesheet" type="text/css" href="../../../fe/css/overview.css" />
                 <title>Find your next Project</title>
             </head>
             <body>
-                <!-- TODO this "1" has to be the id of the clicked group before redirecting-->
-                <xsl:for-each select="dataset/projects/project[groupID=1]">
-
-                    <form action="../php/details.php"
-                          method="POST">
-                        <xsl:attribute name="name">
-                            <xsl:value-of select="concat('toDetailPage',@id)"/>
+                <xsl:attribute name="style">
+                    <xsl:value-of select="concat('background-image: url(',dataset/BackgroundURL,')')"/>
+                </xsl:attribute>
+                <xsl:for-each select="dataset/Projekte/ProjektView">
+                    <form action="../php/detail.php" method="GET">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="concat('form_',ProjektID)"/>
                         </xsl:attribute>
-                        <input type="hidden" name="id">
+                        <input type="hidden" name="ProjektID">
                             <xsl:attribute name="value">
-                                <xsl:value-of select="@id"/>
+                                <xsl:value-of select="ProjektID"/>
                             </xsl:attribute>
                         </input>
-                        <div>
-                            <xsl:attribute name="onclick">
-                                document.forms['toDetailPage<xsl:value-of select="@id"/>'].submit();
-                            </xsl:attribute>
-                            <p><xsl:value-of select="name"/></p>
-                        </div>
                     </form>
+                </xsl:for-each>
+                <xsl:for-each select="dataset/Projekte/ProjektView">
+                    <div>
+                        <div class="projekt">
+                            <xsl:attribute name="onclick">
+                                <xsl:value-of select="concat('xslOnClick(',ProjektID,')')"/>
+                            </xsl:attribute>
+                            <span class="title">
+                                <xsl:value-of select="ProjektName"/>
+                            </span>
+                            <span class="projektKurzbeschreibung">
+                                <xsl:value-of select="Kurzbeschreibung"/>
+                            </span>
+                        </div>
+                    </div>
                 </xsl:for-each>
             </body>
         </html>

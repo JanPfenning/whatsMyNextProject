@@ -11,14 +11,43 @@
             <head>
                 <script lang="javascript" src="../../../fe/js/groups.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
-                <!--<link rel="stylesheet" type="text/css" href="../../../fe/css/groupview.css" />-->
+                <link rel="stylesheet" type="text/css" href="../../../fe/css/groups.css" />
                 <title>Find your next Project</title>
             </head>
-            <body>
-                <!-- TODO this "1" has to be the id of the clicked topic before redirecting-->
-                <xsl:for-each select="dataset/topics/topic[@id=1]/groups/group">
-                    <a><xsl:value-of select="name"/></a>
+            <body onload="init()">
+                <xsl:attribute name="style">
+                    <xsl:value-of select="concat('background-image: url(',dataset/BackgroundURL,')')"/>
+                </xsl:attribute>
+                <xsl:for-each select="dataset/Gruppen/Gruppe">
+                    <form action="../php/projects.php" method="GET">
+                        <xsl:attribute name="id">
+                            <xsl:value-of select="concat('form_',GruppeID)"/>
+                        </xsl:attribute>
+                        <input type="hidden" name="GruppeID">
+                            <xsl:attribute name="value">
+                                <xsl:value-of select="GruppeID"/>
+                            </xsl:attribute>
+                        </input>
+                    </form>
                 </xsl:for-each>
+                <svg class="groupSpace" id="groups">
+                    <xsl:for-each select="dataset/Gruppen/Gruppe">
+                        <g class="groupG">
+                            <xsl:attribute name="onclick">
+                                <xsl:value-of select="concat('xslOnClick(',GruppeID,')')"/>
+                            </xsl:attribute>
+                            <circle r="100" class="groupCircles"/>
+                            <text class="text groupTexts"  text-anchor="middle" fill="#FFFFFF">
+                                <xsl:value-of select="GruppeName"/>
+                            </text>
+                        </g>
+                    </xsl:for-each>
+                    <!-- Base circle -->
+                    <g>
+                        <circle id="baseCircle" r="200" cx="50%" cy="100%"/>
+                        <text class="text" id="baseText" x="50%" y="95%" text-anchor="middle" fill="#FFFFFF">Gruppenwahl</text>
+                    </g>
+                </svg>
             </body>
         </html>
     </xsl:template>

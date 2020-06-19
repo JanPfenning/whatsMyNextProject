@@ -16,7 +16,8 @@
     }
 
     function printData($parentTag, $data, $conn, $IDvalue){
-        print("<".$parentTag.">");
+        $ret = "";
+        $ret.("<".$parentTag.">");
         while($row = mysqli_fetch_array($data)){
             $keys = array_keys($row);
             /*Für jede Spalte Tags mit Daten anlegen*/
@@ -26,9 +27,9 @@
                     $id = strpos($key, "ID");
                     //if needle doesnt exisit in substr comp with ==0 -> true -> no recursion
                     if($link == 0 && ($key == "GruppeID" || $key == "BereichID" || $key == "ProjektID" || $id == 0)){
-			            print("<".$key.">");
-                        print($row[$key]);
-                        print("</".$key.">");
+                        $ret.("<".$key.">");
+                        $ret.($row[$key]);
+                        $ret.("</".$key.">");
                     //if needle Exists and is not at index 0 -> rekursion
                     }else{
                         //print($key."-> ".$row[$key]);
@@ -37,19 +38,22 @@
                 }
             }
         }
-        print("</".$parentTag.">");
+        $ret.("</".$parentTag.">");
+        return $ret;
     }
     /*base strucutre of the needed XML document*/
-    function printXML($parentTag, $data, $conn, $IDvalue, $linkToXSLT, $BackgroundURL){
+    function strXML($parentTag, $data, $conn, $IDvalue, $linkToXSLT, $BackgroundURL){
+        $ret = "";
         header("Content-Type: text/xml");
-        print('<?xml version="1.0" encoding="UTF-8"?>');
+        $ret.('<?xml version="1.0" encoding="UTF-8"?>');
         /*TODO link correct xsl sheet*/
-        print('<?xml-stylesheet type="text/xml" href="'.$linkToXSLT.'"?>');
-        print("<dataset>");
-        printData($parentTag, $data, $conn, $IDvalue);
-        print('<BackgroundURL>');
-        print($BackgroundURL);
-        print('</BackgroundURL>');
-        print("</dataset>");
+        $ret.('<?xml-stylesheet type="text/xml" href="'.$linkToXSLT.'"?>');
+        $ret.("<dataset>");
+        $ret.printData($parentTag, $data, $conn, $IDvalue);
+        $ret.('<BackgroundURL>');
+        $ret.($BackgroundURL);
+        $ret.('</BackgroundURL>');
+        $ret.("</dataset>");
+        return $ret;
     }
 ?>

@@ -11,41 +11,36 @@ body{
     background-image: url("../img/toolsBackground.jpeg");
     background-size: cover;
 }
-.topicChoiceContainer{
-    margin-top: auto;
-    text-align: center;
+.groupChoiceContainer{
+    position: relative;
     width:100%;
     height:100%;
 }
-.scalingSvgContainer{
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-.topicSpace{
+.groupSpace{
+    position: absolute;
     bottom: 0;
     height: 100%;
     width: 100%;
 }
-.topicCircles{
+.groupCircles{
     opacity: 80%;
     fill: var(--rgba-primary-0);
     cursor: pointer;
     color: #fff;
 }
-.topicCircles:hover{
+.groupCircles:hover{
     fill: var(--rgba-primary-1);
 }
-.topicCircles:active{
+.groupCircles:active{
     fill: var(--rgba-primary-3);
 }
-.topicG{
+.groupG{
     cursor: pointer;
 }
-.topicG:hover{
+.groupG:hover{
     transform: translateY(-5px);
 }
-.topicG:active {
+.groupG:active {
     transform: translateY(3px);
 }
 .text{

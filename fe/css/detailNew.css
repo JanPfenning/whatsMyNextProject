@@ -1,0 +1,185 @@
+:root{
+    /* Color Theme */
+    --rgba-primary-0: rgba(199,1,88,1);
+    --rgba-primary-1: rgba(157,10,74,1);
+    --rgba-primary-2: rgba(128,7,60,1);
+    --rgba-primary-3: rgba(89,0,39,1);
+    --rgba-primary-4: rgba(53,0,23,1);
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    height: 100%;
+    background-size: cover;
+}
+#backgroundOverlay{
+    background-color: rgba(255,255,255, 0.75);
+    z-index: 1;
+}
+#content{
+    width: 80%;
+    margin: auto;
+}
+.grid {
+    display: grid;
+    grid-template-areas:
+            'title title'
+            'picture information'
+            'radar likes'
+            'comments comments';
+}
+@media (max-device-width: 700px) {
+    .grid {
+        display: grid;
+        grid-template-areas:
+                'title'
+                'picture'
+                'information'
+                'radar'
+                'likes'
+                'comments';
+    }
+}
+#title{
+    grid-area: title;
+}
+#toolbar{
+    overflow: hidden;
+    background-color: #333;
+}
+#forms{
+    display: none;
+}
+.barE{
+    color: darkgray;
+    float: left;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 17px;
+}
+#toolbar span:not(:last-child):hover{
+    cursor: pointer;
+}
+#toolbar .barE:not(:first-child):before{
+    content: ">";
+    padding-right: 14px;
+    color: darkgrey;
+}
+#current{
+     color: white;
+}
+h1{
+    text-align: center;
+    font-size: 2rem;
+}
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 33%;
+}
+.tablink:hover {
+    background-color: #777;
+}
+/* Style the tab content */
+.tabcontent {
+    color: black;
+    overflow-y: scroll;
+    height: 15rem;
+    display: none;
+    padding: 1%;
+    text-align: left;
+}
+li{
+    margin: 10px 0;
+    width: fit-content;
+    white-space: nowrap;
+}
+li .detail:before{
+    content: " ";
+    position: absolute;
+    top: 10%;
+    left: -7px;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+.identifier:hover + .detail{
+    /*background: var(--rgba-primary-3);*/
+    position: absolute;
+    display: inline-block;
+}
+.detail{
+    display:none;
+    margin-left: 10px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+}
+#information{
+    width: 100%;
+}
+#tabinfo{
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    grid-area: information;
+}
+#picture{
+    text-align: center;
+    grid-area: picture;
+}
+#comments{
+    grid-area: comments;
+}
+#projectImage{
+    width: 80%;
+    margin: 1rem;
+    padding: 1rem;
+    border-style: solid;
+    border-radius: 10px;
+}
+#buttongroup{
+
+}
+#radarChartArea{
+    grid-area: radar;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    border-radius: 100%;
+}
+#radarChartSVG{
+    margin-left: 40px;
+}
+#ring5{
+    stroke: yellow;
+}
+.radarRing{
+    fill-opacity: 0;
+    stroke: aqua;
+}
+#valuePolygon{
+    fill-opacity: 30%;
+    fill: indianred;
+    stroke: red;
+}
+.valuePoint{
+    fill: red;
+    opacity: 100%;
+}
+.Bewertungseinheit, .Nick{
+    font-weight: bolder;
+}
+#likes{
+    grid-area: likes;
+    text-align: center;
+}
