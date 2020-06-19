@@ -21,10 +21,25 @@ include $path.'/craftXML.php';
 if(!isset($_GET["action"]) || $_GET["action"] == "get"){
     if(isset($_GET["BereichID"])){
         $IDvalue = $_GET["BereichID"];
-        $result = mysqli_query($conn, "select GruppeLINK from GruppeView where BereichID = $IDvalue");
-        $BackgroundURL = mysqli_query($conn, "select BackgroundURL from Bereich as b where b.BereichID = $IDvalue"); 
-        $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
-        printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupview.xsl",  $BackgroundURLtext["BackgroundURL"]);
+
+        // $result = mysqli_query($conn, "select GruppeLINK from GruppeView where BereichID = $IDvalue");
+
+        $query = $conn->prepare("select GruppeLINK from GruppeView where BereichID = ?");
+        $query->bind_param("i", $IDvalue);
+        $query->execute();
+        $result = mysqli_stmt_get_result ($query);
+        $query->close();
+
+        // $BackgroundURL = mysqli_query($conn, "select BackgroundURL from Bereich as b where b.BereichID = $IDvalue"); 
+        // $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
+
+        $BackgroundURL = $conn->prepare("select BackgroundURL from Bereich as b where b.BereichID = ?");
+        $BackgroundURL->bind_param("i", $IDvalue);
+        $BackgroundURL->execute();
+        $BackgroundURLtext = mysqli_stmt_get_result($BackgroundURL);
+        $BackgroundURL->close();
+
+        printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupview.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
     }else{
         toErrorPage('No ID given for which Projects where requested');
     }
