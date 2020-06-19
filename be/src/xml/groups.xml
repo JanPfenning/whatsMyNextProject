@@ -37,30 +37,6 @@
             <BereichID>1</BereichID>
             <GruppeName>Günstig</GruppeName>
         </Gruppe>
-        <Gruppe>
-            <GruppeID>6</GruppeID>
-            <BereichID>1</BereichID>
-            <GruppeName>Günstig</GruppeName>
-        </Gruppe>
-        <Gruppe>
-            <GruppeID>6</GruppeID>
-            <BereichID>1</BereichID>
-            <GruppeName>Günstig</GruppeName>
-        </Gruppe>
-        <Gruppe>
-            <GruppeID>6</GruppeID>
-            <BereichID>1</BereichID>
-            <GruppeName>Günstig</GruppeName>
-        </Gruppe>
-        <Gruppe>
-            <GruppeID>6</GruppeID>
-            <BereichID>1</BereichID>
-            <GruppeName>Günstig</GruppeName>
-        </Gruppe>
-        <Gruppe>
-            <GruppeID>6</GruppeID>
-            <BereichID>1</BereichID>
-            <GruppeName>Günstig</GruppeName>
-        </Gruppe>
     </Gruppen>
+    <BackgroundURL>./../../../fe/img/landingPage.png</BackgroundURL>
 </dataset>

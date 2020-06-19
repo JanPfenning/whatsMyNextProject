@@ -40,7 +40,7 @@
                     cleanUp($conn,$projectID,"something went wrong while creating the project");
                 }
 
-                if(isset($_FILES['picture'])){
+                if(isset($_FILES['picture']) && $_FILES['picture']['size'] > 0){
                     addPicture($GruppeID, $projectID, $conn);
                 }
                 

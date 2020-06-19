@@ -36,7 +36,9 @@ function placeCircles(){
         angle+=baseAlpha;
     }
 }
-
+function navToTopics(){
+    document.getElementById("toTopics").submit();
+}
 function calcCircleSize(x1,x2,y1,y2){
     let deltaX = Math.abs(x1-x2);
     let deltaY = Math.abs(y1-y2);
