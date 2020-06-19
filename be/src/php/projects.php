@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL); 
+ini_set('display_errors', 1);
 
 $path = getcwd();
 
@@ -20,10 +22,26 @@ $IDvalue = 1;
 if(!isset($_GET["action"]) || $_GET["action"] == "get"){
     if(isset($_GET["GruppeID"])){
         $IDvalue = $_GET["GruppeID"];
-        $result = mysqli_query($conn, "select ProjektViewLINK from ProjektlistView where GruppeID = $IDvalue");
-        $BackgroundURL = mysqli_query($conn, "select BackgroundURL from Bereich as b join Gruppe as g on b.BereichID = g.BereichID where g.GruppeID = $IDvalue"); 
-        $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
-        printXML("Projekte", $result, $conn, $IDvalue, "/../../../fe/xslt/overview.xsl", $BackgroundURLtext["BackgroundURL"]);
+
+        // $result = mysqli_query($conn, "select ProjektViewLINK from ProjektlistView where GruppeID = $IDvalue");
+
+        $query = $conn->prepare("select ProjektViewLINK from ProjektlistView where GruppeID = ?");
+        $query->bind_param("i", $IDvalue);
+        $query->execute();
+        $result = mysqli_stmt_get_result($query);
+        $query->close();
+ 
+        // $BackgroundURL = mysqli_query($conn, "select BackgroundURL from Bereich as b join Gruppe as g on b.BereichID = g.BereichID where g.GruppeID = $IDvalue"); 
+        // $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
+
+        $BackgroundURL = $conn->prepare("select BackgroundURL from Bereich as b join Gruppe as g on b.BereichID = g.BereichID where g.GruppeID = ?");
+        $BackgroundURL->bind_param("i", $IDvalue);
+        $BackgroundURL->execute();
+        $BackgroundURLtext = mysqli_stmt_get_result($BackgroundURL);
+        $BackgroundURL->close();
+
+        printXML("Projekte", $result, $conn, $IDvalue, "/../../../fe/xslt/overview.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
+        $conn->close();
     }else{
         toErrorPage('No ID given for which Projects where requested');
     }
