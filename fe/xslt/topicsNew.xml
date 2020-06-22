@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/topicSelection.xsl"?>
+<dataset>
+    <Bereiche>
+        <Bereich>
+            <BereichID>1</BereichID>
+            <BereichName>Programmieren</BereichName>
+        </Bereich>
+        <Bereich>
+            <BereichID>2</BereichID>
+            <BereichName>Handwerk</BereichName>
+        </Bereich>
+        <Bereich>
+            <BereichID>3</BereichID>
+            <BereichName>Basteln</BereichName>
+        </Bereich>
+    </Bereiche>
+    <BackgroundURL>
+        ../../../fe/img/toolsBackground.jpeg
+    </BackgroundURL>
+</dataset>
