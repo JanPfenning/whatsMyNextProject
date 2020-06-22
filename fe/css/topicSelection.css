@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body{
+    background-image: linear-gradient(#50808e, #84b59f, #5B9A63, #756B43,#272416);
+}
+#toolbar{
+    padding: .8rem 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+}
+.toolbartext{
+    color: white;
+    font-size: 150%;
+}
+#content{
+    background-size: cover;
+    margin: 5%;
+    height: 80%;
+    display:flex;
+    align-items: center;
+    justify-content: end;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+#topicSelection{
+    /*display: block;*/
+    margin: auto auto 0 auto;
+}
+.topicCircle{
+    fill: #50808e;
+    stroke: black;
+}
+#baseCircle{
+    fill: #84b59f;
+    stroke: black;
+}
+#baseCircleText{
+    font-size: 2.5rem;
+}
+.circleText{
+    fill: white;
+    font-weight: bold;
+    /*font-size: 1.5rem;*/
+}
