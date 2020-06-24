@@ -1,7 +1,8 @@
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:n="http://localhost:63342/whatsMyNextProject/be/src/xml/dtdDetailNew.dtd"
-                ><!--xmlns:svg="http://www.w3.org/2000/svg"-->
+                xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns:n="http://localhost:63342/meinCraft/be/src/xml/dtdDetailNew.dtd"
+                >
 
     <xsl:output
             method="xml"
@@ -139,7 +140,7 @@
                                     <xsl:value-of select="n:dataset/n:Projekt/n:Wertliste/n:Wert6"/>
                                 </div>
                             </div>
-                            <svg id="radarChartSVG" height="300" width="400"/>
+                            <svg:svg id="radarChartSVG" height="300" width="400"/>
                         </div>
                         <div id="comments">
                             <xsl:for-each select="n:dataset/n:Projekt/n:Kommentarliste/n:KommentarView">
