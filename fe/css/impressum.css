@@ -5,13 +5,15 @@ body {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    justify-items: center
+    justify-items: center;
 }
 #content{
-    margin: 5rem auto;
+    margin: 5rem auto 0 auto;
     padding: 2% 5%;
     width: 50%;
-    height: 25%;
+    height: auto;
+    max-height: 75vh;
+    overflow: auto;
 
     background-color: hsla(50,50%,100%,0.5);
 }
