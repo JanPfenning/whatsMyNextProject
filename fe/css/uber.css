@@ -8,12 +8,10 @@ body {
     justify-items: center
 }
 #content{
-    margin: auto;
-    padding: 5%;
+    margin: 5rem auto;
+    padding: 2% 5%;
     width: 50%;
     height: 25%;
-    text-align: center;
 
-    border-radius: 10%;
     background-color: hsla(50,50%,100%,0.5);
 }

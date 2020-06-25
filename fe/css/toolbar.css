@@ -1,9 +1,9 @@
-#toolbar{
-    padding: .5rem 1.5rem;
+#toolbar {
+    padding: .5rem 1%;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 98%;
     background-color: black;
 }
 .toolbartext{
@@ -37,6 +37,10 @@
     color: white;
 }.descendent{
     cursor: default;
+ }
+ .ascendent{
+     cursor: pointer;
+     color: white;
  }
 .right{
     float: right;
