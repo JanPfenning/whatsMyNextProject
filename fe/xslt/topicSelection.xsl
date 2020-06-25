@@ -51,24 +51,24 @@
                         Projekt einreichen
                     </span>
                     <div id="forms">
-                        <form action="topics.php" id="toTopics"/>
-                        <form action="groups.php" id="toGroups">
+                        <form action="../php/topics.php" id="toTopics"/>
+                        <form action="../php/groups.php" id="toGroups">
                             <input type="hidden" name="ProjektID">
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="dataset/Projekt/ProjektID"/>
                                 </xsl:attribute>
                             </input>
                         </form>
-                        <form action="projects.php" id="toProjects">
+                        <form action="../php/projects.php" id="toProjects">
                             <input type="hidden" name="GruppeID">
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="dataset/Projekt/GruppeID"/>
                                 </xsl:attribute>
                             </input>
                         </form>
-                        <form action="impressum.php" id="toImpressum"/>
-                        <form action="uber.php" id="toUber"/>
-                        <form action="createProjectFormular.php" id="toCreateProject">
+                        <form action="../php/impressum.php" id="toImpressum"/>
+                        <form action="../php/uber.php" id="toUber"/>
+                        <form action="../php/createProjectFormular.php" id="toCreateProject">
                             <input type="hidden" name="ProjektID">
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="dataset/Projekt/GruppeID"/>
