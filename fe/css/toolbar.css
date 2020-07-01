@@ -25,27 +25,27 @@
 #toolbar .navE:not(:first-child):before{
     content: ">";
     padding-right: 14px;
-    color: darkgrey;
 }
 #toolbar .right:not(:first-child):before{
     content: "|";
     padding-right: 14px;
-    color: darkgrey;
 }
 #current{
     cursor: pointer;
     color: white;
 }.descendent{
     cursor: default;
+    color: grey;
  }
- .ascendent{
-     cursor: pointer;
-     color: white;
- }
+
 .right{
     float: right;
     cursor: not-allowed;
 }
 .right[onclick]{
     cursor: pointer;
+}
+.ascendent{
+    cursor: pointer;
+    color: darkgrey;
 }
