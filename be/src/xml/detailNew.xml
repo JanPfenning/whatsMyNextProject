@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="application/xml" href="../../../fe/xslt/detailviewNew.xsl"?>
-<!DOCTYPE week SYSTEM "http://localhost:63342/whatsMyNextProject/be/src/xml/dtdDetailNew.dtd">
-<dataset xmlns="http://localhost:63342/whatsMyNextProject/be/src/xml/dtdDetailNew.dtd">
+<!DOCTYPE dataset SYSTEM "http://localhost:63342/meinCraft/be/src/xml/dtdDetailNew.dtd">
+<dataset xmlns="http://localhost:63342/meinCraft/be/src/xml/dtdDetailNew.dtd">
     <Projekt>
         <ProjektID>1</ProjektID>
         <GruppeID>1</GruppeID>

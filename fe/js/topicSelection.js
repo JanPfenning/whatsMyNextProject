@@ -1,33 +1,32 @@
 function placeCircles(){
-    let circles = document.getElementsByClassName("topicCircles");
-    let texts = document.getElementsByClassName("topicTexts");
+    let circles = document.getElementsByClassName("topicCircle");
+    let texts = document.getElementsByClassName("circleText");
+
     let n = circles.length;
     let baseAlpha = (180/(n));
-    let baseCircle = document.getElementById("baseCircle");
-    let baseCircleBounding = baseCircle.getBoundingClientRect();
-    let baseX = baseCircleBounding.width/2 + baseCircleBounding.x;
-    let baseY = baseCircleBounding.height + baseCircleBounding.y/2 + 50;
-    baseCircle.setAttribute("cx", baseX);
-    baseCircle.setAttribute("cy",baseY);
-    let baseText = document.getElementById("baseText");
-    baseText.setAttribute("x", baseX);
-    baseText.setAttribute("y",baseY-(baseCircle.getAttribute("r")/3));
-    let radius = 450;
+
+    let baseX = 50;
+    let baseY = 100;
+
+    let radius = 250;
     let angle = baseAlpha/2;
     let circleSize = calcCircleSize(getDeltaX(angle+baseAlpha,radius), getDeltaX(angle+2*baseAlpha,radius),
                     getDeltaY(angle+baseAlpha,radius),getDeltaY(angle+2*baseAlpha,radius));
+    radius = 75; //25% of the div width
     for (let i = 0; i < n; i++) {
         let circle = circles[i];
-        let text = texts[i];
+
         let deltaX = getDeltaX(angle,radius);
         let xcood = baseX+deltaX;
         let deltaY = getDeltaY(angle,radius);
         let ycood = baseY-deltaY;
         circle.setAttribute("r", circleSize);
-        circle.setAttribute("cx", xcood);
-        circle.setAttribute("cy", ycood);
-        text.setAttribute("x", xcood);
-        text.setAttribute("y", ycood+7);
+        circle.setAttribute("cx", ((baseX+xcood)/2)+"%");
+        circle.setAttribute("cy", ycood+"%");
+
+        let text = texts[i];
+        text.setAttribute("x", (baseX+xcood)/2+"%");
+        text.setAttribute("y", ycood+"%");
         text.setAttribute("font-size", circleSize/4);
         angle+=baseAlpha;
     }
@@ -43,7 +42,6 @@ function calcCircleSize(x1,x2,y1,y2){
 
 function init(){
     placeCircles();
-    calcCircleSize();
 }
 
 function xslOnClick(id){
