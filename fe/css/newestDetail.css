@@ -1,0 +1,24 @@
+body {
+    background-image: url(../img/createBackground.jpg);
+    background-size: cover;
+    background-color: #000000 ;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    justify-items: center;
+}
+.content {
+    width: 100vw;
+    margin: 3vw;
+    padding: 2vw;
+    background-color: rgba(0,0,0,0.5);
+}
+.header {
+    font-family: Monospaced;
+    text-align: center;
+    font-size: 2vw;
+    color: #ffffff;
+}
+.leftSide {
+    text-align: left;
+}

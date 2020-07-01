@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Nudeln kochen</title>
+        <script lang="javascript" src="../js/toolbar.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/toolbar.css" />
+        <link rel="stylesheet" type="text/css" href="../css/newestDetail.css" />
+    </head>
+<body>
+    <div id="toolbar">
+        <span class="barE navE ascendent" onclick="navToTopics()">
+            Home
+        </span>
+
+        <span class="barE right" onclick="toImpressum()">
+                    Impressum
+                </span>
+
+        <span class="barE right" id="current" onclick="toUber()">
+                    Über
+                </span>
+
+        <div id="forms">
+            <form action="../../be/src/php/topics.php" id="toTopics"></form>
+            <form action="../../be/src/php/impressum.php" id="toImpressum"></form>
+            <form action="../../be/src/php/uber.php" id="toUber"></form>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="header">Nudeln kochen</div>
+        <div class="leftSide">
+            <img src="https://www.lecker.de/assets/styles/563x422/public/field/image/glutenfreie-nudeln-vegan-kalorienarm-abnehmen-gewicht-reduzieren-gesunde-ernahrung-low-carb-pasta-kaufen-shopping.jpg?itok=NbAIMDma" alt="Nudelbild" />
+        </div>
+    </div>
+</body>
+</html>
