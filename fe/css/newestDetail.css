@@ -14,11 +14,30 @@ body {
     background-color: rgba(0,0,0,0.5);
 }
 .header {
-    font-family: Monospaced;
+    font-family: monospace;
     text-align: center;
     font-size: 2vw;
     color: #ffffff;
 }
 .leftSide {
-    text-align: left;
+    float: left;
+    margin: 0.5vw;
+}
+.rightSide {
+    font-family: monospace;
+    color: #ffffff;
+}
+.picsLeft {
+    display: block;
+    margin-top: 0.5vw;
+    max-width: 25vw;
+}
+.main {
+    display: inline-block;
+}
+.header2 {
+    font-size: 1vw;
+}
+.texts {
+    font-size: 1vw;
 }
