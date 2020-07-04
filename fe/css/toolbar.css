@@ -26,7 +26,7 @@
     content: ">";
     padding-right: 14px;
 }
-#toolbar .right:not(:first-child):before{
+#toolbar .right:before{
     content: "|";
     padding-right: 14px;
 }
