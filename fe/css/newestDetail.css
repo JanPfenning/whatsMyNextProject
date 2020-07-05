@@ -6,12 +6,13 @@ body {
     flex-flow: row wrap;
     justify-content: center;
     justify-items: center;
+    font-family: monospace;
 }
 .content {
     width: 100vw;
     margin: 3vw;
     padding: 2vw;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
 }
 .header {
     font-family: monospace;
@@ -78,7 +79,6 @@ body {
     display: inline-block;
 }
 .user1 {
-    background-color: rgba(0,0,0,0.8);
-    margin-left: 26vw;
+    /*margin-left: 26vw;*/
     padding: 0.5vw;
 }
