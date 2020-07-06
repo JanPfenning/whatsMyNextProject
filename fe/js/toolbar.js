@@ -1,3 +1,6 @@
+function navToHome(){
+    document.getElementById("toHome").submit();
+}
 function navToTopics(){
     document.getElementById("toTopics").submit();
 }
