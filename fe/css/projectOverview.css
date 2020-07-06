@@ -9,8 +9,7 @@ body {
     font-family: monospace;
 }
 .content {
-    margin-top: 3vw;
-    width: 95vw;
+    margin: 5%;
 }
 .headline {
     font-size: 1.5vw;

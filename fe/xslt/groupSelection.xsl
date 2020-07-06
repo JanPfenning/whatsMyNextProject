@@ -15,11 +15,11 @@
                 <!-- Redirect forms for circles-->
                 <div>
                     <xsl:for-each select="dataset/Gruppen/Gruppe">
-                        <form action="../php/groups.php" method="GET">
+                        <form action="../php/projects.php" method="GET">
                             <xsl:attribute name="id">
                                 <xsl:value-of select="concat('form_',GruppeID)"/>
                             </xsl:attribute>
-                            <input type="hidden" name="BereichID">
+                            <input type="hidden" name="GruppeID">
                                 <xsl:attribute name="value">
                                     <xsl:value-of select="GruppeID"/>
                                 </xsl:attribute>
