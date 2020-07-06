@@ -10,6 +10,7 @@ body {
 }
 .content {
     margin: 5%;
+    width: 100%;
 }
 .headline {
     font-size: 1.5vw;
