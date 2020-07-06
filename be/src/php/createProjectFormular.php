@@ -31,7 +31,6 @@ $htmlContent= '
         </div>
     </div>
     <form id="createProject" action="createProjectScript.php" method="post" enctype="multipart/form-data">
-    <!--<form id="createProject" action="createProjectNoWriteJustEcho.php" method="post" enctype="multipart/form-data">-->
         <input type="hidden" id="group" autocomplete="off" name="GruppeID" value="'.$_GET["GruppeID"].'" required>
         <div class="row"> <!-- Projektname -->
             <div class="col-25">
