@@ -39,7 +39,7 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         $BackgroundURLtext = mysqli_stmt_get_result($BackgroundURL);
         $BackgroundURL->close();
 
-        printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupview.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
+        printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
     }else{
         toErrorPage('No ID given for which Projects where requested');
     }

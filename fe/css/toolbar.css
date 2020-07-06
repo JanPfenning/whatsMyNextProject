@@ -1,0 +1,51 @@
+#toolbar {
+    padding: .5rem 1%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: -webkit-fill-available;
+    background-color: black;
+}
+.toolbartext{
+    color: white;
+    font-size: 150%;
+}
+#forms{
+     display: none;
+}
+.barE{
+    color: darkgray;
+    float: left;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 17px;
+}
+#toolbar .navE:not(:first-child):before{
+    content: ">";
+    padding-right: 14px;
+}
+#toolbar .right:not(:first-child):before{
+    content: "|";
+    padding-right: 14px;
+}
+#current{
+    cursor: pointer;
+    color: white;
+}.descendent{
+    cursor: default;
+    color: grey;
+ }
+
+.right{
+    float: right;
+    cursor: not-allowed;
+}
+.right[onclick]{
+    cursor: pointer;
+}
+.ascendent{
+    cursor: pointer;
+    color: darkgrey;
+}

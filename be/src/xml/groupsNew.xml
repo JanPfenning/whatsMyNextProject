@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/groupview.xsl"?>
+<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/groupSelection.xsl"?>
 <dataset>
     <Gruppen>
         <Gruppe>
@@ -63,4 +63,7 @@
             <GruppeName>Günstig</GruppeName>
         </Gruppe>
     </Gruppen>
+    <BackgroundURL>
+        ../../../fe/img/landingPage.png
+    </BackgroundURL>
 </dataset>
