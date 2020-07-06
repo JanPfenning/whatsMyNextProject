@@ -8,25 +8,25 @@
         $linkPartner = str_replace("LINK",'ID',$columnName);;
         $queryString = "";
         if($parentCon == ""){
-            // $queryString = "SELECT * FROM $table as t where $IDvalue = t.$linkPartner";
+            $queryString = "SELECT * FROM $table as t where $IDvalue = t.$linkPartner";
 
-            $queryString = $conn->prepare("select * from " . $table . " as t where ? = t." . $linkPartner);
-            $queryString->bind_param("i", $IDvalue);
+            // $queryString = $conn->prepare("select * from " . $table . " as t where ? = t." . $linkPartner);
+            // $queryString->bind_param("i", $IDvalue);
             
         }
         else{
-            // $queryString = "SELECT * FROM $table as t where $parentCon = t.$linkPartner";
+            $queryString = "SELECT * FROM $table as t where $parentCon = t.$linkPartner";
 
-            $queryString = $conn->prepare("select * from " . $table . " as t where ? = t." . $linkPartner);
-            $queryString->bind_param("i", $parentCon);
+            // $queryString = $conn->prepare("select * from " . $table . " as t where ? = t." . $linkPartner);
+            // $queryString->bind_param("i", $parentCon);
 
         }
-        //echo $queryString;
-        //$result = mysqli_query($conn, $queryString);
+        echo $queryString;
+        $result = mysqli_query($conn, $queryString);
 
-        $queryString->execute();
-        $result = mysqli_stmt_get_result($queryString); 
-        $queryString->close();
+        // $queryString->execute();
+        // $result = mysqli_stmt_get_result($queryString); 
+        // $queryString->close();
         
         if(mysqli_num_rows($result)>0){
             printData($table,$result,$conn,$IDvalue); //4. param could also be $parentCon dunno

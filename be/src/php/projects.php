@@ -41,7 +41,6 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         $BackgroundURL->close();
 
         printXML("Projekte", $result, $conn, $IDvalue, "/../../../fe/xslt/overview.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
-        $conn->close();
     }else{
         toErrorPage('No ID given for which Projects where requested');
     }

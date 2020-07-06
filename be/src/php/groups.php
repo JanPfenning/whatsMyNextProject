@@ -27,7 +27,7 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         $query = $conn->prepare("select GruppeLINK from GruppeView where BereichID = ?");
         $query->bind_param("i", $IDvalue);
         $query->execute();
-        $result = mysqli_stmt_get_result ($query);
+        $result = mysqli_stmt_get_result($query);
         $query->close();
 
         // $BackgroundURL = mysqli_query($conn, "select BackgroundURL from Bereich as b where b.BereichID = $IDvalue"); 
