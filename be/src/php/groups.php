@@ -42,7 +42,7 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
     }else if(isset($_GET["GruppeID"])){
 
-        $Gruppe = $_GET["GruppeID"]);
+        $Gruppe = $_GET["GruppeID"];
         $query = $conn->prepare("select BereichID from Gruppen where GruppeID = ?");
         $query->bind_param("i", $Gruppe);
         $query->execute();
