@@ -10,7 +10,7 @@ body {
 }
 .content {
     width: 100vw;
-    margin: 3vw;
+    margin: 5% 3vw 3vw 3vw;
     padding: 2vw;
     background-color: rgba(0,0,0,0.7);
 }
@@ -81,4 +81,26 @@ body {
 .user1 {
     /*margin-left: 26vw;*/
     padding: 0.5vw;
+}
+#buttongroup{
+
+}
+#ring5{
+    stroke: yellow;
+}
+.radarRing{
+    fill-opacity: 0;
+    stroke: aqua;
+}
+#valuePolygon{
+    fill-opacity: 30%;
+    fill: indianred;
+    stroke: red;
+}
+.valuePoint{
+    fill: red;
+    opacity: 100%;
+}
+.radarText{
+    fill: white
 }
