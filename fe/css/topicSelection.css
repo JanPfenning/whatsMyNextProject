@@ -8,6 +8,7 @@ body{
     background-image: url(../img/createBackground.jpg);
     background-size: cover;
     height:100%;
+    font-family: monospace;
 }
 #content{
     background-size: cover;

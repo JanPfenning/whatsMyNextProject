@@ -40,7 +40,7 @@
                     </xsl:for-each>
                 </div>
                 <div id="toolbar">
-                    <span class="barE navE" id="ascendent" onclick="navToHome()">
+                    <span class="barE navE ascendent" onclick="navToHome()">
                         Home
                     </span>
                     <span class="barE navE" id="current" onclick="navToTopics()">

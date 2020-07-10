@@ -31,7 +31,7 @@
                     <span class="barE navE ascendent" onclick="navToGroups()">
                         Gruppen
                     </span>
-                    <span class="barE navE current" onclick="navToProjects()">
+                    <span class="barE navE" id="current" onclick="navToProjects()">
                         Projekte
                     </span>
                     <span class="barE right" onclick="toImpressum()">
