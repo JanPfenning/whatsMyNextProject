@@ -1,0 +1,9 @@
+<!DOCTYPE dataset [
+        <!ELEMENT dataset (Gruppen|BackgroundURL)*>
+        <!ELEMENT Gruppen (Gruppe)*>
+        <!ELEMENT Gruppe (GruppeID|BereichID|GruppeName)*>
+        <!ELEMENT GruppeID (#PCDATA)>
+        <!ELEMENT BereichID (#PCDATA)>
+        <!ELEMENT GruppeName (#PCDATA)>
+        <!ELEMENT BackgroundURL (#PCDATA)>
+        ]>

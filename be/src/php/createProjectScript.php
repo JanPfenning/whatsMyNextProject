@@ -152,7 +152,7 @@
 
                 /*TODO Validate generated resource*/
                 // $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projectID");
-                // $schemaPath = "../xml/xmlschemaDetail.xml";
+                // $schemaPath = "../xsd/detailSchema.xml";
                 // $validator = new DOMValidator($schemaPath);
                 // try {
                 //     $validated = $validator->validateFeeds(strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
