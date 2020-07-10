@@ -1,7 +1,7 @@
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:svg="http://www.w3.org/2000/svg"
-                xmlns:n="http://localhost:63342/meinCraft/be/src/xml/dtdDetailNew.dtd"
+                xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/details.dtd"
                 >
 
     <xsl:output
@@ -20,7 +20,7 @@
                 <script lang="javascript" src="../../../fe/js/toolbar.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/toolbar.css" />
             </head>
-            <body onload="onInit()" onresize="onResize()">
+            <body onload="onInit()">
                 <!-- -->
                 <xsl:attribute name="style">
                     <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
