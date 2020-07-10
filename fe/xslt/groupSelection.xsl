@@ -3,6 +3,7 @@
                 xmlns:svg="http://www.w3.org/2000/svg"
                 xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/groups.dtd"
 >
+    <!--xmlns:n="http://expensive.click/be/src/dtd/groups.dtd"-->
 
     <xsl:output
             method="xml"
