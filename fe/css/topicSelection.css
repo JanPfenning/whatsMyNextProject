@@ -5,7 +5,8 @@ html{
     height: 100%;
 }
 body{
-    background-image: linear-gradient(#50808e, #84b59f, #5B9A63, #756B43,#272416);
+    background-image: url(../img/createBackground.jpg);
+    background-size: cover;
 }
 #content{
     background-size: cover;
