@@ -168,6 +168,11 @@
                             </xsl:for-each>
                             <div class="comment">
                                 <form method="post" action="../../../be/src/php/commentProject.php">
+                                    <input type="hidden">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
                                     <div><label id="nickLabel" for="nick">Nickname</label></div>
                                     <div><input type="text" id="nick"></input></div>
                                     <div><label id="commentLabel" for="comment">Kommentar</label></div>
