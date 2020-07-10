@@ -40,6 +40,7 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         $BackgroundURL->close();
 
         printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
+        //printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"groups");
     }else if(isset($_GET["GruppeID"])){
 
         $Gruppe = $_GET["GruppeID"];
@@ -67,6 +68,8 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         $BackgroundURL->close();
 
         printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
+        //printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"groups");
+        $conn->close();
     }else{
         toErrorPage('No ID given for which Projects where requested');
     }
