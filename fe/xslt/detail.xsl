@@ -29,6 +29,9 @@
                     <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
                 </xsl:attribute>
                 <div id="toolbar">
+                    <span class="barE navE ascendent" onclick="navToHome()">
+                        Home
+                    </span>
                     <span class="barE navE ascendent" onclick="navToTopics()">
                         Bereiche
                     </span>
@@ -52,6 +55,7 @@
                         Projekt einreichen
                     </span>
                     <div id="forms">
+                        <form action="../../../fe/html/index.html" id="toHome"/>
                         <form action="../php/topics.php" id="toTopics"/>
                         <form action="../php/groups.php" id="toGroups">
                             <input type="hidden" name="GruppeID">
@@ -161,6 +165,15 @@
                                     <div class="commentText"><p><xsl:value-of select="n:Inhalt"/></p></div>
                                 </div>
                             </xsl:for-each>
+                            <div class="comment">
+                                <form method="post" action="../../../be/src/php/commentProject.php">
+                                    <div><label id="nickLabel" for="nick">Nickname</label></div>
+                                    <div><input type="text" id="nick"></input></div>
+                                    <div><label id="commentLabel" for="comment">Kommentar</label></div>
+                                    <div><input type="text" id="comment"></input></div>
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

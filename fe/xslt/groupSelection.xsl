@@ -40,17 +40,14 @@
                     </xsl:for-each>
                 </div>
                 <div id="toolbar">
+                    <span class="barE navE ascendent" onclick="navToHome()">
+                        Home
+                    </span>
                     <span class="barE navE ascendent" onclick="navToTopics()">
                         Bereiche
                     </span>
                     <span class="barE navE" id="current" onclick="navToGroups()">
                         Gruppen
-                    </span>
-                    <span class="barE navE descendent">
-                        Projekte
-                    </span>
-                    <span class="barE navE descendent">
-                        Details
                     </span>
                     <span class="barE right" onclick="toImpressum()">
                         Impressum
@@ -63,6 +60,7 @@
                         Projekt einreichen
                     </span>
                     <div id="forms">
+                        <form action="../../../fe/html/index.html" id="toHome"/>
                         <form action="../php/topics.php" id="toTopics"/>
                         <form action="../php/groups.php" id="toGroups">
                             <input type="hidden" name="GruppeID">
