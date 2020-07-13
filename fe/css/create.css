@@ -1,6 +1,7 @@
 body {
     background-image: url(../img/createBackground.jpg);
     background-color: #000000 ;
+    font-family: monospace;
 }
 
 input[type=text], textarea{

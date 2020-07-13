@@ -39,6 +39,8 @@
             // $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
             
             printXML("Projekt", $result, $conn, $IDvalue, "/../../../fe/xslt/detail.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
+            //printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"details");
+            $conn->close();
         }else{
             toErrorPage('No ID given for which Details where requested');
         }

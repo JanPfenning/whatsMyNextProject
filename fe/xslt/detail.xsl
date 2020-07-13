@@ -1,8 +1,9 @@
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:svg="http://www.w3.org/2000/svg"
-                xmlns:n="http://localhost:63342/meinCraft/be/src/xml/dtdDetailNew.dtd"
+                xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/details.dtd"
                 >
+                <!--xmlns:n="http://expensive.click/be/src/dtd/details.dtd"-->
 
     <xsl:output
             method="xml"
@@ -14,18 +15,24 @@
     <xsl:template match="/">
         <html>
             <head>
+                <title>
+                    meinCraft | Details
+                </title>
                 <script lang="javascript" src="../../../fe/js/detail.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/newestDetail.css"/>
                 <script lang="javascript" src="../../../fe/js/toolbar.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/toolbar.css" />
             </head>
-            <body onload="onInit()" onresize="onResize()">
+            <body onload="onInit()">
                 <!-- -->
                 <xsl:attribute name="style">
                     <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
                 </xsl:attribute>
                 <div id="toolbar">
+                    <span class="barE navE ascendent" onclick="navToHome()">
+                        Home
+                    </span>
                     <span class="barE navE ascendent" onclick="navToTopics()">
                         Bereiche
                     </span>
@@ -49,6 +56,7 @@
                         Projekt einreichen
                     </span>
                     <div id="forms">
+                        <form action="../../../fe/html/index.html" id="toHome"/>
                         <form action="../php/topics.php" id="toTopics"/>
                         <form action="../php/groups.php" id="toGroups">
                             <input type="hidden" name="GruppeID">
@@ -158,6 +166,20 @@
                                     <div class="commentText"><p><xsl:value-of select="n:Inhalt"/></p></div>
                                 </div>
                             </xsl:for-each>
+                            <div class="comment">
+                                <form method="post" action="../../../be/src/php/commentProject.php">
+                                    <input type="hidden">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                    <div><label id="nickLabel" for="nick">Nickname</label></div>
+                                    <div><input type="text" id="nick"></input></div>
+                                    <div><label id="commentLabel" for="comment">Kommentar</label></div>
+                                    <div><input type="text" id="comment"></input></div>
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

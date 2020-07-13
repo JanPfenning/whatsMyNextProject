@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../../fe/xslt/groupSelection.xsl"?>
-<dataset>
+<!DOCTYPE dataset SYSTEM "http://localhost:63342/meinCraft/be/src/dtd/groups.dtd">
+<dataset xmlns="http://localhost:63342/meinCraft/be/src/dtd/groups.dtd">
     <Gruppen>
         <Gruppe>
             <GruppeID>1</GruppeID>

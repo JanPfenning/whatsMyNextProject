@@ -5,6 +5,7 @@
     left: 0;
     width: -webkit-fill-available;
     background-color: black;
+    font-family: monospace;
 }
 .toolbartext{
     color: white;

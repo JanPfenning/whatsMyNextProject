@@ -10,10 +10,10 @@ $htmlContent= '
     <body>
         <div id="buttons">
             <div id="errorText">'.$err.'</div>
-            <form method="POST" name="toMainMenu" id="toMainMenuForm" action="./topics.php">
+            <form method="POST" name="toMainMenu" id="toMainMenuForm" action="../../../fe/html/index.html">
                 <button class="button" type="submit" id="toMainMenu">Zum Hauptmenu</button>
             </form>
-            <form method="POST" name="quitTab" action="./topics.php">
+            <form method="POST" name="quitTab" action="../../../fe/html/index.html">
                 <button class="button" type="submit" id="quit">Verlassen</button>
             </form>
         </div>

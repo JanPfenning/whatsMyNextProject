@@ -16,6 +16,8 @@ include $path.'/craftXML.php';
 if(!isset($_GET["action"]) || $_GET["action"] == "get"){
     $result = mysqli_query($conn, "select BereichLINK from BereichView");
     printXML("Bereiche", $result, $conn, 0,"/../../../fe/xslt/topicSelection.xsl", "/../../../fe/img/landingPage.png");
+    //printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"topics");
+    $conn->close();
 }
 else{
     toErrorPage("only GET allowed");

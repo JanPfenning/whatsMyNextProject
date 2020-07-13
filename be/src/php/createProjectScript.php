@@ -150,22 +150,6 @@
                     cleanUp($conn,$projectID,"Error at initializing Bewertungliste");
                 }
 
-                /*TODO Validate generated resource*/
-                // $result = mysqli_query($conn, "select * from Projekt where ProjektID = $projectID");
-                // $schemaPath = "../xml/xmlschemaDetail.xml";
-                // $validator = new DOMValidator($schemaPath);
-                // try {
-                //     $validated = $validator->validateFeeds(strXML("Projekt", $result, $conn, $IDvalue, "../../../fe/xslt/detailview.xsl", ""));
-                // } catch (DOMException $e) {
-                //     cleanUp($conn,$projectID,"failed to validate resource");
-                // } catch (Exception $e) {
-                //     cleanUp($conn,$projectID,"failed to validate resource for custom reasons");
-                // }
-                // if (!$validated) {
-                //     print_r($validator->displayErrors());
-                //     cleanUp($conn,$projectID,"Created resource is not valid against the xsd");
-                // }
-
                 header("Location:./createProjectFormular.php?GruppeID=$GruppeID");
 
 

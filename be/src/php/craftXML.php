@@ -58,12 +58,15 @@
         print("</".$parentTag.">");
     }
     /*base strucutre of the needed XML document*/
+    //function printXML($parentTag, $data, $conn, $IDvalue, $linkToXSLT, $BackgroundURL,$dtd){
     function printXML($parentTag, $data, $conn, $IDvalue, $linkToXSLT, $BackgroundURL){
         // echo 'test';
         header("Content-Type: text/xml");
         print('<?xml version="1.0" encoding="UTF-8"?>');
         /*TODO link correct xsl sheet*/
         print('<?xml-stylesheet type="text/xml" href="'.$linkToXSLT.'"?>');
+        //print('<!DOCTYPE dataset SYSTEM "http://localhost:63342/meinCraft/be/src/dtd/$dtd.dtd">');
+        //print('<dataset xmlns="http://expensive.click/be/src/dtd/$dtd.dtd">');
         print("<dataset>");
         printData($parentTag, $data, $conn, $IDvalue);
         print('<BackgroundURL>');
