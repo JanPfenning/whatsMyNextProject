@@ -7,7 +7,7 @@
     if(file_exists($connfile)&&is_readable($connfile)){
         require_once $path . '/../../../vault/dbConnection.php';
     }else{
-        toErrorPage("Failed to load requiered File");
+        toErrorPage("Failed to load required File");
         die();
     }
     include $path.'/craftXML.php';
@@ -38,8 +38,9 @@
             
             // $BackgroundURLtext = mysqli_fetch_array($BackgroundURL);
             
-            printXML("Projekt", $result, $conn, $IDvalue, "/../../../fe/xslt/detail.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
-            //printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"details");
+            // printXML("Projekt", $result, $conn, $IDvalue, "/../../../fe/xslt/detail.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
+            // printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"], "details");
+            printXML("Projekt", $result, $conn, $IDvalue, "/../../../fe/xslt/detail.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"details");
             $conn->close();
         }else{
             toErrorPage('No ID given for which Details where requested');

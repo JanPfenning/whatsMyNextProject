@@ -40,8 +40,9 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         $BackgroundURLtext = mysqli_stmt_get_result($BackgroundURL);
         $BackgroundURL->close();
 
-        printXML("Projekte", $result, $conn, $IDvalue, "/../../../fe/xslt/overview.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
-        //printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"projects");
+        // printXML("Projekte", $result, $conn, $IDvalue, "/../../../fe/xslt/overview.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
+        // printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"], "projects");
+        printXML("Projekte", $result, $conn, $IDvalue, "/../../../fe/xslt/overview.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"projects");
         $conn->close();
     }else{
         toErrorPage('No ID given for which Projects where requested');
