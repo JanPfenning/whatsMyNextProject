@@ -1,7 +1,7 @@
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:svg="http://www.w3.org/2000/svg"
-                xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/details.dtd"
+                xmlns:n="http://localhost:63342/whatsMyNextProject/be/src/dtd/details.dtd"
                 >
                 <!--xmlns:n="http://expensive.click/be/src/dtd/details.dtd"-->
 
@@ -173,10 +173,11 @@
                                             <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
                                         </xsl:attribute>
                                     </input>
-                                    <div><label id="nickLabel" for="nick">Nickname</label></div>
-                                    <div><input type="text" id="nick"></input></div>
-                                    <div><label id="commentLabel" for="comment">Kommentar</label></div>
-                                    <div><input type="text" id="comment"></input></div>
+                                    <div class="header2"><h3>Kommentar schreiben:</h3></div>
+                                    <div class="labelc"><label id="nickLabel" for="nick">Nickname</label></div>
+                                    <div class="input_com"><input type="text" id="nick"></input></div>
+                                    <div class="labelc"><label id="commentLabel" for="comment">Kommentar</label></div>
+                                    <div class="input_com"><textarea id="comment"></textarea></div>
                                     <button type="submit">Submit</button>
                                 </form>
                             </div>
