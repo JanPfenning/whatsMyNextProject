@@ -21,7 +21,7 @@
             // $queryString->bind_param("i", $parentCon);
 
         }
-        echo $queryString;
+        // echo $queryString;
         $result = mysqli_query($conn, $queryString);
 
         // $queryString->execute();
@@ -65,8 +65,8 @@
         print('<?xml version="1.0" encoding="UTF-8"?>');
         /*TODO link correct xsl sheet*/
         print('<?xml-stylesheet type="application/xml" href="'.$linkToXSLT.'"?>');
-        print('<!DOCTYPE dataset SYSTEM "http://expensive.click/be/src/dtd/$dtd.dtd">');
-        print('<dataset xmlns="http://expensive.click/be/src/dtd/$dtd.dtd">');
+        print('<!DOCTYPE dataset SYSTEM "https://expensive.click/be/src/dtd/'.$dtd.'.dtd">');
+        print('<dataset xmlns="http://expensive.click/be/src/dtd/'.$dtd.'.dtd">');
         // print("<dataset>");
         printData($parentTag, $data, $conn, $IDvalue);
         print('<BackgroundURL>');
