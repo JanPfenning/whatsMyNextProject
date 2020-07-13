@@ -7,7 +7,7 @@ $connfile = $path.'/../../../vault/dbConnection.php';
 if(file_exists($connfile)&&is_readable($connfile)){
     require_once $path . '/../../../vault/dbConnection.php';
 }else{
-    toErrorPage("Failed to load requiered File");
+    toErrorPage("Failed to load required File");
     die();
 }
 include $path.'/craftXML.php';
@@ -39,8 +39,8 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         $BackgroundURLtext = mysqli_stmt_get_result($BackgroundURL);
         $BackgroundURL->close();
 
-        printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
-        //printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"groups");
+        // printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
+        printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"], "groups");
     }else if(isset($_GET["GruppeID"])){
 
         $Gruppe = $_GET["GruppeID"];
@@ -67,8 +67,8 @@ if(!isset($_GET["action"]) || $_GET["action"] == "get"){
         $BackgroundURLtext = mysqli_stmt_get_result($BackgroundURL);
         $BackgroundURL->close();
 
-        printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
-        //printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"],"groups");
+        // printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"]);
+        printXML("Gruppen", $result, $conn, $IDvalue, "/../../../fe/xslt/groupSelection.xsl", mysqli_fetch_array($BackgroundURLtext)["BackgroundURL"], "groups");
         $conn->close();
     }else{
         toErrorPage('No ID given for which Projects where requested');

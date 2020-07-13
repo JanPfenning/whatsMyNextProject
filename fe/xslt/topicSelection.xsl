@@ -1,9 +1,9 @@
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:svg="http://www.w3.org/2000/svg"
-                xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/topics.dtd"
+                xmlns:n="http://expensive.click/be/src/dtd/topics.dtd"
                 >
-    <!--xmlns:n="http://expensive.click/be/src/dtd/topics.dtd"-->
+    <!--xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/topics.dtd"-->
 
     <xsl:output
             method="xml"
