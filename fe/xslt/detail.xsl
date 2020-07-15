@@ -94,7 +94,7 @@
                                     <xsl:attribute name="src">
                                         <xsl:choose>
                                             <xsl:when test="n:dataset/n:Projekt/n:BildURL != ''">
-                                                    <xsl:value-of select="concat('url(.',n:dataset/n:Projekt/n:BildURL)"/>
+                                                    <xsl:value-of select="concat('url(./.',n:dataset/n:Projekt/n:BildURL)"/>
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <xsl:value-of select="'url(../../../../../fe/img/noIMG.jpg'"/>
@@ -175,15 +175,15 @@
                             </xsl:for-each>
                             <div class="comment">
                                 <form method="post" action="../../../be/src/php/commentProject.php">
-                                    <input type="hidden">
+                                    <input type="hidden" id="projectID" name="projectID">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
                                         </xsl:attribute>
                                     </input>
                                     <div><label id="nickLabel" for="nick">Nickname</label></div>
-                                    <div><input type="text" id="nick"></input></div>
+                                    <div><input type="text" id="nick" name="nick"></input></div>
                                     <div><label id="commentLabel" for="comment">Kommentar</label></div>
-                                    <div><input type="text" id="comment"></input></div>
+                                    <div><input type="text" id="comment" name="comment"></input></div>
                                     <button type="submit">Submit</button>
                                 </form>
                             </div>
@@ -193,5 +193,4 @@
             </body>
         </html>
     </xsl:template>
-
 </xsl:stylesheet>

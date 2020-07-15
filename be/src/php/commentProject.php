@@ -54,9 +54,6 @@ if(!$worked){
             toErrorPage($error."</br> $conn->error </br> comment $commentID not cleaned");
         }
     }
-    else{
-        header("Refresh:0");
-    }
     $query->close();
 }
 
