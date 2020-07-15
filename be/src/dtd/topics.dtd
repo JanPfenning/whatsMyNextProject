@@ -1,6 +1,6 @@
-<!ELEMENT dataset (Bereiche|BackgroundURL)*>
+<!ELEMENT dataset (Bereiche,BackgroundURL)>
 <!ELEMENT Bereiche (Bereich)*>
-<!ELEMENT Bereich (BereichID|BereichName)*>
+<!ELEMENT Bereich (BereichID,BereichName)>
 <!ELEMENT BereichID (#PCDATA)>
 <!ELEMENT BereichName (#PCDATA)>
 <!ELEMENT BackgroundURL (#PCDATA)>
