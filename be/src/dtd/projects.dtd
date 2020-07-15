@@ -1,6 +1,6 @@
-<!ELEMENT dataset (Projekte)*>
+<!ELEMENT dataset (Projekte)>
 <!ELEMENT Projekte (ProjektView)*>
-<!ELEMENT ProjektView (ProjektID|GruppeID|ProjektName|Kurzbeschreibung)*>
+<!ELEMENT ProjektView (ProjektID,GruppeID,ProjektName,Kurzbeschreibung)>
 <!ELEMENT ProjektID (#PCDATA)>
 <!ELEMENT GruppeID (#PCDATA)>
 <!ELEMENT ProjektName (#PCDATA)>

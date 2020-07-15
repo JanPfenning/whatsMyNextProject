@@ -92,7 +92,14 @@
                             <div id="picture">
                                 <img class="picsLeft" id="projectImage">
                                     <xsl:attribute name="src">
-                                        <xsl:value-of select="concat('url(./.',n:dataset/n:Projekt/n:BildURL)"/>
+                                        <xsl:choose>
+                                            <xsl:when test="n:dataset/n:Projekt/n:BildURL != ''">
+                                                    <xsl:value-of select="concat('url(./.',n:dataset/n:Projekt/n:BildURL)"/>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:value-of select="'url(../../../../../fe/img/noIMG.jpg'"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
                                     </xsl:attribute>
                                     <xsl:attribute name="alt">
                                         <xsl:value-of
@@ -186,5 +193,4 @@
             </body>
         </html>
     </xsl:template>
-
 </xsl:stylesheet>
