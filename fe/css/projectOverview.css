@@ -1,0 +1,51 @@
+body {
+    background-image: url(../img/createBackground.jpg);
+    background-size: cover;
+    background-color: #000000 ;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    justify-items: center;
+    font-family: monospace;
+}
+.content {
+    margin: 5%;
+    width: 100%;
+}
+.headline {
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+}
+.flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.projectField {
+    margin: 0.5vw;
+    width: 8vw;
+    height: 8vw;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    color: #ffffff;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1vw;
+    font-weight: bold;
+}
+.projectField:hover {
+    transition: background-color 1s ease;
+    background-color: rgba(0,0,0,0.9);
+    font-size: 0;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.projectField:hover:after {
+    content: attr(data-hover);
+    font-size: 1vw;
+    text-align: center;
+    color: #4CAF50;
+}

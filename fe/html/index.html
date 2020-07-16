@@ -1,8 +1,55 @@
-<!DOCTYPE>
-<html>
-    <head>
-    </head>
-    <body onload="document.getElementById('redirect').submit();">
-        <form action="./detail.php" id="redirect" method="POST"></form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <script lang="javascript" src="../js/toolbar.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/toolbar.css" />
+</head>
+<body>
+    <div id="toolbar">
+        <span class="barE right" onclick="toImpressum()">
+            Impressum
+        </span>
+        <span class="barE right" onclick="toUber()">
+            Über
+        </span>
+        <span class="barE right">
+            Projekt einreichen
+        </span>
+        <div id="forms">
+            <form action="../../be/src/php/topics.php" id="toTopics"></form>
+            <form action="../../be/src/php/impressum.php" id="toImpressum"></form>
+            <form action="../../be/src/php/uber.php" id="toUber"></form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" align="center">
+            <div class="center">
+                <label class="label-font50">Finde jetzt dein Bastelprojekt!</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="center">
+                <label class="label-font25">
+                    Schnell, unkompliziert und einfach Projekte finden und loswerkeln.
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="center">
+                <button onclick="navToTopics()">
+                    Los gehts!
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <footer>
+            Dies ist ein DH-Projekt und wir übernehmen keine Haftung für die Inhalte der Seite.<br>
+            ©Die coolen Dudes von Nebenan
+        </footer>
+    </div>
+</body>
 </html>

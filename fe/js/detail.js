@@ -63,7 +63,7 @@ function drawPolygon(baseX,baseY,root){
         let yText = baseY+Math.round(getDeltaY(30+i*60,11.5*10));
         let axisName = document.createElementNS("http://www.w3.org/2000/svg","text");
         axisName.setAttribute("id","axis"+i);
-        axisName.setAttribute("class","text");
+        axisName.setAttribute("class","radarText");
         axisName.setAttribute('x', xText);
         axisName.setAttribute('y', yText);
         axisName.textContent=values[i].title;

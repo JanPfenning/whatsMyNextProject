@@ -5,12 +5,32 @@ $htmlContent= '
     <meta charset="UTF-8">
     <title>Create Project</title>
     <link rel="stylesheet" type="text/css" href="../../../fe/css/create.css" />
+    <link rel="stylesheet" type="text/css" href="../../../fe/css/toolbar.css" />
     <script src="../../../fe/js/createProject.js"></script>
+    <script src="../../../fe/js/toolbar.js"></script>
 </head>
 <body onload="init()">
 <div class="container">
+    <div id="toolbar">
+        <span class="barE navE ascendent" onclick="navToHome()">
+            Home
+        </span>
+
+        <span class="barE right" onclick="toImpressum()">
+            Impressum
+        </span>
+        <span class="barE right" onclick="toUber()">
+            Über
+        </span>
+
+        <div id="forms">
+            <form action="../../../fe/html/index.html" id="toHome"></form>
+            <form action="./topics.php" id="toTopics"></form>
+            <form action="./impressum.php" id="toImpressum"></form>
+            <form action="./uber.php" id="toUber"></form>
+        </div>
+    </div>
     <form id="createProject" action="createProjectScript.php" method="post" enctype="multipart/form-data">
-    <!--<form id="createProject" action="createProjectNoWriteJustEcho.php" method="post" enctype="multipart/form-data">-->
         <input type="hidden" id="group" autocomplete="off" name="GruppeID" value="'.$_GET["GruppeID"].'" required>
         <div class="row"> <!-- Projektname -->
             <div class="col-25">

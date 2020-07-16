@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+body{
+    background-image: url(../img/createBackground.jpg);
+    background-size: cover;
+    height:100%;
+    font-family: monospace;
+}
+#content{
+    background-size: cover;
+    margin: 5%;
+    height: 80%;
+    display:flex;
+    align-items: center;
+    justify-content: end;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+#topicSelection{
+    /*display: block;*/
+    margin: auto auto 0 auto;
+}
+.topicCircle{
+    fill: #50808e;
+    stroke: black;
+}
+.topicG{
+    cursor: pointer;
+}
+.topicG:hover{
+    transform: translateY(-5px);
+}
+.topicG:active {
+    transform: translateY(3px);
+}
+#baseG{
+    cursor:default;
+}
+#baseCircle{
+    fill: #84b59f;
+    stroke: black;
+}
+#baseCircleText{
+    font-size: 2.5rem;
+}
+.circleText{
+    fill: white;
+    font-weight: bold;
+    /*font-size: 1.5rem;*/
+}
+.circleText{
+    font-family: Arial, Helvetica, sans-serif;
+}

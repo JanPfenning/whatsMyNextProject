@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/topicview.xsl"?>
-<dataset>
+<?xml-stylesheet type="text/xsl" href="../../../fe/xslt/topicSelection.xsl"?>
+<!DOCTYPE dataset SYSTEM "http://localhost:63342/meinCraft/be/src/dtd/topics.dtd">
+<dataset xmlns="http://localhost:63342/meinCraft/be/src/dtd/topics.dtd">
     <Bereiche>
         <Bereich>
             <BereichID>1</BereichID>
@@ -9,6 +10,10 @@
         <Bereich>
             <BereichID>2</BereichID>
             <BereichName>Handwerk</BereichName>
+        </Bereich>
+        <Bereich>
+            <BereichID>3</BereichID>
+            <BereichName>Basteln</BereichName>
         </Bereich>
     </Bereiche>
     <BackgroundURL>

@@ -1,10 +1,9 @@
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:n="http://expensive.click/be/src/dtd/projects.dtd"
-                
-                >
-    <!--xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/projects.dtd"-->
-
+                xmlns:svg="http://www.w3.org/2000/svg"
+                xmlns:n="http://expensive.click/be/src/dtd/groups.dtd"
+>
+    <!--xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/groups.dtd"-->
 
     <xsl:output
             method="xml"
@@ -16,14 +15,31 @@
     <xsl:template match="/">
         <html>
             <head>
-                <script lang="javascript" src="../../../fe/js/overview.js"/>
-                <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
-                <link rel="stylesheet" type="text/css" href="../../../fe/css/projectOverview.css" />
+                <title>
+                    meinCRAFT
+                </title>
+                <script lang="javascript" src="../../../fe/js/topicSelection.js"/>
                 <script lang="javascript" src="../../../fe/js/toolbar.js"/>
+                <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
+                <link rel="stylesheet" type="text/css" href="../../../fe/css/topicSelection.css" />
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/toolbar.css" />
-                <title>Find your next Project</title>
             </head>
-            <body>
+            <body onload="init()">
+                <!-- Redirect forms for circles-->
+                <div>
+                    <xsl:for-each select="n:dataset/n:Gruppen/n:Gruppe">
+                        <form action="../php/projects.php" method="GET">
+                            <xsl:attribute name="id">
+                                <xsl:value-of select="concat('form_',n:GruppeID)"/>
+                            </xsl:attribute>
+                            <input type="hidden" name="GruppeID">
+                                <xsl:attribute name="value">
+                                    <xsl:value-of select="n:GruppeID"/>
+                                </xsl:attribute>
+                            </input>
+                        </form>
+                    </xsl:for-each>
+                </div>
                 <div id="toolbar">
                     <span class="barE navE ascendent" onclick="navToHome()">
                         Home
@@ -31,11 +47,8 @@
                     <span class="barE navE ascendent" onclick="navToTopics()">
                         Bereiche
                     </span>
-                    <span class="barE navE ascendent" onclick="navToGroups()">
+                    <span class="barE navE" id="current" onclick="navToGroups()">
                         Gruppen
-                    </span>
-                    <span class="barE navE" id="current" onclick="navToProjects()">
-                        Projekte
                     </span>
                     <span class="barE right" onclick="toImpressum()">
                         Impressum
@@ -53,14 +66,14 @@
                         <form action="../php/groups.php" id="toGroups">
                             <input type="hidden" name="GruppeID">
                                 <xsl:attribute name="value">
-                                    <xsl:value-of select="n:dataset/n:Projekte/n:ProjektView[1]/n:GruppeID"/>
+                                    <xsl:value-of select="n:dataset/n:Gruppen/n:Gruppe[1]/n:BereichID"/>
                                 </xsl:attribute>
                             </input>
                         </form>
                         <form action="../php/projects.php" id="toProjects">
                             <input type="hidden" name="GruppeID">
                                 <xsl:attribute name="value">
-                                    <xsl:value-of select="n:dataset/n:Projekte/n:ProjektView[1]/n:GruppeID"/>
+                                    <xsl:value-of select="n:dataset/n:Gruppen/n:Gruppe[1]/n:GruppeID"/>
                                 </xsl:attribute>
                             </input>
                         </form>
@@ -69,43 +82,36 @@
                         <form action="../php/createProjectFormular.php" id="toCreateProject">
                             <input type="hidden" name="GruppeID">
                                 <xsl:attribute name="value">
-                                    <xsl:value-of select="n:dataset/n:Projekte/n:ProjektView[1]/n:GruppeID"/>
+                                    <xsl:value-of select="n:dataset/n:Gruppen/n:Gruppe[1]/n:GruppeID"/>
                                 </xsl:attribute>
                             </input>
                         </form>
                     </div>
                 </div>
-                <div class="content">
+                <div id="content">
                     <xsl:attribute name="style">
                         <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
                     </xsl:attribute>
-                    <div class="headline"><h1>Projektübersicht</h1></div>
-                    <div class="flexContainer">
-                        <xsl:for-each select="n:dataset/n:Projekte/n:ProjektView">
-                            <div class="projectField" data-hover="sehr geil">
+                    <svg:svg id="topicSelection" width="100%" height="100%"> <!--16/9-->
+                        <xsl:for-each select="n:dataset/n:Gruppen/n:Gruppe">
+                            <svg:g class="topicG">
                                 <xsl:attribute name="onclick">
-                                    <xsl:value-of select="concat('xslOnClick(',n:ProjektID,')')"/>
+                                    <xsl:value-of select="concat('xslOnClick(',n:GruppeID,')')"/>
                                 </xsl:attribute>
-                                <xsl:attribute name="data-hover">
-                                    <xsl:value-of select="n:Kurzbeschreibung"/>
-                                </xsl:attribute>
-                                <xsl:value-of select="n:ProjektName"/>
-                            </div>
+                                <svg:circle class="topicCircle"/>
+                                <svg:text class="circleText" text-anchor="middle">
+                                    <xsl:value-of select="n:GruppeName"/>
+                                </svg:text>
+                            </svg:g>
                         </xsl:for-each>
-                    </div>
-                    <xsl:for-each select="n:dataset/n:Projekte/n:ProjektView">
-                        <form action="../php/detail.php" method="GET">
-                            <xsl:attribute name="id">
-                                <xsl:value-of select="concat('form_',n:ProjektID)"/>
-                            </xsl:attribute>
-                            <input type="hidden" name="ProjektID">
-                                <xsl:attribute name="value">
-                                    <xsl:value-of select="n:ProjektID"/>
-                                </xsl:attribute>
-                            </input>
-                        </form>
-                    </xsl:for-each>
+                        <!-- Base circle -->
+                        <svg:g id="baseG">
+                            <svg:circle id="baseCircle" r="150" cx="50%" cy="100%"/>
+                            <svg:text id="baseCircleText" class="circleText" text-anchor="middle" x="50%" y="95%">Gruppenwahl</svg:text>
+                        </svg:g>
+                    </svg:svg>
                 </div>
+                <div id="footer"></div>
             </body>
         </html>
     </xsl:template>

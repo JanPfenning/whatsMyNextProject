@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xml" href="../../../fe/xslt/detailview.xsl"?>
-<dataset>
+<?xml-stylesheet type="application/xml" href="../../../fe/xslt/detail.xsl"?>
+<!DOCTYPE dataset SYSTEM "http://localhost:63342/meinCraft/be/src/dtd/details.dtd">
+<dataset xmlns="http://localhost:63342/meinCraft/be/src/dtd/details.dtd">
     <Projekt>
         <ProjektID>1</ProjektID>
         <GruppeID>1</GruppeID>
@@ -69,9 +70,13 @@
             <Nick>Admin</Nick>
         </Nutzer>
         <Kurzbeschreibung>man kocht nudeln</Kurzbeschreibung>
-        <Beschreibung>sei kein idiot und koch die nudeln</Beschreibung>
+        <Beschreibung>
+            StarwarsIpsum
+
+        </Beschreibung>
         <DatumErstellt>2020-05-29</DatumErstellt>
         <DatumErneuert>2020-05-29</DatumErneuert>
-        <BildURL/>
+        <BildURL>./../../../../fe/img/1/1/nudeln.jpg</BildURL>
     </Projekt>
+    <BackgroundURL>./../../../fe/img/landingPage.png</BackgroundURL>
 </dataset>

@@ -1,6 +1,7 @@
 body {
     background-image: url(../img/createBackground.jpg);
     background-color: #000000 ;
+    font-family: monospace;
 }
 
 input[type=text], textarea{
@@ -24,7 +25,7 @@ label {
     border-radius: 5px;
     background: rgba(0, 0, 0, 0.5);
     padding: 20px;
-    margin: 20px;
+    margin: 5%;
 }
 .col-10 {
     float: left;

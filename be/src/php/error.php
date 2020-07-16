@@ -10,11 +10,11 @@ $htmlContent= '
     <body>
         <div id="buttons">
             <div id="errorText">'.$err.'</div>
-            <form method="POST" name="toMainMenu" id="toMainMenuForm" action="./topics.php">
+            <form method="POST" name="toMainMenu" id="toMainMenuForm" action="./index.php">
                 <button class="button" type="submit" id="toMainMenu">Zum Hauptmenu</button>
             </form>
-            <form method="POST" name="quitTab">
-                <button class="button" onclick="quitTab()" type="button" id="quit">Verlassen</button>
+            <form method="POST" name="quitTab" action="./index.php">
+                <button class="button" type="submit" id="quit">Verlassen</button>
             </form>
         </div>
     </body>
