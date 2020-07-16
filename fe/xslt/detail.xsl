@@ -177,7 +177,7 @@
                                                     <xsl:value-of select="n:Beschreibung"/>
                                                 </xsl:when>
                                                 <xsl:otherwise>
-                                                    <xsl:value-of select="noInfoText"/>
+                                                    <xsl:value-of select="$noInfoText"/>
                                                 </xsl:otherwise>
                                             </xsl:choose>
                                         </xsl:attribute>
