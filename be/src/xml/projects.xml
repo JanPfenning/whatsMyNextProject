@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../../fe/xslt/overview.xsl"?>
-<!DOCTYPE dataset SYSTEM "http://localhost:63342/meinCraft/be/src/dtd/projects.dtd">
-<dataset xmlns="http://localhost:63342/meinCraft/be/src/dtd/projects.dtd">
+<!DOCTYPE dataset SYSTEM "http://expensive.click/be/src/dtd/projects.dtd">
+<dataset xmlns="http://expensive.click/be/src/dtd/projects.dtd">
     <Projekte>
         <ProjektView>
             <ProjektID>1</ProjektID>
