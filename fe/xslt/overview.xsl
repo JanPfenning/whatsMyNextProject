@@ -82,7 +82,7 @@
                     <div class="headline"><h1>Projektübersicht</h1></div>
                     <div class="flexContainer">
                         <xsl:for-each select="n:dataset/n:Projekte/n:ProjektView">
-                            <div class="projectField" data-hover="sehr geil">
+                            <div class="projectField">
                                 <xsl:attribute name="onclick">
                                     <xsl:value-of select="concat('xslOnClick(',n:ProjektID,')')"/>
                                 </xsl:attribute>
