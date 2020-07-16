@@ -50,6 +50,9 @@ body {
     transform: scale(1.1);
 }
 .projectField:hover:after {
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     content: attr(data-hover);
     font-size: 1vw;
     text-align: center;
