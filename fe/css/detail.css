@@ -137,3 +137,10 @@ button[type=submit]:hover {
     background-color: #08bf08;
     border: 1px solid #ffffff;
 }
+li:hover:after {
+    content: "-"attr(data-hover);
+    margin-left: 5px;
+    font-size: 1vw;
+    text-align: center;
+    color: #4CAF50;
+}

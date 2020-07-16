@@ -147,7 +147,15 @@
                             <div class="header2"><h2>Materialien</h2></div>
                             <div class="texts"><ul>
                                 <xsl:for-each select="n:dataset/n:Projekt/n:Materialliste/n:Material">
-                                    <li class="identifier">
+                                    <li>
+                                        <xsl:attribute name="data-hover">
+                                            <xsl:choose>
+                                                <xsl:when test="n:Beschreibung != ''">
+                                                    <xsl:value-of select="n:Beschreibung"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>Keine weitere Beschreibung</xsl:otherwise>
+                                            </xsl:choose>
+                                        </xsl:attribute>
                                         <xsl:value-of select="concat(n:Menge,' ',n:Einheit,' ',n:Name)"/>
                                         <!--<span class="detail"><xsl:value-of select="n:Beschreibung"/></span>-->
                                     </li>
@@ -156,7 +164,17 @@
                             <div class="header2"><h2>Werkzeuge</h2></div>
                             <div class="texts"><ul>
                                 <xsl:for-each select="n:dataset/n:Projekt/n:Werkzeugliste/n:Werkzeug">
-                                    <li><xsl:value-of select="n:Name"/></li>
+                                    <li>
+                                        <xsl:attribute name="data-hover">
+                                            <xsl:choose>
+                                                <xsl:when test="n:Beschreibung != ''">
+                                                    <xsl:value-of select="n:Beschreibung"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>Keine weitere Beschreibung</xsl:otherwise>
+                                            </xsl:choose>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="n:Name"/>
+                                    </li>
                                 </xsl:for-each>
                             </ul></div>
                             <div class="header2"><h2>Beschreibung</h2></div>
