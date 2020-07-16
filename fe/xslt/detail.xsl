@@ -195,7 +195,7 @@
                                     </xsl:for-each>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <p>-Keine Kommentare vorhanden-</p>
+                                    <div class="labelc"><p>-Keine Kommentare vorhanden-</p></div>
                                 </xsl:otherwise>
                             </xsl:choose>
                             <div class="comment">
@@ -206,9 +206,9 @@
                                         </xsl:attribute>
                                     </input>
                                     <div class="header2"><h3>Kommentar schreiben:</h3></div>
-                                    <div class="labelc"><label id="nickLabel" for="nick">Nickname</label></div>
+                                    <div class="labelc"><label id="nickLabel" for="nick">Nutzername:</label></div>
                                     <div class="input_com"><input type="text" id="nick" name="nick"></input></div>
-                                    <div class="labelc"><label id="commentLabel" for="comment">Kommentar</label></div>
+                                    <div class="labelc"><label id="commentLabel" for="comment">Kommentar:</label></div>
                                     <div class="input_com"><textarea id="comment" name="comment"></textarea></div>
                                     <button type="submit">Submit</button>
                                 </form>
