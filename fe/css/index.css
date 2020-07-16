@@ -17,7 +17,14 @@ button{
     border: 1px solid #4CAF50;
     background-color: #4CAF50;
     resize: vertical;
+    cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
+}
+button:hover{
+    transform: translateY(-5px);
+}
+button:active {
+    transform: translateY(3px);
 }
 label {
     font-family: Arial, Helvetica, sans-serif;

@@ -93,7 +93,7 @@ body {
     stroke: aqua;
 }
 #valuePolygon{
-    fill-opacity: 30%;
+    fill-opacity: 75%;
     fill: indianred;
     stroke: red;
 }
