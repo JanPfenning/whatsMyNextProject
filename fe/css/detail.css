@@ -21,10 +21,12 @@ body {
     color: #ffffff;
 }
 .leftSide {
+    display: inline-block;
     float: left;
     margin: 0.5vw;
 }
 .rightSide {
+    display: inline-block;
     font-family: monospace;
     color: #ffffff;
 }
@@ -59,6 +61,7 @@ body {
     display: inline;
 }
 .commentSection {
+    display: inline-block;
     font-family: monospace;
     color: #ffffff;
 }
