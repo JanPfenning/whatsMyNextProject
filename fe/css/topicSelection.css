@@ -39,7 +39,7 @@ body{
     transform: translateY(3px);
 }
 #baseG{
-    cursor:default;
+    cursor:pointer;
 }
 #baseCircle{
     fill: #84b59f;
