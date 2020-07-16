@@ -34,6 +34,7 @@ body {
     height: 8vw;
     background-color: rgba(0,0,0,0.7);
     display: flex;
+    word-wrap: break-word;
     color: #ffffff;
     text-align: center;
     justify-content: center;
@@ -50,6 +51,7 @@ body {
     transform: scale(1.1);
 }
 .projectField:hover:after {
+    word-wrap: break-word;
     overflow:hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
