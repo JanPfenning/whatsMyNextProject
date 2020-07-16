@@ -13,6 +13,7 @@
     $start = 0;
     $until = 10;
     for ($projectID = $start; $projectID <= $until; $projectID++) {
+        $conn->query("DELETE FROM Kommentarliste WHERE KommentarlisteID = $projectID;");
         $conn->query("DELETE FROM Materialliste WHERE MateriallisteID = $projectID;");
         $conn->query("DELETE FROM Werkzeugliste WHERE WerkzeuglisteID = $projectID;");
         $conn->query("DELETE FROM Tagliste WHERE TaglisteID = $projectID;");
