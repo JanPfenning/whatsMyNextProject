@@ -9,8 +9,14 @@ body {
     font-family: monospace;
 }
 .content {
-    margin: 5%;
-    width: 100%;
+    background-size: cover;
+    margin: 5% 5% 0 0;
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
 }
 .headline {
     font-size: 1.5vw;
