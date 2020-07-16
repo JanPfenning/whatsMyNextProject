@@ -1,46 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="application/xml" href="../../../fe/xslt/detail.xsl"?>
-<!DOCTYPE dataset SYSTEM "http://expensive.click/be/src/dtd/details.dtd">
+<!DOCTYPE dataset SYSTEM "https://expensive.click/be/src/dtd/details.dtd">
 <dataset xmlns="http://expensive.click/be/src/dtd/details.dtd">
     <Projekt>
-        <ProjektID>1</ProjektID>
+        <ProjektID>2</ProjektID>
         <GruppeID>1</GruppeID>
-        <ProjektName>Nudeln kochen</ProjektName>
+        <ProjektName>Big Data verarbeiten</ProjektName>
         <Werkzeugliste>
             <Werkzeug>
-                <Name>Topf</Name>
-                <Beschreibung>Rundes Metall Ding mit nem Loch oben</Beschreibung>
+                <Name>Python</Name>
+                <Beschreibung>beißt nicht</Beschreibung>
             </Werkzeug>
             <Werkzeug>
-                <Name>Löffel</Name>
-                <Beschreibung>Metallstab mit runder Schale am Ende</Beschreibung>
+                <Name>IDE</Name>
+                <Beschreibung>Integrierte Entwicklungsumgebung</Beschreibung>
             </Werkzeug>
         </Werkzeugliste>
         <Materialliste>
             <Material>
-                <Name>Nudeln</Name>
-                <Beschreibung>Hartweizen in lustiger Form</Beschreibung>
-                <Menge>200</Menge>
-                <Einheit>Gramm</Einheit>
+                <Name>Computer</Name>
+                <Beschreibung></Beschreibung>
+                <Menge>1</Menge>
+                <Einheit>Stück</Einheit>
             </Material>
         </Materialliste>
         <Wertliste>
-            <Wert1>2</Wert1>
-            <Wert2>3</Wert2>
-            <Wert3>4</Wert3>
-            <Wert4>5</Wert4>
-            <Wert5>6</Wert5>
-            <Wert6>7</Wert6>
+            <Wert1>7</Wert1>
+            <Wert2>5</Wert2>
+            <Wert3>0</Wert3>
+            <Wert4>7</Wert4>
+            <Wert5>1</Wert5>
+            <Wert6>5</Wert6>
         </Wertliste>
         <Tagliste>
             <Tag>
-                <TagName>Kochen</TagName>
-            </Tag>
-            <Tag>
-                <TagName>Essen</TagName>
-            </Tag>
-            <Tag>
-                <TagName>Nudeln</TagName>
+                <TagName>Programmieren</TagName>
             </Tag>
         </Tagliste>
         <Kommentarliste>
@@ -60,20 +54,20 @@
             </KommentarView>
         </Kommentarliste>
         <Bewertungliste>
-            <Stern1>4</Stern1>
-            <Stern2>8</Stern2>
-            <Stern3>15</Stern3>
-            <Stern4>16</Stern4>
-            <Stern5>23</Stern5>
+            <Stern1>0</Stern1>
+            <Stern2>0</Stern2>
+            <Stern3>0</Stern3>
+            <Stern4>0</Stern4>
+            <Stern5>0</Stern5>
         </Bewertungliste>
         <Nutzer>
             <Nick>Admin</Nick>
         </Nutzer>
-        <Kurzbeschreibung>man kocht nudeln</Kurzbeschreibung>
-        <Beschreibung>StarwarsIpsum</Beschreibung>
-        <DatumErstellt>2020-05-29</DatumErstellt>
-        <DatumErneuert>2020-05-29</DatumErneuert>
-        <BildURL>./../../../../fe/img/1/1/nudeln.jpg</BildURL>
+        <Kurzbeschreibung>Ein Projekt, um gesammelte Daten sinnvoll darzustellen.</Kurzbeschreibung>
+        <Beschreibung>https://www.btelligent.com/blog/python-module-fuer-data-science/</Beschreibung>
+        <DatumErstellt>2020-07-15</DatumErstellt>
+        <DatumErneuert>2020-07-15</DatumErneuert>
+        <BildURL></BildURL>
     </Projekt>
-    <BackgroundURL>./../../../fe/img/landingPage.png</BackgroundURL>
+    <BackgroundURL>./../../../fe/img/1/programmieren.jpg</BackgroundURL>
 </dataset>
