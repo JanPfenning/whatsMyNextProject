@@ -20,7 +20,7 @@
                 </title>
                 <script lang="javascript" src="../../../fe/js/detail.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
-                <link rel="stylesheet" type="text/css" href="../../../fe/css/newestDetail.css"/>
+                <link rel="stylesheet" type="text/css" href="../../../fe/css/detail.css"/>
                 <script lang="javascript" src="../../../fe/js/toolbar.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/toolbar.css" />
             </head>
