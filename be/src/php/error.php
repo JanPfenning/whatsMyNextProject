@@ -5,6 +5,7 @@ $htmlContent= '
         <meta charset="UTF-8">
         <title>Title</title>
         <script lang="javascript" src="../../../fe/js/error.js"></script>
+                <link rel="shortcut icon" href="../../../fe/img/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="../../../fe/css/error.css" />
     </head>
     <body>

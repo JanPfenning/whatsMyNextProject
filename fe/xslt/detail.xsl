@@ -18,6 +18,7 @@
                 <title>
                     meinCraft | Details
                 </title>
+                <link rel="shortcut icon" href="../../../fe/img/favicon.ico"/>
                 <script lang="javascript" src="../../../fe/js/detail.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/detail.css"/>

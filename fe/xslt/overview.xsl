@@ -16,6 +16,7 @@
     <xsl:template match="/">
         <html>
             <head>
+                <link rel="shortcut icon" href="../../../fe/img/favicon.ico"/>
                 <script lang="javascript" src="../../../fe/js/overview.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/projectOverview.css" />

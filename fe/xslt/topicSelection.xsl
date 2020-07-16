@@ -18,6 +18,7 @@
                 <title>
                     meinCRAFT
                 </title>
+                <link rel="shortcut icon" href="../../../fe/img/favicon.ico"/>
                 <script lang="javascript" src="../../../fe/js/topicSelection.js"/>
                 <script lang="javascript" src="../../../fe/js/toolbar.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
