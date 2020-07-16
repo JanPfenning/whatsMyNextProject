@@ -175,15 +175,16 @@
                             </xsl:for-each>
                             <div class="comment">
                                 <form method="post" action="../../../be/src/php/commentProject.php">
-                                    <input type="hidden" id="projectID" name="projectID">
+                                    <input type="hidden" name="projectID">
                                         <xsl:attribute name="value">
                                             <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
                                         </xsl:attribute>
                                     </input>
-                                    <div><label id="nickLabel" for="nick">Nickname</label></div>
-                                    <div><input type="text" id="nick" name="nick"></input></div>
-                                    <div><label id="commentLabel" for="comment">Kommentar</label></div>
-                                    <div><input type="text" id="comment" name="comment"></input></div>
+                                    <div class="header2"><h3>Kommentar schreiben:</h3></div>
+                                    <div class="labelc"><label id="nickLabel" for="nick">Nickname</label></div>
+                                    <div class="input_com"><input type="text" id="nick" name="nick"></input></div>
+                                    <div class="labelc"><label id="commentLabel" for="comment">Kommentar</label></div>
+                                    <div class="input_com"><textarea id="comment" name="comment"></textarea></div>
                                     <button type="submit">Submit</button>
                                 </form>
                             </div>

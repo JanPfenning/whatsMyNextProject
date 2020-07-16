@@ -5,7 +5,6 @@
     /*Basic requirements*/
     $path = getcwd();
     include "./toString.php";
-    include "./DOMValidator.php";
     include "./linkErrorpage.php";
     $connfile = $path . '/../../../vault/dbConnection.php';
     if(file_exists($connfile)&&is_readable($connfile)){

@@ -40,7 +40,7 @@ body {
     font-size: 1vw;
     color: #ffffff;
 }
-.texts {
+.texts, img{
     font-size: 1vw;
     color: #ffffff;
 }
@@ -103,4 +103,37 @@ body {
 }
 .radarText{
     fill: white
+}
+.labelc {
+    font-size: 1vw;
+}
+input[type=text] {
+    margin-bottom: 1vw;
+    font-family: monospace;
+    width: 40vw;
+    padding: 0.3vw;
+    border: 1px solid #cccccc;
+    resize: vertical;
+}
+textarea {
+    margin-bottom: 1vw;
+    font-family: monospace;
+    width: 40vw;
+    height: 5vw;
+    padding: 0.3vw;
+    border: 1px solid #cccccc;
+    resize: vertical;
+}
+button[type=submit] {
+    width: 7vw;
+    padding: 0.5vw;
+    font-family: monospace;
+    font-weight: bold;
+    border: 1px solid #000000;
+    background-color: #4CAF50;
+}
+button[type=submit]:hover {
+    transition: background-color 0.5s ease;
+    background-color: #08bf08;
+    border: 1px solid #ffffff;
 }

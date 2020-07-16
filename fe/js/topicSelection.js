@@ -35,9 +35,9 @@ function placeCircles(){
 function calcCircleSize(x1,x2,y1,y2){
     let deltaX = Math.abs(x1-x2);
     let deltaY = Math.abs(y1-y2);
-    let puffer = 10;
-    let dist = ((Math.sqrt(Math.pow(deltaX,2)+Math.pow(deltaY,2)))-puffer)/2;
-    return (dist<180 ? dist : 180);
+    let puffer = 0;
+    let dist = 1.3*((Math.sqrt(Math.pow(deltaX,2)+Math.pow(deltaY,2)))-puffer)/2;
+    return (dist<120 ? dist : 120);
 }
 
 function init(){
