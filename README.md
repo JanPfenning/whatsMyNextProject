@@ -1,11 +1,19 @@
 # whatsMyNextProject
 DHBW (University) exercise using XSLT and XML for building a Website.
+This is for educative purpose only!!!
 
-Currently to see any relevant status you will either need to open the Data-XML file by hand (hatsMyNextProject\be\src\xml\...xml) or you go to expensive.click which is our server instance.
-The XSL document attached to the XML file will style the data and the result will be shown in the browser of your choice.
+Der aktuelle Stand des Projekts ist auf https://expensive.click zu begutachten.
 
-Helpfull links:
-xslt XPath functions:
-https://wiki.selfhtml.org/wiki/XML/XSL/XPath/Funktionen#concat.28.29_.28Zeichenketten_zu_einer_zusammenfassen.29
-check xml against xmlschema:
-https://www.freeformatter.com/xml-validator-xsd.html
+Besonders schön ist der Slider bei der "Projekterstellungs-Seite", unser Favicon und das Diagramm auf der Detailseite.
+
+Alle Funktionen wurden **_komplett_** ohne jegliche APIs oder Frameworks implementiert. So wurde,
+um alles möglichst Plain zu halten, nur HTML, CSS, JS, XSL (DTD, XML) und PHP genutzt.
+
+Jede aufzufindende Zeile Code wurde händisch geschrieben!
+
+Der Server verwendet eine MariaDB und stellt uns lediglich die SQL-Funktionalität zur verfügung.
+
+ Der Client schickt eine Anfrage an unser PHP-Script, welches mittels Datenbankabfrage die Daten
+ aus der Datenbank ausließt, sie mit einem Script in ein valides XML-Format bringt und es an den Client zurück gibt.
+ Das verlinkte XSLT wird vom Client interpretiert und dieser baut daraus eine HTML-Seite. Die dann fehlenden
+ JS-, CSS- und Bilddateien werden dann vom Client angefragt und geladen.
