@@ -105,7 +105,7 @@
                             </svg:g>
                         </xsl:for-each>
                         <!-- Base circle -->
-                        <svg:g id="baseG">
+                        <svg:g id="baseG" onclick="navToTopics()">
                             <svg:circle id="baseCircle" r="200" cx="50%" cy="100%"/>
                             <svg:text id="baseCircleText" class="circleText" text-anchor="middle" x="50%" y="95%">Gruppenwahl</svg:text>
                         </svg:g>

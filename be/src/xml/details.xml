@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="application/xml" href="../../../fe/xslt/detail.xsl"?>
-<!DOCTYPE dataset SYSTEM "http://localhost:63342/meinCraft/be/src/dtd/details.dtd">
-<dataset xmlns="http://localhost:63342/meinCraft/be/src/dtd/details.dtd">
+<!DOCTYPE dataset SYSTEM "http://expensive.click/be/src/dtd/details.dtd">
+<dataset xmlns="http://expensive.click/be/src/dtd/details.dtd">
     <Projekt>
         <ProjektID>1</ProjektID>
         <GruppeID>1</GruppeID>
