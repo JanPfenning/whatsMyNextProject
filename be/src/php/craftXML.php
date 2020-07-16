@@ -28,8 +28,10 @@
         // $result = mysqli_stmt_get_result($queryString); 
         // $queryString->close();
         
-        if(mysqli_num_rows($result)>0){
-            printData($table,$result,$conn,$IDvalue); //4. param could also be $parentCon dunno
+        if(gettype($result)!="boolean"){
+            if(mysqli_num_rows($result)>0){
+                printData($table,$result,$conn,$IDvalue); //4. param could also be $parentCon dunno
+            }
         }
     }
 
