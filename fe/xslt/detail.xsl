@@ -166,13 +166,20 @@
                         </div>
                         <div class="commentSection">
                             <div class="header2"><h2>Kommentare</h2></div>
-                            <xsl:for-each select="n:dataset/n:Projekt/n:Kommentarliste/n:KommentarView">
-                                <div class="user1">
-                                    <img class="userImg" src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" width="32px" height="32px" alt="User image"/>
-                                    <div class="name"><p><xsl:value-of select="n:Nick"/></p></div>
-                                    <div class="commentText"><p><xsl:value-of select="n:Inhalt"/></p></div>
-                                </div>
-                            </xsl:for-each>
+                            <xsl:choose>
+                                <xsl:when test="n:dataset/n:Projekt/n:Kommentarliste != ''">
+                                    <xsl:for-each select="n:dataset/n:Projekt/n:Kommentarliste/n:KommentarView">
+                                        <div class="user1">
+                                            <img class="userImg" src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" width="32px" height="32px" alt="User image"/>
+                                            <div class="name"><p><xsl:value-of select="n:Nick"/></p></div>
+                                            <div class="commentText"><p><xsl:value-of select="n:Inhalt"/></p></div>
+                                        </div>
+                                    </xsl:for-each>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <p>-Keine Kommentare vorhanden-</p>
+                                </xsl:otherwise>
+                            </xsl:choose>
                             <div class="comment">
                                 <form method="post" action="../../../be/src/php/commentProject.php">
                                     <input type="hidden" name="projectID">
