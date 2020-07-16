@@ -82,7 +82,7 @@
                         </xsl:for-each>
                         <!-- Base circle -->
                         <svg:g id="baseG">
-                            <svg:circle id="baseCircle" r="150" cx="50%" cy="100%"/>
+                            <svg:circle id="baseCircle" r="200" cx="50%" cy="100%"/>
                             <svg:text id="baseCircleText" class="circleText" text-anchor="middle" x="50%" y="95%">Bereichswahl</svg:text>
                         </svg:g>
                     </svg:svg>
