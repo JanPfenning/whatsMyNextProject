@@ -58,9 +58,9 @@
                         Über
                     </span>
                     <!-- Kein projekt aus den Gruppenn zu erstellen -->
-                    <span class="barE right" onclick="toCreateProject()">
+                    <!--<span class="barE right">
                         Projekt einreichen
-                    </span>
+                    </span>-->
                     <div id="forms">
                         <form action="../../../fe/html/index.html" id="toHome"/>
                         <form action="../php/topics.php" id="toTopics"/>
@@ -80,13 +80,6 @@
                         </form>
                         <form action="../php/impressum.php" id="toImpressum"/>
                         <form action="../php/uber.php" id="toUber"/>
-                        <form action="../php/createProjectFormular.php" id="toCreateProject">
-                            <input type="hidden" name="GruppeID">
-                                <xsl:attribute name="value">
-                                    <xsl:value-of select="n:dataset/n:Gruppen/n:Gruppe[1]/n:GruppeID"/>
-                                </xsl:attribute>
-                            </input>
-                        </form>
                     </div>
                 </div>
                 <div id="content">

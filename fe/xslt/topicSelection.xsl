@@ -55,9 +55,9 @@
                         Über
                     </span>
                     <!-- Kein projekt aus den bereichen zu erstellen -->
-                    <span class="barE right">
+                    <!--<span class="barE right">
                         Projekt einreichen
-                    </span>
+                    </span>-->
                     <div id="forms">
                         <form action="../../../fe/html/index.html" id="toHome"/>
                         <form action="../php/topics.php" id="toTopics"/>
