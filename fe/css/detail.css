@@ -33,7 +33,7 @@ body {
 }
 .picsLeft {
     display: block;
-    margin-top: 0.5vw;
+    margin: auto;
     max-width: 25vw;
 }
 .main {
