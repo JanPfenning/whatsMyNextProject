@@ -39,14 +39,8 @@ $htmlContent= '
                 <label for="pname">Projektname</label>
             </div>
             <div class="col-75">
-                <span class="col-90">
+                <span>
                     <input type="text" id="pname" autocomplete="off" name="ProjektName" placeholder="Projektname.." required>
-                </span>
-                <span class="col-10">
-                    <select id="languageSelect" name="lang">
-                        <option id="de" value="de">de</option>
-                        <option id="en" value="en">en</option>
-                    </select>
                 </span>
             </div>
         </div>
