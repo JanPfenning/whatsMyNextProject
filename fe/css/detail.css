@@ -61,7 +61,7 @@ body {
     display: inline;
 }
 .commentSection {
-    display: inline-block;
+    /*display: inline-block;*/
     font-family: monospace;
     color: #ffffff;
 }

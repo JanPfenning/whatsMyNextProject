@@ -31,7 +31,7 @@
                     <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
                 </xsl:attribute>
                 <xsl:variable name="noInfoText">
-                    keine Info
+                    [keine Info]
                 </xsl:variable>
                 <div id="toolbar">
                     <span class="barE navE ascendent" onclick="navToHome()">
@@ -177,7 +177,7 @@
                                                     <xsl:value-of select="n:Beschreibung"/>
                                                 </xsl:when>
                                                 <xsl:otherwise>
-                                                    <xsl:value-of select="noInfoText"/>
+                                                    <xsl:value-of select="$noInfoText"/>
                                                 </xsl:otherwise>
                                             </xsl:choose>
                                         </xsl:attribute>

@@ -93,6 +93,9 @@
                                 <xsl:value-of select="n:ProjektName"/>
                             </div>
                         </xsl:for-each>
+                        <div class="projectField" id="back" onclick="navToGroups()" data-hover="zurück zu den Gruppen...">
+                            Zurück
+                        </div>
                     </div>
                     <xsl:for-each select="n:dataset/n:Projekte/n:ProjektView">
                         <form action="../php/detail.php" method="GET">

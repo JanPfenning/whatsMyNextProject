@@ -26,6 +26,8 @@ body {
 }
 .flexContainer {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 .projectField {
@@ -50,13 +52,29 @@ body {
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
-.projectField:hover:after {
-    word-wrap: break-word;
-    overflow:hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+/*https://css-tricks.com/line-clampin/*/
+.projectField:hover::after {
+    position: relative;
+    overflow: hidden;
+
     content: attr(data-hover);
     font-size: 1vw;
     text-align: center;
     color: #4CAF50;
+}
+#back{
+    position: absolute;
+    right: 0;
+    bottom:0;
+    
+    background-color: rgba(75,175,80,0.8);
+    color: white;
+    display: flex;
+    align-self: flex-end;
+}
+#back:hover{
+    background-color: rgba(75,175,80,1);
+}
+#back:hover::after{
+    color: white;
 }
