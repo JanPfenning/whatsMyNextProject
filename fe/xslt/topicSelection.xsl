@@ -66,9 +66,9 @@
                     </div>
                 </div>
                 <div id="content">
-                    <!--<xsl:attribute name="style">
+                    <xsl:attribute name="style">
                         <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
-                    </xsl:attribute>-->
+                    </xsl:attribute>
                     <svg:svg id="topicSelection" width="100%" height="100%"> <!--16/9-->
                         <xsl:for-each select="n:dataset/n:Bereiche/n:Bereich">
                             <svg:g class="topicG">
