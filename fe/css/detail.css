@@ -132,8 +132,10 @@ button[type=submit] {
     width: 7vw;
     padding: 0.5vw;
     font-family: monospace;
+    font-size: 110%;
     font-weight: bold;
     border: 1px solid #000000;
+    color: white;
     background-color: #4CAF50;
 }
 button[type=submit]:hover {
