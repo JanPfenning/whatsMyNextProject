@@ -23,7 +23,7 @@
             <body>
                 <div id="buttons">
                     <div id="errorText">
-                        <xsl:value-of select="n:errorMessage"/>
+                        <xsl:value-of select="n:dataset/n:Errormessage"/>
                     </div>
                     <form name="toMainMenu" id="toMainMenuForm" action="../../be/src/php/index.php">
                         <button class="button" type="submit" id="toMainMenu">Zum Hauptmenu</button>
