@@ -1,5 +1,6 @@
 function init(){
-    const inputs = Array.from(document.getElementsByTagName("INPUT"));
+    const inputs = Array.from(document.getElementsByTagName("input"));
+    console.log(inputs);
     inputs.forEach(function(item){
         if(item.getAttribute("type")==="range"){
             item.oninput(item);
