@@ -26,6 +26,7 @@ body {
     margin: 0.5vw;
 }
 .rightSide {
+    width: 60%;
     display: inline-block;
     font-family: monospace;
     color: #ffffff;
