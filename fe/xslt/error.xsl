@@ -1,6 +1,6 @@
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/error.dtd"
+                xmlns:n="http://expensive.click/be/src/dtd/error.dtd"
 >
     <!-- xmlns:n="http://localhost:63342/meinCraft/be/src/dtd/details.dtd" -->
 
@@ -23,7 +23,7 @@
             <body>
                 <div id="buttons">
                     <div id="errorText">
-                        <xsl:value-of select="n:errorMessage"/>
+                        <xsl:value-of select="n:dataset/n:Errormessage"/>
                     </div>
                     <form name="toMainMenu" id="toMainMenuForm" action="../../be/src/php/index.php">
                         <button class="button" type="submit" id="toMainMenu">Zum Hauptmenu</button>
