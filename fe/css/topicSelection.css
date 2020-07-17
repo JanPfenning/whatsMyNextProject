@@ -18,11 +18,12 @@ body{
     align-items: center;
     justify-content: end;
     border-style: solid;
-    border-color: black;
+    border-color: rgba(0,0,0,0.5);
     border-width: 2px;
 }
 #topicSelection{
     /*display: block;*/
+    background-color: rgba(0,0,0,0.5);
     margin: auto auto 0 auto;
 }
 .topicCircle{
