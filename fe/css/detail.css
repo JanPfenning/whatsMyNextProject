@@ -147,3 +147,6 @@ li:hover:after {
     text-align: center;
     color: #4CAF50;
 }
+.comment{
+    display: inline-block;
+}
