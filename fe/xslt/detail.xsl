@@ -193,37 +193,37 @@
                             <div class="texts">
                                 <xsl:value-of select="n:dataset/n:Projekt/n:Beschreibung"/>
                             </div>
-                        </div>
-                        <div class="commentSection">
-                            <div class="header2"><h2>Kommentare</h2></div>
-                            <xsl:choose>
-                                <xsl:when test="n:dataset/n:Projekt/n:Kommentarliste != ''">
-                                    <xsl:for-each select="n:dataset/n:Projekt/n:Kommentarliste/n:KommentarView">
-                                        <div class="user1">
-                                            <img class="userImg" src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" width="32px" height="32px" alt="User image"/>
-                                            <div class="name"><p><xsl:value-of select="n:Nick"/></p></div>
-                                            <div class="commentText"><p><xsl:value-of select="n:Inhalt"/></p></div>
-                                        </div>
-                                    </xsl:for-each>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <div class="labelc"><p>-Keine Kommentare vorhanden-</p></div>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                            <div class="comment">
-                                <form method="post" action="../../../be/src/php/commentProject.php">
-                                    <input type="hidden" name="projectID">
-                                        <xsl:attribute name="value">
-                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
-                                        </xsl:attribute>
-                                    </input>
-                                    <div class="header2"><h3>Kommentar schreiben:</h3></div>
-                                    <div class="labelc"><label id="nickLabel" for="nick">Nutzername:</label></div>
-                                    <div class="input_com"><input type="text" id="nick" name="nick"></input></div>
-                                    <div class="labelc"><label id="commentLabel" for="comment">Kommentar:</label></div>
-                                    <div class="input_com"><textarea id="comment" name="comment"></textarea></div>
-                                    <button type="submit">Submit</button>
-                                </form>
+                            <div class="commentSection">
+                                <div class="header2"><h2>Kommentare</h2></div>
+                                <xsl:choose>
+                                    <xsl:when test="n:dataset/n:Projekt/n:Kommentarliste != ''">
+                                        <xsl:for-each select="n:dataset/n:Projekt/n:Kommentarliste/n:KommentarView">
+                                            <div class="user1">
+                                                <img class="userImg" src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" width="32px" height="32px" alt="User image"/>
+                                                <div class="name"><p><xsl:value-of select="n:Nick"/></p></div>
+                                                <div class="commentText"><p><xsl:value-of select="n:Inhalt"/></p></div>
+                                            </div>
+                                        </xsl:for-each>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <div class="labelc"><p>-Keine Kommentare vorhanden-</p></div>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                                <div class="comment">
+                                    <form method="post" action="../../../be/src/php/commentProject.php">
+                                        <input type="hidden" name="projectID">
+                                            <xsl:attribute name="value">
+                                                <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                            </xsl:attribute>
+                                        </input>
+                                        <div class="header2"><h3>Kommentar schreiben:</h3></div>
+                                        <div class="labelc"><label id="nickLabel" for="nick">Nutzername:</label></div>
+                                        <div class="input_com"><input type="text" id="nick" name="nick"></input></div>
+                                        <div class="labelc"><label id="commentLabel" for="comment">Kommentar:</label></div>
+                                        <div class="input_com"><textarea id="comment" name="comment"></textarea></div>
+                                        <button type="submit">Submit</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
