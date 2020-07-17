@@ -15,7 +15,9 @@ $htmlContent= '
         <span class="barE navE ascendent" onclick="navToHome()">
             Home
         </span>
-
+        <span class="barE navE ascendent" onclick="navToTopics()">
+            Bereiche
+        </span>
         <span class="barE right" onclick="toImpressum()">
             Impressum
         </span>
