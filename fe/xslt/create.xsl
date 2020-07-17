@@ -16,6 +16,7 @@
             <head>
                 <meta charset="UTF-8"/>
                 <title>Create Project</title>
+                <link rel="shortcut icon" href="../../../fe/img/favicon.ico"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/create.css" />
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/toolbar.css" />
                 <script src="../../../fe/js/createProject.js"/>
