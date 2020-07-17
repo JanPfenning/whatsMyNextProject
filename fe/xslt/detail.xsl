@@ -189,7 +189,6 @@
                                     </li>
                                 </xsl:for-each>
                             </ul></div>
-                            
                             <div class="header2"><h2>Beschreibung</h2></div>
                             <div class="texts">
                                 <xsl:value-of select="n:dataset/n:Projekt/n:Beschreibung"/>
