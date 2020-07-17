@@ -27,9 +27,9 @@
             </head>
             <body onload="onInit()">
                 <!-- -->
-                <xsl:attribute name="style">
+                <!--<xsl:attribute name="style">
                     <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
-                </xsl:attribute>
+                </xsl:attribute>-->
                 <xsl:variable name="noInfoText">
                     [keine Info]
                 </xsl:variable>
