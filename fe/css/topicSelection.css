@@ -23,7 +23,7 @@ body{
 }
 #topicSelection{
     /*display: block;*/
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.0);
     margin: auto auto 0 auto;
 }
 .topicCircle{
