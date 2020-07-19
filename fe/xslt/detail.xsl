@@ -143,34 +143,34 @@
                                 <form method="post" action="../../../be/src/like.php" id="like_5"><input type="hidden" name="like" value="5"/></form>
                             </div>
                             <div class="rating">
-                                <div class="rating_box">
+                                <div class="rating_box value">
                                     <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern1,')')"/></a>
                                 </div>
-                                <div class="rating_box">
+                                <div class="rating_box like">
                                     <button class="likeButton" onclick="submitLike(1)">+</button>
                                 </div>
-                                <div class="rating_box">
+                                <div class="rating_box value">
                                     <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern2,')')"/></a>
                                 </div>
-                                <div class="rating_box">
+                                <div class="rating_box like">
                                     <button class="likeButton" onclick="submitLike(2)">+</button>
                                 </div>
-                                <div class="rating_box">
+                                <div class="rating_box value">
                                     <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern3,')')"/></a>
                                 </div>
-                                <div class="rating_box">
+                                <div class="rating_box like">
                                     <button class="likeButton" onclick="submitLike(3)">+</button>
                                 </div>
-                                <div class="rating_box">
+                                <div class="rating_box value">
                                     <span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern4,')')"/></a>
                                 </div>
-                                <div class="rating_box">
+                                <div class="rating_box like">
                                     <button class="likeButton" onclick="submitLike(4)">+</button>
                                 </div>
-                                <div class="rating_box">
+                                <div class="rating_box value">
                                     <span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern5,')')"/></a>
                                 </div>
-                                <div class="rating_box">
+                                <div class="rating_box like">
                                     <button class="likeButton" onclick="submitLike(5)">+</button>
                                 </div>
                             </div>

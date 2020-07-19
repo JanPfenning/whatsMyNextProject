@@ -54,6 +54,7 @@ body {
     float: left;
     display: grid;
     grid-template-columns: 80% 20%;
+    column-gap: 5%;
     grid-row: auto;
     color: yellow;
     font-size: 1.5vw;
@@ -69,7 +70,12 @@ body {
 .rating_box{
     display: flex;
     align-items: center;
+}
+.like{
     justify-content: center;
+}
+.value{
+    justify-content: flex-start;
 }
 .commentSection {
     /*comment this if something doesnt work*/
