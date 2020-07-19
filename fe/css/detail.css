@@ -8,6 +8,9 @@ body {
     justify-items: center;
     font-family: monospace;
 }
+#form_div{
+    display: none;
+}
 .content {
     width: 100vw;
     margin: 5% 3vw 3vw 3vw;
@@ -47,19 +50,26 @@ body {
     font-size: 1vw;
     color: #ffffff;
 }
-.rating {
+.rating{
     float: left;
-    display: inline;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-row: auto;
     color: yellow;
     font-size: 1.5vw;
     margin-top: -0.83em;
 }
-.rating p {
+.rating a{
     padding-left: 0.5vw;
     color: #ffffff;
     font-weight: bold;
     font-size: 1.2vw;
     display: inline;
+}
+.rating_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .commentSection {
     /*comment this if something doesnt work*/
@@ -153,4 +163,20 @@ li:hover:after {
 }
 .comment{
     display: inline-block;
+}
+.likeButton{
+    font-family: monospace;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    font-size: 110%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    color: white;
+    background-color: #4CAF50;
+}
+.likeButton:hover{
+    transition: background-color 0.5s ease;
+    background-color: #08bf08;
+    border: 1px solid #ffffff;
 }
