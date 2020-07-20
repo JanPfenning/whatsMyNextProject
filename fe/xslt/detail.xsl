@@ -98,7 +98,7 @@
                                     <xsl:attribute name="src">
                                         <xsl:choose>
                                             <xsl:when test="n:dataset/n:Projekt/n:BildURL != ''">
-                                                    <xsl:value-of select="concat('url(./.',n:dataset/n:Projekt/n:BildURL)"/>
+                                                    <xsl:value-of select="concat('url(./../../../.',n:dataset/n:Projekt/n:BildURL)"/>
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <xsl:value-of select="'url(../../../../../fe/img/noIMG.jpg'"/>
