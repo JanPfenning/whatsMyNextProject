@@ -136,24 +136,54 @@
                             </div>
                             <div class="header2"><h2>Bewertungen</h2></div>
                             <div id="form_div">
-                                <form method="post" action="../../../be/src/php/like.php" id="like_1"><input type="hidden" name="like" value="1"/></form>
-                                <form method="post" action="../../../be/src/php/like.php" id="like_2"><input type="hidden" name="like" value="2"/></form>
-                                <form method="post" action="../../../be/src/php/like.php" id="like_3"><input type="hidden" name="like" value="3"/></form>
-                                <form method="post" action="../../../be/src/php/like.php" id="like_4"><input type="hidden" name="like" value="4"/></form>
-                                <form method="post" action="../../../be/src/php/like.php" id="like_5"><input type="hidden" name="like" value="5"/></form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_1"><input type="hidden" name="like" value="1"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_2"><input type="hidden" name="like" value="2"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_3"><input type="hidden" name="like" value="3"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_4"><input type="hidden" name="like" value="4"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_5"><input type="hidden" name="like" value="5"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
                             </div>
                             <div class="rating">
                                 <div class="rating_box value">
-                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern1,')')"/></a>
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern5,')')"/></a>
                                 </div>
                                 <div class="rating_box like">
-                                    <button class="likeButton" onclick="submitLike(1)">+</button>
+                                    <button class="likeButton" onclick="submitLike(5)">+</button>
                                 </div>
                                 <div class="rating_box value">
-                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern2,')')"/></a>
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern4,')')"/></a>
                                 </div>
                                 <div class="rating_box like">
-                                    <button class="likeButton" onclick="submitLike(2)">+</button>
+                                    <button class="likeButton" onclick="submitLike(4)">+</button>
                                 </div>
                                 <div class="rating_box value">
                                     <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern3,')')"/></a>
@@ -162,16 +192,16 @@
                                     <button class="likeButton" onclick="submitLike(3)">+</button>
                                 </div>
                                 <div class="rating_box value">
-                                    <span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern4,')')"/></a>
+                                    <span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern2,')')"/></a>
                                 </div>
                                 <div class="rating_box like">
-                                    <button class="likeButton" onclick="submitLike(4)">+</button>
+                                    <button class="likeButton" onclick="submitLike(2)">+</button>
                                 </div>
                                 <div class="rating_box value">
-                                    <span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern5,')')"/></a>
+                                    <span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern1,')')"/></a>
                                 </div>
                                 <div class="rating_box like">
-                                    <button class="likeButton" onclick="submitLike(5)">+</button>
+                                    <button class="likeButton" onclick="submitLike(1)">+</button>
                                 </div>
                             </div>
                             <!--<div id="buttongroup">
