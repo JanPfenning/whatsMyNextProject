@@ -16,23 +16,27 @@
 
     switch($like){
         case(1):
-            $query = $conn->prepare("UPDATE Projekt SET 1Stern = 1Stern + 1 WHERE ProjektID = ?");
+            $query = $conn->prepare("UPDATE Bewertungliste SET Stern1 = Stern1 + 1 WHERE BewertunglisteID = ?");
             break;
         case(2):
-            $query = $conn->prepare("UPDATE Projekt SET 2Stern = 2Stern + 1 WHERE ProjektID = ?");
+            $query = $conn->prepare("UPDATE Bewertungliste SET Stern2 = Stern2 + 1 WHERE BewertunglisteID = ?");
             break;
         case(3):
-            $query = $conn->prepare("UPDATE Projekt SET 3Stern = 3Stern + 1 WHERE ProjektID = ?");
+            $query = $conn->prepare("UPDATE Bewertungliste SET Stern3 = Stern3 + 1 WHERE BewertunglisteID = ?");
             break;
         case(4):
-            $query = $conn->prepare("UPDATE Projekt SET 4Stern = 4Stern + 1 WHERE ProjektID = ?");
+            $query = $conn->prepare("UPDATE Bewertungliste SET Stern4 = Stern4 + 1 WHERE BewertunglisteID = ?");
             break;
         case(5):
-            $query = $conn->prepare("UPDATE Projekt SET 5Stern = 5Stern + 1 WHERE ProjektID = ?");
+            $query = $conn->prepare("UPDATE Bewertungliste SET Stern5 = Stern5 + 1 WHERE BewertunglisteID = ?");
             break;
+        default:
+            toErrorPage("no valid like value given");
+            die();
     }
     $query->bind_param("i", $projectID);
     $worked = $query->execute();
+    $query->close();
 
     if(!$worked){
         toErrorPage("Error: " . $conn->error."</br> Cannot like the project. Please contact the administrator");
