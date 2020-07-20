@@ -136,11 +136,11 @@
                             </div>
                             <div class="header2"><h2>Bewertungen</h2></div>
                             <div id="form_div">
-                                <form method="post" action="../../../be/src/like.php" id="like_1"><input type="hidden" name="like" value="1"/></form>
-                                <form method="post" action="../../../be/src/like.php" id="like_2"><input type="hidden" name="like" value="2"/></form>
-                                <form method="post" action="../../../be/src/like.php" id="like_3"><input type="hidden" name="like" value="3"/></form>
-                                <form method="post" action="../../../be/src/like.php" id="like_4"><input type="hidden" name="like" value="4"/></form>
-                                <form method="post" action="../../../be/src/like.php" id="like_5"><input type="hidden" name="like" value="5"/></form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_1"><input type="hidden" name="like" value="1"/></form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_2"><input type="hidden" name="like" value="2"/></form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_3"><input type="hidden" name="like" value="3"/></form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_4"><input type="hidden" name="like" value="4"/></form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_5"><input type="hidden" name="like" value="5"/></form>
                             </div>
                             <div class="rating">
                                 <div class="rating_box value">
