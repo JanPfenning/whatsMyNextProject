@@ -39,6 +39,8 @@ function changeList(inputElement,type){
         }else{
             console.error("We dont know how to handle parameter: "+type)
         }
+        console.log(newRow);
+        newRow.childNodes[1].childNodes[1].value="";
         container.appendChild(newRow);
     }
 }
