@@ -45,7 +45,7 @@
                             <form action="./uber.php" id="toUber"/>
                         </div>
                     </div>
-                    <form id="createProject" action="createProjectScript.php" method="post" enctype="multipart/form-data">
+                    <form id="createProject" action="../php/createProjectScript.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" id="group" autocomplete="off" name="GruppeID">
                             <xsl:attribute name="value">
                                 <xsl:value-of select="n:dataset/n:GruppeID"/>
