@@ -295,7 +295,7 @@
         $target_dir = "../../../fe/img/$BereichID/$GruppeID/";
         $inputName = "picture";
         $target_file = $target_dir . basename($_FILES[$inputName]["name"]);
-        echo $target_file;
+        // echo $target_file;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
         // Check if image file is a actual image or fake image

@@ -10,8 +10,8 @@
         toErrorPage("Failed to load required File");
         die();
     }
-    $start = 0;
-    $until = 10;
+    $start = 54;
+    $until = 54;
     for ($projectID = $start; $projectID <= $until; $projectID++) {
         $conn->query("DELETE FROM Kommentarliste WHERE KommentarlisteID = $projectID;");
         $conn->query("DELETE FROM Materialliste WHERE MateriallisteID = $projectID;");
