@@ -18,6 +18,7 @@
                 <title>
                     meinCraft | Details
                 </title>
+                <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../../fe/img/favicon.ico"/>
                 <script lang="javascript" src="../../../fe/js/detail.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/detail.css"/>
@@ -26,9 +27,12 @@
             </head>
             <body onload="onInit()">
                 <!-- -->
-                <xsl:attribute name="style">
+                <!--<xsl:attribute name="style">
                     <xsl:value-of select="concat('background-image: url(',n:dataset/n:BackgroundURL,')')"/>
-                </xsl:attribute>
+                </xsl:attribute>-->
+                <xsl:variable name="noInfoText">
+                    [keine Info]
+                </xsl:variable>
                 <div id="toolbar">
                     <span class="barE navE ascendent" onclick="navToHome()">
                         Home
@@ -94,7 +98,7 @@
                                     <xsl:attribute name="src">
                                         <xsl:choose>
                                             <xsl:when test="n:dataset/n:Projekt/n:BildURL != ''">
-                                                    <xsl:value-of select="concat('url(./.',n:dataset/n:Projekt/n:BildURL)"/>
+                                                    <xsl:value-of select="concat('url(./../../../.',n:dataset/n:Projekt/n:BildURL)"/>
                                             </xsl:when>
                                             <xsl:otherwise>
                                                 <xsl:value-of select="'url(../../../../../fe/img/noIMG.jpg'"/>
@@ -131,12 +135,74 @@
                                 <svg:svg id="radarChartSVG" height="300" width="400"/>
                             </div>
                             <div class="header2"><h2>Bewertungen</h2></div>
+                            <div id="form_div">
+                                <form method="post" action="../../../be/src/php/like.php" id="like_1"><input type="hidden" name="like" value="1"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_2"><input type="hidden" name="like" value="2"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_3"><input type="hidden" name="like" value="3"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_4"><input type="hidden" name="like" value="4"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
+                                <form method="post" action="../../../be/src/php/like.php" id="like_5"><input type="hidden" name="like" value="5"/>
+                                    <input name="projectID">
+                                        <xsl:attribute name="value">
+                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                        </xsl:attribute>
+                                    </input>
+                                </form>
+                            </div>
                             <div class="rating">
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><p><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern1,')')"/></p><br />
-                                <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span><p><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern2,')')"/></p><br />
-                                <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span><p><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern3,')')"/></p><br />
-                                <span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span><p><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern4,')')"/></p><br />
-                                <span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><p><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern5,')')"/></p>
+                                <div class="rating_box value">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern5,')')"/></a>
+                                </div>
+                                <div class="rating_box like">
+                                    <button class="likeButton" onclick="submitLike(5)">+</button>
+                                </div>
+                                <div class="rating_box value">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern4,')')"/></a>
+                                </div>
+                                <div class="rating_box like">
+                                    <button class="likeButton" onclick="submitLike(4)">+</button>
+                                </div>
+                                <div class="rating_box value">
+                                    <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern3,')')"/></a>
+                                </div>
+                                <div class="rating_box like">
+                                    <button class="likeButton" onclick="submitLike(3)">+</button>
+                                </div>
+                                <div class="rating_box value">
+                                    <span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern2,')')"/></a>
+                                </div>
+                                <div class="rating_box like">
+                                    <button class="likeButton" onclick="submitLike(2)">+</button>
+                                </div>
+                                <div class="rating_box value">
+                                    <span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span><a><xsl:value-of select="concat('(',n:dataset/n:Projekt/n:Bewertungliste/n:Stern1,')')"/></a>
+                                </div>
+                                <div class="rating_box like">
+                                    <button class="likeButton" onclick="submitLike(1)">+</button>
+                                </div>
                             </div>
                             <!--<div id="buttongroup">
                                 <button>Download</button>
@@ -144,10 +210,24 @@
                             </div>-->
                         </div>
                         <div class="rightSide">
+                            <div class="header2"><h2>Kurzbeschreibung</h2></div>
+                            <div class="texts">
+                                <xsl:value-of select="n:dataset/n:Projekt/n:Kurzbeschreibung"/>
+                            </div>
                             <div class="header2"><h2>Materialien</h2></div>
                             <div class="texts"><ul>
                                 <xsl:for-each select="n:dataset/n:Projekt/n:Materialliste/n:Material">
-                                    <li class="identifier">
+                                    <li>
+                                        <xsl:attribute name="data-hover">
+                                            <xsl:choose>
+                                                <xsl:when test="n:Beschreibung != ''">
+                                                    <xsl:value-of select="n:Beschreibung"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:value-of select="$noInfoText"/>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                        </xsl:attribute>
                                         <xsl:value-of select="concat(n:Menge,' ',n:Einheit,' ',n:Name)"/>
                                         <!--<span class="detail"><xsl:value-of select="n:Beschreibung"/></span>-->
                                     </li>
@@ -156,37 +236,56 @@
                             <div class="header2"><h2>Werkzeuge</h2></div>
                             <div class="texts"><ul>
                                 <xsl:for-each select="n:dataset/n:Projekt/n:Werkzeugliste/n:Werkzeug">
-                                    <li><xsl:value-of select="n:Name"/></li>
+                                    <li>
+                                        <xsl:attribute name="data-hover">
+                                            <xsl:choose>
+                                                <xsl:when test="n:Beschreibung != ''">
+                                                    <xsl:value-of select="n:Beschreibung"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:value-of select="$noInfoText"/>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                        </xsl:attribute>
+                                        <xsl:value-of select="n:Name"/>
+                                    </li>
                                 </xsl:for-each>
                             </ul></div>
                             <div class="header2"><h2>Beschreibung</h2></div>
                             <div class="texts">
                                 <xsl:value-of select="n:dataset/n:Projekt/n:Beschreibung"/>
                             </div>
-                        </div>
-                        <div class="commentSection">
-                            <div class="header2"><h2>Kommentare</h2></div>
-                            <xsl:for-each select="n:dataset/n:Projekt/n:Kommentarliste/n:KommentarView">
-                                <div class="user1">
-                                    <img class="userImg" src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" width="32px" height="32px" alt="User image"/>
-                                    <div class="name"><p><xsl:value-of select="n:Nick"/></p></div>
-                                    <div class="commentText"><p><xsl:value-of select="n:Inhalt"/></p></div>
+                            <div class="commentSection">
+                                <div class="header2"><h2>Kommentare</h2></div>
+                                <xsl:choose>
+                                    <xsl:when test="n:dataset/n:Projekt/n:Kommentarliste != ''">
+                                        <xsl:for-each select="n:dataset/n:Projekt/n:Kommentarliste/n:KommentarView">
+                                            <div class="user1">
+                                                <img class="userImg" src="https://upload.wikimedia.org/wikipedia/commons/d/d3/User_Circle.png" width="32px" height="32px" alt="User image"/>
+                                                <div class="name"><p><xsl:value-of select="n:Nick"/></p></div>
+                                                <div class="commentText"><p><xsl:value-of select="n:Inhalt"/></p></div>
+                                            </div>
+                                        </xsl:for-each>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <div class="labelc"><p>-Keine Kommentare vorhanden-</p></div>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                                <div class="comment">
+                                    <form method="post" action="../../../be/src/php/commentProject.php">
+                                        <input type="hidden" name="projectID">
+                                            <xsl:attribute name="value">
+                                                <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
+                                            </xsl:attribute>
+                                        </input>
+                                        <div class="header2"><h3>Kommentar schreiben:</h3></div>
+                                        <div class="labelc"><label id="nickLabel" for="nick">Nutzername:</label></div>
+                                        <div class="input_com"><input type="text" id="nick" name="nick"></input></div>
+                                        <div class="labelc"><label id="commentLabel" for="comment">Kommentar:</label></div>
+                                        <div class="input_com"><textarea id="comment" name="comment"></textarea></div>
+                                        <button type="submit">Submit</button>
+                                    </form>
                                 </div>
-                            </xsl:for-each>
-                            <div class="comment">
-                                <form method="post" action="../../../be/src/php/commentProject.php">
-                                    <input type="hidden" name="projectID">
-                                        <xsl:attribute name="value">
-                                            <xsl:value-of select="n:dataset/n:Projekt/n:ProjektID"/>
-                                        </xsl:attribute>
-                                    </input>
-                                    <div class="header2"><h3>Kommentar schreiben:</h3></div>
-                                    <div class="labelc"><label id="nickLabel" for="nick">Nickname</label></div>
-                                    <div class="input_com"><input type="text" id="nick" name="nick"></input></div>
-                                    <div class="labelc"><label id="commentLabel" for="comment">Kommentar</label></div>
-                                    <div class="input_com"><textarea id="comment" name="comment"></textarea></div>
-                                    <button type="submit">Submit</button>
-                                </form>
                             </div>
                         </div>
                     </div>

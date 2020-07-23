@@ -8,6 +8,9 @@ body {
     justify-items: center;
     font-family: monospace;
 }
+#form_div{
+    display: none;
+}
 .content {
     width: 100vw;
     margin: 5% 3vw 3vw 3vw;
@@ -21,16 +24,19 @@ body {
     color: #ffffff;
 }
 .leftSide {
+    display: inline-block;
     float: left;
     margin: 0.5vw;
 }
 .rightSide {
+    width: 60%;
+    display: inline-block;
     font-family: monospace;
     color: #ffffff;
 }
 .picsLeft {
     display: block;
-    margin-top: 0.5vw;
+    margin: auto;
     max-width: 25vw;
 }
 .main {
@@ -44,21 +50,36 @@ body {
     font-size: 1vw;
     color: #ffffff;
 }
-.rating {
+.rating{
     float: left;
-    display: inline;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    column-gap: 5%;
+    grid-row: auto;
     color: yellow;
     font-size: 1.5vw;
     margin-top: -0.83em;
 }
-.rating p {
+.rating a{
     padding-left: 0.5vw;
     color: #ffffff;
     font-weight: bold;
     font-size: 1.2vw;
     display: inline;
 }
+.rating_box{
+    display: flex;
+    align-items: center;
+}
+.like{
+    justify-content: center;
+}
+.value{
+    justify-content: flex-start;
+}
 .commentSection {
+    /*comment this if something doesnt work*/
+    display: inline-block;
     font-family: monospace;
     color: #ffffff;
 }
@@ -93,7 +114,7 @@ body {
     stroke: aqua;
 }
 #valuePolygon{
-    fill-opacity: 30%;
+    fill-opacity: 75%;
     fill: indianred;
     stroke: red;
 }
@@ -128,11 +149,39 @@ button[type=submit] {
     width: 7vw;
     padding: 0.5vw;
     font-family: monospace;
+    font-size: 110%;
     font-weight: bold;
     border: 1px solid #000000;
+    color: white;
     background-color: #4CAF50;
 }
 button[type=submit]:hover {
+    transition: background-color 0.5s ease;
+    background-color: #08bf08;
+    border: 1px solid #ffffff;
+}
+li:hover:after {
+    content: "-"attr(data-hover);
+    margin-left: 5px;
+    font-size: 1vw;
+    text-align: center;
+    color: #4CAF50;
+}
+.comment{
+    display: inline-block;
+}
+.likeButton{
+    font-family: monospace;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    font-size: 110%;
+    font-weight: bold;
+    border: 1px solid #000000;
+    color: white;
+    background-color: #4CAF50;
+}
+.likeButton:hover{
     transition: background-color 0.5s ease;
     background-color: #08bf08;
     border: 1px solid #ffffff;

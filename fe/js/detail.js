@@ -91,3 +91,6 @@ function drawRadar(){
     drawRadarBase(10,baseX,baseY,radarChartSVG);
     drawPolygon(baseX,baseY,radarChartSVG);
 }
+function submitLike(value){
+    document.getElementById("like_"+value).submit();
+}

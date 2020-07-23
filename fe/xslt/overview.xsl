@@ -16,6 +16,7 @@
     <xsl:template match="/">
         <html>
             <head>
+                <link rel="shortcut icon" href="../../../fe/img/favicon.ico"/>
                 <script lang="javascript" src="../../../fe/js/overview.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
                 <link rel="stylesheet" type="text/css" href="../../../fe/css/projectOverview.css" />
@@ -82,7 +83,7 @@
                     <div class="headline"><h1>Projektübersicht</h1></div>
                     <div class="flexContainer">
                         <xsl:for-each select="n:dataset/n:Projekte/n:ProjektView">
-                            <div class="projectField" data-hover="sehr geil">
+                            <div class="projectField">
                                 <xsl:attribute name="onclick">
                                     <xsl:value-of select="concat('xslOnClick(',n:ProjektID,')')"/>
                                 </xsl:attribute>
@@ -92,6 +93,9 @@
                                 <xsl:value-of select="n:ProjektName"/>
                             </div>
                         </xsl:for-each>
+                        <div class="projectField" id="back" onclick="navToGroups()" data-hover="zurück zu den Gruppen...">
+                            Zurück
+                        </div>
                     </div>
                     <xsl:for-each select="n:dataset/n:Projekte/n:ProjektView">
                         <form action="../php/detail.php" method="GET">

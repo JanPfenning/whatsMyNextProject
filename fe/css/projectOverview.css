@@ -9,8 +9,14 @@ body {
     font-family: monospace;
 }
 .content {
-    margin: 5%;
-    width: 100%;
+    background-size: cover;
+    margin: 5% 5% 0 0;
+    width: 90%;
+    height: 80%;
+    position: absolute;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
 }
 .headline {
     font-size: 1.5vw;
@@ -20,6 +26,8 @@ body {
 }
 .flexContainer {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 .projectField {
@@ -28,6 +36,7 @@ body {
     height: 8vw;
     background-color: rgba(0,0,0,0.7);
     display: flex;
+    word-wrap: break-word;
     color: #ffffff;
     text-align: center;
     justify-content: center;
@@ -43,9 +52,29 @@ body {
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
-.projectField:hover:after {
+/*https://css-tricks.com/line-clampin/*/
+.projectField:hover::after {
+    position: relative;
+    overflow: hidden;
+
     content: attr(data-hover);
     font-size: 1vw;
     text-align: center;
     color: #4CAF50;
+}
+#back{
+    position: absolute;
+    right: 0;
+    bottom:0;
+    
+    background-color: rgba(75,175,80,0.8);
+    color: white;
+    display: flex;
+    align-self: flex-end;
+}
+#back:hover{
+    background-color: rgba(75,175,80,1);
+}
+#back:hover::after{
+    color: white;
 }

@@ -1,24 +1,9 @@
 <?php
-$htmlContent= '
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <script lang="javascript" src="../../../fe/js/error.js"></script>
-        <link rel="stylesheet" type="text/css" href="../../../fe/css/error.css" />
-    </head>
-    <body>
-        <div id="buttons">
-            <div id="errorText">'.$err.'</div>
-            <form method="POST" name="toMainMenu" id="toMainMenuForm" action="./index.php">
-                <button class="button" type="submit" id="toMainMenu">Zum Hauptmenu</button>
-            </form>
-            <form method="POST" name="quitTab" action="./index.php">
-                <button class="button" type="submit" id="quit">Verlassen</button>
-            </form>
-        </div>
-    </body>
-</html>
-';
-print($htmlContent);
+header("Content-Type: text/xml");
+print('<?xml version="1.0" encoding="UTF-8"?>');
+print('<?xml-stylesheet type="application/xml" href="/../../../fe/xslt/error.xsl"?>');
+print('<!DOCTYPE dataset SYSTEM "https://expensive.click/be/src/dtd/error.dtd">');
+print('<dataset xmlns="http://expensive.click/be/src/dtd/error.dtd">');
+print('<Errormessage>'.$err.'</Errormessage>');
+print('</dataset>');
 ?>

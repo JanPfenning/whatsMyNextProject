@@ -18,6 +18,7 @@
                 <title>
                     meinCRAFT
                 </title>
+                <link rel="shortcut icon" href="../../../fe/img/favicon.ico"/>
                 <script lang="javascript" src="../../../fe/js/topicSelection.js"/>
                 <script lang="javascript" src="../../../fe/js/toolbar.js"/>
                 <script lang="javascript" src="../../../fe/js/trigonometrics.js"/>
@@ -57,9 +58,9 @@
                         Über
                     </span>
                     <!-- Kein projekt aus den Gruppenn zu erstellen -->
-                    <span class="barE right" onclick="toCreateProject()">
+                    <!--<span class="barE right">
                         Projekt einreichen
-                    </span>
+                    </span>-->
                     <div id="forms">
                         <form action="../../../fe/html/index.html" id="toHome"/>
                         <form action="../php/topics.php" id="toTopics"/>
@@ -79,13 +80,6 @@
                         </form>
                         <form action="../php/impressum.php" id="toImpressum"/>
                         <form action="../php/uber.php" id="toUber"/>
-                        <form action="../php/createProjectFormular.php" id="toCreateProject">
-                            <input type="hidden" name="GruppeID">
-                                <xsl:attribute name="value">
-                                    <xsl:value-of select="n:dataset/n:Gruppen/n:Gruppe[1]/n:GruppeID"/>
-                                </xsl:attribute>
-                            </input>
-                        </form>
                     </div>
                 </div>
                 <div id="content">
@@ -105,8 +99,8 @@
                             </svg:g>
                         </xsl:for-each>
                         <!-- Base circle -->
-                        <svg:g id="baseG">
-                            <svg:circle id="baseCircle" r="150" cx="50%" cy="100%"/>
+                        <svg:g id="baseG" onclick="navToTopics()">
+                            <svg:circle id="baseCircle" r="200" cx="50%" cy="100%"/>
                             <svg:text id="baseCircleText" class="circleText" text-anchor="middle" x="50%" y="95%">Gruppenwahl</svg:text>
                         </svg:g>
                     </svg:svg>

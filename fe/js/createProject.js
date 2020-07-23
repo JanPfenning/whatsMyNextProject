@@ -1,5 +1,6 @@
 function init(){
-    const inputs = Array.from(document.getElementsByTagName("INPUT"));
+    const inputs = Array.from(document.getElementsByTagName("input"));
+    console.log(inputs);
     inputs.forEach(function(item){
         if(item.getAttribute("type")==="range"){
             item.oninput(item);
@@ -38,6 +39,8 @@ function changeList(inputElement,type){
         }else{
             console.error("We dont know how to handle parameter: "+type)
         }
+        console.log(newRow);
+        newRow.childNodes[1].childNodes[1].value="";
         container.appendChild(newRow);
     }
 }

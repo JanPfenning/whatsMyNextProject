@@ -139,15 +139,6 @@ input[type=range]::-moz-range-thumb{
     background: #4CAF50;
     cursor: pointer;
 }
-/*doesnt work for reasons*/
-#en{
-    background-image: url("../img/enFlagCircle.png");
-    background-size: contain;
-}
-#de{
-     background-image: url("../img/deFlag.png");
-    background-size: cover;
-}
 input[type="range"].coal::-webkit-slider-thumb {
     background-image: url('../img/slider/coalBlock.png');
 }

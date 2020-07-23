@@ -1,0 +1,2 @@
+<!ELEMENT dataset (GruppeID)>
+<!ELEMENT GruppeID (#PCDATA)>
