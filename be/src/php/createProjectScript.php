@@ -247,7 +247,7 @@
             // $query="INSERT INTO Material (Name,Beschreibung,Menge,Einheit) VALUES ('$mat','$desc','$amount','$unit');";
             // $newMat = $conn->query($query);
 
-            $query = $conn->prepare("INSERT INTO Nutzer (Name,Beschreibung,Menge,Einheit) VALUES (?,?,?,?)");
+            $query = $conn->prepare("INSERT INTO Material (Name,Beschreibung,Menge,Einheit) VALUES (?,?,?,?)");
             $query->bind_param("ssis", $mat, $desc, $amount, $unit);
             $newMat = $query->execute();
             $query->close();
@@ -273,7 +273,7 @@
             // $query="INSERT INTO Werkzeug (Name,Beschreibung) VALUES ('$tool','$desc');";
             // $newTool = $conn->query($query);
             
-            $query = $conn->prepare("INSERT INTO Nutzer (Name,Beschreibung) VALUES (?,?,?,?)");
+            $query = $conn->prepare("INSERT INTO Werkzeug (Name,Beschreibung) VALUES (?,?,?,?)");
             $query->bind_param("ss", $tool ,$desc);
             $newTool = $query->execute();
             $query->close();
