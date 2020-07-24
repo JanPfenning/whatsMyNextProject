@@ -247,7 +247,7 @@
             // $query="INSERT INTO Material (Name,Beschreibung,Menge,Einheit) VALUES ('$mat','$desc','$amount','$unit');";
             // $newMat = $conn->query($query);
 
-            $query = $conn->prepare("INSERT INTO Nutzer (Name,Beschreibung,Menge,Einheit) VALUES (?,?,?,?)");
+            $query = $conn->prepare("INSERT INTO Material (Name,Beschreibung,Menge,Einheit) VALUES (?,?,?,?)");
             $query->bind_param("ssis", $mat, $desc, $amount, $unit);
             $newMat = $query->execute();
             $query->close();
@@ -273,7 +273,7 @@
             // $query="INSERT INTO Werkzeug (Name,Beschreibung) VALUES ('$tool','$desc');";
             // $newTool = $conn->query($query);
             
-            $query = $conn->prepare("INSERT INTO Nutzer (Name,Beschreibung) VALUES (?,?,?,?)");
+            $query = $conn->prepare("INSERT INTO Werkzeug (Name,Beschreibung) VALUES (?,?,?,?)");
             $query->bind_param("ss", $tool ,$desc);
             $newTool = $query->execute();
             $query->close();
@@ -295,7 +295,7 @@
         $target_dir = "../../../fe/img/$BereichID/$GruppeID/";
         $inputName = "picture";
         $target_file = $target_dir . basename($_FILES[$inputName]["name"]);
-        echo $target_file;
+        // echo $target_file;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
         // Check if image file is a actual image or fake image

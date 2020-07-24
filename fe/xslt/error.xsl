@@ -25,10 +25,10 @@
                     <div id="errorText">
                         <xsl:value-of select="n:dataset/n:Errormessage"/>
                     </div>
-                    <form name="toMainMenu" id="toMainMenuForm" action="../../be/src/php/index.php">
+                    <form name="toMainMenu" id="toMainMenuForm" action="../php/index.php">
                         <button class="button" type="submit" id="toMainMenu">Zum Hauptmenu</button>
                     </form>
-                    <form name="quitTab" action="../../be/src/php/index.php">
+                    <form name="quitTab" action="../php/index.php">
                         <button class="button" type="submit" id="quit">Verlassen</button>
                     </form>
                 </div>
